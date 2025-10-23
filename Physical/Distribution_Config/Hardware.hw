@@ -16,22 +16,23 @@
       <Parameter ID="ActivateSnmp" Value="2" />
     </Connector>
     <Connector Name="IF4">
-      <Parameter ID="AssignedOperatingSystem" Value="ARemb" />
+      <Parameter ID="AssignedOperatingSystem" Value="GPOS" />
+    </Connector>
+    <Connector Name="IF7">
+      <Parameter ID="OperatingSystem" Value="ARemb" />
       <Parameter ID="ActivateDevice" Value="1" />
-      <Parameter ID="Mode" Value="Manual" />
-      <Parameter ID="InternetAddress" Value="192.168.10.67" />
-      <Parameter ID="SubnetMask" Value="255.255.255.0" />
-      <Parameter ID="ActivateSnmp" Value="2" />
     </Connector>
     <Connector Name="IF5">
       <Parameter ID="AssignedOperatingSystem" Value="ARemb" />
     </Connector>
     <Connector Name="IF6">
-      <Parameter ID="AssignedOperatingSystem" Value="ARemb" />
+      <Parameter ID="AssignedOperatingSystem" Value="GPOS" />
     </Connector>
+    <Parameter ID="ConfigurationID" Value="CapSorter_Distribution_Config" />
     <Group ID="FileDevice1" />
     <Parameter ID="FileDeviceName1" Value="USER" />
     <Parameter ID="FileDevicePath1" Value="USER_PATH" />
+    <Parameter ID="ActivateHypervisor" Value="1" />
   </Module>
   <Module Name="X20BB80" Type="X20BB80" Version="1.1.0.0" />
   <Module Name="X20BC0083" Type="X20BC0083" Version="2.16.1.0">
