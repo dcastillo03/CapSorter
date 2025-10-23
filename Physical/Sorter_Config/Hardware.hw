@@ -8,7 +8,9 @@
     </Connector>
     <Parameter ID="Supervision" Value="off" />
   </Module>
-  <Module Name="5AP1120.121E-000" Type="5AP1120.121E-000" Version="2.1.0.0" />
+  <Module Name="5AP1120.121E-000" Type="5AP1120.121E-000" Version="2.1.0.0">
+    <Parameter ID="Supervision" Value="off" />
+  </Module>
   <Module Name="5PPC2200_AL14_000" Type="5PPC2200.AL14-000" Version="2.0.7.0">
     <Connection Connector="SY" TargetModule="5AP1120.121E-000" TargetConnector="SY1" />
     <Connector Name="IF3">
@@ -20,18 +22,31 @@
       <Parameter ID="ActivateSnmp" Value="2" />
     </Connector>
     <Connector Name="IF4">
-      <Parameter ID="AssignedOperatingSystem" Value="ARemb" />
+      <Parameter ID="AssignedOperatingSystem" Value="GPOS" />
+    </Connector>
+    <Connector Name="IF7">
+      <Parameter ID="OperatingSystem" Value="ARemb" />
       <Parameter ID="ActivateDevice" Value="1" />
     </Connector>
     <Connector Name="IF5">
       <Parameter ID="AssignedOperatingSystem" Value="ARemb" />
     </Connector>
     <Connector Name="IF6">
-      <Parameter ID="AssignedOperatingSystem" Value="ARemb" />
+      <Parameter ID="AssignedOperatingSystem" Value="GPOS" />
     </Connector>
+    <Parameter ID="ConfigurationID" Value="CapSorter_Sorter_Config" />
     <Group ID="FileDevice1" />
     <Parameter ID="FileDeviceName1" Value="USER" />
     <Parameter ID="FileDevicePath1" Value="USER_PATH" />
+    <Parameter ID="ActivateWebServer" Value="1" />
+    <Parameter ID="WebServerProtocol" Value="1" />
+    <Parameter ID="ActivateSdm" Value="1" />
+    <Parameter ID="ActivateHypervisor" Value="1" />
+  </Module>
+  <Module Name="OpcUa_any" Type="OpcUa_any" Version="2.0.0.1">
+    <Connection Connector="ETH1" TargetModule="5PPC2200_AL14_000" TargetConnector="IF3">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
   </Module>
   <Module Name="X20BB80" Type="X20BB80" Version="1.1.0.0" />
   <Module Name="X20BC0083" Type="X20BC0083" Version="2.16.1.0" NodeNumber="1">
