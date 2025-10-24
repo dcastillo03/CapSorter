@@ -12,6 +12,7 @@ TYPE
 		Error : BOOL;
 		ModuleOk : BOOL;
 		Stopped : BOOL;
+		ErrorID : cdErrorEnum;
 	END_STRUCT;
 	CapDetectType : 	STRUCT 
 		Cmd : CapDetectCmdType;
@@ -36,5 +37,10 @@ TYPE
 		cdCAP_BLACK := 1,
 		cdCAP_RED := 2,
 		cdCAP_METAL := 3
+		);
+	cdErrorEnum : 
+		(
+		cdERROR_NONE := 0, (*No errors*)
+		cdERROR_MODULE_NOT_OK := -1000 (*DI Module not detected*)
 		);
 END_TYPE
