@@ -1,0 +1,3 @@
+VAR
+	gArmInterface : ArmInterfaceTyp;
+END_VAR

@@ -3,6 +3,15 @@ VAR_CONFIG
 	::DistBay:IO.Input.diEjectorRetracted AT %IX."X20DI9371".DigitalInput02;
 	::DistBay:IO.Input.diEjectorExtended AT %IX."X20DI9371".DigitalInput03;
 	::DistBay:IO.Input.diMagazineEmpty AT %IX."X20DI9371".DigitalInput07;
+	::SwivelArm:IO.Input.InputModuleOK AT %IX."X20DI9371".ModuleOk;
 	::DistBay:IO.Input.InputModuleOK AT %IX."X20DI9371".ModuleOk;
+	::SwivelArm:IO.Input.OutputModuleOK AT %IX."X20DO9322".ModuleOk;
 	::DistBay:IO.Input.OutputModuleOK AT %IX."X20DO9322".ModuleOk;
+	::SwivelArm:IO.Input.diSwivelArmAtPickup AT %IX."X20DI9371".DigitalInput05;
+	::SwivelArm:IO.Input.diSwivelArmAtDropoff AT %IX."X20DI9371".DigitalInput06;
+	::SwivelArm:IO.Input.diCapGripperVacuum AT %IX."X20DI9371".DigitalInput04;
+	::SwivelArm:IO.Output.doCapGripperPick AT %QX."X20DO9322".DigitalOutput02;
+	::SwivelArm:IO.Output.doCapGripperEject AT %QX."X20DO9322".DigitalOutput03;
+	::SwivelArm:IO.Output.doSwivelArmBwd AT %QX."X20DO9322".DigitalOutput04;
+	::SwivelArm:IO.Output.doSwivelArmFwd AT %QX."X20DO9322".DigitalOutput05;
 END_VAR
