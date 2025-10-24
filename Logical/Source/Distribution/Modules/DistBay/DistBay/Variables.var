@@ -1,0 +1,7 @@
+VAR
+	Internal : BayInternalTyp;
+	IO : BayIOTyp;
+END_VAR
+VAR CONSTANT
+	TimeoutTime : TIME := T#2S;
+END_VAR

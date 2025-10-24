@@ -1,4 +1,8 @@
-
 VAR_CONFIG
-
+	::DistBay:IO.Output.doEjectCap AT %QX."X20DO9322".DigitalOutput01;
+	::DistBay:IO.Input.diEjectorRetracted AT %IX."X20DI9371".DigitalInput02;
+	::DistBay:IO.Input.diEjectorExtended AT %IX."X20DI9371".DigitalInput03;
+	::DistBay:IO.Input.diMagazineEmpty AT %IX."X20DI9371".DigitalInput07;
+	::DistBay:IO.Input.InputModuleOK AT %IX."X20DI9371".ModuleOk;
+	::DistBay:IO.Input.OutputModuleOK AT %IX."X20DO9322".ModuleOk;
 END_VAR
