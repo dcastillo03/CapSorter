@@ -1,0 +1,3 @@
+VAR
+	gCapDetect : CapDetectType;
+END_VAR

@@ -1,4 +1,4 @@
-
 VAR_CONFIG
-
+	::CapDetect:Internal.Par.diSensor AT %IX."X20DI9371".DigitalInput03;
+	::CapDetect:Internal.Status.ModuleOk AT %IX."X20DI9371".ModuleOk;
 END_VAR
