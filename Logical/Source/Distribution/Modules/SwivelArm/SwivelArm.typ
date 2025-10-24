@@ -16,6 +16,7 @@ TYPE
 	ArmParTyp : 	STRUCT 
 		CanGrip : BOOL;
 		CanRelease : BOOL;
+		CanMoveFwd : BOOL;
 	END_STRUCT;
 	ArmStatusTyp : 	STRUCT 
 		Active : BOOL;
