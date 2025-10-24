@@ -1,4 +1,6 @@
 VAR_CONFIG
 	::CapDetect:Internal.Status.ModuleOk AT %IX."X20DI9371".ModuleOk;
 	::CapDetect:IO.Inputs.diProductAvailable AT %IX."X20DI9371".DigitalInput01;
+	::CapDetect:IO.Inputs.diMetalCap AT %IX."X20DI9371".DigitalInput02;
+	::CapDetect:IO.Inputs.diCapIsShiny AT %IX."X20DI9371".DigitalInput03;
 END_VAR

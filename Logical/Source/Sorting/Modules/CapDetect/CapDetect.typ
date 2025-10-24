@@ -23,8 +23,18 @@ TYPE
 	END_STRUCT;
 	InputsType : 	STRUCT 
 		diProductAvailable : BOOL;
+		diMetalCap : BOOL;
+		diCapIsShiny : BOOL;
 	END_STRUCT;
 	CapDetectParType : 	STRUCT 
 		ProductAvailable : BOOL;
+		CapColor : CapColorEnum;
 	END_STRUCT;
+	CapColorEnum : 
+		(
+		cdCAP_NONE := 0,
+		cdCAP_BLACK := 1,
+		cdCAP_RED := 2,
+		cdCAP_METAL := 3
+		);
 END_TYPE
