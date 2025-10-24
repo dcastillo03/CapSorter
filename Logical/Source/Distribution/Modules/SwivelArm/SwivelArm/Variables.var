@@ -1,0 +1,7 @@
+VAR
+	Internal : ArmInternalTyp;
+	IO : ArmIOTyp;
+END_VAR
+VAR CONSTANT
+	EjectorTime : TIME := T#1S;
+END_VAR
