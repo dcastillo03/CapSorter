@@ -4,7 +4,7 @@
   <Module Name="5ACCIF01.FPLK-000" Type="5ACCIF01.FPLK-000" Version="1.9.0.0">
     <Connection Connector="SL" TargetModule="5PPC2200_AL14_000" TargetConnector="SL1" />
     <Connector Name="IF1">
-      <Parameter ID="CycleTime" Value="400" />
+      <Parameter ID="CycleTime" Value="1000" />
     </Connector>
     <Parameter ID="Supervision" Value="off" />
   </Module>
@@ -35,6 +35,8 @@
       <Parameter ID="AssignedOperatingSystem" Value="GPOS" />
     </Connector>
     <Parameter ID="ConfigurationID" Value="CapSorter_Sorter_Config" />
+    <Parameter ID="Cyclic1Duration" Value="1000" />
+    <Parameter ID="Cyclic1Tolerance" Value="1000" />
     <Group ID="FileDevice1" />
     <Parameter ID="FileDeviceName1" Value="USER" />
     <Parameter ID="FileDevicePath1" Value="USER_PATH" />

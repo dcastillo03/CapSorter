@@ -4,8 +4,7 @@ TYPE
 		Enable : BOOL; (*Enable command*)
 		Start : BOOL; (*Start command*)
 		Stop : BOOL; (*Stop command*)
-		MoveSwitchOne : BOOL; (*Command for moving switch one*)
-		MoveSwitchTwo : BOOL; (*Command for moving switch two*)
+		MoveSwitch : BOOL; (*Command for moving switches*)
 		DoRetractStopper : BOOL; (*Command for retracting stopper*)
 	END_STRUCT;
 	CapArmCtrlParType : 	STRUCT 
