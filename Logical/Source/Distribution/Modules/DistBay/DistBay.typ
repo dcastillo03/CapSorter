@@ -7,12 +7,14 @@ TYPE
 	BayCmdTyp : 	STRUCT 
 		Enable : BOOL; (*Cmd to enable distribution bay*)
 		Eject : BOOL; (*Cmd to extend the ejector rod*)
+		CapTaken : BOOL;
 		ErrorReset : BOOL; (*Cmd to reset error state*)
 	END_STRUCT;
 	BayStatusTyp : 	STRUCT 
 		Active : BOOL; (*Module is active and ready to accept commands*)
 		CapEjected : BOOL; (*Cap has been ejected*)
 		MagazineEmpty : BOOL; (*Cap magazine is empty*)
+		ModuleOK : BOOL;
 		Error : BOOL; (*Module is in error state*)
 		ErrorID : BayErrorIDEnum; (*Identifier of current error state*)
 	END_STRUCT;
