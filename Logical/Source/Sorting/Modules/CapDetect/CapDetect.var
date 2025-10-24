@@ -1,0 +1,3 @@
+VAR
+	gCapDetect : CapDetectType; (*Global CapDetect structure of CapDetectType*)
+END_VAR
