@@ -1,0 +1,3 @@
+VAR
+	gBayInterface : BayInterfaceTyp;
+END_VAR
