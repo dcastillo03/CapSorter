@@ -20,7 +20,7 @@
  * Copyright: B&R Industrial Automation GmbH 
  * Author:    Johnathon Cato 
  * Created:   October 24, 2025
- * Description: Distribution Bay control task
+ * Description: Swivel Arm control task
  *********************************************************************************)]]></Documentation>
         <AddData>
           <Data name="BR_EntryPoint" handleUnknown="implementation">
@@ -35,33 +35,32 @@ PROGRAM _CYCLIC
 
 VAR
 	zz$$$$_0_Internal_Status_Error_A : BOOL;
-	zz$$$$_1_gBayInterface_Cmd_Error : BOOL;
+	zz$$$$_1_gArmInterface_Cmd_Error : BOOL;
 	zz$$$$_2_Eno_ComputeBlock : BOOL;
 	zz$$$$_3_Internal_Status_Error_A : BOOL;
-	zz$$$$_4_Internal_Status_Active_ : BOOL;
+	zz$$$$_4_gArmInterface_Cmd_Enabl : BOOL;
 	zz$$$$_5_IO_Input_InputModuleOK_ : BOOL;
 	zz$$$$_6_Eno_ComputeBlock : BOOL;
 	zz$$$$_7_IO_Input_OutputModuleOK : BOOL;
 	zz$$$$_8_Eno_ComputeBlock : BOOL;
-	zz$$$$_9_Internal_Status_Magazin : BOOL;
-	zz$$$$_10_TON : TON;
-	zz$$$$_11_Q_TON_ : ANY;
-	zz$$$$_12_Eno_ComputeBlock : BOOL;
-	zz$$$$_13_TON : TON;
-	zz$$$$_14_Q_TON_ : ANY;
-	zz$$$$_15_Eno_ComputeBlock : BOOL;
-	zz$$$$_16_Internal_Status_Active : BOOL;
-	zz$$$$_17_gBayInterface_Cmd_Enab : BOOL;
+	zz$$$$_9_Eno_ComputeBlock : BOOL;
+	zz$$$$_10_TOF : TOF;
+	zz$$$$_11_r_trig_gArmInterface_C : r_trig;
+	zz$$$$_12_f_trig_Internal_Status : f_trig;
+	zz$$$$_13_Internal_Status_CapGri : BOOL;
+	zz$$$$_14_Eno_ComputeBlock : BOOL;
+	zz$$$$_15_gArmInterface_Cmd_Enab : BOOL;
+	zz$$$$_16_gArmInterface_Cmd_Enab : BOOL;
+	zz$$$$_17_Eno_ComputeBlock : BOOL;
 	zz$$$$_18_Eno_ComputeBlock : BOOL;
-	zz$$$$_19_Eno_ComputeBlock : BOOL;
-	zz$$$$_20_IO_Input_OutputModuleO : BOOL;
-	zz$$$$_21_Eno_ComputeBlock : BOOL;
+	zz$$$$_19_IO_Input_OutputModuleO : BOOL;
+	zz$$$$_20_Eno_ComputeBlock : BOOL;
 END_VAR
 
 
 {NetworkNumber := 1}
 Enable:
-LD	gBayInterface.Cmd.Enable {CheckDataType := BOOL}
+LD	gArmInterface.Cmd.Enable {CheckDataType := BOOL}
 ANDN	Internal.Status.Error {CheckDataType := BOOL}
 ST	zz$$$$_0_Internal_Status_Error_A
 ST	Internal.Status.Active {CheckDataType := BOOL}
@@ -69,37 +68,38 @@ JMPC	ModuleOKCheck
 
 {NetworkNumber := 2}
 EnableCheck:
-LDN	gBayInterface.Cmd.Enable {CheckDataType := BOOL}
+LDN	gArmInterface.Cmd.Enable {CheckDataType := BOOL}
 RETC
 
 {NetworkNumber := 3}
 ErrorReset:
 LD	Internal.Status.Error {CheckDataType := BOOL}
-AND	gBayInterface.Cmd.ErrorReset {CheckDataType := BOOL}
-ST	zz$$$$_1_gBayInterface_Cmd_Error
+AND	gArmInterface.Cmd.ErrorReset {CheckDataType := BOOL}
+ST	zz$$$$_1_gArmInterface_Cmd_Error
 R	Internal.Status.Error {CheckDataType := BOOL}
-LD	zz$$$$_1_gBayInterface_Cmd_Error
+LD	zz$$$$_1_gArmInterface_Cmd_Error
 ST	zz$$$$_2_Eno_ComputeBlock
 JMPCN ll$$$$_IF_0
-Compute!	errorbayNONE
+Compute!	errorarmNONE
 ST	Internal.Status.ErrorID
 ll$$$$_IF_0:
-LD	zz$$$$_1_gBayInterface_Cmd_Error
+LD	zz$$$$_1_gArmInterface_Cmd_Error
 RETC
 
 {NetworkNumber := 4}
 Error:
 LD	Internal.Status.Error {CheckDataType := BOOL}
 ST	zz$$$$_3_Internal_Status_Error_A
-LDN	zz$$$$_3_Internal_Status_Error_A
-ST	IO.Output.doEjectCap {CheckDataType := BOOL}
+R	IO.Output.doSwivelArmFwd {CheckDataType := BOOL}
+LD	zz$$$$_3_Internal_Status_Error_A
+R	IO.Output.doSwivelArmBwd {CheckDataType := BOOL}
 LD	zz$$$$_3_Internal_Status_Error_A
 JMPC	Assignments
 
 {NetworkNumber := 5}
 ModuleOKCheck:
-LD	Internal.Status.Active {CheckDataType := BOOL}
-ST	zz$$$$_4_Internal_Status_Active_
+LD	gArmInterface.Cmd.Enable {CheckDataType := BOOL}
+ST	zz$$$$_4_gArmInterface_Cmd_Enabl
 ANDN	IO.Input.InputModuleOK {CheckDataType := BOOL}
 ST	zz$$$$_5_IO_Input_InputModuleOK_
 S	Internal.Status.Error {CheckDataType := BOOL}
@@ -108,12 +108,12 @@ R	Internal.Status.ModuleOK {CheckDataType := BOOL}
 LD	zz$$$$_5_IO_Input_InputModuleOK_
 ST	zz$$$$_6_Eno_ComputeBlock
 JMPCN ll$$$$_IF_1
-Compute!	errorbayINPUT_MODULE_NOT_OK
+Compute!	errorarmINPUT_MODULE_NOT_OK
 ST	Internal.Status.ErrorID
 ll$$$$_IF_1:
 LD	zz$$$$_5_IO_Input_InputModuleOK_
 RETC
-LD	zz$$$$_4_Internal_Status_Active_
+LD	zz$$$$_4_gArmInterface_Cmd_Enabl
 ANDN	IO.Input.OutputModuleOK {CheckDataType := BOOL}
 ST	zz$$$$_7_IO_Input_OutputModuleOK
 S	Internal.Status.Error {CheckDataType := BOOL}
@@ -122,100 +122,125 @@ R	Internal.Status.ModuleOK {CheckDataType := BOOL}
 LD	zz$$$$_7_IO_Input_OutputModuleOK
 ST	zz$$$$_8_Eno_ComputeBlock
 JMPCN ll$$$$_IF_2
-Compute!	errorbayOUTPUT_MODULE_NOT_OK
+Compute!	errorarmOUTPUT_MODULE_NOT_OK
 ST	Internal.Status.ErrorID
 ll$$$$_IF_2:
 LD	zz$$$$_7_IO_Input_OutputModuleOK
 RETC
 
 {NetworkNumber := 6}
-Enabled:
-LD	gBayInterface.Cmd.Eject {CheckDataType := BOOL}
-ANDN	Internal.Status.CapEjected {CheckDataType := BOOL}
-ANDN	Internal.Status.MagazineEmpty {CheckDataType := BOOL}
-ST	zz$$$$_9_Internal_Status_Magazin
-ST	IO.Output.doEjectCap {CheckDataType := BOOL}
-ANDN	IO.Input.diEjectorExtended {CheckDataType := BOOL}
-ST	zz$$$$_10_TON.IN
-LD	TimeoutTime
-ST	zz$$$$_10_TON.PT
-CAL	zz$$$$_10_TON
-LD	zz$$$$_10_TON.Q
-ST	zz$$$$_11_Q_TON_
-S	Internal.Status.Error {CheckDataType := BOOL}
-LD	zz$$$$_11_Q_TON_
-ST	zz$$$$_12_Eno_ComputeBlock
+ParPass:
+LD	gArmInterface.Cmd.Enable {CheckDataType := BOOL}
+ST	zz$$$$_9_Eno_ComputeBlock
 JMPCN ll$$$$_IF_3
-Compute!	errorbayEJECTOR_TIMEOUT
-ST	Internal.Status.ErrorID
+Compute!	gArmInterface.Par
+ST	Internal.Par
 ll$$$$_IF_3:
-LD	zz$$$$_11_Q_TON_
-RETC
 
 {NetworkNumber := 7}
-ResetCap:
-LD	gBayInterface.Cmd.CapTaken {CheckDataType := BOOL}
-R	Internal.Status.CapEjected {CheckDataType := BOOL}
+ArmFwdCtrl:
+LD	gArmInterface.Cmd.MoveFwd {CheckDataType := BOOL}
+ANDN	gArmInterface.Cmd.MoveBwd {CheckDataType := BOOL}
+ANDN	IO.Input.diSwivelArmAtDropoff {CheckDataType := BOOL}
+AND	Internal.Par.CanMoveFwd {CheckDataType := BOOL}
+ST	IO.Output.doSwivelArmFwd {CheckDataType := BOOL}
 
 {NetworkNumber := 8}
-RetractTimeout:
-LDN	gBayInterface.Cmd.Eject {CheckDataType := BOOL}
-ANDN	IO.Input.diEjectorRetracted {CheckDataType := BOOL}
-ST	zz$$$$_13_TON.IN
-LD	TimeoutTime
-ST	zz$$$$_13_TON.PT
-CAL	zz$$$$_13_TON
-LD	zz$$$$_13_TON.Q
-ST	zz$$$$_14_Q_TON_
-S	Internal.Status.Error {CheckDataType := BOOL}
-LD	zz$$$$_14_Q_TON_
-ST	zz$$$$_15_Eno_ComputeBlock
-JMPCN ll$$$$_IF_4
-Compute!	errorbayEJECTOR_TIMEOUT
-ST	Internal.Status.ErrorID
-ll$$$$_IF_4:
-LD	zz$$$$_14_Q_TON_
-RETC
+ArmBwdCtrl:
+LD	gArmInterface.Cmd.MoveBwd {CheckDataType := BOOL}
+ANDN	gArmInterface.Cmd.MoveFwd {CheckDataType := BOOL}
+ANDN	IO.Input.diSwivelArmAtPickup {CheckDataType := BOOL}
+ANDN	Internal.Status.CapGripped {CheckDataType := BOOL}
+ST	IO.Output.doSwivelArmBwd {CheckDataType := BOOL}
 
 {NetworkNumber := 9}
-IOReporting:
-LD	Internal.Status.Active {CheckDataType := BOOL}
-ST	zz$$$$_16_Internal_Status_Active
-AND	IO.Input.diEjectorExtended {CheckDataType := BOOL}
-S	Internal.Status.CapEjected {CheckDataType := BOOL}
-LD	zz$$$$_16_Internal_Status_Active
-AND	IO.Input.diMagazineEmpty {CheckDataType := BOOL}
-ST	Internal.Status.MagazineEmpty {CheckDataType := BOOL}
+GripEnable:
+LD	gArmInterface.Cmd.GripCap {CheckDataType := BOOL}
+AND	Internal.Par.CanGrip {CheckDataType := BOOL}
+S	IO.Output.doCapGripperPick {CheckDataType := BOOL}
 
 {NetworkNumber := 10}
-Assignments:
-LD	gBayInterface.Cmd.Enable {CheckDataType := BOOL}
-ST	zz$$$$_17_gBayInterface_Cmd_Enab
-ST	zz$$$$_18_Eno_ComputeBlock
-JMPCN ll$$$$_IF_5
-Compute!	Internal.Status
-ST	gBayInterface.Status
-ll$$$$_IF_5:
-LD	zz$$$$_17_gBayInterface_Cmd_Enab
-ST	zz$$$$_19_Eno_ComputeBlock
-JMPCN ll$$$$_IF_6
-Compute!	gBayInterface.Cmd
-ST	Internal.Cmd
-ll$$$$_IF_6:
+GripDisable:
+LDN	gArmInterface.Cmd.GripCap {CheckDataType := BOOL}
+AND	Internal.Par.CanRelease {CheckDataType := BOOL}
+R	IO.Output.doCapGripperPick {CheckDataType := BOOL}
 
 {NetworkNumber := 11}
+Eject:
+LD	gArmInterface.Cmd.EjectCap {CheckDataType := BOOL}
+ST	zz$$$$_11_r_trig_gArmInterface_C.CLK
+CAL	zz$$$$_11_r_trig_gArmInterface_C
+LD	zz$$$$_11_r_trig_gArmInterface_C.Q
+AND	Internal.Par.CanRelease {CheckDataType := BOOL}
+ANDN	IO.Output.doCapGripperPick {CheckDataType := BOOL}
+ST	zz$$$$_10_TOF.IN
+LD	EjectorTime
+ST	zz$$$$_10_TOF.PT
+CAL	zz$$$$_10_TOF
+LD	zz$$$$_10_TOF.Q
+ST	IO.Output.doCapGripperEject {CheckDataType := BOOL}
+
+{NetworkNumber := 12}
+CapLoss:
+LD	Internal.Status.CapGripped {CheckDataType := BOOL}
+ST	zz$$$$_12_f_trig_Internal_Status.CLK
+CAL	zz$$$$_12_f_trig_Internal_Status
+LD	IO.Output.doCapGripperPick {CheckDataType := BOOL}
+AND	zz$$$$_12_f_trig_Internal_Status.Q
+ST	zz$$$$_13_Internal_Status_CapGri
+ST	Internal.Status.Error {CheckDataType := BOOL}
+ST	zz$$$$_14_Eno_ComputeBlock
+JMPCN ll$$$$_IF_4
+Compute!	errorarmCAP_LOST_IN_TRANSIT
+ST	Internal.Status.ErrorID
+ll$$$$_IF_4:
+LD	zz$$$$_13_Internal_Status_CapGri
+R	IO.Output.doCapGripperPick {CheckDataType := BOOL}
+LD	zz$$$$_13_Internal_Status_CapGri
+RETC
+
+{NetworkNumber := 13}
+IOCheck:
+LD	gArmInterface.Cmd.Enable {CheckDataType := BOOL}
+ST	zz$$$$_15_gArmInterface_Cmd_Enab
+AND	IO.Input.diCapGripperVacuum {CheckDataType := BOOL}
+ST	Internal.Status.CapGripped {CheckDataType := BOOL}
+LD	zz$$$$_15_gArmInterface_Cmd_Enab
+AND	IO.Input.diSwivelArmAtPickup {CheckDataType := BOOL}
+ST	Internal.Status.ArmAtPickup {CheckDataType := BOOL}
+LD	zz$$$$_15_gArmInterface_Cmd_Enab
+AND	IO.Input.diSwivelArmAtDropoff {CheckDataType := BOOL}
+ST	Internal.Status.ArmAtDropoff {CheckDataType := BOOL}
+
+{NetworkNumber := 14}
+Assignments:
+LD	gArmInterface.Cmd.Enable {CheckDataType := BOOL}
+ST	zz$$$$_16_gArmInterface_Cmd_Enab
+ST	zz$$$$_17_Eno_ComputeBlock
+JMPCN ll$$$$_IF_5
+Compute!	gArmInterface.Cmd
+ST	Internal.Cmd
+ll$$$$_IF_5:
+LD	zz$$$$_16_gArmInterface_Cmd_Enab
+ST	zz$$$$_18_Eno_ComputeBlock
+JMPCN ll$$$$_IF_6
+Compute!	Internal.Status
+ST	gArmInterface.Status
+ll$$$$_IF_6:
+
+{NetworkNumber := 15}
 ModuleOKRecover:
 LDN	Internal.Status.ModuleOK {CheckDataType := BOOL}
 AND	IO.Input.InputModuleOK {CheckDataType := BOOL}
 AND	IO.Input.OutputModuleOK {CheckDataType := BOOL}
-ST	zz$$$$_20_IO_Input_OutputModuleO
+ST	zz$$$$_19_IO_Input_OutputModuleO
 R	Internal.Status.Error {CheckDataType := BOOL}
-LD	zz$$$$_20_IO_Input_OutputModuleO
+LD	zz$$$$_19_IO_Input_OutputModuleO
 S	Internal.Status.ModuleOK {CheckDataType := BOOL}
-LD	zz$$$$_20_IO_Input_OutputModuleO
-ST	zz$$$$_21_Eno_ComputeBlock
+LD	zz$$$$_19_IO_Input_OutputModuleO
+ST	zz$$$$_20_Eno_ComputeBlock
 JMPCN ll$$$$_IF_7
-Compute!	errorbayNONE
+Compute!	errorarmNONE
 ST	Internal.Status.ErrorID
 ll$$$$_IF_7:
 
@@ -225,132 +250,157 @@ CODE_INFORMATION_754EF481_1721_4FA5_BF7F_DE1B91DFA69B_END]]></CodeInformation>
             <Data name="BR_LineMapInformation" handleUnknown="implementation">
               <LineMapInfos guid="083CC528_CBC9_4705_A12D_02E20D3F2FC6">
                 <LineMapInfo line="1" column="1" position="[POU start]" />
-                <LineMapInfo line="14" column="1" position="Net:6, Ln:2, Col:25" />
-                <LineMapInfo line="17" column="1" position="Net:8, Ln:1, Col:14" />
+                <LineMapInfo line="14" column="1" position="Net:11, Ln:1, Col:21" />
+                <LineMapInfo line="28" column="1" position="Net:1" />
                 <LineMapInfo line="29" column="1" position="Net:1" />
-                <LineMapInfo line="30" column="1" position="Net:1" />
-                <LineMapInfo line="31" column="4" position="Net:1, Ln:1, Col:1" />
-                <LineMapInfo line="32" column="6" position="Net:1, Ln:1, Col:6" />
-                <LineMapInfo line="34" column="4" position="Net:1, Ln:1, Col:36" />
-                <LineMapInfo line="35" column="6" position="Net:1, Ln:2, Col:36" />
+                <LineMapInfo line="30" column="4" position="Net:1, Ln:1, Col:1" />
+                <LineMapInfo line="31" column="6" position="Net:1, Ln:1, Col:6" />
+                <LineMapInfo line="33" column="4" position="Net:1, Ln:1, Col:27" />
+                <LineMapInfo line="34" column="6" position="Net:1, Ln:2, Col:27" />
+                <LineMapInfo line="36" column="1" position="Net:2" />
                 <LineMapInfo line="37" column="1" position="Net:2" />
-                <LineMapInfo line="38" column="1" position="Net:2" />
-                <LineMapInfo line="39" column="5" position="Net:2, Ln:1, Col:1" />
+                <LineMapInfo line="38" column="5" position="Net:2, Ln:1, Col:1" />
+                <LineMapInfo line="41" column="1" position="Net:3" />
                 <LineMapInfo line="42" column="1" position="Net:3" />
-                <LineMapInfo line="43" column="1" position="Net:3" />
-                <LineMapInfo line="44" column="4" position="Net:3, Ln:1, Col:1" />
-                <LineMapInfo line="45" column="5" position="Net:3, Ln:1, Col:5" />
-                <LineMapInfo line="47" column="3" position="Net:3, Ln:1, Col:36" />
-                <LineMapInfo line="48" column="4" position="Net:3, Ln:1, Col:5" />
-                <LineMapInfo line="49" column="4" position="Net:3, Ln:2, Col:32 [Block input EN]" />
-                <LineMapInfo line="51" column="10" position="Net:3, Ln:2, Col:32" />
-                <LineMapInfo line="52" column="4" position="Net:3, Ln:3, Col:36" />
-                <LineMapInfo line="54" column="4" position="Net:3, Ln:1, Col:5" />
+                <LineMapInfo line="43" column="4" position="Net:3, Ln:1, Col:1" />
+                <LineMapInfo line="44" column="5" position="Net:3, Ln:1, Col:5" />
+                <LineMapInfo line="46" column="3" position="Net:3, Ln:1, Col:27" />
+                <LineMapInfo line="47" column="4" position="Net:3, Ln:1, Col:5" />
+                <LineMapInfo line="48" column="4" position="Net:3, Ln:2, Col:23 [Block input EN]" />
+                <LineMapInfo line="50" column="10" position="Net:3, Ln:2, Col:23" />
+                <LineMapInfo line="51" column="4" position="Net:3, Ln:3, Col:27" />
+                <LineMapInfo line="53" column="4" position="Net:3, Ln:1, Col:5" />
+                <LineMapInfo line="56" column="1" position="Net:4" />
                 <LineMapInfo line="57" column="1" position="Net:4" />
-                <LineMapInfo line="58" column="1" position="Net:4" />
-                <LineMapInfo line="59" column="4" position="Net:4, Ln:1, Col:1" />
-                <LineMapInfo line="62" column="4" position="Net:4, Ln:1, Col:36" />
+                <LineMapInfo line="58" column="4" position="Net:4, Ln:1, Col:1" />
+                <LineMapInfo line="60" column="3" position="Net:4, Ln:1, Col:26" />
+                <LineMapInfo line="61" column="4" position="Net:4, Ln:1, Col:1" />
+                <LineMapInfo line="62" column="3" position="Net:4, Ln:2, Col:26" />
                 <LineMapInfo line="63" column="4" position="Net:4, Ln:1, Col:1" />
-                <LineMapInfo line="64" column="6" position="Net:4, Ln:2, Col:37" />
+                <LineMapInfo line="64" column="6" position="Net:4, Ln:3, Col:28" />
                 <LineMapInfo line="66" column="1" position="Net:5" />
                 <LineMapInfo line="67" column="1" position="Net:5" />
                 <LineMapInfo line="68" column="4" position="Net:5, Ln:1, Col:1" />
-                <LineMapInfo line="70" column="6" position="Net:5, Ln:1, Col:5" />
-                <LineMapInfo line="72" column="3" position="Net:5, Ln:1, Col:36" />
-                <LineMapInfo line="73" column="4" position="Net:5, Ln:1, Col:5" />
-                <LineMapInfo line="74" column="3" position="Net:5, Ln:2, Col:35" />
-                <LineMapInfo line="75" column="4" position="Net:5, Ln:1, Col:5" />
-                <LineMapInfo line="76" column="4" position="Net:5, Ln:3, Col:28 [Block input EN]" />
-                <LineMapInfo line="78" column="10" position="Net:5, Ln:3, Col:28" />
-                <LineMapInfo line="79" column="4" position="Net:5, Ln:4, Col:36" />
-                <LineMapInfo line="81" column="4" position="Net:5, Ln:1, Col:5" />
+                <LineMapInfo line="70" column="6" position="Net:5, Ln:1, Col:6" />
+                <LineMapInfo line="72" column="3" position="Net:5, Ln:1, Col:27" />
+                <LineMapInfo line="73" column="4" position="Net:5, Ln:1, Col:6" />
+                <LineMapInfo line="74" column="3" position="Net:5, Ln:2, Col:26" />
+                <LineMapInfo line="75" column="4" position="Net:5, Ln:1, Col:6" />
+                <LineMapInfo line="76" column="4" position="Net:5, Ln:3, Col:19 [Block input EN]" />
+                <LineMapInfo line="78" column="10" position="Net:5, Ln:3, Col:19" />
+                <LineMapInfo line="79" column="4" position="Net:5, Ln:4, Col:27" />
+                <LineMapInfo line="81" column="4" position="Net:5, Ln:1, Col:6" />
                 <LineMapInfo line="83" column="4" position="Net:5, Ln:1, Col:1" />
-                <LineMapInfo line="84" column="6" position="Net:5, Ln:6, Col:5" />
-                <LineMapInfo line="86" column="3" position="Net:5, Ln:6, Col:36" />
-                <LineMapInfo line="87" column="4" position="Net:5, Ln:6, Col:5" />
-                <LineMapInfo line="88" column="3" position="Net:5, Ln:7, Col:35" />
-                <LineMapInfo line="89" column="4" position="Net:5, Ln:6, Col:5" />
-                <LineMapInfo line="90" column="4" position="Net:5, Ln:8, Col:28 [Block input EN]" />
-                <LineMapInfo line="92" column="10" position="Net:5, Ln:8, Col:28" />
-                <LineMapInfo line="93" column="4" position="Net:5, Ln:9, Col:36" />
-                <LineMapInfo line="95" column="4" position="Net:5, Ln:6, Col:5" />
+                <LineMapInfo line="84" column="6" position="Net:5, Ln:6, Col:6" />
+                <LineMapInfo line="86" column="3" position="Net:5, Ln:6, Col:27" />
+                <LineMapInfo line="87" column="4" position="Net:5, Ln:6, Col:6" />
+                <LineMapInfo line="88" column="3" position="Net:5, Ln:7, Col:26" />
+                <LineMapInfo line="89" column="4" position="Net:5, Ln:6, Col:6" />
+                <LineMapInfo line="90" column="4" position="Net:5, Ln:8, Col:19 [Block input EN]" />
+                <LineMapInfo line="92" column="10" position="Net:5, Ln:8, Col:19" />
+                <LineMapInfo line="93" column="4" position="Net:5, Ln:9, Col:27" />
+                <LineMapInfo line="95" column="4" position="Net:5, Ln:6, Col:6" />
                 <LineMapInfo line="98" column="1" position="Net:6" />
                 <LineMapInfo line="99" column="1" position="Net:6" />
                 <LineMapInfo line="100" column="4" position="Net:6, Ln:1, Col:1" />
-                <LineMapInfo line="101" column="6" position="Net:6, Ln:1, Col:6" />
-                <LineMapInfo line="102" column="6" position="Net:6, Ln:1, Col:11" />
-                <LineMapInfo line="104" column="4" position="Net:6, Ln:1, Col:36" />
-                <LineMapInfo line="105" column="6" position="Net:6, Ln:3, Col:17" />
-                <LineMapInfo line="106" column="4" position="Net:6, Ln:2, Col:25 [Block input IN]" />
-                <LineMapInfo line="107" column="4" position="Net:6, Ln:4, Col:22" />
-                <LineMapInfo line="108" column="4" position="Net:6, Ln:2, Col:25 [Block input PT]" />
-                <LineMapInfo line="109" column="5" position="Net:6, Ln:2, Col:25" />
-                <LineMapInfo line="110" column="4" position="Net:6, Ln:2, Col:25 [Block output Q]" />
-                <LineMapInfo line="112" column="3" position="Net:6, Ln:3, Col:36" />
-                <LineMapInfo line="113" column="4" position="Net:6, Ln:2, Col:25 [Block output Q]" />
-                <LineMapInfo line="114" column="4" position="Net:6, Ln:4, Col:29 [Block input EN]" />
-                <LineMapInfo line="116" column="10" position="Net:6, Ln:4, Col:29" />
-                <LineMapInfo line="117" column="4" position="Net:6, Ln:5, Col:36" />
-                <LineMapInfo line="119" column="4" position="Net:6, Ln:2, Col:25 [Block output Q]" />
-                <LineMapInfo line="122" column="1" position="Net:7" />
-                <LineMapInfo line="123" column="1" position="Net:7" />
-                <LineMapInfo line="124" column="4" position="Net:7, Ln:1, Col:1" />
-                <LineMapInfo line="125" column="3" position="Net:7, Ln:1, Col:35" />
-                <LineMapInfo line="127" column="1" position="Net:8" />
-                <LineMapInfo line="128" column="1" position="Net:8" />
-                <LineMapInfo line="129" column="5" position="Net:8, Ln:2, Col:1" />
-                <LineMapInfo line="130" column="6" position="Net:8, Ln:2, Col:6" />
-                <LineMapInfo line="131" column="4" position="Net:8, Ln:1, Col:14 [Block input IN]" />
-                <LineMapInfo line="132" column="4" position="Net:8, Ln:3, Col:11" />
-                <LineMapInfo line="133" column="4" position="Net:8, Ln:1, Col:14 [Block input PT]" />
-                <LineMapInfo line="134" column="5" position="Net:8, Ln:1, Col:14" />
-                <LineMapInfo line="135" column="4" position="Net:8, Ln:1, Col:14 [Block output Q]" />
-                <LineMapInfo line="137" column="3" position="Net:8, Ln:2, Col:36" />
-                <LineMapInfo line="138" column="4" position="Net:8, Ln:1, Col:14 [Block output Q]" />
-                <LineMapInfo line="139" column="4" position="Net:8, Ln:3, Col:29 [Block input EN]" />
-                <LineMapInfo line="141" column="10" position="Net:8, Ln:3, Col:29" />
-                <LineMapInfo line="142" column="4" position="Net:8, Ln:4, Col:36" />
-                <LineMapInfo line="144" column="4" position="Net:8, Ln:1, Col:14 [Block output Q]" />
-                <LineMapInfo line="147" column="1" position="Net:9" />
-                <LineMapInfo line="148" column="1" position="Net:9" />
-                <LineMapInfo line="149" column="4" position="Net:9, Ln:1, Col:1" />
-                <LineMapInfo line="151" column="5" position="Net:9, Ln:1, Col:5" />
-                <LineMapInfo line="152" column="3" position="Net:9, Ln:1, Col:35" />
-                <LineMapInfo line="153" column="4" position="Net:9, Ln:1, Col:1" />
-                <LineMapInfo line="154" column="5" position="Net:9, Ln:2, Col:5" />
-                <LineMapInfo line="155" column="4" position="Net:9, Ln:2, Col:34" />
-                <LineMapInfo line="157" column="1" position="Net:10" />
-                <LineMapInfo line="158" column="1" position="Net:10" />
-                <LineMapInfo line="159" column="4" position="Net:10, Ln:1, Col:1" />
-                <LineMapInfo line="161" column="4" position="Net:10, Ln:1, Col:32 [Block input EN]" />
-                <LineMapInfo line="163" column="10" position="Net:10, Ln:1, Col:32" />
-                <LineMapInfo line="164" column="4" position="Net:10, Ln:2, Col:36" />
-                <LineMapInfo line="166" column="4" position="Net:10, Ln:1, Col:1" />
-                <LineMapInfo line="167" column="4" position="Net:10, Ln:3, Col:32 [Block input EN]" />
-                <LineMapInfo line="169" column="10" position="Net:10, Ln:3, Col:32" />
-                <LineMapInfo line="170" column="4" position="Net:10, Ln:4, Col:37" />
-                <LineMapInfo line="173" column="1" position="Net:11" />
-                <LineMapInfo line="174" column="1" position="Net:11" />
-                <LineMapInfo line="175" column="5" position="Net:11, Ln:1, Col:1" />
-                <LineMapInfo line="176" column="5" position="Net:11, Ln:1, Col:6" />
-                <LineMapInfo line="177" column="5" position="Net:11, Ln:1, Col:11" />
-                <LineMapInfo line="179" column="3" position="Net:11, Ln:1, Col:36" />
-                <LineMapInfo line="180" column="4" position="Net:11, Ln:1, Col:11" />
-                <LineMapInfo line="181" column="3" position="Net:11, Ln:2, Col:35" />
-                <LineMapInfo line="182" column="4" position="Net:11, Ln:1, Col:11" />
-                <LineMapInfo line="183" column="4" position="Net:11, Ln:3, Col:32 [Block input EN]" />
-                <LineMapInfo line="185" column="10" position="Net:11, Ln:3, Col:32" />
-                <LineMapInfo line="186" column="4" position="Net:11, Ln:4, Col:36" />
-                <LineMapInfo line="189" column="1" position="[POU end]" />
+                <LineMapInfo line="101" column="4" position="Net:6, Ln:1, Col:23 [Block input EN]" />
+                <LineMapInfo line="103" column="10" position="Net:6, Ln:1, Col:23" />
+                <LineMapInfo line="104" column="4" position="Net:6, Ln:2, Col:28" />
+                <LineMapInfo line="107" column="1" position="Net:7" />
+                <LineMapInfo line="108" column="1" position="Net:7" />
+                <LineMapInfo line="109" column="4" position="Net:7, Ln:1, Col:1" />
+                <LineMapInfo line="110" column="6" position="Net:7, Ln:1, Col:7" />
+                <LineMapInfo line="111" column="6" position="Net:7, Ln:1, Col:13" />
+                <LineMapInfo line="112" column="5" position="Net:7, Ln:1, Col:19" />
+                <LineMapInfo line="113" column="4" position="Net:7, Ln:1, Col:26" />
+                <LineMapInfo line="115" column="1" position="Net:8" />
+                <LineMapInfo line="116" column="1" position="Net:8" />
+                <LineMapInfo line="117" column="4" position="Net:8, Ln:1, Col:1" />
+                <LineMapInfo line="118" column="6" position="Net:8, Ln:1, Col:7" />
+                <LineMapInfo line="119" column="6" position="Net:8, Ln:1, Col:13" />
+                <LineMapInfo line="120" column="6" position="Net:8, Ln:1, Col:19" />
+                <LineMapInfo line="121" column="4" position="Net:8, Ln:1, Col:26" />
+                <LineMapInfo line="123" column="1" position="Net:9" />
+                <LineMapInfo line="124" column="1" position="Net:9" />
+                <LineMapInfo line="125" column="4" position="Net:9, Ln:1, Col:1" />
+                <LineMapInfo line="126" column="5" position="Net:9, Ln:1, Col:6" />
+                <LineMapInfo line="127" column="3" position="Net:9, Ln:1, Col:25" />
+                <LineMapInfo line="129" column="1" position="Net:10" />
+                <LineMapInfo line="130" column="1" position="Net:10" />
+                <LineMapInfo line="131" column="5" position="Net:10, Ln:1, Col:1" />
+                <LineMapInfo line="132" column="5" position="Net:10, Ln:1, Col:6" />
+                <LineMapInfo line="133" column="3" position="Net:10, Ln:1, Col:25" />
+                <LineMapInfo line="135" column="1" position="Net:11" />
+                <LineMapInfo line="136" column="1" position="Net:11" />
+                <LineMapInfo line="137" column="4" position="Net:11, Ln:2, Col:1" />
+                <LineMapInfo line="138" column="4" position="Net:11, Ln:2, Col:1" />
+                <LineMapInfo line="139" column="5" position="Net:11, Ln:2, Col:1" />
+                <LineMapInfo line="140" column="4" position="Net:11, Ln:2, Col:1" />
+                <LineMapInfo line="141" column="5" position="Net:11, Ln:2, Col:7" />
+                <LineMapInfo line="142" column="6" position="Net:11, Ln:2, Col:12" />
+                <LineMapInfo line="143" column="4" position="Net:11, Ln:1, Col:21 [Block input IN]" />
+                <LineMapInfo line="144" column="4" position="Net:11, Ln:3, Col:18" />
+                <LineMapInfo line="145" column="4" position="Net:11, Ln:1, Col:21 [Block input PT]" />
+                <LineMapInfo line="146" column="5" position="Net:11, Ln:1, Col:21" />
+                <LineMapInfo line="147" column="4" position="Net:11, Ln:1, Col:21 [Block output Q]" />
+                <LineMapInfo line="148" column="4" position="Net:11, Ln:2, Col:25" />
+                <LineMapInfo line="150" column="1" position="Net:12" />
+                <LineMapInfo line="151" column="1" position="Net:12" />
+                <LineMapInfo line="152" column="4" position="Net:12, Ln:1, Col:7" />
+                <LineMapInfo line="153" column="4" position="Net:12, Ln:1, Col:7" />
+                <LineMapInfo line="154" column="5" position="Net:12, Ln:1, Col:7" />
+                <LineMapInfo line="155" column="4" position="Net:12, Ln:1, Col:1" />
+                <LineMapInfo line="156" column="5" position="Net:12, Ln:1, Col:7" />
+                <LineMapInfo line="158" column="4" position="Net:12, Ln:1, Col:27" />
+                <LineMapInfo line="159" column="4" position="Net:12, Ln:2, Col:20 [Block input EN]" />
+                <LineMapInfo line="161" column="10" position="Net:12, Ln:2, Col:20" />
+                <LineMapInfo line="162" column="4" position="Net:12, Ln:3, Col:27" />
+                <LineMapInfo line="164" column="4" position="Net:12, Ln:1, Col:7" />
+                <LineMapInfo line="165" column="3" position="Net:12, Ln:4, Col:25" />
+                <LineMapInfo line="166" column="4" position="Net:12, Ln:1, Col:7" />
+                <LineMapInfo line="169" column="1" position="Net:13" />
+                <LineMapInfo line="170" column="1" position="Net:13" />
+                <LineMapInfo line="171" column="4" position="Net:13, Ln:1, Col:1" />
+                <LineMapInfo line="173" column="5" position="Net:13, Ln:1, Col:6" />
+                <LineMapInfo line="174" column="4" position="Net:13, Ln:1, Col:26" />
+                <LineMapInfo line="175" column="4" position="Net:13, Ln:1, Col:1" />
+                <LineMapInfo line="176" column="5" position="Net:13, Ln:2, Col:6" />
+                <LineMapInfo line="177" column="4" position="Net:13, Ln:2, Col:26" />
+                <LineMapInfo line="178" column="4" position="Net:13, Ln:1, Col:1" />
+                <LineMapInfo line="179" column="5" position="Net:13, Ln:3, Col:6" />
+                <LineMapInfo line="180" column="4" position="Net:13, Ln:3, Col:25" />
+                <LineMapInfo line="182" column="1" position="Net:14" />
+                <LineMapInfo line="183" column="1" position="Net:14" />
+                <LineMapInfo line="184" column="4" position="Net:14, Ln:1, Col:1" />
+                <LineMapInfo line="186" column="4" position="Net:14, Ln:1, Col:23 [Block input EN]" />
+                <LineMapInfo line="188" column="10" position="Net:14, Ln:1, Col:23" />
+                <LineMapInfo line="189" column="4" position="Net:14, Ln:2, Col:28" />
+                <LineMapInfo line="191" column="4" position="Net:14, Ln:1, Col:1" />
+                <LineMapInfo line="192" column="4" position="Net:14, Ln:3, Col:23 [Block input EN]" />
+                <LineMapInfo line="194" column="10" position="Net:14, Ln:3, Col:23" />
+                <LineMapInfo line="195" column="4" position="Net:14, Ln:4, Col:27" />
+                <LineMapInfo line="198" column="1" position="Net:15" />
+                <LineMapInfo line="199" column="1" position="Net:15" />
+                <LineMapInfo line="200" column="5" position="Net:15, Ln:1, Col:1" />
+                <LineMapInfo line="201" column="5" position="Net:15, Ln:1, Col:6" />
+                <LineMapInfo line="202" column="5" position="Net:15, Ln:1, Col:11" />
+                <LineMapInfo line="204" column="3" position="Net:15, Ln:1, Col:27" />
+                <LineMapInfo line="205" column="4" position="Net:15, Ln:1, Col:11" />
+                <LineMapInfo line="206" column="3" position="Net:15, Ln:2, Col:26" />
+                <LineMapInfo line="207" column="4" position="Net:15, Ln:1, Col:11" />
+                <LineMapInfo line="208" column="4" position="Net:15, Ln:3, Col:23 [Block input EN]" />
+                <LineMapInfo line="210" column="10" position="Net:15, Ln:3, Col:23" />
+                <LineMapInfo line="211" column="4" position="Net:15, Ln:4, Col:27" />
+                <LineMapInfo line="214" column="1" position="[POU end]" />
               </LineMapInfos>
             </Data>
             <Data name="BR_ChecksumInformation" handleUnknown="implementation">
-              <ChecksumInformation guid="A3044021_E131_45AC_AB9B_59041547F16C" checksum="98883AEB" />
+              <ChecksumInformation guid="A3044021_E131_45AC_AB9B_59041547F16C" checksum="F55E67EF" />
             </Data>
           </AddData>
           <BodyContent xsi:type="LD">
             <Rung evaluationOrder="1" label="Enable">
-              <Documentation xsi:type="SimpleText"><![CDATA[Setting active status when enabled and not in error]]></Documentation>
+              <Documentation xsi:type="SimpleText"><![CDATA[Report active and continue if enable cmd and not in error state]]></Documentation>
               <LdObject xsi:type="LeftPowerRail">
                 <RelPosition x="0" y="0" />
                 <Size x="3" y="76" />
@@ -361,7 +411,7 @@ CODE_INFORMATION_754EF481_1721_4FA5_BF7F_DE1B91DFA69B_END]]></CodeInformation>
                   <RelPosition x="3" y="66" />
                 </ConnectionPointOut>
               </LdObject>
-              <LdObject xsi:type="Contact" operand="gBayInterface.Cmd.Enable" edge="none">
+              <LdObject xsi:type="Contact" operand="gArmInterface.Cmd.Enable" edge="none">
                 <RelPosition x="3" y="18" />
                 <Size x="150" y="20" />
                 <ConnectionPointIn>
@@ -384,7 +434,7 @@ CODE_INFORMATION_754EF481_1721_4FA5_BF7F_DE1B91DFA69B_END]]></CodeInformation>
                 </ConnectionPointOut>
               </LdObject>
               <LdObject xsi:type="Coil" operand="Internal.Status.Active" edge="none" latch="none">
-                <RelPosition x="1053" y="18" />
+                <RelPosition x="783" y="18" />
                 <Size x="120" y="20" />
                 <ConnectionPointIn>
                   <RelPosition x="0" y="10" />
@@ -395,7 +445,7 @@ CODE_INFORMATION_754EF481_1721_4FA5_BF7F_DE1B91DFA69B_END]]></CodeInformation>
                 </ConnectionPointOut>
               </LdObject>
               <FbdObject xsi:type="Jump" targetNetworkLabel="ModuleOKCheck">
-                <RelPosition x="1053" y="56" />
+                <RelPosition x="783" y="56" />
                 <Size x="120" y="20" />
                 <ConnectionPointIn>
                   <RelPosition x="0" y="10" />
@@ -403,7 +453,7 @@ CODE_INFORMATION_754EF481_1721_4FA5_BF7F_DE1B91DFA69B_END]]></CodeInformation>
                 </ConnectionPointIn>
               </FbdObject>
               <LdObject xsi:type="RightPowerRail">
-                <RelPosition x="1173" y="0" />
+                <RelPosition x="903" y="0" />
                 <Size x="3" y="76" />
                 <ConnectionPointIn>
                   <RelPosition x="0" y="28" />
@@ -415,7 +465,7 @@ CODE_INFORMATION_754EF481_1721_4FA5_BF7F_DE1B91DFA69B_END]]></CodeInformation>
               </LdObject>
             </Rung>
             <Rung evaluationOrder="2" label="EnableCheck">
-              <Documentation xsi:type="SimpleText"><![CDATA[Return to top if not enabled]]></Documentation>
+              <Documentation xsi:type="SimpleText"><![CDATA[If not enabled, return to start of program]]></Documentation>
               <LdObject xsi:type="LeftPowerRail">
                 <RelPosition x="0" y="0" />
                 <Size x="3" y="38" />
@@ -423,7 +473,7 @@ CODE_INFORMATION_754EF481_1721_4FA5_BF7F_DE1B91DFA69B_END]]></CodeInformation>
                   <RelPosition x="3" y="28" />
                 </ConnectionPointOut>
               </LdObject>
-              <LdObject xsi:type="Contact" operand="gBayInterface.Cmd.Enable" negated="true" edge="none">
+              <LdObject xsi:type="Contact" operand="gArmInterface.Cmd.Enable" negated="true" edge="none">
                 <RelPosition x="3" y="18" />
                 <Size x="150" y="20" />
                 <ConnectionPointIn>
@@ -435,7 +485,7 @@ CODE_INFORMATION_754EF481_1721_4FA5_BF7F_DE1B91DFA69B_END]]></CodeInformation>
                 </ConnectionPointOut>
               </LdObject>
               <FbdObject xsi:type="Return">
-                <RelPosition x="1083" y="18" />
+                <RelPosition x="813" y="18" />
                 <Size x="90" y="20" />
                 <ConnectionPointIn>
                   <RelPosition x="0" y="10" />
@@ -443,7 +493,7 @@ CODE_INFORMATION_754EF481_1721_4FA5_BF7F_DE1B91DFA69B_END]]></CodeInformation>
                 </ConnectionPointIn>
               </FbdObject>
               <LdObject xsi:type="RightPowerRail">
-                <RelPosition x="1173" y="0" />
+                <RelPosition x="903" y="0" />
                 <Size x="3" y="38" />
                 <ConnectionPointIn>
                   <RelPosition x="0" y="28" />
@@ -479,7 +529,7 @@ CODE_INFORMATION_754EF481_1721_4FA5_BF7F_DE1B91DFA69B_END]]></CodeInformation>
                   <RelPosition x="120" y="10" />
                 </ConnectionPointOut>
               </LdObject>
-              <LdObject xsi:type="Contact" operand="gBayInterface.Cmd.ErrorReset" edge="none">
+              <LdObject xsi:type="Contact" operand="gArmInterface.Cmd.ErrorReset" edge="none">
                 <RelPosition x="123" y="18" />
                 <Size x="180" y="20" />
                 <ConnectionPointIn>
@@ -493,10 +543,10 @@ CODE_INFORMATION_754EF481_1721_4FA5_BF7F_DE1B91DFA69B_END]]></CodeInformation>
               <FbdObject xsi:type="Block" typeName="Compute">
                 <AddData>
                   <Data name="BR_ComputeBlock" handleUnknown="implementation">
-                    <ComputeBlock><![CDATA[errorbayNONE]]></ComputeBlock>
+                    <ComputeBlock><![CDATA[errorarmNONE]]></ComputeBlock>
                   </Data>
                 </AddData>
-                <RelPosition x="933" y="38" />
+                <RelPosition x="663" y="38" />
                 <Size x="120" y="76" />
                 <InputVariables>
                   <InputVariable parameterName="EN">
@@ -530,7 +580,7 @@ CODE_INFORMATION_754EF481_1721_4FA5_BF7F_DE1B91DFA69B_END]]></CodeInformation>
                 </OutputVariables>
               </FbdObject>
               <LdObject xsi:type="Coil" operand="Internal.Status.Error" edge="none" latch="reset">
-                <RelPosition x="1053" y="18" />
+                <RelPosition x="783" y="18" />
                 <Size x="120" y="20" />
                 <ConnectionPointIn>
                   <RelPosition x="0" y="10" />
@@ -546,7 +596,7 @@ CODE_INFORMATION_754EF481_1721_4FA5_BF7F_DE1B91DFA69B_END]]></CodeInformation>
                     <AnalogValue value="true" />
                   </Data>
                 </AddData>
-                <RelPosition x="1053" y="94" />
+                <RelPosition x="783" y="94" />
                 <Size x="120" y="20" />
                 <ConnectionPointIn>
                   <RelPosition x="0" y="10" />
@@ -554,7 +604,7 @@ CODE_INFORMATION_754EF481_1721_4FA5_BF7F_DE1B91DFA69B_END]]></CodeInformation>
                 </ConnectionPointIn>
               </FbdObject>
               <FbdObject xsi:type="Return">
-                <RelPosition x="1083" y="132" />
+                <RelPosition x="813" y="132" />
                 <Size x="90" y="20" />
                 <ConnectionPointIn>
                   <RelPosition x="0" y="10" />
@@ -562,7 +612,7 @@ CODE_INFORMATION_754EF481_1721_4FA5_BF7F_DE1B91DFA69B_END]]></CodeInformation>
                 </ConnectionPointIn>
               </FbdObject>
               <LdObject xsi:type="RightPowerRail">
-                <RelPosition x="1173" y="0" />
+                <RelPosition x="903" y="0" />
                 <Size x="3" y="152" />
                 <ConnectionPointIn>
                   <RelPosition x="0" y="28" />
@@ -581,15 +631,18 @@ CODE_INFORMATION_754EF481_1721_4FA5_BF7F_DE1B91DFA69B_END]]></CodeInformation>
               </LdObject>
             </Rung>
             <Rung evaluationOrder="4" label="Error">
-              <Documentation xsi:type="SimpleText"><![CDATA[Send to assignments network if in error]]></Documentation>
+              <Documentation xsi:type="SimpleText"><![CDATA[If in error state, stop movement and skip to assignments]]></Documentation>
               <LdObject xsi:type="LeftPowerRail">
                 <RelPosition x="0" y="0" />
-                <Size x="3" y="76" />
+                <Size x="3" y="114" />
                 <ConnectionPointOut connectionPointOutId="1">
                   <RelPosition x="3" y="28" />
                 </ConnectionPointOut>
                 <ConnectionPointOut connectionPointOutId="0">
                   <RelPosition x="3" y="66" />
+                </ConnectionPointOut>
+                <ConnectionPointOut connectionPointOutId="0">
+                  <RelPosition x="3" y="104" />
                 </ConnectionPointOut>
               </LdObject>
               <LdObject xsi:type="Contact" operand="Internal.Status.Error" edge="none">
@@ -603,19 +656,30 @@ CODE_INFORMATION_754EF481_1721_4FA5_BF7F_DE1B91DFA69B_END]]></CodeInformation>
                   <RelPosition x="120" y="10" />
                 </ConnectionPointOut>
               </LdObject>
-              <LdObject xsi:type="Coil" operand="IO.Output.doEjectCap" negated="true" edge="none" latch="none">
-                <RelPosition x="1053" y="18" />
-                <Size x="120" y="20" />
+              <LdObject xsi:type="Coil" operand="IO.Output.doSwivelArmFwd" edge="none" latch="reset">
+                <RelPosition x="753" y="18" />
+                <Size x="150" y="20" />
                 <ConnectionPointIn>
                   <RelPosition x="0" y="10" />
                   <Connection refConnectionPointOutId="2" />
                 </ConnectionPointIn>
                 <ConnectionPointOut connectionPointOutId="3">
-                  <RelPosition x="120" y="10" />
+                  <RelPosition x="150" y="10" />
+                </ConnectionPointOut>
+              </LdObject>
+              <LdObject xsi:type="Coil" operand="IO.Output.doSwivelArmBwd" edge="none" latch="reset">
+                <RelPosition x="753" y="56" />
+                <Size x="150" y="20" />
+                <ConnectionPointIn>
+                  <RelPosition x="0" y="10" />
+                  <Connection refConnectionPointOutId="2" />
+                </ConnectionPointIn>
+                <ConnectionPointOut connectionPointOutId="4">
+                  <RelPosition x="150" y="10" />
                 </ConnectionPointOut>
               </LdObject>
               <FbdObject xsi:type="Jump" targetNetworkLabel="Assignments">
-                <RelPosition x="1083" y="56" />
+                <RelPosition x="813" y="94" />
                 <Size x="90" y="20" />
                 <ConnectionPointIn>
                   <RelPosition x="0" y="10" />
@@ -623,14 +687,18 @@ CODE_INFORMATION_754EF481_1721_4FA5_BF7F_DE1B91DFA69B_END]]></CodeInformation>
                 </ConnectionPointIn>
               </FbdObject>
               <LdObject xsi:type="RightPowerRail">
-                <RelPosition x="1173" y="0" />
-                <Size x="3" y="76" />
+                <RelPosition x="903" y="0" />
+                <Size x="3" y="114" />
                 <ConnectionPointIn>
                   <RelPosition x="0" y="28" />
                   <Connection refConnectionPointOutId="3" />
                 </ConnectionPointIn>
                 <ConnectionPointIn>
                   <RelPosition x="0" y="66" />
+                  <Connection refConnectionPointOutId="4" />
+                </ConnectionPointIn>
+                <ConnectionPointIn>
+                  <RelPosition x="0" y="104" />
                 </ConnectionPointIn>
               </LdObject>
             </Rung>
@@ -670,19 +738,19 @@ CODE_INFORMATION_754EF481_1721_4FA5_BF7F_DE1B91DFA69B_END]]></CodeInformation>
                   <RelPosition x="3" y="370" />
                 </ConnectionPointOut>
               </LdObject>
-              <LdObject xsi:type="Contact" operand="Internal.Status.Active" edge="none">
+              <LdObject xsi:type="Contact" operand="gArmInterface.Cmd.Enable" edge="none">
                 <RelPosition x="3" y="18" />
-                <Size x="120" y="20" />
+                <Size x="150" y="20" />
                 <ConnectionPointIn>
                   <RelPosition x="0" y="10" />
                   <Connection refConnectionPointOutId="1" />
                 </ConnectionPointIn>
                 <ConnectionPointOut connectionPointOutId="2">
-                  <RelPosition x="120" y="10" />
+                  <RelPosition x="150" y="10" />
                 </ConnectionPointOut>
               </LdObject>
               <LdObject xsi:type="Contact" operand="IO.Input.InputModuleOK" negated="true" edge="none">
-                <RelPosition x="123" y="18" />
+                <RelPosition x="153" y="18" />
                 <Size x="150" y="20" />
                 <ConnectionPointIn>
                   <RelPosition x="0" y="10" />
@@ -693,7 +761,7 @@ CODE_INFORMATION_754EF481_1721_4FA5_BF7F_DE1B91DFA69B_END]]></CodeInformation>
                 </ConnectionPointOut>
               </LdObject>
               <LdObject xsi:type="Contact" operand="IO.Input.OutputModuleOK" negated="true" edge="none">
-                <RelPosition x="123" y="208" />
+                <RelPosition x="153" y="208" />
                 <Size x="150" y="20" />
                 <ConnectionPointIn>
                   <RelPosition x="0" y="10" />
@@ -706,10 +774,10 @@ CODE_INFORMATION_754EF481_1721_4FA5_BF7F_DE1B91DFA69B_END]]></CodeInformation>
               <FbdObject xsi:type="Block" typeName="Compute">
                 <AddData>
                   <Data name="BR_ComputeBlock" handleUnknown="implementation">
-                    <ComputeBlock><![CDATA[errorbayINPUT_MODULE_NOT_OK]]></ComputeBlock>
+                    <ComputeBlock><![CDATA[errorarmINPUT_MODULE_NOT_OK]]></ComputeBlock>
                   </Data>
                 </AddData>
-                <RelPosition x="813" y="76" />
+                <RelPosition x="543" y="76" />
                 <Size x="240" y="76" />
                 <InputVariables>
                   <InputVariable parameterName="EN">
@@ -745,10 +813,10 @@ CODE_INFORMATION_754EF481_1721_4FA5_BF7F_DE1B91DFA69B_END]]></CodeInformation>
               <FbdObject xsi:type="Block" typeName="Compute">
                 <AddData>
                   <Data name="BR_ComputeBlock" handleUnknown="implementation">
-                    <ComputeBlock><![CDATA[errorbayOUTPUT_MODULE_NOT_OK]]></ComputeBlock>
+                    <ComputeBlock><![CDATA[errorarmOUTPUT_MODULE_NOT_OK]]></ComputeBlock>
                   </Data>
                 </AddData>
-                <RelPosition x="813" y="266" />
+                <RelPosition x="543" y="266" />
                 <Size x="240" y="76" />
                 <InputVariables>
                   <InputVariable parameterName="EN">
@@ -782,7 +850,7 @@ CODE_INFORMATION_754EF481_1721_4FA5_BF7F_DE1B91DFA69B_END]]></CodeInformation>
                 </OutputVariables>
               </FbdObject>
               <LdObject xsi:type="Coil" operand="Internal.Status.ModuleOK" edge="none" latch="reset">
-                <RelPosition x="1023" y="56" />
+                <RelPosition x="753" y="56" />
                 <Size x="150" y="20" />
                 <ConnectionPointIn>
                   <RelPosition x="0" y="10" />
@@ -793,7 +861,7 @@ CODE_INFORMATION_754EF481_1721_4FA5_BF7F_DE1B91DFA69B_END]]></CodeInformation>
                 </ConnectionPointOut>
               </LdObject>
               <LdObject xsi:type="Coil" operand="Internal.Status.ModuleOK" edge="none" latch="reset">
-                <RelPosition x="1023" y="246" />
+                <RelPosition x="753" y="246" />
                 <Size x="150" y="20" />
                 <ConnectionPointIn>
                   <RelPosition x="0" y="10" />
@@ -804,7 +872,7 @@ CODE_INFORMATION_754EF481_1721_4FA5_BF7F_DE1B91DFA69B_END]]></CodeInformation>
                 </ConnectionPointOut>
               </LdObject>
               <LdObject xsi:type="Coil" operand="Internal.Status.Error" edge="none" latch="set">
-                <RelPosition x="1053" y="18" />
+                <RelPosition x="783" y="18" />
                 <Size x="120" y="20" />
                 <ConnectionPointIn>
                   <RelPosition x="0" y="10" />
@@ -820,7 +888,7 @@ CODE_INFORMATION_754EF481_1721_4FA5_BF7F_DE1B91DFA69B_END]]></CodeInformation>
                     <AnalogValue value="true" />
                   </Data>
                 </AddData>
-                <RelPosition x="1053" y="132" />
+                <RelPosition x="783" y="132" />
                 <Size x="120" y="20" />
                 <ConnectionPointIn>
                   <RelPosition x="0" y="10" />
@@ -828,7 +896,7 @@ CODE_INFORMATION_754EF481_1721_4FA5_BF7F_DE1B91DFA69B_END]]></CodeInformation>
                 </ConnectionPointIn>
               </FbdObject>
               <LdObject xsi:type="Coil" operand="Internal.Status.Error" edge="none" latch="set">
-                <RelPosition x="1053" y="208" />
+                <RelPosition x="783" y="208" />
                 <Size x="120" y="20" />
                 <ConnectionPointIn>
                   <RelPosition x="0" y="10" />
@@ -844,7 +912,7 @@ CODE_INFORMATION_754EF481_1721_4FA5_BF7F_DE1B91DFA69B_END]]></CodeInformation>
                     <AnalogValue value="true" />
                   </Data>
                 </AddData>
-                <RelPosition x="1053" y="322" />
+                <RelPosition x="783" y="322" />
                 <Size x="120" y="20" />
                 <ConnectionPointIn>
                   <RelPosition x="0" y="10" />
@@ -852,7 +920,7 @@ CODE_INFORMATION_754EF481_1721_4FA5_BF7F_DE1B91DFA69B_END]]></CodeInformation>
                 </ConnectionPointIn>
               </FbdObject>
               <FbdObject xsi:type="Return">
-                <RelPosition x="1083" y="170" />
+                <RelPosition x="813" y="170" />
                 <Size x="90" y="20" />
                 <ConnectionPointIn>
                   <RelPosition x="0" y="10" />
@@ -860,7 +928,7 @@ CODE_INFORMATION_754EF481_1721_4FA5_BF7F_DE1B91DFA69B_END]]></CodeInformation>
                 </ConnectionPointIn>
               </FbdObject>
               <FbdObject xsi:type="Return">
-                <RelPosition x="1083" y="360" />
+                <RelPosition x="813" y="360" />
                 <Size x="90" y="20" />
                 <ConnectionPointIn>
                   <RelPosition x="0" y="10" />
@@ -868,7 +936,7 @@ CODE_INFORMATION_754EF481_1721_4FA5_BF7F_DE1B91DFA69B_END]]></CodeInformation>
                 </ConnectionPointIn>
               </FbdObject>
               <LdObject xsi:type="RightPowerRail">
-                <RelPosition x="1173" y="0" />
+                <RelPosition x="903" y="0" />
                 <Size x="3" y="380" />
                 <ConnectionPointIn>
                   <RelPosition x="0" y="28" />
@@ -908,444 +976,8 @@ CODE_INFORMATION_754EF481_1721_4FA5_BF7F_DE1B91DFA69B_END]]></CodeInformation>
                 </ConnectionPointIn>
               </LdObject>
             </Rung>
-            <Rung evaluationOrder="6" label="Enabled">
-              <Documentation xsi:type="SimpleText"><![CDATA[Ejector Rod Control]]></Documentation>
-              <LdObject xsi:type="LeftPowerRail">
-                <RelPosition x="0" y="0" />
-                <Size x="3" y="228" />
-                <ConnectionPointOut connectionPointOutId="1">
-                  <RelPosition x="3" y="28" />
-                </ConnectionPointOut>
-                <ConnectionPointOut connectionPointOutId="0">
-                  <RelPosition x="3" y="66" />
-                </ConnectionPointOut>
-                <ConnectionPointOut connectionPointOutId="0">
-                  <RelPosition x="3" y="104" />
-                </ConnectionPointOut>
-                <ConnectionPointOut connectionPointOutId="0">
-                  <RelPosition x="3" y="142" />
-                </ConnectionPointOut>
-                <ConnectionPointOut connectionPointOutId="0">
-                  <RelPosition x="3" y="180" />
-                </ConnectionPointOut>
-                <ConnectionPointOut connectionPointOutId="0">
-                  <RelPosition x="3" y="218" />
-                </ConnectionPointOut>
-              </LdObject>
-              <LdObject xsi:type="Contact" operand="gBayInterface.Cmd.Eject" edge="none">
-                <RelPosition x="3" y="18" />
-                <Size x="150" y="20" />
-                <ConnectionPointIn>
-                  <RelPosition x="0" y="10" />
-                  <Connection refConnectionPointOutId="1" />
-                </ConnectionPointIn>
-                <ConnectionPointOut connectionPointOutId="2">
-                  <RelPosition x="150" y="10" />
-                </ConnectionPointOut>
-              </LdObject>
-              <LdObject xsi:type="Contact" operand="Internal.Status.CapEjected" negated="true" edge="none">
-                <RelPosition x="153" y="18" />
-                <Size x="150" y="20" />
-                <ConnectionPointIn>
-                  <RelPosition x="0" y="10" />
-                  <Connection refConnectionPointOutId="2" />
-                </ConnectionPointIn>
-                <ConnectionPointOut connectionPointOutId="3">
-                  <RelPosition x="150" y="10" />
-                </ConnectionPointOut>
-              </LdObject>
-              <LdObject xsi:type="Contact" operand="Internal.Status.MagazineEmpty" negated="true" edge="none">
-                <RelPosition x="303" y="18" />
-                <Size x="180" y="20" />
-                <ConnectionPointIn>
-                  <RelPosition x="0" y="10" />
-                  <Connection refConnectionPointOutId="3" />
-                </ConnectionPointIn>
-                <ConnectionPointOut connectionPointOutId="4">
-                  <RelPosition x="180" y="10" />
-                </ConnectionPointOut>
-              </LdObject>
-              <LdObject xsi:type="Contact" operand="IO.Input.diEjectorExtended" negated="true" edge="none">
-                <RelPosition x="483" y="94" />
-                <Size x="150" y="20" />
-                <ConnectionPointIn>
-                  <RelPosition x="0" y="10" />
-                  <Connection refConnectionPointOutId="4" />
-                </ConnectionPointIn>
-                <ConnectionPointOut connectionPointOutId="5">
-                  <RelPosition x="150" y="10" />
-                </ConnectionPointOut>
-              </LdObject>
-              <FbdObject xsi:type="DataSource" identifier="TimeoutTime">
-                <AddData>
-                  <Data name="BR_AnalogValue" handleUnknown="implementation">
-                    <AnalogValue value="true" />
-                  </Data>
-                </AddData>
-                <RelPosition x="633" y="132" />
-                <Size x="90" y="20" />
-                <ConnectionPointOut connectionPointOutId="6">
-                  <RelPosition x="90" y="10" />
-                </ConnectionPointOut>
-              </FbdObject>
-              <FbdObject xsi:type="Block" typeName="TON" instanceName="">
-                <RelPosition x="723" y="76" />
-                <Size x="120" y="76" />
-                <InputVariables>
-                  <InputVariable parameterName="IN">
-                    <ConnectionPointIn>
-                      <RelPosition x="0" y="28" />
-                      <Connection refConnectionPointOutId="5" />
-                    </ConnectionPointIn>
-                  </InputVariable>
-                  <InputVariable parameterName="PT">
-                    <ConnectionPointIn>
-                      <RelPosition x="0" y="66" />
-                      <Connection refConnectionPointOutId="6" />
-                    </ConnectionPointIn>
-                  </InputVariable>
-                </InputVariables>
-                <OutputVariables>
-                  <OutputVariable parameterName="Q">
-                    <ConnectionPointOut connectionPointOutId="7">
-                      <RelPosition x="120" y="28" />
-                    </ConnectionPointOut>
-                  </OutputVariable>
-                  <OutputVariable parameterName="ET">
-                    <ConnectionPointOut connectionPointOutId="0">
-                      <RelPosition x="120" y="66" />
-                    </ConnectionPointOut>
-                  </OutputVariable>
-                </OutputVariables>
-              </FbdObject>
-              <FbdObject xsi:type="Block" typeName="Compute">
-                <AddData>
-                  <Data name="BR_ComputeBlock" handleUnknown="implementation">
-                    <ComputeBlock><![CDATA[errorbayEJECTOR_TIMEOUT]]></ComputeBlock>
-                  </Data>
-                </AddData>
-                <RelPosition x="843" y="114" />
-                <Size x="210" y="76" />
-                <InputVariables>
-                  <InputVariable parameterName="EN">
-                    <AddData>
-                      <Data name="BR_IsEnEnoParameter" handleUnknown="implementation">
-                        <IsEnEnoParameter value="true" />
-                      </Data>
-                    </AddData>
-                    <ConnectionPointIn>
-                      <RelPosition x="0" y="28" />
-                      <Connection refConnectionPointOutId="7" />
-                    </ConnectionPointIn>
-                  </InputVariable>
-                </InputVariables>
-                <OutputVariables>
-                  <OutputVariable parameterName="ENO">
-                    <AddData>
-                      <Data name="BR_IsEnEnoParameter" handleUnknown="implementation">
-                        <IsEnEnoParameter value="true" />
-                      </Data>
-                    </AddData>
-                    <ConnectionPointOut connectionPointOutId="8">
-                      <RelPosition x="210" y="28" />
-                    </ConnectionPointOut>
-                  </OutputVariable>
-                  <OutputVariable parameterName="">
-                    <ConnectionPointOut connectionPointOutId="9">
-                      <RelPosition x="210" y="66" />
-                    </ConnectionPointOut>
-                  </OutputVariable>
-                </OutputVariables>
-              </FbdObject>
-              <LdObject xsi:type="Coil" operand="IO.Output.doEjectCap" edge="none" latch="none">
-                <RelPosition x="1053" y="18" />
-                <Size x="120" y="20" />
-                <ConnectionPointIn>
-                  <RelPosition x="0" y="10" />
-                  <Connection refConnectionPointOutId="4" />
-                </ConnectionPointIn>
-                <ConnectionPointOut connectionPointOutId="10">
-                  <RelPosition x="120" y="10" />
-                </ConnectionPointOut>
-              </LdObject>
-              <LdObject xsi:type="Coil" operand="Internal.Status.Error" edge="none" latch="set">
-                <RelPosition x="1053" y="94" />
-                <Size x="120" y="20" />
-                <ConnectionPointIn>
-                  <RelPosition x="0" y="10" />
-                  <Connection refConnectionPointOutId="7" />
-                </ConnectionPointIn>
-                <ConnectionPointOut connectionPointOutId="11">
-                  <RelPosition x="120" y="10" />
-                </ConnectionPointOut>
-              </LdObject>
-              <FbdObject xsi:type="DataSink" identifier="Internal.Status.ErrorID">
-                <AddData>
-                  <Data name="BR_AnalogValue" handleUnknown="implementation">
-                    <AnalogValue value="true" />
-                  </Data>
-                </AddData>
-                <RelPosition x="1053" y="170" />
-                <Size x="120" y="20" />
-                <ConnectionPointIn>
-                  <RelPosition x="0" y="10" />
-                  <Connection refConnectionPointOutId="9" />
-                </ConnectionPointIn>
-              </FbdObject>
-              <FbdObject xsi:type="Return">
-                <RelPosition x="1083" y="208" />
-                <Size x="90" y="20" />
-                <ConnectionPointIn>
-                  <RelPosition x="0" y="10" />
-                  <Connection refConnectionPointOutId="7" />
-                </ConnectionPointIn>
-              </FbdObject>
-              <LdObject xsi:type="RightPowerRail">
-                <RelPosition x="1173" y="0" />
-                <Size x="3" y="228" />
-                <ConnectionPointIn>
-                  <RelPosition x="0" y="28" />
-                  <Connection refConnectionPointOutId="10" />
-                </ConnectionPointIn>
-                <ConnectionPointIn>
-                  <RelPosition x="0" y="66" />
-                </ConnectionPointIn>
-                <ConnectionPointIn>
-                  <RelPosition x="0" y="104" />
-                  <Connection refConnectionPointOutId="11" />
-                </ConnectionPointIn>
-                <ConnectionPointIn>
-                  <RelPosition x="0" y="142" />
-                  <Connection refConnectionPointOutId="8" />
-                </ConnectionPointIn>
-                <ConnectionPointIn>
-                  <RelPosition x="0" y="180" />
-                </ConnectionPointIn>
-                <ConnectionPointIn>
-                  <RelPosition x="0" y="218" />
-                </ConnectionPointIn>
-              </LdObject>
-            </Rung>
-            <Rung evaluationOrder="7" label="ResetCap">
-              <Documentation xsi:type="SimpleText"><![CDATA[Reset CapEjected on CapTaken cmd]]></Documentation>
-              <LdObject xsi:type="LeftPowerRail">
-                <RelPosition x="0" y="0" />
-                <Size x="3" y="38" />
-                <ConnectionPointOut connectionPointOutId="1">
-                  <RelPosition x="3" y="28" />
-                </ConnectionPointOut>
-              </LdObject>
-              <LdObject xsi:type="Contact" operand="gBayInterface.Cmd.CapTaken" edge="none">
-                <RelPosition x="3" y="18" />
-                <Size x="180" y="20" />
-                <ConnectionPointIn>
-                  <RelPosition x="0" y="10" />
-                  <Connection refConnectionPointOutId="1" />
-                </ConnectionPointIn>
-                <ConnectionPointOut connectionPointOutId="2">
-                  <RelPosition x="180" y="10" />
-                </ConnectionPointOut>
-              </LdObject>
-              <LdObject xsi:type="Coil" operand="Internal.Status.CapEjected" edge="none" latch="reset">
-                <RelPosition x="1023" y="18" />
-                <Size x="150" y="20" />
-                <ConnectionPointIn>
-                  <RelPosition x="0" y="10" />
-                  <Connection refConnectionPointOutId="2" />
-                </ConnectionPointIn>
-                <ConnectionPointOut connectionPointOutId="3">
-                  <RelPosition x="150" y="10" />
-                </ConnectionPointOut>
-              </LdObject>
-              <LdObject xsi:type="RightPowerRail">
-                <RelPosition x="1173" y="0" />
-                <Size x="3" y="38" />
-                <ConnectionPointIn>
-                  <RelPosition x="0" y="28" />
-                  <Connection refConnectionPointOutId="3" />
-                </ConnectionPointIn>
-              </LdObject>
-            </Rung>
-            <Rung evaluationOrder="8" label="RetractTimeout">
-              <Documentation xsi:type="SimpleText"><![CDATA[Raise error if ejector takes too long to retract]]></Documentation>
-              <LdObject xsi:type="LeftPowerRail">
-                <RelPosition x="0" y="0" />
-                <Size x="3" y="190" />
-                <ConnectionPointOut connectionPointOutId="0">
-                  <RelPosition x="3" y="28" />
-                </ConnectionPointOut>
-                <ConnectionPointOut connectionPointOutId="1">
-                  <RelPosition x="3" y="66" />
-                </ConnectionPointOut>
-                <ConnectionPointOut connectionPointOutId="0">
-                  <RelPosition x="3" y="104" />
-                </ConnectionPointOut>
-                <ConnectionPointOut connectionPointOutId="0">
-                  <RelPosition x="3" y="142" />
-                </ConnectionPointOut>
-                <ConnectionPointOut connectionPointOutId="0">
-                  <RelPosition x="3" y="180" />
-                </ConnectionPointOut>
-              </LdObject>
-              <LdObject xsi:type="Contact" operand="gBayInterface.Cmd.Eject" negated="true" edge="none">
-                <RelPosition x="3" y="56" />
-                <Size x="150" y="20" />
-                <ConnectionPointIn>
-                  <RelPosition x="0" y="10" />
-                  <Connection refConnectionPointOutId="1" />
-                </ConnectionPointIn>
-                <ConnectionPointOut connectionPointOutId="2">
-                  <RelPosition x="150" y="10" />
-                </ConnectionPointOut>
-              </LdObject>
-              <LdObject xsi:type="Contact" operand="IO.Input.diEjectorRetracted" negated="true" edge="none">
-                <RelPosition x="153" y="56" />
-                <Size x="150" y="20" />
-                <ConnectionPointIn>
-                  <RelPosition x="0" y="10" />
-                  <Connection refConnectionPointOutId="2" />
-                </ConnectionPointIn>
-                <ConnectionPointOut connectionPointOutId="3">
-                  <RelPosition x="150" y="10" />
-                </ConnectionPointOut>
-              </LdObject>
-              <FbdObject xsi:type="DataSource" identifier="TimeoutTime">
-                <AddData>
-                  <Data name="BR_AnalogValue" handleUnknown="implementation">
-                    <AnalogValue value="true" />
-                  </Data>
-                </AddData>
-                <RelPosition x="303" y="94" />
-                <Size x="90" y="20" />
-                <ConnectionPointOut connectionPointOutId="4">
-                  <RelPosition x="90" y="10" />
-                </ConnectionPointOut>
-              </FbdObject>
-              <FbdObject xsi:type="Block" typeName="TON" instanceName="">
-                <RelPosition x="393" y="38" />
-                <Size x="120" y="76" />
-                <InputVariables>
-                  <InputVariable parameterName="IN">
-                    <ConnectionPointIn>
-                      <RelPosition x="0" y="28" />
-                      <Connection refConnectionPointOutId="3" />
-                    </ConnectionPointIn>
-                  </InputVariable>
-                  <InputVariable parameterName="PT">
-                    <ConnectionPointIn>
-                      <RelPosition x="0" y="66" />
-                      <Connection refConnectionPointOutId="4" />
-                    </ConnectionPointIn>
-                  </InputVariable>
-                </InputVariables>
-                <OutputVariables>
-                  <OutputVariable parameterName="Q">
-                    <ConnectionPointOut connectionPointOutId="5">
-                      <RelPosition x="120" y="28" />
-                    </ConnectionPointOut>
-                  </OutputVariable>
-                  <OutputVariable parameterName="ET">
-                    <ConnectionPointOut connectionPointOutId="0">
-                      <RelPosition x="120" y="66" />
-                    </ConnectionPointOut>
-                  </OutputVariable>
-                </OutputVariables>
-              </FbdObject>
-              <FbdObject xsi:type="Block" typeName="Compute">
-                <AddData>
-                  <Data name="BR_ComputeBlock" handleUnknown="implementation">
-                    <ComputeBlock><![CDATA[errorbayEJECTOR_TIMEOUT]]></ComputeBlock>
-                  </Data>
-                </AddData>
-                <RelPosition x="843" y="76" />
-                <Size x="210" y="76" />
-                <InputVariables>
-                  <InputVariable parameterName="EN">
-                    <AddData>
-                      <Data name="BR_IsEnEnoParameter" handleUnknown="implementation">
-                        <IsEnEnoParameter value="true" />
-                      </Data>
-                    </AddData>
-                    <ConnectionPointIn>
-                      <RelPosition x="0" y="28" />
-                      <Connection refConnectionPointOutId="5" />
-                    </ConnectionPointIn>
-                  </InputVariable>
-                </InputVariables>
-                <OutputVariables>
-                  <OutputVariable parameterName="ENO">
-                    <AddData>
-                      <Data name="BR_IsEnEnoParameter" handleUnknown="implementation">
-                        <IsEnEnoParameter value="true" />
-                      </Data>
-                    </AddData>
-                    <ConnectionPointOut connectionPointOutId="6">
-                      <RelPosition x="210" y="28" />
-                    </ConnectionPointOut>
-                  </OutputVariable>
-                  <OutputVariable parameterName="">
-                    <ConnectionPointOut connectionPointOutId="7">
-                      <RelPosition x="210" y="66" />
-                    </ConnectionPointOut>
-                  </OutputVariable>
-                </OutputVariables>
-              </FbdObject>
-              <LdObject xsi:type="Coil" operand="Internal.Status.Error" edge="none" latch="set">
-                <RelPosition x="1053" y="56" />
-                <Size x="120" y="20" />
-                <ConnectionPointIn>
-                  <RelPosition x="0" y="10" />
-                  <Connection refConnectionPointOutId="5" />
-                </ConnectionPointIn>
-                <ConnectionPointOut connectionPointOutId="8">
-                  <RelPosition x="120" y="10" />
-                </ConnectionPointOut>
-              </LdObject>
-              <FbdObject xsi:type="DataSink" identifier="Internal.Status.ErrorID">
-                <AddData>
-                  <Data name="BR_AnalogValue" handleUnknown="implementation">
-                    <AnalogValue value="true" />
-                  </Data>
-                </AddData>
-                <RelPosition x="1053" y="132" />
-                <Size x="120" y="20" />
-                <ConnectionPointIn>
-                  <RelPosition x="0" y="10" />
-                  <Connection refConnectionPointOutId="7" />
-                </ConnectionPointIn>
-              </FbdObject>
-              <FbdObject xsi:type="Return">
-                <RelPosition x="1083" y="170" />
-                <Size x="90" y="20" />
-                <ConnectionPointIn>
-                  <RelPosition x="0" y="10" />
-                  <Connection refConnectionPointOutId="5" />
-                </ConnectionPointIn>
-              </FbdObject>
-              <LdObject xsi:type="RightPowerRail">
-                <RelPosition x="1173" y="0" />
-                <Size x="3" y="190" />
-                <ConnectionPointIn>
-                  <RelPosition x="0" y="28" />
-                </ConnectionPointIn>
-                <ConnectionPointIn>
-                  <RelPosition x="0" y="66" />
-                  <Connection refConnectionPointOutId="8" />
-                </ConnectionPointIn>
-                <ConnectionPointIn>
-                  <RelPosition x="0" y="104" />
-                  <Connection refConnectionPointOutId="6" />
-                </ConnectionPointIn>
-                <ConnectionPointIn>
-                  <RelPosition x="0" y="142" />
-                </ConnectionPointIn>
-                <ConnectionPointIn>
-                  <RelPosition x="0" y="180" />
-                </ConnectionPointIn>
-              </LdObject>
-            </Rung>
-            <Rung evaluationOrder="9" label="IOReporting">
-              <Documentation xsi:type="SimpleText"><![CDATA[Reports status based on IO]]></Documentation>
+            <Rung evaluationOrder="6" label="ParPass">
+              <Documentation xsi:type="SimpleText"><![CDATA[Pass parameters from interface to internal]]></Documentation>
               <LdObject xsi:type="LeftPowerRail">
                 <RelPosition x="0" y="0" />
                 <Size x="3" y="76" />
@@ -1356,93 +988,7 @@ CODE_INFORMATION_754EF481_1721_4FA5_BF7F_DE1B91DFA69B_END]]></CodeInformation>
                   <RelPosition x="3" y="66" />
                 </ConnectionPointOut>
               </LdObject>
-              <LdObject xsi:type="Contact" operand="Internal.Status.Active" edge="none">
-                <RelPosition x="3" y="18" />
-                <Size x="120" y="20" />
-                <ConnectionPointIn>
-                  <RelPosition x="0" y="10" />
-                  <Connection refConnectionPointOutId="1" />
-                </ConnectionPointIn>
-                <ConnectionPointOut connectionPointOutId="2">
-                  <RelPosition x="120" y="10" />
-                </ConnectionPointOut>
-              </LdObject>
-              <LdObject xsi:type="Contact" operand="IO.Input.diEjectorExtended" edge="none">
-                <RelPosition x="123" y="18" />
-                <Size x="150" y="20" />
-                <ConnectionPointIn>
-                  <RelPosition x="0" y="10" />
-                  <Connection refConnectionPointOutId="2" />
-                </ConnectionPointIn>
-                <ConnectionPointOut connectionPointOutId="3">
-                  <RelPosition x="150" y="10" />
-                </ConnectionPointOut>
-              </LdObject>
-              <LdObject xsi:type="Contact" operand="IO.Input.diMagazineEmpty" edge="none">
-                <RelPosition x="123" y="56" />
-                <Size x="150" y="20" />
-                <ConnectionPointIn>
-                  <RelPosition x="0" y="10" />
-                  <Connection refConnectionPointOutId="2" />
-                </ConnectionPointIn>
-                <ConnectionPointOut connectionPointOutId="4">
-                  <RelPosition x="150" y="10" />
-                </ConnectionPointOut>
-              </LdObject>
-              <LdObject xsi:type="Coil" operand="Internal.Status.MagazineEmpty" edge="none" latch="none">
-                <RelPosition x="993" y="56" />
-                <Size x="180" y="20" />
-                <ConnectionPointIn>
-                  <RelPosition x="0" y="10" />
-                  <Connection refConnectionPointOutId="4" />
-                </ConnectionPointIn>
-                <ConnectionPointOut connectionPointOutId="5">
-                  <RelPosition x="180" y="10" />
-                </ConnectionPointOut>
-              </LdObject>
-              <LdObject xsi:type="Coil" operand="Internal.Status.CapEjected" edge="none" latch="set">
-                <RelPosition x="1023" y="18" />
-                <Size x="150" y="20" />
-                <ConnectionPointIn>
-                  <RelPosition x="0" y="10" />
-                  <Connection refConnectionPointOutId="3" />
-                </ConnectionPointIn>
-                <ConnectionPointOut connectionPointOutId="6">
-                  <RelPosition x="150" y="10" />
-                </ConnectionPointOut>
-              </LdObject>
-              <LdObject xsi:type="RightPowerRail">
-                <RelPosition x="1173" y="0" />
-                <Size x="3" y="76" />
-                <ConnectionPointIn>
-                  <RelPosition x="0" y="28" />
-                  <Connection refConnectionPointOutId="6" />
-                </ConnectionPointIn>
-                <ConnectionPointIn>
-                  <RelPosition x="0" y="66" />
-                  <Connection refConnectionPointOutId="5" />
-                </ConnectionPointIn>
-              </LdObject>
-            </Rung>
-            <Rung evaluationOrder="10" label="Assignments">
-              <Documentation xsi:type="SimpleText"><![CDATA[Storing old cmds and passing status from/to global interface]]></Documentation>
-              <LdObject xsi:type="LeftPowerRail">
-                <RelPosition x="0" y="0" />
-                <Size x="3" y="152" />
-                <ConnectionPointOut connectionPointOutId="1">
-                  <RelPosition x="3" y="28" />
-                </ConnectionPointOut>
-                <ConnectionPointOut connectionPointOutId="0">
-                  <RelPosition x="3" y="66" />
-                </ConnectionPointOut>
-                <ConnectionPointOut connectionPointOutId="0">
-                  <RelPosition x="3" y="104" />
-                </ConnectionPointOut>
-                <ConnectionPointOut connectionPointOutId="0">
-                  <RelPosition x="3" y="142" />
-                </ConnectionPointOut>
-              </LdObject>
-              <LdObject xsi:type="Contact" operand="gBayInterface.Cmd.Enable" edge="none">
+              <LdObject xsi:type="Contact" operand="gArmInterface.Cmd.Enable" edge="none">
                 <RelPosition x="3" y="18" />
                 <Size x="150" y="20" />
                 <ConnectionPointIn>
@@ -1456,49 +1002,10 @@ CODE_INFORMATION_754EF481_1721_4FA5_BF7F_DE1B91DFA69B_END]]></CodeInformation>
               <FbdObject xsi:type="Block" typeName="Compute">
                 <AddData>
                   <Data name="BR_ComputeBlock" handleUnknown="implementation">
-                    <ComputeBlock><![CDATA[Internal.Status]]></ComputeBlock>
+                    <ComputeBlock><![CDATA[gArmInterface.Par]]></ComputeBlock>
                   </Data>
                 </AddData>
-                <RelPosition x="933" y="0" />
-                <Size x="120" y="76" />
-                <InputVariables>
-                  <InputVariable parameterName="EN">
-                    <AddData>
-                      <Data name="BR_IsEnEnoParameter" handleUnknown="implementation">
-                        <IsEnEnoParameter value="true" />
-                      </Data>
-                    </AddData>
-                    <ConnectionPointIn>
-                      <RelPosition x="0" y="28" />
-                      <Connection refConnectionPointOutId="2" />
-                    </ConnectionPointIn>
-                  </InputVariable>
-                </InputVariables>
-                <OutputVariables>
-                  <OutputVariable parameterName="ENO">
-                    <AddData>
-                      <Data name="BR_IsEnEnoParameter" handleUnknown="implementation">
-                        <IsEnEnoParameter value="true" />
-                      </Data>
-                    </AddData>
-                    <ConnectionPointOut connectionPointOutId="3">
-                      <RelPosition x="120" y="28" />
-                    </ConnectionPointOut>
-                  </OutputVariable>
-                  <OutputVariable parameterName="">
-                    <ConnectionPointOut connectionPointOutId="4">
-                      <RelPosition x="120" y="66" />
-                    </ConnectionPointOut>
-                  </OutputVariable>
-                </OutputVariables>
-              </FbdObject>
-              <FbdObject xsi:type="Block" typeName="Compute">
-                <AddData>
-                  <Data name="BR_ComputeBlock" handleUnknown="implementation">
-                    <ComputeBlock><![CDATA[gBayInterface.Cmd]]></ComputeBlock>
-                  </Data>
-                </AddData>
-                <RelPosition x="933" y="76" />
+                <RelPosition x="663" y="0" />
                 <Size x="150" y="76" />
                 <InputVariables>
                   <InputVariable parameterName="EN">
@@ -1520,28 +1027,781 @@ CODE_INFORMATION_754EF481_1721_4FA5_BF7F_DE1B91DFA69B_END]]></CodeInformation>
                         <IsEnEnoParameter value="true" />
                       </Data>
                     </AddData>
-                    <ConnectionPointOut connectionPointOutId="5">
+                    <ConnectionPointOut connectionPointOutId="3">
                       <RelPosition x="150" y="28" />
                     </ConnectionPointOut>
                   </OutputVariable>
                   <OutputVariable parameterName="">
-                    <ConnectionPointOut connectionPointOutId="6">
+                    <ConnectionPointOut connectionPointOutId="4">
                       <RelPosition x="150" y="66" />
                     </ConnectionPointOut>
                   </OutputVariable>
                 </OutputVariables>
               </FbdObject>
-              <FbdObject xsi:type="DataSink" identifier="gBayInterface.Status">
+              <FbdObject xsi:type="DataSink" identifier="Internal.Par">
                 <AddData>
                   <Data name="BR_AnalogValue" handleUnknown="implementation">
                     <AnalogValue value="true" />
                   </Data>
                 </AddData>
-                <RelPosition x="1053" y="56" />
-                <Size x="120" y="20" />
+                <RelPosition x="813" y="56" />
+                <Size x="90" y="20" />
                 <ConnectionPointIn>
                   <RelPosition x="0" y="10" />
                   <Connection refConnectionPointOutId="4" />
+                </ConnectionPointIn>
+              </FbdObject>
+              <LdObject xsi:type="RightPowerRail">
+                <RelPosition x="903" y="0" />
+                <Size x="3" y="76" />
+                <ConnectionPointIn>
+                  <RelPosition x="0" y="28" />
+                  <Connection refConnectionPointOutId="3" />
+                </ConnectionPointIn>
+                <ConnectionPointIn>
+                  <RelPosition x="0" y="66" />
+                </ConnectionPointIn>
+              </LdObject>
+            </Rung>
+            <Rung evaluationOrder="7" label="ArmFwdCtrl">
+              <Documentation xsi:type="SimpleText"><![CDATA[Move swivel arm forward if allowed]]></Documentation>
+              <LdObject xsi:type="LeftPowerRail">
+                <RelPosition x="0" y="0" />
+                <Size x="3" y="38" />
+                <ConnectionPointOut connectionPointOutId="1">
+                  <RelPosition x="3" y="28" />
+                </ConnectionPointOut>
+              </LdObject>
+              <LdObject xsi:type="Contact" operand="gArmInterface.Cmd.MoveFwd" edge="none">
+                <RelPosition x="3" y="18" />
+                <Size x="180" y="20" />
+                <ConnectionPointIn>
+                  <RelPosition x="0" y="10" />
+                  <Connection refConnectionPointOutId="1" />
+                </ConnectionPointIn>
+                <ConnectionPointOut connectionPointOutId="2">
+                  <RelPosition x="180" y="10" />
+                </ConnectionPointOut>
+              </LdObject>
+              <LdObject xsi:type="Contact" operand="gArmInterface.Cmd.MoveBwd" negated="true" edge="none">
+                <RelPosition x="183" y="18" />
+                <Size x="180" y="20" />
+                <ConnectionPointIn>
+                  <RelPosition x="0" y="10" />
+                  <Connection refConnectionPointOutId="2" />
+                </ConnectionPointIn>
+                <ConnectionPointOut connectionPointOutId="3">
+                  <RelPosition x="180" y="10" />
+                </ConnectionPointOut>
+              </LdObject>
+              <LdObject xsi:type="Contact" operand="IO.Input.diSwivelArmAtDropoff" negated="true" edge="none">
+                <RelPosition x="363" y="18" />
+                <Size x="180" y="20" />
+                <ConnectionPointIn>
+                  <RelPosition x="0" y="10" />
+                  <Connection refConnectionPointOutId="3" />
+                </ConnectionPointIn>
+                <ConnectionPointOut connectionPointOutId="4">
+                  <RelPosition x="180" y="10" />
+                </ConnectionPointOut>
+              </LdObject>
+              <LdObject xsi:type="Contact" operand="Internal.Par.CanMoveFwd" edge="none">
+                <RelPosition x="543" y="18" />
+                <Size x="150" y="20" />
+                <ConnectionPointIn>
+                  <RelPosition x="0" y="10" />
+                  <Connection refConnectionPointOutId="4" />
+                </ConnectionPointIn>
+                <ConnectionPointOut connectionPointOutId="5">
+                  <RelPosition x="150" y="10" />
+                </ConnectionPointOut>
+              </LdObject>
+              <LdObject xsi:type="Coil" operand="IO.Output.doSwivelArmFwd" edge="none" latch="none">
+                <RelPosition x="753" y="18" />
+                <Size x="150" y="20" />
+                <ConnectionPointIn>
+                  <RelPosition x="0" y="10" />
+                  <Connection refConnectionPointOutId="5" />
+                </ConnectionPointIn>
+                <ConnectionPointOut connectionPointOutId="6">
+                  <RelPosition x="150" y="10" />
+                </ConnectionPointOut>
+              </LdObject>
+              <LdObject xsi:type="RightPowerRail">
+                <RelPosition x="903" y="0" />
+                <Size x="3" y="38" />
+                <ConnectionPointIn>
+                  <RelPosition x="0" y="28" />
+                  <Connection refConnectionPointOutId="6" />
+                </ConnectionPointIn>
+              </LdObject>
+            </Rung>
+            <Rung evaluationOrder="8" label="ArmBwdCtrl">
+              <Documentation xsi:type="SimpleText"><![CDATA[Move swivel arm backward if allowed]]></Documentation>
+              <LdObject xsi:type="LeftPowerRail">
+                <RelPosition x="0" y="0" />
+                <Size x="3" y="38" />
+                <ConnectionPointOut connectionPointOutId="1">
+                  <RelPosition x="3" y="28" />
+                </ConnectionPointOut>
+              </LdObject>
+              <LdObject xsi:type="Contact" operand="gArmInterface.Cmd.MoveBwd" edge="none">
+                <RelPosition x="3" y="18" />
+                <Size x="180" y="20" />
+                <ConnectionPointIn>
+                  <RelPosition x="0" y="10" />
+                  <Connection refConnectionPointOutId="1" />
+                </ConnectionPointIn>
+                <ConnectionPointOut connectionPointOutId="2">
+                  <RelPosition x="180" y="10" />
+                </ConnectionPointOut>
+              </LdObject>
+              <LdObject xsi:type="Contact" operand="gArmInterface.Cmd.MoveFwd" negated="true" edge="none">
+                <RelPosition x="183" y="18" />
+                <Size x="180" y="20" />
+                <ConnectionPointIn>
+                  <RelPosition x="0" y="10" />
+                  <Connection refConnectionPointOutId="2" />
+                </ConnectionPointIn>
+                <ConnectionPointOut connectionPointOutId="3">
+                  <RelPosition x="180" y="10" />
+                </ConnectionPointOut>
+              </LdObject>
+              <LdObject xsi:type="Contact" operand="IO.Input.diSwivelArmAtPickup" negated="true" edge="none">
+                <RelPosition x="363" y="18" />
+                <Size x="180" y="20" />
+                <ConnectionPointIn>
+                  <RelPosition x="0" y="10" />
+                  <Connection refConnectionPointOutId="3" />
+                </ConnectionPointIn>
+                <ConnectionPointOut connectionPointOutId="4">
+                  <RelPosition x="180" y="10" />
+                </ConnectionPointOut>
+              </LdObject>
+              <LdObject xsi:type="Contact" operand="Internal.Status.CapGripped" negated="true" edge="none">
+                <RelPosition x="543" y="18" />
+                <Size x="150" y="20" />
+                <ConnectionPointIn>
+                  <RelPosition x="0" y="10" />
+                  <Connection refConnectionPointOutId="4" />
+                </ConnectionPointIn>
+                <ConnectionPointOut connectionPointOutId="5">
+                  <RelPosition x="150" y="10" />
+                </ConnectionPointOut>
+              </LdObject>
+              <LdObject xsi:type="Coil" operand="IO.Output.doSwivelArmBwd" edge="none" latch="none">
+                <RelPosition x="753" y="18" />
+                <Size x="150" y="20" />
+                <ConnectionPointIn>
+                  <RelPosition x="0" y="10" />
+                  <Connection refConnectionPointOutId="5" />
+                </ConnectionPointIn>
+                <ConnectionPointOut connectionPointOutId="6">
+                  <RelPosition x="150" y="10" />
+                </ConnectionPointOut>
+              </LdObject>
+              <LdObject xsi:type="RightPowerRail">
+                <RelPosition x="903" y="0" />
+                <Size x="3" y="38" />
+                <ConnectionPointIn>
+                  <RelPosition x="0" y="28" />
+                  <Connection refConnectionPointOutId="6" />
+                </ConnectionPointIn>
+              </LdObject>
+            </Rung>
+            <Rung evaluationOrder="9" label="GripEnable">
+              <Documentation xsi:type="SimpleText"><![CDATA[Enable gripper vacuum if allowed]]></Documentation>
+              <LdObject xsi:type="LeftPowerRail">
+                <RelPosition x="0" y="0" />
+                <Size x="3" y="38" />
+                <ConnectionPointOut connectionPointOutId="1">
+                  <RelPosition x="3" y="28" />
+                </ConnectionPointOut>
+              </LdObject>
+              <LdObject xsi:type="Contact" operand="gArmInterface.Cmd.GripCap" edge="none">
+                <RelPosition x="3" y="18" />
+                <Size x="150" y="20" />
+                <ConnectionPointIn>
+                  <RelPosition x="0" y="10" />
+                  <Connection refConnectionPointOutId="1" />
+                </ConnectionPointIn>
+                <ConnectionPointOut connectionPointOutId="2">
+                  <RelPosition x="150" y="10" />
+                </ConnectionPointOut>
+              </LdObject>
+              <LdObject xsi:type="Contact" operand="Internal.Par.CanGrip" edge="none">
+                <RelPosition x="153" y="18" />
+                <Size x="120" y="20" />
+                <ConnectionPointIn>
+                  <RelPosition x="0" y="10" />
+                  <Connection refConnectionPointOutId="2" />
+                </ConnectionPointIn>
+                <ConnectionPointOut connectionPointOutId="3">
+                  <RelPosition x="120" y="10" />
+                </ConnectionPointOut>
+              </LdObject>
+              <LdObject xsi:type="Coil" operand="IO.Output.doCapGripperPick" edge="none" latch="set">
+                <RelPosition x="723" y="18" />
+                <Size x="180" y="20" />
+                <ConnectionPointIn>
+                  <RelPosition x="0" y="10" />
+                  <Connection refConnectionPointOutId="3" />
+                </ConnectionPointIn>
+                <ConnectionPointOut connectionPointOutId="4">
+                  <RelPosition x="180" y="10" />
+                </ConnectionPointOut>
+              </LdObject>
+              <LdObject xsi:type="RightPowerRail">
+                <RelPosition x="903" y="0" />
+                <Size x="3" y="38" />
+                <ConnectionPointIn>
+                  <RelPosition x="0" y="28" />
+                  <Connection refConnectionPointOutId="4" />
+                </ConnectionPointIn>
+              </LdObject>
+            </Rung>
+            <Rung evaluationOrder="10" label="GripDisable">
+              <Documentation xsi:type="SimpleText"><![CDATA[Disable gripper vacuum if allowed]]></Documentation>
+              <LdObject xsi:type="LeftPowerRail">
+                <RelPosition x="0" y="0" />
+                <Size x="3" y="38" />
+                <ConnectionPointOut connectionPointOutId="1">
+                  <RelPosition x="3" y="28" />
+                </ConnectionPointOut>
+              </LdObject>
+              <LdObject xsi:type="Contact" operand="gArmInterface.Cmd.GripCap" negated="true" edge="none">
+                <RelPosition x="3" y="18" />
+                <Size x="150" y="20" />
+                <ConnectionPointIn>
+                  <RelPosition x="0" y="10" />
+                  <Connection refConnectionPointOutId="1" />
+                </ConnectionPointIn>
+                <ConnectionPointOut connectionPointOutId="2">
+                  <RelPosition x="150" y="10" />
+                </ConnectionPointOut>
+              </LdObject>
+              <LdObject xsi:type="Contact" operand="Internal.Par.CanRelease" edge="none">
+                <RelPosition x="153" y="18" />
+                <Size x="150" y="20" />
+                <ConnectionPointIn>
+                  <RelPosition x="0" y="10" />
+                  <Connection refConnectionPointOutId="2" />
+                </ConnectionPointIn>
+                <ConnectionPointOut connectionPointOutId="3">
+                  <RelPosition x="150" y="10" />
+                </ConnectionPointOut>
+              </LdObject>
+              <LdObject xsi:type="Coil" operand="IO.Output.doCapGripperPick" edge="none" latch="reset">
+                <RelPosition x="723" y="18" />
+                <Size x="180" y="20" />
+                <ConnectionPointIn>
+                  <RelPosition x="0" y="10" />
+                  <Connection refConnectionPointOutId="3" />
+                </ConnectionPointIn>
+                <ConnectionPointOut connectionPointOutId="4">
+                  <RelPosition x="180" y="10" />
+                </ConnectionPointOut>
+              </LdObject>
+              <LdObject xsi:type="RightPowerRail">
+                <RelPosition x="903" y="0" />
+                <Size x="3" y="38" />
+                <ConnectionPointIn>
+                  <RelPosition x="0" y="28" />
+                  <Connection refConnectionPointOutId="4" />
+                </ConnectionPointIn>
+              </LdObject>
+            </Rung>
+            <Rung evaluationOrder="11" label="Eject">
+              <Documentation xsi:type="SimpleText"><![CDATA[Run gripper ejector for 2 seconds on enable]]></Documentation>
+              <LdObject xsi:type="LeftPowerRail">
+                <RelPosition x="0" y="0" />
+                <Size x="3" y="114" />
+                <ConnectionPointOut connectionPointOutId="0">
+                  <RelPosition x="3" y="28" />
+                </ConnectionPointOut>
+                <ConnectionPointOut connectionPointOutId="1">
+                  <RelPosition x="3" y="66" />
+                </ConnectionPointOut>
+                <ConnectionPointOut connectionPointOutId="0">
+                  <RelPosition x="3" y="104" />
+                </ConnectionPointOut>
+              </LdObject>
+              <LdObject xsi:type="Contact" operand="gArmInterface.Cmd.EjectCap" edge="rising">
+                <RelPosition x="3" y="56" />
+                <Size x="180" y="20" />
+                <ConnectionPointIn>
+                  <RelPosition x="0" y="10" />
+                  <Connection refConnectionPointOutId="1" />
+                </ConnectionPointIn>
+                <ConnectionPointOut connectionPointOutId="2">
+                  <RelPosition x="180" y="10" />
+                </ConnectionPointOut>
+              </LdObject>
+              <LdObject xsi:type="Contact" operand="Internal.Par.CanRelease" edge="none">
+                <RelPosition x="183" y="56" />
+                <Size x="150" y="20" />
+                <ConnectionPointIn>
+                  <RelPosition x="0" y="10" />
+                  <Connection refConnectionPointOutId="2" />
+                </ConnectionPointIn>
+                <ConnectionPointOut connectionPointOutId="3">
+                  <RelPosition x="150" y="10" />
+                </ConnectionPointOut>
+              </LdObject>
+              <LdObject xsi:type="Contact" operand="IO.Output.doCapGripperPick" negated="true" edge="none">
+                <RelPosition x="333" y="56" />
+                <Size x="180" y="20" />
+                <ConnectionPointIn>
+                  <RelPosition x="0" y="10" />
+                  <Connection refConnectionPointOutId="3" />
+                </ConnectionPointIn>
+                <ConnectionPointOut connectionPointOutId="4">
+                  <RelPosition x="180" y="10" />
+                </ConnectionPointOut>
+              </LdObject>
+              <FbdObject xsi:type="DataSource" identifier="EjectorTime">
+                <AddData>
+                  <Data name="BR_AnalogValue" handleUnknown="implementation">
+                    <AnalogValue value="true" />
+                  </Data>
+                </AddData>
+                <RelPosition x="513" y="94" />
+                <Size x="90" y="20" />
+                <ConnectionPointOut connectionPointOutId="5">
+                  <RelPosition x="90" y="10" />
+                </ConnectionPointOut>
+              </FbdObject>
+              <FbdObject xsi:type="Block" typeName="TOF" instanceName="">
+                <RelPosition x="603" y="38" />
+                <Size x="120" y="76" />
+                <InputVariables>
+                  <InputVariable parameterName="IN">
+                    <ConnectionPointIn>
+                      <RelPosition x="0" y="28" />
+                      <Connection refConnectionPointOutId="4" />
+                    </ConnectionPointIn>
+                  </InputVariable>
+                  <InputVariable parameterName="PT">
+                    <ConnectionPointIn>
+                      <RelPosition x="0" y="66" />
+                      <Connection refConnectionPointOutId="5" />
+                    </ConnectionPointIn>
+                  </InputVariable>
+                </InputVariables>
+                <OutputVariables>
+                  <OutputVariable parameterName="Q">
+                    <ConnectionPointOut connectionPointOutId="6">
+                      <RelPosition x="120" y="28" />
+                    </ConnectionPointOut>
+                  </OutputVariable>
+                  <OutputVariable parameterName="ET">
+                    <ConnectionPointOut connectionPointOutId="0">
+                      <RelPosition x="120" y="66" />
+                    </ConnectionPointOut>
+                  </OutputVariable>
+                </OutputVariables>
+              </FbdObject>
+              <LdObject xsi:type="Coil" operand="IO.Output.doCapGripperEject" edge="none" latch="none">
+                <RelPosition x="723" y="56" />
+                <Size x="180" y="20" />
+                <ConnectionPointIn>
+                  <RelPosition x="0" y="10" />
+                  <Connection refConnectionPointOutId="6" />
+                </ConnectionPointIn>
+                <ConnectionPointOut connectionPointOutId="7">
+                  <RelPosition x="180" y="10" />
+                </ConnectionPointOut>
+              </LdObject>
+              <LdObject xsi:type="RightPowerRail">
+                <RelPosition x="903" y="0" />
+                <Size x="3" y="114" />
+                <ConnectionPointIn>
+                  <RelPosition x="0" y="28" />
+                </ConnectionPointIn>
+                <ConnectionPointIn>
+                  <RelPosition x="0" y="66" />
+                  <Connection refConnectionPointOutId="7" />
+                </ConnectionPointIn>
+                <ConnectionPointIn>
+                  <RelPosition x="0" y="104" />
+                </ConnectionPointIn>
+              </LdObject>
+            </Rung>
+            <Rung evaluationOrder="12" label="CapLoss">
+              <Documentation xsi:type="SimpleText"><![CDATA[Detect if a cap has been lost]]></Documentation>
+              <LdObject xsi:type="LeftPowerRail">
+                <RelPosition x="0" y="0" />
+                <Size x="3" y="190" />
+                <ConnectionPointOut connectionPointOutId="1">
+                  <RelPosition x="3" y="28" />
+                </ConnectionPointOut>
+                <ConnectionPointOut connectionPointOutId="0">
+                  <RelPosition x="3" y="66" />
+                </ConnectionPointOut>
+                <ConnectionPointOut connectionPointOutId="0">
+                  <RelPosition x="3" y="104" />
+                </ConnectionPointOut>
+                <ConnectionPointOut connectionPointOutId="0">
+                  <RelPosition x="3" y="142" />
+                </ConnectionPointOut>
+                <ConnectionPointOut connectionPointOutId="0">
+                  <RelPosition x="3" y="180" />
+                </ConnectionPointOut>
+              </LdObject>
+              <LdObject xsi:type="Contact" operand="IO.Output.doCapGripperPick" edge="none">
+                <RelPosition x="3" y="18" />
+                <Size x="180" y="20" />
+                <ConnectionPointIn>
+                  <RelPosition x="0" y="10" />
+                  <Connection refConnectionPointOutId="1" />
+                </ConnectionPointIn>
+                <ConnectionPointOut connectionPointOutId="2">
+                  <RelPosition x="180" y="10" />
+                </ConnectionPointOut>
+              </LdObject>
+              <LdObject xsi:type="Contact" operand="Internal.Status.CapGripped" edge="falling">
+                <RelPosition x="183" y="18" />
+                <Size x="150" y="20" />
+                <ConnectionPointIn>
+                  <RelPosition x="0" y="10" />
+                  <Connection refConnectionPointOutId="2" />
+                </ConnectionPointIn>
+                <ConnectionPointOut connectionPointOutId="3">
+                  <RelPosition x="150" y="10" />
+                </ConnectionPointOut>
+              </LdObject>
+              <FbdObject xsi:type="Block" typeName="Compute">
+                <AddData>
+                  <Data name="BR_ComputeBlock" handleUnknown="implementation">
+                    <ComputeBlock><![CDATA[errorarmCAP_LOST_IN_TRANSIT]]></ComputeBlock>
+                  </Data>
+                </AddData>
+                <RelPosition x="573" y="38" />
+                <Size x="210" y="76" />
+                <InputVariables>
+                  <InputVariable parameterName="EN">
+                    <AddData>
+                      <Data name="BR_IsEnEnoParameter" handleUnknown="implementation">
+                        <IsEnEnoParameter value="true" />
+                      </Data>
+                    </AddData>
+                    <ConnectionPointIn>
+                      <RelPosition x="0" y="28" />
+                      <Connection refConnectionPointOutId="3" />
+                    </ConnectionPointIn>
+                  </InputVariable>
+                </InputVariables>
+                <OutputVariables>
+                  <OutputVariable parameterName="ENO">
+                    <AddData>
+                      <Data name="BR_IsEnEnoParameter" handleUnknown="implementation">
+                        <IsEnEnoParameter value="true" />
+                      </Data>
+                    </AddData>
+                    <ConnectionPointOut connectionPointOutId="4">
+                      <RelPosition x="210" y="28" />
+                    </ConnectionPointOut>
+                  </OutputVariable>
+                  <OutputVariable parameterName="">
+                    <ConnectionPointOut connectionPointOutId="5">
+                      <RelPosition x="210" y="66" />
+                    </ConnectionPointOut>
+                  </OutputVariable>
+                </OutputVariables>
+              </FbdObject>
+              <LdObject xsi:type="Coil" operand="IO.Output.doCapGripperPick" edge="none" latch="reset">
+                <RelPosition x="723" y="132" />
+                <Size x="180" y="20" />
+                <ConnectionPointIn>
+                  <RelPosition x="0" y="10" />
+                  <Connection refConnectionPointOutId="3" />
+                </ConnectionPointIn>
+                <ConnectionPointOut connectionPointOutId="6">
+                  <RelPosition x="180" y="10" />
+                </ConnectionPointOut>
+              </LdObject>
+              <LdObject xsi:type="Coil" operand="Internal.Status.Error" edge="none" latch="none">
+                <RelPosition x="783" y="18" />
+                <Size x="120" y="20" />
+                <ConnectionPointIn>
+                  <RelPosition x="0" y="10" />
+                  <Connection refConnectionPointOutId="3" />
+                </ConnectionPointIn>
+                <ConnectionPointOut connectionPointOutId="7">
+                  <RelPosition x="120" y="10" />
+                </ConnectionPointOut>
+              </LdObject>
+              <FbdObject xsi:type="DataSink" identifier="Internal.Status.ErrorID">
+                <AddData>
+                  <Data name="BR_AnalogValue" handleUnknown="implementation">
+                    <AnalogValue value="true" />
+                  </Data>
+                </AddData>
+                <RelPosition x="783" y="94" />
+                <Size x="120" y="20" />
+                <ConnectionPointIn>
+                  <RelPosition x="0" y="10" />
+                  <Connection refConnectionPointOutId="5" />
+                </ConnectionPointIn>
+              </FbdObject>
+              <FbdObject xsi:type="Return">
+                <RelPosition x="813" y="170" />
+                <Size x="90" y="20" />
+                <ConnectionPointIn>
+                  <RelPosition x="0" y="10" />
+                  <Connection refConnectionPointOutId="3" />
+                </ConnectionPointIn>
+              </FbdObject>
+              <LdObject xsi:type="RightPowerRail">
+                <RelPosition x="903" y="0" />
+                <Size x="3" y="190" />
+                <ConnectionPointIn>
+                  <RelPosition x="0" y="28" />
+                  <Connection refConnectionPointOutId="7" />
+                </ConnectionPointIn>
+                <ConnectionPointIn>
+                  <RelPosition x="0" y="66" />
+                  <Connection refConnectionPointOutId="4" />
+                </ConnectionPointIn>
+                <ConnectionPointIn>
+                  <RelPosition x="0" y="104" />
+                </ConnectionPointIn>
+                <ConnectionPointIn>
+                  <RelPosition x="0" y="142" />
+                  <Connection refConnectionPointOutId="6" />
+                </ConnectionPointIn>
+                <ConnectionPointIn>
+                  <RelPosition x="0" y="180" />
+                </ConnectionPointIn>
+              </LdObject>
+            </Rung>
+            <Rung evaluationOrder="13" label="IOCheck">
+              <Documentation xsi:type="SimpleText"><![CDATA[Check/report statuses based on IO]]></Documentation>
+              <LdObject xsi:type="LeftPowerRail">
+                <RelPosition x="0" y="0" />
+                <Size x="3" y="114" />
+                <ConnectionPointOut connectionPointOutId="1">
+                  <RelPosition x="3" y="28" />
+                </ConnectionPointOut>
+                <ConnectionPointOut connectionPointOutId="0">
+                  <RelPosition x="3" y="66" />
+                </ConnectionPointOut>
+                <ConnectionPointOut connectionPointOutId="0">
+                  <RelPosition x="3" y="104" />
+                </ConnectionPointOut>
+              </LdObject>
+              <LdObject xsi:type="Contact" operand="gArmInterface.Cmd.Enable" edge="none">
+                <RelPosition x="3" y="18" />
+                <Size x="150" y="20" />
+                <ConnectionPointIn>
+                  <RelPosition x="0" y="10" />
+                  <Connection refConnectionPointOutId="1" />
+                </ConnectionPointIn>
+                <ConnectionPointOut connectionPointOutId="2">
+                  <RelPosition x="150" y="10" />
+                </ConnectionPointOut>
+              </LdObject>
+              <LdObject xsi:type="Contact" operand="IO.Input.diCapGripperVacuum" edge="none">
+                <RelPosition x="153" y="18" />
+                <Size x="180" y="20" />
+                <ConnectionPointIn>
+                  <RelPosition x="0" y="10" />
+                  <Connection refConnectionPointOutId="2" />
+                </ConnectionPointIn>
+                <ConnectionPointOut connectionPointOutId="3">
+                  <RelPosition x="180" y="10" />
+                </ConnectionPointOut>
+              </LdObject>
+              <LdObject xsi:type="Contact" operand="IO.Input.diSwivelArmAtPickup" edge="none">
+                <RelPosition x="153" y="56" />
+                <Size x="180" y="20" />
+                <ConnectionPointIn>
+                  <RelPosition x="0" y="10" />
+                  <Connection refConnectionPointOutId="2" />
+                </ConnectionPointIn>
+                <ConnectionPointOut connectionPointOutId="4">
+                  <RelPosition x="180" y="10" />
+                </ConnectionPointOut>
+              </LdObject>
+              <LdObject xsi:type="Contact" operand="IO.Input.diSwivelArmAtDropoff" edge="none">
+                <RelPosition x="153" y="94" />
+                <Size x="180" y="20" />
+                <ConnectionPointIn>
+                  <RelPosition x="0" y="10" />
+                  <Connection refConnectionPointOutId="2" />
+                </ConnectionPointIn>
+                <ConnectionPointOut connectionPointOutId="5">
+                  <RelPosition x="180" y="10" />
+                </ConnectionPointOut>
+              </LdObject>
+              <LdObject xsi:type="Coil" operand="Internal.Status.ArmAtDropoff" edge="none" latch="none">
+                <RelPosition x="723" y="94" />
+                <Size x="180" y="20" />
+                <ConnectionPointIn>
+                  <RelPosition x="0" y="10" />
+                  <Connection refConnectionPointOutId="5" />
+                </ConnectionPointIn>
+                <ConnectionPointOut connectionPointOutId="6">
+                  <RelPosition x="180" y="10" />
+                </ConnectionPointOut>
+              </LdObject>
+              <LdObject xsi:type="Coil" operand="Internal.Status.CapGripped" edge="none" latch="none">
+                <RelPosition x="753" y="18" />
+                <Size x="150" y="20" />
+                <ConnectionPointIn>
+                  <RelPosition x="0" y="10" />
+                  <Connection refConnectionPointOutId="3" />
+                </ConnectionPointIn>
+                <ConnectionPointOut connectionPointOutId="7">
+                  <RelPosition x="150" y="10" />
+                </ConnectionPointOut>
+              </LdObject>
+              <LdObject xsi:type="Coil" operand="Internal.Status.ArmAtPickup" edge="none" latch="none">
+                <RelPosition x="753" y="56" />
+                <Size x="150" y="20" />
+                <ConnectionPointIn>
+                  <RelPosition x="0" y="10" />
+                  <Connection refConnectionPointOutId="4" />
+                </ConnectionPointIn>
+                <ConnectionPointOut connectionPointOutId="8">
+                  <RelPosition x="150" y="10" />
+                </ConnectionPointOut>
+              </LdObject>
+              <LdObject xsi:type="RightPowerRail">
+                <RelPosition x="903" y="0" />
+                <Size x="3" y="114" />
+                <ConnectionPointIn>
+                  <RelPosition x="0" y="28" />
+                  <Connection refConnectionPointOutId="7" />
+                </ConnectionPointIn>
+                <ConnectionPointIn>
+                  <RelPosition x="0" y="66" />
+                  <Connection refConnectionPointOutId="8" />
+                </ConnectionPointIn>
+                <ConnectionPointIn>
+                  <RelPosition x="0" y="104" />
+                  <Connection refConnectionPointOutId="6" />
+                </ConnectionPointIn>
+              </LdObject>
+            </Rung>
+            <Rung evaluationOrder="14" label="Assignments">
+              <Documentation xsi:type="SimpleText"><![CDATA[Assign cmds and statuses to/from interface and internal]]></Documentation>
+              <LdObject xsi:type="LeftPowerRail">
+                <RelPosition x="0" y="0" />
+                <Size x="3" y="152" />
+                <ConnectionPointOut connectionPointOutId="1">
+                  <RelPosition x="3" y="28" />
+                </ConnectionPointOut>
+                <ConnectionPointOut connectionPointOutId="0">
+                  <RelPosition x="3" y="66" />
+                </ConnectionPointOut>
+                <ConnectionPointOut connectionPointOutId="0">
+                  <RelPosition x="3" y="104" />
+                </ConnectionPointOut>
+                <ConnectionPointOut connectionPointOutId="0">
+                  <RelPosition x="3" y="142" />
+                </ConnectionPointOut>
+              </LdObject>
+              <LdObject xsi:type="Contact" operand="gArmInterface.Cmd.Enable" edge="none">
+                <RelPosition x="3" y="18" />
+                <Size x="150" y="20" />
+                <ConnectionPointIn>
+                  <RelPosition x="0" y="10" />
+                  <Connection refConnectionPointOutId="1" />
+                </ConnectionPointIn>
+                <ConnectionPointOut connectionPointOutId="2">
+                  <RelPosition x="150" y="10" />
+                </ConnectionPointOut>
+              </LdObject>
+              <FbdObject xsi:type="Block" typeName="Compute">
+                <AddData>
+                  <Data name="BR_ComputeBlock" handleUnknown="implementation">
+                    <ComputeBlock><![CDATA[gArmInterface.Cmd]]></ComputeBlock>
+                  </Data>
+                </AddData>
+                <RelPosition x="663" y="0" />
+                <Size x="150" y="76" />
+                <InputVariables>
+                  <InputVariable parameterName="EN">
+                    <AddData>
+                      <Data name="BR_IsEnEnoParameter" handleUnknown="implementation">
+                        <IsEnEnoParameter value="true" />
+                      </Data>
+                    </AddData>
+                    <ConnectionPointIn>
+                      <RelPosition x="0" y="28" />
+                      <Connection refConnectionPointOutId="2" />
+                    </ConnectionPointIn>
+                  </InputVariable>
+                </InputVariables>
+                <OutputVariables>
+                  <OutputVariable parameterName="ENO">
+                    <AddData>
+                      <Data name="BR_IsEnEnoParameter" handleUnknown="implementation">
+                        <IsEnEnoParameter value="true" />
+                      </Data>
+                    </AddData>
+                    <ConnectionPointOut connectionPointOutId="3">
+                      <RelPosition x="150" y="28" />
+                    </ConnectionPointOut>
+                  </OutputVariable>
+                  <OutputVariable parameterName="">
+                    <ConnectionPointOut connectionPointOutId="4">
+                      <RelPosition x="150" y="66" />
+                    </ConnectionPointOut>
+                  </OutputVariable>
+                </OutputVariables>
+              </FbdObject>
+              <FbdObject xsi:type="Block" typeName="Compute">
+                <AddData>
+                  <Data name="BR_ComputeBlock" handleUnknown="implementation">
+                    <ComputeBlock><![CDATA[Internal.Status]]></ComputeBlock>
+                  </Data>
+                </AddData>
+                <RelPosition x="663" y="76" />
+                <Size x="120" y="76" />
+                <InputVariables>
+                  <InputVariable parameterName="EN">
+                    <AddData>
+                      <Data name="BR_IsEnEnoParameter" handleUnknown="implementation">
+                        <IsEnEnoParameter value="true" />
+                      </Data>
+                    </AddData>
+                    <ConnectionPointIn>
+                      <RelPosition x="0" y="28" />
+                      <Connection refConnectionPointOutId="2" />
+                    </ConnectionPointIn>
+                  </InputVariable>
+                </InputVariables>
+                <OutputVariables>
+                  <OutputVariable parameterName="ENO">
+                    <AddData>
+                      <Data name="BR_IsEnEnoParameter" handleUnknown="implementation">
+                        <IsEnEnoParameter value="true" />
+                      </Data>
+                    </AddData>
+                    <ConnectionPointOut connectionPointOutId="5">
+                      <RelPosition x="120" y="28" />
+                    </ConnectionPointOut>
+                  </OutputVariable>
+                  <OutputVariable parameterName="">
+                    <ConnectionPointOut connectionPointOutId="6">
+                      <RelPosition x="120" y="66" />
+                    </ConnectionPointOut>
+                  </OutputVariable>
+                </OutputVariables>
+              </FbdObject>
+              <FbdObject xsi:type="DataSink" identifier="gArmInterface.Status">
+                <AddData>
+                  <Data name="BR_AnalogValue" handleUnknown="implementation">
+                    <AnalogValue value="true" />
+                  </Data>
+                </AddData>
+                <RelPosition x="783" y="132" />
+                <Size x="120" y="20" />
+                <ConnectionPointIn>
+                  <RelPosition x="0" y="10" />
+                  <Connection refConnectionPointOutId="6" />
                 </ConnectionPointIn>
               </FbdObject>
               <FbdObject xsi:type="DataSink" identifier="Internal.Cmd">
@@ -1550,15 +1810,15 @@ CODE_INFORMATION_754EF481_1721_4FA5_BF7F_DE1B91DFA69B_END]]></CodeInformation>
                     <AnalogValue value="true" />
                   </Data>
                 </AddData>
-                <RelPosition x="1083" y="132" />
+                <RelPosition x="813" y="56" />
                 <Size x="90" y="20" />
                 <ConnectionPointIn>
                   <RelPosition x="0" y="10" />
-                  <Connection refConnectionPointOutId="6" />
+                  <Connection refConnectionPointOutId="4" />
                 </ConnectionPointIn>
               </FbdObject>
               <LdObject xsi:type="RightPowerRail">
-                <RelPosition x="1173" y="0" />
+                <RelPosition x="903" y="0" />
                 <Size x="3" y="152" />
                 <ConnectionPointIn>
                   <RelPosition x="0" y="28" />
@@ -1576,7 +1836,7 @@ CODE_INFORMATION_754EF481_1721_4FA5_BF7F_DE1B91DFA69B_END]]></CodeInformation>
                 </ConnectionPointIn>
               </LdObject>
             </Rung>
-            <Rung evaluationOrder="11" label="ModuleOKRecover">
+            <Rung evaluationOrder="15" label="ModuleOKRecover">
               <Documentation xsi:type="SimpleText"><![CDATA[If X20 module(s) plugged back in return to running]]></Documentation>
               <LdObject xsi:type="LeftPowerRail">
                 <RelPosition x="0" y="0" />
@@ -1630,10 +1890,10 @@ CODE_INFORMATION_754EF481_1721_4FA5_BF7F_DE1B91DFA69B_END]]></CodeInformation>
               <FbdObject xsi:type="Block" typeName="Compute">
                 <AddData>
                   <Data name="BR_ComputeBlock" handleUnknown="implementation">
-                    <ComputeBlock><![CDATA[errorbayNONE]]></ComputeBlock>
+                    <ComputeBlock><![CDATA[errorarmNONE]]></ComputeBlock>
                   </Data>
                 </AddData>
-                <RelPosition x="933" y="76" />
+                <RelPosition x="663" y="76" />
                 <Size x="120" y="76" />
                 <InputVariables>
                   <InputVariable parameterName="EN">
@@ -1667,7 +1927,7 @@ CODE_INFORMATION_754EF481_1721_4FA5_BF7F_DE1B91DFA69B_END]]></CodeInformation>
                 </OutputVariables>
               </FbdObject>
               <LdObject xsi:type="Coil" operand="Internal.Status.ModuleOK" edge="none" latch="set">
-                <RelPosition x="1023" y="56" />
+                <RelPosition x="753" y="56" />
                 <Size x="150" y="20" />
                 <ConnectionPointIn>
                   <RelPosition x="0" y="10" />
@@ -1678,7 +1938,7 @@ CODE_INFORMATION_754EF481_1721_4FA5_BF7F_DE1B91DFA69B_END]]></CodeInformation>
                 </ConnectionPointOut>
               </LdObject>
               <LdObject xsi:type="Coil" operand="Internal.Status.Error" edge="none" latch="reset">
-                <RelPosition x="1053" y="18" />
+                <RelPosition x="783" y="18" />
                 <Size x="120" y="20" />
                 <ConnectionPointIn>
                   <RelPosition x="0" y="10" />
@@ -1694,7 +1954,7 @@ CODE_INFORMATION_754EF481_1721_4FA5_BF7F_DE1B91DFA69B_END]]></CodeInformation>
                     <AnalogValue value="true" />
                   </Data>
                 </AddData>
-                <RelPosition x="1053" y="132" />
+                <RelPosition x="783" y="132" />
                 <Size x="120" y="20" />
                 <ConnectionPointIn>
                   <RelPosition x="0" y="10" />
@@ -1702,7 +1962,7 @@ CODE_INFORMATION_754EF481_1721_4FA5_BF7F_DE1B91DFA69B_END]]></CodeInformation>
                 </ConnectionPointIn>
               </FbdObject>
               <LdObject xsi:type="RightPowerRail">
-                <RelPosition x="1173" y="0" />
+                <RelPosition x="903" y="0" />
                 <Size x="3" y="152" />
                 <ConnectionPointIn>
                   <RelPosition x="0" y="28" />
