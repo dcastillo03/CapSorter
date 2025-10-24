@@ -7,6 +7,7 @@
   <TaskClass Name="Cyclic#4">
     <Task Name="CapDetect" Source="Source.Sorting.Modules.CapDetect.CapDetect.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="Program" Source="Source.Sorting.Modules.Program.prg" Memory="UserROM" Language="IEC" Debugging="true" />
+    <Task Name="CapArmCtrl" Source="Source.Sorting.Modules.CapArmCtrl.CapArmCtrl.prg" Memory="UserROM" Language="IEC" Debugging="true" />
   </TaskClass>
   <TaskClass Name="Cyclic#5" />
   <TaskClass Name="Cyclic#6" />

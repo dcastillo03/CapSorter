@@ -1,0 +1,4 @@
+VAR
+	Internal : InternalType;
+	IO : IOType;
+END_VAR

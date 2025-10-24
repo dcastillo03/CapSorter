@@ -1,8 +1,7 @@
 (*********************************************************************************
  * Author:    	Daniel Castillo-Idrobo  
  * Created:   	October 24, 2025/10:43 AM 
- * Description: This task handles cap detection, not identification, at the entry
-				point of the sorting station.
+ * Description: This task handles the arm control which physically sorts each cap.
  *********************************************************************************)
 
 PROGRAM _INIT

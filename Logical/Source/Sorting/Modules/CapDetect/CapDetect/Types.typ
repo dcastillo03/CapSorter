@@ -5,4 +5,12 @@ TYPE
 		Status : CapDetectStatusType; (*Status type for cap detection*)
 		Par : CapDetectParType; (*Parameter type for cap detection*)
 	END_STRUCT;
+	IOType : 	STRUCT 
+		Inputs : InputsType; (*IO InputsType*)
+	END_STRUCT;
+	InputsType : 	STRUCT 
+		diProductAvailable : BOOL; (*DI mapped to hardware for if a cap is present*)
+		diMetalCap : BOOL; (*DI mapped to hardware for if a cap is metallic*)
+		diCapIsShiny : BOOL; (*DI mapped to hardware for if a cap is shiny (red or metallic)*)
+	END_STRUCT;
 END_TYPE

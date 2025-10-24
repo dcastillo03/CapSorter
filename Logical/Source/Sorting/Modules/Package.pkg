@@ -3,6 +3,7 @@
 <Package xmlns="http://br-automation.co.at/AS/Package">
   <Objects>
     <Object Type="Package" Description="Detects and identifies cap color">CapDetect</Object>
+    <Object Type="Package">CapArmCtrl</Object>
     <Object Type="Program" Language="IEC">Program</Object>
   </Objects>
 </Package>
