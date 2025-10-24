@@ -1,42 +1,41 @@
 
 TYPE
 	CapDetectCmdType : 	STRUCT 
-		Enable : BOOL;
-		Start : BOOL;
-		Stop : BOOL;
-		ErrorReset : BOOL;
+		Enable : BOOL; (*Enable command*)
+		Start : BOOL; (*Start command*)
+		Stop : BOOL; (*Stop command*)
 	END_STRUCT;
 	CapDetectStatusType : 	STRUCT 
-		Active : BOOL;
-		Done : BOOL;
-		Error : BOOL;
-		ModuleOk : BOOL;
-		Stopped : BOOL;
-		ErrorID : cdErrorEnum;
+		Active : BOOL; (*Task is active status*)
+		Done : BOOL; (*Task done status*)
+		Error : BOOL; (*Task errored status*)
+		ModuleOk : BOOL; (*DI IO slice ModuleOk status*)
+		Stopped : BOOL; (*Task stopped status*)
+		ErrorID : cdErrorEnum; (*ErrorID status*)
 	END_STRUCT;
 	CapDetectType : 	STRUCT 
-		Cmd : CapDetectCmdType;
-		Status : CapDetectStatusType;
-		Par : CapDetectParType;
+		Cmd : CapDetectCmdType; (*CommandType for cap detect structure*)
+		Status : CapDetectStatusType; (*StatusStype for cap detect structure*)
+		Par : CapDetectParType; (*ParType for cap detect structure*)
 	END_STRUCT;
 	IOType : 	STRUCT 
-		Inputs : InputsType;
+		Inputs : InputsType; (*IO InputsType*)
 	END_STRUCT;
 	InputsType : 	STRUCT 
-		diProductAvailable : BOOL;
-		diMetalCap : BOOL;
-		diCapIsShiny : BOOL;
+		diProductAvailable : BOOL; (*DI mapped to hardware for if a cap is present*)
+		diMetalCap : BOOL; (*DI mapped to hardware for if a cap is metallic*)
+		diCapIsShiny : BOOL; (*DI mapped to hardware for if a cap is shiny (red or metallic)*)
 	END_STRUCT;
 	CapDetectParType : 	STRUCT 
-		ProductAvailable : BOOL;
-		CapColor : CapColorEnum;
+		ProductAvailable : BOOL; (*Parameter for if cap is present*)
+		CapColor : CapColorEnum; (*Parameter for cap color (ENUM)*)
 	END_STRUCT;
 	CapColorEnum : 
 		(
-		cdCAP_NONE := 0,
-		cdCAP_BLACK := 1,
-		cdCAP_RED := 2,
-		cdCAP_METAL := 3
+		cdCAP_NONE := 0, (*No cap present*)
+		cdCAP_BLACK := 1, (*Cap is color black*)
+		cdCAP_RED := 2, (*Cap is color red*)
+		cdCAP_METAL := 3 (*Cap is color metallic*)
 		);
 	cdErrorEnum : 
 		(

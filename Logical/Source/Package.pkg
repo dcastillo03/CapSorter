@@ -3,6 +3,6 @@
 <Package xmlns="http://br-automation.co.at/AS/Package">
   <Objects>
     <Object Type="Package" Description="Source files for Distribution station">Distribution</Object>
-    <Object Type="Package">Sorting</Object>
+    <Object Type="Package" Description="Source files for Sorting station">Sorting</Object>
   </Objects>
 </Package>

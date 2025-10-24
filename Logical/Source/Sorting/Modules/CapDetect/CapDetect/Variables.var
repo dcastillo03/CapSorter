@@ -1,4 +1,4 @@
 VAR
-	Internal : InternalType;
-	IO : IOType;
+	Internal : InternalType; (*Internal var of InternalType*)
+	IO : IOType; (*IO var of IOType*)
 END_VAR
