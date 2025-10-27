@@ -1,6 +1,6 @@
 
 TYPE
-	BayInternalTyp : 	STRUCT 
+	BayInternalTyp : 	STRUCT  (*Internal structure for old cmds and new statuses*)
 		Cmd : BayCmdTyp;
 		Status : BayStatusTyp;
 	END_STRUCT;

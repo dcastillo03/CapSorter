@@ -81,7 +81,7 @@ R	Internal.Status.Error {CheckDataType := BOOL}
 LD	zz$$$$_1_gBayInterface_Cmd_Error
 ST	zz$$$$_2_Eno_ComputeBlock
 JMPCN ll$$$$_IF_0
-Compute!	errorbayNONE
+Compute!	errBAY_NONE
 ST	Internal.Status.ErrorID
 ll$$$$_IF_0:
 LD	zz$$$$_1_gBayInterface_Cmd_Error
@@ -108,7 +108,7 @@ R	Internal.Status.ModuleOK {CheckDataType := BOOL}
 LD	zz$$$$_5_IO_Input_InputModuleOK_
 ST	zz$$$$_6_Eno_ComputeBlock
 JMPCN ll$$$$_IF_1
-Compute!	errorbayINPUT_MODULE_NOT_OK
+Compute!	errBAY_INPUT_MODULE_NOT_OK
 ST	Internal.Status.ErrorID
 ll$$$$_IF_1:
 LD	zz$$$$_5_IO_Input_InputModuleOK_
@@ -122,7 +122,7 @@ R	Internal.Status.ModuleOK {CheckDataType := BOOL}
 LD	zz$$$$_7_IO_Input_OutputModuleOK
 ST	zz$$$$_8_Eno_ComputeBlock
 JMPCN ll$$$$_IF_2
-Compute!	errorbayOUTPUT_MODULE_NOT_OK
+Compute!	errBAY_OUTPUT_MODULE_NOT_OK
 ST	Internal.Status.ErrorID
 ll$$$$_IF_2:
 LD	zz$$$$_7_IO_Input_OutputModuleOK
@@ -146,7 +146,7 @@ S	Internal.Status.Error {CheckDataType := BOOL}
 LD	zz$$$$_11_Q_TON_
 ST	zz$$$$_12_Eno_ComputeBlock
 JMPCN ll$$$$_IF_3
-Compute!	errorbayEJECTOR_TIMEOUT
+Compute!	errBAY_EJECTOR_TIMEOUT
 ST	Internal.Status.ErrorID
 ll$$$$_IF_3:
 LD	zz$$$$_11_Q_TON_
@@ -171,7 +171,7 @@ S	Internal.Status.Error {CheckDataType := BOOL}
 LD	zz$$$$_14_Q_TON_
 ST	zz$$$$_15_Eno_ComputeBlock
 JMPCN ll$$$$_IF_4
-Compute!	errorbayEJECTOR_TIMEOUT
+Compute!	errBAY_EJECTOR_TIMEOUT
 ST	Internal.Status.ErrorID
 ll$$$$_IF_4:
 LD	zz$$$$_14_Q_TON_
@@ -215,7 +215,7 @@ S	Internal.Status.ModuleOK {CheckDataType := BOOL}
 LD	zz$$$$_20_IO_Input_OutputModuleO
 ST	zz$$$$_21_Eno_ComputeBlock
 JMPCN ll$$$$_IF_7
-Compute!	errorbayNONE
+Compute!	errBAY_NONE
 ST	Internal.Status.ErrorID
 ll$$$$_IF_7:
 
@@ -345,7 +345,7 @@ CODE_INFORMATION_754EF481_1721_4FA5_BF7F_DE1B91DFA69B_END]]></CodeInformation>
               </LineMapInfos>
             </Data>
             <Data name="BR_ChecksumInformation" handleUnknown="implementation">
-              <ChecksumInformation guid="A3044021_E131_45AC_AB9B_59041547F16C" checksum="98883AEB" />
+              <ChecksumInformation guid="A3044021_E131_45AC_AB9B_59041547F16C" checksum="CD4A2112" />
             </Data>
           </AddData>
           <BodyContent xsi:type="LD">
@@ -493,7 +493,7 @@ CODE_INFORMATION_754EF481_1721_4FA5_BF7F_DE1B91DFA69B_END]]></CodeInformation>
               <FbdObject xsi:type="Block" typeName="Compute">
                 <AddData>
                   <Data name="BR_ComputeBlock" handleUnknown="implementation">
-                    <ComputeBlock><![CDATA[errorbayNONE]]></ComputeBlock>
+                    <ComputeBlock><![CDATA[errBAY_NONE]]></ComputeBlock>
                   </Data>
                 </AddData>
                 <RelPosition x="933" y="38" />
@@ -706,7 +706,7 @@ CODE_INFORMATION_754EF481_1721_4FA5_BF7F_DE1B91DFA69B_END]]></CodeInformation>
               <FbdObject xsi:type="Block" typeName="Compute">
                 <AddData>
                   <Data name="BR_ComputeBlock" handleUnknown="implementation">
-                    <ComputeBlock><![CDATA[errorbayINPUT_MODULE_NOT_OK]]></ComputeBlock>
+                    <ComputeBlock><![CDATA[errBAY_INPUT_MODULE_NOT_OK]]></ComputeBlock>
                   </Data>
                 </AddData>
                 <RelPosition x="813" y="76" />
@@ -745,7 +745,7 @@ CODE_INFORMATION_754EF481_1721_4FA5_BF7F_DE1B91DFA69B_END]]></CodeInformation>
               <FbdObject xsi:type="Block" typeName="Compute">
                 <AddData>
                   <Data name="BR_ComputeBlock" handleUnknown="implementation">
-                    <ComputeBlock><![CDATA[errorbayOUTPUT_MODULE_NOT_OK]]></ComputeBlock>
+                    <ComputeBlock><![CDATA[errBAY_OUTPUT_MODULE_NOT_OK]]></ComputeBlock>
                   </Data>
                 </AddData>
                 <RelPosition x="813" y="266" />
@@ -1021,7 +1021,7 @@ CODE_INFORMATION_754EF481_1721_4FA5_BF7F_DE1B91DFA69B_END]]></CodeInformation>
               <FbdObject xsi:type="Block" typeName="Compute">
                 <AddData>
                   <Data name="BR_ComputeBlock" handleUnknown="implementation">
-                    <ComputeBlock><![CDATA[errorbayEJECTOR_TIMEOUT]]></ComputeBlock>
+                    <ComputeBlock><![CDATA[errBAY_EJECTOR_TIMEOUT]]></ComputeBlock>
                   </Data>
                 </AddData>
                 <RelPosition x="843" y="114" />
@@ -1254,7 +1254,7 @@ CODE_INFORMATION_754EF481_1721_4FA5_BF7F_DE1B91DFA69B_END]]></CodeInformation>
               <FbdObject xsi:type="Block" typeName="Compute">
                 <AddData>
                   <Data name="BR_ComputeBlock" handleUnknown="implementation">
-                    <ComputeBlock><![CDATA[errorbayEJECTOR_TIMEOUT]]></ComputeBlock>
+                    <ComputeBlock><![CDATA[errBAY_EJECTOR_TIMEOUT]]></ComputeBlock>
                   </Data>
                 </AddData>
                 <RelPosition x="843" y="76" />
@@ -1630,7 +1630,7 @@ CODE_INFORMATION_754EF481_1721_4FA5_BF7F_DE1B91DFA69B_END]]></CodeInformation>
               <FbdObject xsi:type="Block" typeName="Compute">
                 <AddData>
                   <Data name="BR_ComputeBlock" handleUnknown="implementation">
-                    <ComputeBlock><![CDATA[errorbayNONE]]></ComputeBlock>
+                    <ComputeBlock><![CDATA[errBAY_NONE]]></ComputeBlock>
                   </Data>
                 </AddData>
                 <RelPosition x="933" y="76" />

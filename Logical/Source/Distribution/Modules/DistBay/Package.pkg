@@ -3,7 +3,7 @@
 <Package xmlns="http://br-automation.co.at/AS/Package">
   <Objects>
     <Object Type="Program" Language="IEC" Description="Distribution bay task main logic">DistBay</Object>
-    <Object Type="File">DistBay.typ</Object>
-    <Object Type="File">DistBay.var</Object>
+    <Object Type="File" Description="Global structures for Distribution bay">DistBay.typ</Object>
+    <Object Type="File" Description="Global vars for Distribution bay">DistBay.var</Object>
   </Objects>
 </Package>

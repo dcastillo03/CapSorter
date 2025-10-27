@@ -1,10 +1,10 @@
 VAR
-	IOInput : IOInputTyp;
-	Internal : {REDUND_UNREPLICABLE} DistConveyorInterfaceTyp;
+	IOInput : IOInputTyp; (*IO Input vars*)
+	Internal : {REDUND_UNREPLICABLE} DistConveyorInterfaceTyp; (*Internal structure to hold old cmds and pass new statuses*)
 END_VAR
 VAR CONSTANT
-	CAP_TRANSIT_TIME : TIME := T#7S;
+	CAP_TRANSIT_TIME : TIME := T#7S; (*Time until cap transit will report an error*)
 END_VAR
 VAR
-	DistConveyor : AxisTyp;
+	DistConveyor : AxisTyp; (*Axis FUB and parameters*)
 END_VAR
