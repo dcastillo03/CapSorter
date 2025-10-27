@@ -1,5 +1,5 @@
 VAR
 	Internal : MoveCapType;
 	SortingConveyor : MpAxisBasic;
-	SortingConveyorPar : MpAxisBasicParType := (Velocity:=50,Acceleration:=100,Deceleration:=100,Jog:=(Velocity:=40,Acceleration:=100,Deceleration:=100));
+	SortingConveyorPar : MpAxisBasicParType := (Velocity:=150,Acceleration:=1000,Deceleration:=1000,Jog:=(Velocity:=40,Acceleration:=100,Deceleration:=100));
 END_VAR

@@ -13,4 +13,8 @@ TYPE
 		diMetalCap : BOOL; (*DI mapped to hardware for if a cap is metallic*)
 		diCapIsShiny : BOOL; (*DI mapped to hardware for if a cap is shiny (red or metallic)*)
 	END_STRUCT;
+	DelayTimerType : 	STRUCT 
+		DetectTime : TON;
+		TIME_DELAY : TIME := T#250ms;
+	END_STRUCT;
 END_TYPE

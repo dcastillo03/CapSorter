@@ -6,6 +6,8 @@ TYPE
 		Stop : BOOL; (*Stop command*)
 		MoveSwitch : BOOL; (*Command for moving switches*)
 		DoRetractStopper : BOOL; (*Command for retracting stopper*)
+		MoveFrontSwitch : BOOL; (*Command for enabling front switch*)
+		MoveBackSwitch : BOOL; (*Command for enabling rear switch*)
 	END_STRUCT;
 	CapArmCtrlParType : 	STRUCT 
 		CapColor : CapColorEnum; (*Parameter for cap color (ENUM)*)

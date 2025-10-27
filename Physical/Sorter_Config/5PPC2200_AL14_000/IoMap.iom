@@ -8,4 +8,5 @@ VAR_CONFIG
 	::CapArmCtrl:IO.Outputs.doSwitchTwo AT %QX."X20DO9322".DigitalOutput03;
 	::CapArmCtrl:IO.Outputs.doRetractStopper AT %QX."X20DO9322".DigitalOutput04;
 	::MoveCap:Internal.Status.ModuleOk AT %IX."X67SM2436".ModuleOk;
+	::CapArmCtrl:IO.Inputs.diLaneSensor AT %IX."X20DI9371".DigitalInput04;
 END_VAR
