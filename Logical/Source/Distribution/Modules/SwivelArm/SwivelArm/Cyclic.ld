@@ -80,7 +80,7 @@ R	Internal.Status.Error {CheckDataType := BOOL}
 LD	zz$$$$_1_gArmInterface_Cmd_Error
 ST	zz$$$$_2_Eno_ComputeBlock
 JMPCN ll$$$$_IF_0
-Compute!	errorarmNONE
+Compute!	errARM_NONE
 ST	Internal.Status.ErrorID
 ll$$$$_IF_0:
 LD	zz$$$$_1_gArmInterface_Cmd_Error
@@ -108,7 +108,7 @@ R	Internal.Status.ModuleOK {CheckDataType := BOOL}
 LD	zz$$$$_5_IO_Input_InputModuleOK_
 ST	zz$$$$_6_Eno_ComputeBlock
 JMPCN ll$$$$_IF_1
-Compute!	errorarmINPUT_MODULE_NOT_OK
+Compute!	errARM_INPUT_MODULE_NOT_OK
 ST	Internal.Status.ErrorID
 ll$$$$_IF_1:
 LD	zz$$$$_5_IO_Input_InputModuleOK_
@@ -122,7 +122,7 @@ R	Internal.Status.ModuleOK {CheckDataType := BOOL}
 LD	zz$$$$_7_IO_Input_OutputModuleOK
 ST	zz$$$$_8_Eno_ComputeBlock
 JMPCN ll$$$$_IF_2
-Compute!	errorarmOUTPUT_MODULE_NOT_OK
+Compute!	errARM_OUTPUT_MODULE_NOT_OK
 ST	Internal.Status.ErrorID
 ll$$$$_IF_2:
 LD	zz$$$$_7_IO_Input_OutputModuleOK
@@ -191,7 +191,7 @@ ST	zz$$$$_13_Internal_Status_CapGri
 ST	Internal.Status.Error {CheckDataType := BOOL}
 ST	zz$$$$_14_Eno_ComputeBlock
 JMPCN ll$$$$_IF_4
-Compute!	errorarmCAP_LOST_IN_TRANSIT
+Compute!	errARM_CAP_LOST_IN_TRANSIT
 ST	Internal.Status.ErrorID
 ll$$$$_IF_4:
 LD	zz$$$$_13_Internal_Status_CapGri
@@ -240,7 +240,7 @@ S	Internal.Status.ModuleOK {CheckDataType := BOOL}
 LD	zz$$$$_19_IO_Input_OutputModuleO
 ST	zz$$$$_20_Eno_ComputeBlock
 JMPCN ll$$$$_IF_7
-Compute!	errorarmNONE
+Compute!	errARM_NONE
 ST	Internal.Status.ErrorID
 ll$$$$_IF_7:
 
@@ -352,8 +352,8 @@ CODE_INFORMATION_754EF481_1721_4FA5_BF7F_DE1B91DFA69B_END]]></CodeInformation>
                 <LineMapInfo line="155" column="4" position="Net:12, Ln:1, Col:1" />
                 <LineMapInfo line="156" column="5" position="Net:12, Ln:1, Col:7" />
                 <LineMapInfo line="158" column="4" position="Net:12, Ln:1, Col:27" />
-                <LineMapInfo line="159" column="4" position="Net:12, Ln:2, Col:20 [Block input EN]" />
-                <LineMapInfo line="161" column="10" position="Net:12, Ln:2, Col:20" />
+                <LineMapInfo line="159" column="4" position="Net:12, Ln:2, Col:19 [Block input EN]" />
+                <LineMapInfo line="161" column="10" position="Net:12, Ln:2, Col:19" />
                 <LineMapInfo line="162" column="4" position="Net:12, Ln:3, Col:27" />
                 <LineMapInfo line="164" column="4" position="Net:12, Ln:1, Col:7" />
                 <LineMapInfo line="165" column="3" position="Net:12, Ln:4, Col:25" />
@@ -395,7 +395,7 @@ CODE_INFORMATION_754EF481_1721_4FA5_BF7F_DE1B91DFA69B_END]]></CodeInformation>
               </LineMapInfos>
             </Data>
             <Data name="BR_ChecksumInformation" handleUnknown="implementation">
-              <ChecksumInformation guid="A3044021_E131_45AC_AB9B_59041547F16C" checksum="F55E67EF" />
+              <ChecksumInformation guid="A3044021_E131_45AC_AB9B_59041547F16C" checksum="BBBA3214" />
             </Data>
           </AddData>
           <BodyContent xsi:type="LD">
@@ -543,7 +543,7 @@ CODE_INFORMATION_754EF481_1721_4FA5_BF7F_DE1B91DFA69B_END]]></CodeInformation>
               <FbdObject xsi:type="Block" typeName="Compute">
                 <AddData>
                   <Data name="BR_ComputeBlock" handleUnknown="implementation">
-                    <ComputeBlock><![CDATA[errorarmNONE]]></ComputeBlock>
+                    <ComputeBlock><![CDATA[errARM_NONE]]></ComputeBlock>
                   </Data>
                 </AddData>
                 <RelPosition x="663" y="38" />
@@ -774,7 +774,7 @@ CODE_INFORMATION_754EF481_1721_4FA5_BF7F_DE1B91DFA69B_END]]></CodeInformation>
               <FbdObject xsi:type="Block" typeName="Compute">
                 <AddData>
                   <Data name="BR_ComputeBlock" handleUnknown="implementation">
-                    <ComputeBlock><![CDATA[errorarmINPUT_MODULE_NOT_OK]]></ComputeBlock>
+                    <ComputeBlock><![CDATA[errARM_INPUT_MODULE_NOT_OK]]></ComputeBlock>
                   </Data>
                 </AddData>
                 <RelPosition x="543" y="76" />
@@ -813,7 +813,7 @@ CODE_INFORMATION_754EF481_1721_4FA5_BF7F_DE1B91DFA69B_END]]></CodeInformation>
               <FbdObject xsi:type="Block" typeName="Compute">
                 <AddData>
                   <Data name="BR_ComputeBlock" handleUnknown="implementation">
-                    <ComputeBlock><![CDATA[errorarmOUTPUT_MODULE_NOT_OK]]></ComputeBlock>
+                    <ComputeBlock><![CDATA[errARM_OUTPUT_MODULE_NOT_OK]]></ComputeBlock>
                   </Data>
                 </AddData>
                 <RelPosition x="543" y="266" />
@@ -1473,11 +1473,11 @@ CODE_INFORMATION_754EF481_1721_4FA5_BF7F_DE1B91DFA69B_END]]></CodeInformation>
               <FbdObject xsi:type="Block" typeName="Compute">
                 <AddData>
                   <Data name="BR_ComputeBlock" handleUnknown="implementation">
-                    <ComputeBlock><![CDATA[errorarmCAP_LOST_IN_TRANSIT]]></ComputeBlock>
+                    <ComputeBlock><![CDATA[errARM_CAP_LOST_IN_TRANSIT]]></ComputeBlock>
                   </Data>
                 </AddData>
-                <RelPosition x="573" y="38" />
-                <Size x="210" y="76" />
+                <RelPosition x="543" y="38" />
+                <Size x="240" y="76" />
                 <InputVariables>
                   <InputVariable parameterName="EN">
                     <AddData>
@@ -1499,12 +1499,12 @@ CODE_INFORMATION_754EF481_1721_4FA5_BF7F_DE1B91DFA69B_END]]></CodeInformation>
                       </Data>
                     </AddData>
                     <ConnectionPointOut connectionPointOutId="4">
-                      <RelPosition x="210" y="28" />
+                      <RelPosition x="240" y="28" />
                     </ConnectionPointOut>
                   </OutputVariable>
                   <OutputVariable parameterName="">
                     <ConnectionPointOut connectionPointOutId="5">
-                      <RelPosition x="210" y="66" />
+                      <RelPosition x="240" y="66" />
                     </ConnectionPointOut>
                   </OutputVariable>
                 </OutputVariables>
@@ -1890,7 +1890,7 @@ CODE_INFORMATION_754EF481_1721_4FA5_BF7F_DE1B91DFA69B_END]]></CodeInformation>
               <FbdObject xsi:type="Block" typeName="Compute">
                 <AddData>
                   <Data name="BR_ComputeBlock" handleUnknown="implementation">
-                    <ComputeBlock><![CDATA[errorarmNONE]]></ComputeBlock>
+                    <ComputeBlock><![CDATA[errARM_NONE]]></ComputeBlock>
                   </Data>
                 </AddData>
                 <RelPosition x="663" y="76" />

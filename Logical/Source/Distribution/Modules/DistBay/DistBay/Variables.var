@@ -1,7 +1,7 @@
 VAR
-	Internal : BayInternalTyp;
-	IO : BayIOTyp;
+	Internal : BayInternalTyp; (*Internal structure to store old cmds and new statuses*)
+	IO : BayIOTyp; (*IO structure for reading/writing IO*)
 END_VAR
 VAR CONSTANT
-	TimeoutTime : TIME := T#2S;
+	TimeoutTime : TIME := T#2S; (*Time until ejection rod will report timeout error*)
 END_VAR

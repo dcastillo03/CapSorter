@@ -2,8 +2,8 @@
 <?AutomationStudio FileVersion="4.9"?>
 <Package xmlns="http://br-automation.co.at/AS/Package">
   <Objects>
-    <Object Type="Package" Description="Distribution bay (Ejection cylinder and magazine)">DistBay</Object>
-    <Object Type="Package" Description="Swivel Arm w/ vacuum gripper">SwivelArm</Object>
-    <Object Type="Package" Description="Distribution Conveyor">DistConveyor</Object>
+    <Object Type="Package" Description="Distribution bay (Ejection cylinder and magazine) control task">DistBay</Object>
+    <Object Type="Package" Description="Swivel Arm w/ vacuum gripper control task">SwivelArm</Object>
+    <Object Type="Package" Description="Distribution Conveyor control task">DistConveyor</Object>
   </Objects>
 </Package>
