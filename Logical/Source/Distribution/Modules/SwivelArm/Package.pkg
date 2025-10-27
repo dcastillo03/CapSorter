@@ -2,8 +2,8 @@
 <?AutomationStudio FileVersion="4.9"?>
 <Package xmlns="http://br-automation.co.at/AS/Package">
   <Objects>
-    <Object Type="Program" Language="IEC">SwivelArm</Object>
-    <Object Type="File">SwivelArm.typ</Object>
-    <Object Type="File">SwivelArm.var</Object>
+    <Object Type="Program" Language="IEC" Description="Swivel Arm task main logic">SwivelArm</Object>
+    <Object Type="File" Description="Global structures for Swivel arm">SwivelArm.typ</Object>
+    <Object Type="File" Description="Global variables for Swivel arm">SwivelArm.var</Object>
   </Objects>
 </Package>

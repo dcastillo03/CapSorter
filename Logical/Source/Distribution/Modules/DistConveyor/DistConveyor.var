@@ -1,0 +1,3 @@
+VAR
+	gDistConveyorInterface : DistConveyorInterfaceTyp; (*Interface to interact with module*)
+END_VAR
