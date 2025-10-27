@@ -14,4 +14,7 @@ VAR_CONFIG
 	::SwivelArm:IO.Output.doCapGripperEject AT %QX."X20DO9322".DigitalOutput03;
 	::SwivelArm:IO.Output.doSwivelArmBwd AT %QX."X20DO9322".DigitalOutput04;
 	::SwivelArm:IO.Output.doSwivelArmFwd AT %QX."X20DO9322".DigitalOutput05;
+	::DistConvey:IOInput.CapAtDropOff AT %IX."X67SM2436".TriggerInput01;
+	::DistConvey:IOInput.CapAtExit AT %IX."X67SM2436".StatusInput01;
+	::DistConvey:IOInput.ModuleOK AT %IX."X67SM2436".ModuleOk;
 END_VAR

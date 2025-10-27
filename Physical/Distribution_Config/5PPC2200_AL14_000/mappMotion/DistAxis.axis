@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio FileVersion="4.9"?>
+<Configuration>
+  <Element ID="gDistributionAxis" Type="axis">
+    <Selector ID="BaseType" Value="Linear" />
+    <Selector ID="MovementLimits">
+      <Selector ID="Velocity">
+        <Property ID="Velocity" Value="500" />
+      </Selector>
+      <Selector ID="Acceleration">
+        <Property ID="Acceleration" Value="300" />
+      </Selector>
+      <Selector ID="Deceleration">
+        <Property ID="Deceleration" Value="300" />
+      </Selector>
+    </Selector>
+  </Element>
+</Configuration>

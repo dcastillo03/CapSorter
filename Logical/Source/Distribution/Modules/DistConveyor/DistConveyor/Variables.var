@@ -1,0 +1,10 @@
+VAR
+	IOInput : IOInputTyp;
+	Internal : {REDUND_UNREPLICABLE} DistConveyorInterfaceTyp;
+END_VAR
+VAR CONSTANT
+	CAP_TRANSIT_TIME : TIME := T#7S;
+END_VAR
+VAR
+	DistConveyor : AxisTyp;
+END_VAR

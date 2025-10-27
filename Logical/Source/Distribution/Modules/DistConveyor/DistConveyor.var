@@ -1,0 +1,3 @@
+VAR
+	gDistConveyorInterface : DistConveyorInterfaceTyp;
+END_VAR
