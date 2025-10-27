@@ -10,11 +10,6 @@ TYPE
 	CapArmCtrlParType : 	STRUCT 
 		CapColor : CapColorEnum; (*Parameter for cap color (ENUM)*)
 		ProductAvailable : BOOL; (*Parameter for if a cap is available*)
-		CapIsMetal : BOOL; (*Parameter for cap being metal*)
-		CapIsRed : BOOL; (*Parameter for cap being red*)
-		CapIsBlack : BOOL; (*Parameter for cap being black*)
-		CapIsSorted : BOOL; (*Parameter for if the cap has been sorted*)
-		CapIdentified : BOOL; (*Parameter for cap being identified*)
 	END_STRUCT;
 	CapArmCtrlStatusType : 	STRUCT 
 		Active : BOOL; (*Task is active status*)
@@ -22,6 +17,8 @@ TYPE
 		Error : BOOL; (*Task errored status*)
 		ModuleOk : BOOL; (*DI IO slice ModuleOk status*)
 		Stopped : BOOL; (*Task stopped status*)
+		CapIsSorted : BOOL; (*Parameter for if the cap has been sorted*)
+		CapIdentified : BOOL; (*Parameter for cap being identified*)
 		ErrorID : CapArmCtrlErrorEnum; (*ErrorID status*)
 	END_STRUCT;
 	CapArmCtrlType : 	STRUCT 

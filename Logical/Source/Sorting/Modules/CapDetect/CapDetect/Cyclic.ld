@@ -82,7 +82,7 @@ IdentifyState:
 LD	TRUE
 ST	zz$$$$_3_Eno_ComputeBlock
 JMPCN ll$$$$_IF_0
-Compute!	cdCAP_NONE
+Compute!	ccCAP_NONE
 ST	Internal.Par.CapColor
 ll$$$$_IF_0:
 LD	zz$$$$_3_Eno_ComputeBlock
@@ -96,7 +96,7 @@ S	Internal.Status.Done {CheckDataType := BOOL}
 LD	zz$$$$_5_IO_Inputs_diCapIsShiny_
 ST	zz$$$$_6_Eno_ComputeBlock
 JMPCN ll$$$$_IF_1
-Compute!	cdCAP_METAL
+Compute!	ccCAP_METAL
 ST	Internal.Par.CapColor
 ll$$$$_IF_1:
 LD	zz$$$$_4_Internal_Par_ProductAva
@@ -107,7 +107,7 @@ S	Internal.Status.Done {CheckDataType := BOOL}
 LD	zz$$$$_7_IO_Inputs_diMetalCap_An
 ST	zz$$$$_8_Eno_ComputeBlock
 JMPCN ll$$$$_IF_2
-Compute!	cdCAP_RED
+Compute!	ccCAP_RED
 ST	Internal.Par.CapColor
 ll$$$$_IF_2:
 LD	zz$$$$_4_Internal_Par_ProductAva
@@ -118,7 +118,7 @@ S	Internal.Status.Done {CheckDataType := BOOL}
 LD	zz$$$$_9_IO_Inputs_diMetalCap_An
 ST	zz$$$$_10_Eno_ComputeBlock
 JMPCN ll$$$$_IF_3
-Compute!	cdCAP_BLACK
+Compute!	ccCAP_BLACK
 ST	Internal.Par.CapColor
 ll$$$$_IF_3:
 
@@ -308,7 +308,7 @@ CODE_INFORMATION_754EF481_1721_4FA5_BF7F_DE1B91DFA69B_END]]></CodeInformation>
               </LineMapInfos>
             </Data>
             <Data name="BR_ChecksumInformation" handleUnknown="implementation">
-              <ChecksumInformation guid="A3044021_E131_45AC_AB9B_59041547F16C" checksum="8D4EC0A5" />
+              <ChecksumInformation guid="A3044021_E131_45AC_AB9B_59041547F16C" checksum="AF81FB17" />
             </Data>
           </AddData>
           <BodyContent xsi:type="LD">
@@ -518,7 +518,7 @@ CODE_INFORMATION_754EF481_1721_4FA5_BF7F_DE1B91DFA69B_END]]></CodeInformation>
               <FbdObject xsi:type="Block" typeName="Compute">
                 <AddData>
                   <Data name="BR_ComputeBlock" handleUnknown="implementation">
-                    <ComputeBlock><![CDATA[cdCAP_NONE]]></ComputeBlock>
+                    <ComputeBlock><![CDATA[ccCAP_NONE]]></ComputeBlock>
                   </Data>
                 </AddData>
                 <RelPosition x="33" y="0" />
@@ -648,7 +648,7 @@ CODE_INFORMATION_754EF481_1721_4FA5_BF7F_DE1B91DFA69B_END]]></CodeInformation>
               <FbdObject xsi:type="Block" typeName="Compute">
                 <AddData>
                   <Data name="BR_ComputeBlock" handleUnknown="implementation">
-                    <ComputeBlock><![CDATA[cdCAP_METAL]]></ComputeBlock>
+                    <ComputeBlock><![CDATA[ccCAP_METAL]]></ComputeBlock>
                   </Data>
                 </AddData>
                 <RelPosition x="723" y="38" />
@@ -687,7 +687,7 @@ CODE_INFORMATION_754EF481_1721_4FA5_BF7F_DE1B91DFA69B_END]]></CodeInformation>
               <FbdObject xsi:type="Block" typeName="Compute">
                 <AddData>
                   <Data name="BR_ComputeBlock" handleUnknown="implementation">
-                    <ComputeBlock><![CDATA[cdCAP_RED]]></ComputeBlock>
+                    <ComputeBlock><![CDATA[ccCAP_RED]]></ComputeBlock>
                   </Data>
                 </AddData>
                 <RelPosition x="723" y="152" />
@@ -726,7 +726,7 @@ CODE_INFORMATION_754EF481_1721_4FA5_BF7F_DE1B91DFA69B_END]]></CodeInformation>
               <FbdObject xsi:type="Block" typeName="Compute">
                 <AddData>
                   <Data name="BR_ComputeBlock" handleUnknown="implementation">
-                    <ComputeBlock><![CDATA[cdCAP_BLACK]]></ComputeBlock>
+                    <ComputeBlock><![CDATA[ccCAP_BLACK]]></ComputeBlock>
                   </Data>
                 </AddData>
                 <RelPosition x="723" y="266" />

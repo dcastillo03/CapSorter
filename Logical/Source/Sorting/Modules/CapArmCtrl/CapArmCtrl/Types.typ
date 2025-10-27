@@ -17,4 +17,9 @@ TYPE
 	InputType : 	STRUCT 
 		diLaneSensor : BOOL; (*Sensor detects if a cap passed through*)
 	END_STRUCT;
+	CapColorType : 	STRUCT 
+		Metal : BOOL; (*Parameter for cap being metal*)
+		Red : BOOL; (*Parameter for cap being red*)
+		Black : BOOL; (*Parameter for cap being black*)
+	END_STRUCT;
 END_TYPE
