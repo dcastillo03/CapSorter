@@ -10,9 +10,11 @@ TYPE
 	CapArmCtrlParType : 	STRUCT 
 		CapColor : CapColorEnum; (*Parameter for cap color (ENUM)*)
 		ProductAvailable : BOOL; (*Parameter for if a cap is available*)
-		CapIsMetal : BOOL;
-		CapIsRed : BOOL;
-		CapIsBlack : BOOL;
+		CapIsMetal : BOOL; (*Parameter for cap being metal*)
+		CapIsRed : BOOL; (*Parameter for cap being red*)
+		CapIsBlack : BOOL; (*Parameter for cap being black*)
+		CapIsSorted : BOOL; (*Parameter for if the cap has been sorted*)
+		CapIdentified : BOOL; (*Parameter for cap being identified*)
 	END_STRUCT;
 	CapArmCtrlStatusType : 	STRUCT 
 		Active : BOOL; (*Task is active status*)

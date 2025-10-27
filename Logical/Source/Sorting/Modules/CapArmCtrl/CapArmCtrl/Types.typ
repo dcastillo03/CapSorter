@@ -12,5 +12,9 @@ TYPE
 	END_STRUCT;
 	IOType : 	STRUCT 
 		Outputs : OutputType; (*Output types*)
+		Inputs : InputType;
+	END_STRUCT;
+	InputType : 	STRUCT 
+		diLaneSensor : BOOL; (*Sensor detects if a cap passed through*)
 	END_STRUCT;
 END_TYPE

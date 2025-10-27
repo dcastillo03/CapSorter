@@ -27,11 +27,4 @@ TYPE
 		cdERROR_NONE := 0, (*No errors*)
 		cdERROR_MODULE_NOT_OK := -1000 (*DI Module not detected*)
 		);
-	CapColorEnum : 
-		(
-		cdCAP_NONE := 0, (*No cap present*)
-		cdCAP_BLACK := 1, (*Cap is color black*)
-		cdCAP_RED := 2, (*Cap is color red*)
-		cdCAP_METAL := 3 (*Cap is color metallic*)
-		);
 END_TYPE
