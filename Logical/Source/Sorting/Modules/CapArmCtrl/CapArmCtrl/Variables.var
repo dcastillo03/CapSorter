@@ -1,0 +1,5 @@
+VAR
+	Internal : InternalType;
+	IO : IOType;
+	CapColor : CapColorType;
+END_VAR

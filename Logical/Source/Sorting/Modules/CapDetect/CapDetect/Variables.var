@@ -1,4 +1,5 @@
 VAR
 	Internal : InternalType; (*Internal var of InternalType*)
 	IO : IOType; (*IO var of IOType*)
+	Timer : DelayTimerType; (*Timer used to delay cap detection*)
 END_VAR

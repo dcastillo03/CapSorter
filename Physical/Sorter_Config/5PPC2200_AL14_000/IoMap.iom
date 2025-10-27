@@ -3,4 +3,10 @@ VAR_CONFIG
 	::CapDetect:IO.Inputs.diProductAvailable AT %IX."X20DI9371".DigitalInput01;
 	::CapDetect:IO.Inputs.diMetalCap AT %IX."X20DI9371".DigitalInput02;
 	::CapDetect:IO.Inputs.diCapIsShiny AT %IX."X20DI9371".DigitalInput03;
+	::CapArmCtrl:Internal.Status.ModuleOk AT %IX."X20DO9322".ModuleOk;
+	::CapArmCtrl:IO.Outputs.doSwitchOne AT %QX."X20DO9322".DigitalOutput02;
+	::CapArmCtrl:IO.Outputs.doSwitchTwo AT %QX."X20DO9322".DigitalOutput03;
+	::CapArmCtrl:IO.Outputs.doRetractStopper AT %QX."X20DO9322".DigitalOutput04;
+	::MoveCap:Internal.Status.ModuleOk AT %IX."X67SM2436".ModuleOk;
+	::CapArmCtrl:IO.Inputs.diLaneSensor AT %IX."X20DI9371".DigitalInput04;
 END_VAR

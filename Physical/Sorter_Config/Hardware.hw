@@ -4,7 +4,7 @@
   <Module Name="5ACCIF01.FPLK-000" Type="5ACCIF01.FPLK-000" Version="1.9.0.0">
     <Connection Connector="SL" TargetModule="5PPC2200_AL14_000" TargetConnector="SL1" />
     <Connector Name="IF1">
-      <Parameter ID="CycleTime" Value="400" />
+      <Parameter ID="CycleTime" Value="1000" />
     </Connector>
     <Parameter ID="Supervision" Value="off" />
   </Module>
@@ -35,6 +35,8 @@
       <Parameter ID="AssignedOperatingSystem" Value="GPOS" />
     </Connector>
     <Parameter ID="ConfigurationID" Value="CapSorter_Sorter_Config" />
+    <Parameter ID="Cyclic1Duration" Value="1000" />
+    <Parameter ID="Cyclic1Tolerance" Value="1000" />
     <Group ID="FileDevice1" />
     <Parameter ID="FileDeviceName1" Value="USER" />
     <Parameter ID="FileDevicePath1" Value="USER_PATH" />
@@ -43,12 +45,11 @@
     <Parameter ID="ActivateSdm" Value="1" />
     <Parameter ID="ActivateHypervisor" Value="1" />
   </Module>
-  <Module Name="OpcUa_any" Type="OpcUa_any" Version="2.0.0.1">
-    <Connection Connector="ETH1" TargetModule="5PPC2200_AL14_000" TargetConnector="IF3">
-      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
-    </Connection>
+  <Module Name="X20BB80" Type="X20BB80" Version="1.1.0.0">
+    <Connector Name="IF1">
+      <Parameter ID="CycleTime" Value="1000" />
+    </Connector>
   </Module>
-  <Module Name="X20BB80" Type="X20BB80" Version="1.1.0.0" />
   <Module Name="X20BC0083" Type="X20BC0083" Version="2.16.1.0" NodeNumber="1">
     <Connection Connector="PLK1" TargetModule="5ACCIF01.FPLK-000" TargetConnector="IF1">
       <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
@@ -112,5 +113,9 @@
       <Cable Type="X2XCable" Length="10" Version="1.0.0.3" />
     </Connection>
     <Parameter ID="Supervision" Value="off" />
+    <Parameter ID="AxisReference" Location="FunctionModel/DriveConfiguration/Channel[1]/RealAxis" Value="gSortingConveyor" />
+    <Parameter ID="ReferenceDistance" Location="FunctionModel/DriveConfiguration/Channel[1]/RealAxis/MechanicalElements/RotaryToLinearTransformation" Value="30" />
+    <Parameter ID="ConstantSpeedCurrent" Location="FunctionModel/DriveConfiguration/Channel[1]/RealAxis/Controller/Mode/Current" Value="1.9" />
+    <Parameter ID="SpeedChangeCurrent" Location="FunctionModel/DriveConfiguration/Channel[1]/RealAxis/Controller/Mode/Current" Value="2.5" />
   </Module>
 </Hardware>

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <?AutomationStudio FileVersion="4.9"?>
 <Configuration>
-  <Element ID="gConveyor" Type="axis">
+  <Element ID="gSortingConveyor" Type="axis">
     <Selector ID="BaseType" Value="Linear" />
     <Selector ID="Alarms" Value="MpAlarmX" />
   </Element>

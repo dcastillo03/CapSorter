@@ -18,25 +18,10 @@ TYPE
 		Status : CapDetectStatusType; (*StatusStype for cap detect structure*)
 		Par : CapDetectParType; (*ParType for cap detect structure*)
 	END_STRUCT;
-	IOType : 	STRUCT 
-		Inputs : InputsType; (*IO InputsType*)
-	END_STRUCT;
-	InputsType : 	STRUCT 
-		diProductAvailable : BOOL; (*DI mapped to hardware for if a cap is present*)
-		diMetalCap : BOOL; (*DI mapped to hardware for if a cap is metallic*)
-		diCapIsShiny : BOOL; (*DI mapped to hardware for if a cap is shiny (red or metallic)*)
-	END_STRUCT;
 	CapDetectParType : 	STRUCT 
 		ProductAvailable : BOOL; (*Parameter for if cap is present*)
 		CapColor : CapColorEnum; (*Parameter for cap color (ENUM)*)
 	END_STRUCT;
-	CapColorEnum : 
-		(
-		cdCAP_NONE := 0, (*No cap present*)
-		cdCAP_BLACK := 1, (*Cap is color black*)
-		cdCAP_RED := 2, (*Cap is color red*)
-		cdCAP_METAL := 3 (*Cap is color metallic*)
-		);
 	cdErrorEnum : 
 		(
 		cdERROR_NONE := 0, (*No errors*)

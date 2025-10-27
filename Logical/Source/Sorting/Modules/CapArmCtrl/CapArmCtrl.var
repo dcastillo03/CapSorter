@@ -1,0 +1,3 @@
+VAR
+	gCapArmCtrl : CapArmCtrlType;
+END_VAR
