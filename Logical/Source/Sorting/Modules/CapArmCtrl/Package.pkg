@@ -4,6 +4,6 @@
   <Objects>
     <Object Type="File" Description="Global types for cap arm ctrl">CapArmCtrl.typ</Object>
     <Object Type="File" Description="Global vars for cap arm ctrl">CapArmCtrl.var</Object>
-    <Object Type="Program" Language="IEC">CapArmCtrl</Object>
+    <Object Type="Program" Language="IEC" Description="Ladder task for moving arms and stopper">CapArmCtrl</Object>
   </Objects>
 </Package>

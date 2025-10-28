@@ -16,8 +16,8 @@
       <Group ID="MessageSecurity">
         <Group ID="SecurityPolicies">
           <Property ID="None" Value="1" />
-          <Property ID="Basic128Rsa15" Value="0" />
-          <Property ID="Basic256" Value="0" />
+          <Property ID="Basic128Rsa15" Value="1" />
+          <Property ID="Basic256" Value="1" />
           <Property ID="Aes128Sha256RsaOaep" Value="1" />
           <Property ID="Basic256Sha256" Value="1" />
         </Group>
@@ -28,14 +28,15 @@
       </Group>
       <Group ID="Authentication">
         <Group ID="SecurityPolicies">
-          <Property ID="Basic128Rsa15" Value="0" />
-          <Property ID="Basic256" Value="0" />
+          <Property ID="Basic128Rsa15" Value="1" />
+          <Property ID="Basic256" Value="1" />
           <Property ID="Aes128Sha256RsaOaep" Value="1" />
           <Property ID="Basic256Sha256" Value="1" />
         </Group>
         <Group ID="UserIdentityTokens">
           <Property ID="AnonymousIdentityToken" Value="1" />
           <Property ID="UserNameIdentityToken" Value="1" />
+          <Property ID="X509IdentityToken" Value="0" />
         </Group>
       </Group>
       <Group ID="Authorization">
