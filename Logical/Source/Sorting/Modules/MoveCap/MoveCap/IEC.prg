@@ -4,7 +4,6 @@
   <Files>
     <File Description="Cyclic code">Cyclic.ld</File>
     <File Description="Initialization code">Init.ld</File>
-    <File Description="Exit code">Exit.ld</File>
     <File Description="Local data types" Private="true">Types.typ</File>
     <File Description="Local variables" Private="true">Variables.var</File>
   </Files>

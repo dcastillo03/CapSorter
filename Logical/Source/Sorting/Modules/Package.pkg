@@ -5,6 +5,5 @@
     <Object Type="Package" Description="Detects and identifies cap color">CapDetect</Object>
     <Object Type="Package">CapArmCtrl</Object>
     <Object Type="Package">MoveCap</Object>
-    <Object Type="Package">Manager</Object>
   </Objects>
 </Package>
