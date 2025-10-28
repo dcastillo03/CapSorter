@@ -40,6 +40,56 @@
     <Connection Connector="ETH1" TargetModule="5PPC2200_AL14_000" TargetConnector="IF3">
       <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
     </Connection>
+    <Parameter ID="ServerEndpointUrl" Value="opc.tcp://192.168.68.70:4840" />
+    <Parameter ID="SecurityMsgMode" Value="1" />
+    <Parameter ID="SecurityPolicy" Value="1" />
+    <Group ID="Channel1" />
+    <Parameter ID="ChannelID1" Value="InClear" />
+    <Parameter ID="ChannelIdentification1" Value="NodeId" />
+    <Parameter ID="ChannelNodeId1" Value="ns=5;s=::Communicat:IO.Outputs.Cmd.Clear" />
+    <Group ID="Channel2" />
+    <Parameter ID="ChannelID2" Value="InStart" />
+    <Parameter ID="ChannelIdentification2" Value="NodeId" />
+    <Parameter ID="ChannelNodeId2" Value="ns=5;s=::Communicat:IO.Outputs.Cmd.Start" />
+    <Group ID="Channel3" />
+    <Parameter ID="ChannelID3" Value="InStop" />
+    <Parameter ID="ChannelIdentification3" Value="NodeId" />
+    <Parameter ID="ChannelNodeId3" Value="ns=5;s=::Communicat:IO.Outputs.Cmd.Stop" />
+    <Group ID="Channel4" />
+    <Parameter ID="ChannelID4" Value="InDistAutoStart" />
+    <Parameter ID="ChannelIdentification4" Value="NodeId" />
+    <Parameter ID="ChannelNodeId4" Value="ns=5;s=::Communicat:IO.Outputs.Par.DistAutoStart" />
+    <Group ID="Channel5" />
+    <Parameter ID="ChannelID5" Value="InSortAutoStart" />
+    <Parameter ID="ChannelIdentification5" Value="NodeId" />
+    <Parameter ID="ChannelNodeId5" Value="ns=5;s=::Communicat:IO.Outputs.Par.SortAutoStart" />
+    <Group ID="Channel6" />
+    <Parameter ID="ChannelID6" Value="InBlackCapCount" />
+    <Parameter ID="ChannelIdentification6" Value="NodeId" />
+    <Parameter ID="ChannelNodeId6" Value="ns=5;s=::Communicat:IO.Outputs.Status.BlackCapCount" />
+    <Parameter ID="ChannelType6" Value="UDINT" />
+    <Group ID="Channel7" />
+    <Parameter ID="ChannelID7" Value="InRedCapCount" />
+    <Parameter ID="ChannelIdentification7" Value="NodeId" />
+    <Parameter ID="ChannelNodeId7" Value="ns=5;s=::Communicat:IO.Outputs.Status.RedCapCount" />
+    <Parameter ID="ChannelType7" Value="UDINT" />
+    <Group ID="Channel8" />
+    <Parameter ID="ChannelID8" Value="InMetalCapCount" />
+    <Parameter ID="ChannelIdentification8" Value="NodeId" />
+    <Parameter ID="ChannelNodeId8" Value="ns=5;s=::Communicat:IO.Outputs.Status.MetalCapCount" />
+    <Parameter ID="ChannelType8" Value="UDINT" />
+    <Group ID="Channel9" />
+    <Parameter ID="ChannelID9" Value="InCapSorted" />
+    <Parameter ID="ChannelIdentification9" Value="NodeId" />
+    <Parameter ID="ChannelNodeId9" Value="ns=5;s=::Communicat:IO.Outputs.Status.CapSorted" />
+    <Group ID="Channel10" />
+    <Parameter ID="ChannelID10" Value="InError" />
+    <Parameter ID="ChannelIdentification10" Value="NodeId" />
+    <Parameter ID="ChannelNodeId10" Value="ns=5;s=::Communicat:IO.Outputs.Status.Error" />
+    <Group ID="Channel11" />
+    <Parameter ID="ChannelID11" Value="InReady" />
+    <Parameter ID="ChannelIdentification11" Value="NodeId" />
+    <Parameter ID="ChannelNodeId11" Value="ns=5;s=::Communicat:IO.Outputs.Status.Ready" />
   </Module>
   <Module Name="X20BB80" Type="X20BB80" Version="1.1.0.0" />
   <Module Name="X20BC0083" Type="X20BC0083" Version="2.16.1.0">
