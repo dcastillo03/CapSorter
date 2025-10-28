@@ -22,6 +22,7 @@ TYPE
 		ModuleOk : BOOL; (*DI IO slice ModuleOk status*)
 		Stopped : BOOL; (*Task stopped status*)
 		ErrorID : ManagerErrorEnum; (*ErrorID status*)
+		TooFull : BOOL; (*Status for a lane being too full*)
 	END_STRUCT;
 	ManagerType : 	STRUCT 
 		Cmd : ManagerCmdType; (*Command type for cap arm ctrl structure*)
