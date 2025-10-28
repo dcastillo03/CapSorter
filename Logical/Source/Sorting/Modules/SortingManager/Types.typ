@@ -3,6 +3,8 @@ TYPE
 	ManagerCmdType : 	STRUCT 
 		Start : BOOL; (*Start command*)
 		Stop : BOOL; (*Stop command*)
+		JogFwd : BOOL; (*Jog foward command*)
+		JogBkwd : BOOL; (*Jog backward command*)
 	END_STRUCT;
 	ManagerErrorEnum : 
 		(

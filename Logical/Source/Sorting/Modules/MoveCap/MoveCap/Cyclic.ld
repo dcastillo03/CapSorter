@@ -38,10 +38,11 @@ VAR
 	zz$$$$_2_Eno_ComputeBlock : BOOL;
 	zz$$$$_3_Internal_Status_ModuleO : BOOL;
 	zz$$$$_4_Eno_ComputeBlock : BOOL;
-	zz$$$$_5_gMoveCap_Cmd_Enable_And : BOOL;
-	zz$$$$_6_Eno_ComputeBlock : BOOL;
+	zz$$$$_5_Internal_Status_Active_ : BOOL;
+	zz$$$$_6_gMoveCap_Cmd_Enable_And : BOOL;
 	zz$$$$_7_Eno_ComputeBlock : BOOL;
 	zz$$$$_8_Eno_ComputeBlock : BOOL;
+	zz$$$$_9_Eno_ComputeBlock : BOOL;
 END_VAR
 
 
@@ -61,12 +62,10 @@ ANDN	Internal.Cmd.Stop {CheckDataType := BOOL}
 AND	Internal.Cmd.MoveFwd {CheckDataType := BOOL}
 ST	SortingConveyor.MoveVelocity
 LD	Internal.Status.Active {CheckDataType := BOOL}
-ANDN	Internal.Cmd.Stop {CheckDataType := BOOL}
 ANDN	Internal.Cmd.MoveFwd {CheckDataType := BOOL}
 AND	Internal.Cmd.JogFwd {CheckDataType := BOOL}
 ST	SortingConveyor.JogPositive
 LD	Internal.Status.Active {CheckDataType := BOOL}
-ANDN	Internal.Cmd.Stop {CheckDataType := BOOL}
 ANDN	Internal.Cmd.MoveFwd {CheckDataType := BOOL}
 AND	Internal.Cmd.JogBkwd {CheckDataType := BOOL}
 ST	SortingConveyor.JogNegative
@@ -104,22 +103,32 @@ ST	Internal.Status.ErrorID
 ll$$$$_IF_1:
 
 {NetworkNumber := 3}
+StopStatusAssignment:
+LD	Internal.Status.Active {CheckDataType := BOOL}
+ST	zz$$$$_5_Internal_Status_Active_
+AND	Internal.Cmd.Stop {CheckDataType := BOOL}
+S	Internal.Status.Stopped {CheckDataType := BOOL}
+LD	zz$$$$_5_Internal_Status_Active_
+ANDN	Internal.Cmd.Stop {CheckDataType := BOOL}
+R	Internal.Status.Stopped {CheckDataType := BOOL}
+
+{NetworkNumber := 4}
 Assignments:
 LD	gMoveCap.Cmd.Enable {CheckDataType := BOOL}
-ST	zz$$$$_5_gMoveCap_Cmd_Enable_And
-ST	zz$$$$_6_Eno_ComputeBlock
+ST	zz$$$$_6_gMoveCap_Cmd_Enable_And
+ST	zz$$$$_7_Eno_ComputeBlock
 JMPCN ll$$$$_IF_2
 Compute!	gMoveCap.Cmd
 ST	Internal.Cmd
 ll$$$$_IF_2:
-LD	zz$$$$_5_gMoveCap_Cmd_Enable_And
-ST	zz$$$$_7_Eno_ComputeBlock
+LD	zz$$$$_6_gMoveCap_Cmd_Enable_And
+ST	zz$$$$_8_Eno_ComputeBlock
 JMPCN ll$$$$_IF_3
 Compute!	Internal.Par
 ST	gMoveCap.Par
 ll$$$$_IF_3:
-LD	zz$$$$_5_gMoveCap_Cmd_Enable_And
-ST	zz$$$$_8_Eno_ComputeBlock
+LD	zz$$$$_6_gMoveCap_Cmd_Enable_And
+ST	zz$$$$_9_Eno_ComputeBlock
 JMPCN ll$$$$_IF_4
 Compute!	Internal.Status
 ST	gMoveCap.Status
@@ -131,74 +140,80 @@ CODE_INFORMATION_754EF481_1721_4FA5_BF7F_DE1B91DFA69B_END]]></CodeInformation>
             <Data name="BR_LineMapInformation" handleUnknown="implementation">
               <LineMapInfos guid="083CC528_CBC9_4705_A12D_02E20D3F2FC6">
                 <LineMapInfo line="1" column="1" position="[POU start]" />
-                <LineMapInfo line="16" column="1" position="Net:1" />
                 <LineMapInfo line="17" column="1" position="Net:1" />
-                <LineMapInfo line="18" column="4" position="Net:1, Ln:1, Col:1" />
-                <LineMapInfo line="19" column="4" position="Net:1, Ln:1, Col:19 [Block input Enable]" />
-                <LineMapInfo line="20" column="4" position="Net:1, Ln:7, Col:1" />
-                <LineMapInfo line="21" column="5" position="Net:1, Ln:7, Col:5" />
-                <LineMapInfo line="22" column="5" position="Net:1, Ln:7, Col:10" />
-                <LineMapInfo line="23" column="4" position="Net:1, Ln:1, Col:19 [Block input Power]" />
-                <LineMapInfo line="24" column="4" position="Net:1, Ln:8, Col:1" />
-                <LineMapInfo line="25" column="4" position="Net:1, Ln:1, Col:19 [Block input Home]" />
-                <LineMapInfo line="26" column="4" position="Net:1, Ln:9, Col:1" />
-                <LineMapInfo line="27" column="5" position="Net:1, Ln:9, Col:5" />
-                <LineMapInfo line="28" column="6" position="Net:1, Ln:9, Col:9" />
-                <LineMapInfo line="29" column="5" position="Net:1, Ln:9, Col:13" />
-                <LineMapInfo line="30" column="4" position="Net:1, Ln:1, Col:19 [Block input MoveVelocity]" />
-                <LineMapInfo line="31" column="4" position="Net:1, Ln:13, Col:1" />
-                <LineMapInfo line="32" column="6" position="Net:1, Ln:13, Col:5" />
-                <LineMapInfo line="33" column="6" position="Net:1, Ln:13, Col:9" />
-                <LineMapInfo line="34" column="5" position="Net:1, Ln:13, Col:14" />
-                <LineMapInfo line="35" column="4" position="Net:1, Ln:1, Col:19 [Block input JogPositive]" />
+                <LineMapInfo line="18" column="1" position="Net:1" />
+                <LineMapInfo line="19" column="4" position="Net:1, Ln:1, Col:1" />
+                <LineMapInfo line="20" column="4" position="Net:1, Ln:1, Col:18 [Block input Enable]" />
+                <LineMapInfo line="21" column="4" position="Net:1, Ln:7, Col:1" />
+                <LineMapInfo line="22" column="5" position="Net:1, Ln:7, Col:5" />
+                <LineMapInfo line="23" column="5" position="Net:1, Ln:7, Col:10" />
+                <LineMapInfo line="24" column="4" position="Net:1, Ln:1, Col:18 [Block input Power]" />
+                <LineMapInfo line="25" column="4" position="Net:1, Ln:8, Col:1" />
+                <LineMapInfo line="26" column="4" position="Net:1, Ln:1, Col:18 [Block input Home]" />
+                <LineMapInfo line="27" column="4" position="Net:1, Ln:9, Col:1" />
+                <LineMapInfo line="28" column="5" position="Net:1, Ln:9, Col:5" />
+                <LineMapInfo line="29" column="6" position="Net:1, Ln:9, Col:9" />
+                <LineMapInfo line="30" column="5" position="Net:1, Ln:9, Col:13" />
+                <LineMapInfo line="31" column="4" position="Net:1, Ln:1, Col:18 [Block input MoveVelocity]" />
+                <LineMapInfo line="32" column="4" position="Net:1, Ln:13, Col:1" />
+                <LineMapInfo line="33" column="6" position="Net:1, Ln:13, Col:5" />
+                <LineMapInfo line="34" column="5" position="Net:1, Ln:13, Col:10" />
+                <LineMapInfo line="35" column="4" position="Net:1, Ln:1, Col:18 [Block input JogPositive]" />
                 <LineMapInfo line="36" column="4" position="Net:1, Ln:14, Col:1" />
                 <LineMapInfo line="37" column="6" position="Net:1, Ln:14, Col:5" />
-                <LineMapInfo line="38" column="6" position="Net:1, Ln:14, Col:9" />
-                <LineMapInfo line="39" column="5" position="Net:1, Ln:14, Col:14" />
-                <LineMapInfo line="40" column="4" position="Net:1, Ln:1, Col:19 [Block input JogNegative]" />
-                <LineMapInfo line="41" column="5" position="Net:1, Ln:1, Col:19" />
-                <LineMapInfo line="42" column="4" position="Net:1, Ln:1, Col:19 [Block output Error]" />
-                <LineMapInfo line="43" column="4" position="Net:1, Ln:3, Col:26" />
-                <LineMapInfo line="44" column="4" position="Net:1, Ln:1, Col:19 [Block output MoveActive]" />
-                <LineMapInfo line="45" column="4" position="Net:1, Ln:14, Col:26" />
-                <LineMapInfo line="46" column="4" position="Net:1, Ln:1, Col:19 [Block output Active]" />
-                <LineMapInfo line="47" column="5" position="Net:1, Ln:2, Col:30" />
-                <LineMapInfo line="48" column="4" position="Net:1, Ln:2, Col:35" />
+                <LineMapInfo line="38" column="5" position="Net:1, Ln:14, Col:10" />
+                <LineMapInfo line="39" column="4" position="Net:1, Ln:1, Col:18 [Block input JogNegative]" />
+                <LineMapInfo line="40" column="5" position="Net:1, Ln:1, Col:18" />
+                <LineMapInfo line="41" column="4" position="Net:1, Ln:1, Col:18 [Block output Error]" />
+                <LineMapInfo line="42" column="4" position="Net:1, Ln:3, Col:25" />
+                <LineMapInfo line="43" column="4" position="Net:1, Ln:1, Col:18 [Block output MoveActive]" />
+                <LineMapInfo line="44" column="4" position="Net:1, Ln:14, Col:25" />
+                <LineMapInfo line="45" column="4" position="Net:1, Ln:1, Col:18 [Block output Active]" />
+                <LineMapInfo line="46" column="5" position="Net:1, Ln:2, Col:29" />
+                <LineMapInfo line="47" column="4" position="Net:1, Ln:2, Col:34" />
+                <LineMapInfo line="49" column="1" position="Net:2" />
                 <LineMapInfo line="50" column="1" position="Net:2" />
-                <LineMapInfo line="51" column="1" position="Net:2" />
-                <LineMapInfo line="52" column="4" position="Net:2, Ln:1, Col:1" />
-                <LineMapInfo line="54" column="5" position="Net:2, Ln:1, Col:5" />
-                <LineMapInfo line="56" column="3" position="Net:2, Ln:1, Col:35" />
-                <LineMapInfo line="57" column="4" position="Net:2, Ln:1, Col:5" />
-                <LineMapInfo line="58" column="4" position="Net:2, Ln:2, Col:30 [Block input EN]" />
-                <LineMapInfo line="60" column="10" position="Net:2, Ln:2, Col:30" />
-                <LineMapInfo line="61" column="4" position="Net:2, Ln:3, Col:35" />
-                <LineMapInfo line="63" column="4" position="Net:2, Ln:1, Col:1" />
-                <LineMapInfo line="64" column="6" position="Net:2, Ln:4, Col:5" />
-                <LineMapInfo line="66" column="3" position="Net:2, Ln:4, Col:35" />
-                <LineMapInfo line="67" column="4" position="Net:2, Ln:4, Col:5" />
-                <LineMapInfo line="68" column="4" position="Net:2, Ln:5, Col:28 [Block input EN]" />
-                <LineMapInfo line="70" column="10" position="Net:2, Ln:5, Col:28" />
-                <LineMapInfo line="71" column="4" position="Net:2, Ln:6, Col:35" />
+                <LineMapInfo line="51" column="4" position="Net:2, Ln:1, Col:1" />
+                <LineMapInfo line="53" column="5" position="Net:2, Ln:1, Col:5" />
+                <LineMapInfo line="55" column="3" position="Net:2, Ln:1, Col:34" />
+                <LineMapInfo line="56" column="4" position="Net:2, Ln:1, Col:5" />
+                <LineMapInfo line="57" column="4" position="Net:2, Ln:2, Col:29 [Block input EN]" />
+                <LineMapInfo line="59" column="10" position="Net:2, Ln:2, Col:29" />
+                <LineMapInfo line="60" column="4" position="Net:2, Ln:3, Col:34" />
+                <LineMapInfo line="62" column="4" position="Net:2, Ln:1, Col:1" />
+                <LineMapInfo line="63" column="6" position="Net:2, Ln:4, Col:5" />
+                <LineMapInfo line="65" column="3" position="Net:2, Ln:4, Col:34" />
+                <LineMapInfo line="66" column="4" position="Net:2, Ln:4, Col:5" />
+                <LineMapInfo line="67" column="4" position="Net:2, Ln:5, Col:27 [Block input EN]" />
+                <LineMapInfo line="69" column="10" position="Net:2, Ln:5, Col:27" />
+                <LineMapInfo line="70" column="4" position="Net:2, Ln:6, Col:34" />
+                <LineMapInfo line="73" column="1" position="Net:3" />
                 <LineMapInfo line="74" column="1" position="Net:3" />
-                <LineMapInfo line="75" column="1" position="Net:3" />
-                <LineMapInfo line="76" column="4" position="Net:3, Ln:1, Col:1" />
-                <LineMapInfo line="78" column="4" position="Net:3, Ln:1, Col:32 [Block input EN]" />
-                <LineMapInfo line="80" column="10" position="Net:3, Ln:1, Col:32" />
-                <LineMapInfo line="81" column="4" position="Net:3, Ln:2, Col:36" />
-                <LineMapInfo line="83" column="4" position="Net:3, Ln:1, Col:1" />
-                <LineMapInfo line="84" column="4" position="Net:3, Ln:3, Col:32 [Block input EN]" />
-                <LineMapInfo line="86" column="10" position="Net:3, Ln:3, Col:32" />
-                <LineMapInfo line="87" column="4" position="Net:3, Ln:4, Col:36" />
-                <LineMapInfo line="89" column="4" position="Net:3, Ln:1, Col:1" />
-                <LineMapInfo line="90" column="4" position="Net:3, Ln:5, Col:31 [Block input EN]" />
-                <LineMapInfo line="92" column="10" position="Net:3, Ln:5, Col:31" />
-                <LineMapInfo line="93" column="4" position="Net:3, Ln:6, Col:35" />
-                <LineMapInfo line="96" column="1" position="[POU end]" />
+                <LineMapInfo line="75" column="4" position="Net:3, Ln:1, Col:1" />
+                <LineMapInfo line="77" column="5" position="Net:3, Ln:1, Col:5" />
+                <LineMapInfo line="78" column="3" position="Net:3, Ln:1, Col:33" />
+                <LineMapInfo line="79" column="4" position="Net:3, Ln:1, Col:1" />
+                <LineMapInfo line="80" column="6" position="Net:3, Ln:2, Col:5" />
+                <LineMapInfo line="81" column="3" position="Net:3, Ln:2, Col:33" />
+                <LineMapInfo line="83" column="1" position="Net:4" />
+                <LineMapInfo line="84" column="1" position="Net:4" />
+                <LineMapInfo line="85" column="4" position="Net:4, Ln:1, Col:1" />
+                <LineMapInfo line="87" column="4" position="Net:4, Ln:1, Col:31 [Block input EN]" />
+                <LineMapInfo line="89" column="10" position="Net:4, Ln:1, Col:31" />
+                <LineMapInfo line="90" column="4" position="Net:4, Ln:2, Col:35" />
+                <LineMapInfo line="92" column="4" position="Net:4, Ln:1, Col:1" />
+                <LineMapInfo line="93" column="4" position="Net:4, Ln:3, Col:31 [Block input EN]" />
+                <LineMapInfo line="95" column="10" position="Net:4, Ln:3, Col:31" />
+                <LineMapInfo line="96" column="4" position="Net:4, Ln:4, Col:35" />
+                <LineMapInfo line="98" column="4" position="Net:4, Ln:1, Col:1" />
+                <LineMapInfo line="99" column="4" position="Net:4, Ln:5, Col:30 [Block input EN]" />
+                <LineMapInfo line="101" column="10" position="Net:4, Ln:5, Col:30" />
+                <LineMapInfo line="102" column="4" position="Net:4, Ln:6, Col:34" />
+                <LineMapInfo line="105" column="1" position="[POU end]" />
               </LineMapInfos>
             </Data>
             <Data name="BR_ChecksumInformation" handleUnknown="implementation">
-              <ChecksumInformation guid="A3044021_E131_45AC_AB9B_59041547F16C" checksum="97CDC176" />
+              <ChecksumInformation guid="A3044021_E131_45AC_AB9B_59041547F16C" checksum="079D2A25" />
             </Data>
           </AddData>
           <BodyContent xsi:type="LD">
@@ -345,26 +360,26 @@ CODE_INFORMATION_754EF481_1721_4FA5_BF7F_DE1B91DFA69B_END]]></CodeInformation>
                   <RelPosition x="120" y="10" />
                 </ConnectionPointOut>
               </LdObject>
-              <LdObject xsi:type="Contact" operand="Internal.Cmd.Stop" negated="true" edge="none">
+              <LdObject xsi:type="Contact" operand="Internal.Cmd.MoveFwd" negated="true" edge="none">
                 <RelPosition x="123" y="474" />
-                <Size x="120" y="20" />
+                <Size x="150" y="20" />
                 <ConnectionPointIn>
                   <RelPosition x="0" y="10" />
                   <Connection refConnectionPointOutId="10" />
                 </ConnectionPointIn>
                 <ConnectionPointOut connectionPointOutId="14">
-                  <RelPosition x="120" y="10" />
+                  <RelPosition x="150" y="10" />
                 </ConnectionPointOut>
               </LdObject>
-              <LdObject xsi:type="Contact" operand="Internal.Cmd.Stop" negated="true" edge="none">
+              <LdObject xsi:type="Contact" operand="Internal.Cmd.MoveFwd" negated="true" edge="none">
                 <RelPosition x="123" y="512" />
-                <Size x="120" y="20" />
+                <Size x="150" y="20" />
                 <ConnectionPointIn>
                   <RelPosition x="0" y="10" />
                   <Connection refConnectionPointOutId="11" />
                 </ConnectionPointIn>
                 <ConnectionPointOut connectionPointOutId="15">
-                  <RelPosition x="120" y="10" />
+                  <RelPosition x="150" y="10" />
                 </ConnectionPointOut>
               </LdObject>
               <LdObject xsi:type="Contact" operand="Internal.Cmd.Stop" negated="true" edge="none">
@@ -378,34 +393,34 @@ CODE_INFORMATION_754EF481_1721_4FA5_BF7F_DE1B91DFA69B_END]]></CodeInformation>
                   <RelPosition x="120" y="10" />
                 </ConnectionPointOut>
               </LdObject>
-              <LdObject xsi:type="Contact" operand="Internal.Cmd.MoveFwd" negated="true" edge="none">
-                <RelPosition x="243" y="474" />
-                <Size x="150" y="20" />
-                <ConnectionPointIn>
-                  <RelPosition x="0" y="10" />
-                  <Connection refConnectionPointOutId="14" />
-                </ConnectionPointIn>
-                <ConnectionPointOut connectionPointOutId="17">
-                  <RelPosition x="150" y="10" />
-                </ConnectionPointOut>
-              </LdObject>
-              <LdObject xsi:type="Contact" operand="Internal.Cmd.MoveFwd" negated="true" edge="none">
-                <RelPosition x="243" y="512" />
-                <Size x="150" y="20" />
-                <ConnectionPointIn>
-                  <RelPosition x="0" y="10" />
-                  <Connection refConnectionPointOutId="15" />
-                </ConnectionPointIn>
-                <ConnectionPointOut connectionPointOutId="18">
-                  <RelPosition x="150" y="10" />
-                </ConnectionPointOut>
-              </LdObject>
               <LdObject xsi:type="Contact" operand="Internal.Status.ModuleOk" edge="none">
                 <RelPosition x="273" y="246" />
                 <Size x="150" y="20" />
                 <ConnectionPointIn>
                   <RelPosition x="0" y="10" />
                   <Connection refConnectionPointOutId="12" />
+                </ConnectionPointIn>
+                <ConnectionPointOut connectionPointOutId="17">
+                  <RelPosition x="150" y="10" />
+                </ConnectionPointOut>
+              </LdObject>
+              <LdObject xsi:type="Contact" operand="Internal.Cmd.JogFwd" edge="none">
+                <RelPosition x="273" y="474" />
+                <Size x="120" y="20" />
+                <ConnectionPointIn>
+                  <RelPosition x="0" y="10" />
+                  <Connection refConnectionPointOutId="14" />
+                </ConnectionPointIn>
+                <ConnectionPointOut connectionPointOutId="18">
+                  <RelPosition x="120" y="10" />
+                </ConnectionPointOut>
+              </LdObject>
+              <LdObject xsi:type="Contact" operand="Internal.Cmd.JogBkwd" edge="none">
+                <RelPosition x="273" y="512" />
+                <Size x="150" y="20" />
+                <ConnectionPointIn>
+                  <RelPosition x="0" y="10" />
+                  <Connection refConnectionPointOutId="15" />
                 </ConnectionPointIn>
                 <ConnectionPointOut connectionPointOutId="19">
                   <RelPosition x="150" y="10" />
@@ -422,30 +437,8 @@ CODE_INFORMATION_754EF481_1721_4FA5_BF7F_DE1B91DFA69B_END]]></CodeInformation>
                   <RelPosition x="150" y="10" />
                 </ConnectionPointOut>
               </LdObject>
-              <LdObject xsi:type="Contact" operand="Internal.Cmd.JogFwd" edge="none">
-                <RelPosition x="393" y="474" />
-                <Size x="120" y="20" />
-                <ConnectionPointIn>
-                  <RelPosition x="0" y="10" />
-                  <Connection refConnectionPointOutId="17" />
-                </ConnectionPointIn>
-                <ConnectionPointOut connectionPointOutId="21">
-                  <RelPosition x="120" y="10" />
-                </ConnectionPointOut>
-              </LdObject>
-              <LdObject xsi:type="Contact" operand="Internal.Cmd.JogBkwd" edge="none">
-                <RelPosition x="393" y="512" />
-                <Size x="150" y="20" />
-                <ConnectionPointIn>
-                  <RelPosition x="0" y="10" />
-                  <Connection refConnectionPointOutId="18" />
-                </ConnectionPointIn>
-                <ConnectionPointOut connectionPointOutId="22">
-                  <RelPosition x="150" y="10" />
-                </ConnectionPointOut>
-              </LdObject>
               <FbdObject xsi:type="Block" typeName="MpAxisBasic" instanceName="SortingConveyor">
-                <RelPosition x="543" y="38" />
+                <RelPosition x="513" y="38" />
                 <Size x="210" y="722" />
                 <InputVariables>
                   <InputVariable parameterName="MpLink">
@@ -477,7 +470,7 @@ CODE_INFORMATION_754EF481_1721_4FA5_BF7F_DE1B91DFA69B_END]]></CodeInformation>
                   <InputVariable parameterName="Power">
                     <ConnectionPointIn>
                       <RelPosition x="0" y="218" />
-                      <Connection refConnectionPointOutId="19" />
+                      <Connection refConnectionPointOutId="17" />
                     </ConnectionPointIn>
                   </InputVariable>
                   <InputVariable parameterName="Home">
@@ -510,13 +503,13 @@ CODE_INFORMATION_754EF481_1721_4FA5_BF7F_DE1B91DFA69B_END]]></CodeInformation>
                   <InputVariable parameterName="JogPositive">
                     <ConnectionPointIn>
                       <RelPosition x="0" y="446" />
-                      <Connection refConnectionPointOutId="21" />
+                      <Connection refConnectionPointOutId="18" />
                     </ConnectionPointIn>
                   </InputVariable>
                   <InputVariable parameterName="JogNegative">
                     <ConnectionPointIn>
                       <RelPosition x="0" y="484" />
-                      <Connection refConnectionPointOutId="22" />
+                      <Connection refConnectionPointOutId="19" />
                     </ConnectionPointIn>
                   </InputVariable>
                   <InputVariable parameterName="LimitLoad">
@@ -542,12 +535,12 @@ CODE_INFORMATION_754EF481_1721_4FA5_BF7F_DE1B91DFA69B_END]]></CodeInformation>
                 </InputVariables>
                 <OutputVariables>
                   <OutputVariable parameterName="Active">
-                    <ConnectionPointOut connectionPointOutId="23">
+                    <ConnectionPointOut connectionPointOutId="21">
                       <RelPosition x="210" y="28" />
                     </ConnectionPointOut>
                   </OutputVariable>
                   <OutputVariable parameterName="Error">
-                    <ConnectionPointOut connectionPointOutId="24">
+                    <ConnectionPointOut connectionPointOutId="22">
                       <RelPosition x="210" y="66" />
                     </ConnectionPointOut>
                   </OutputVariable>
@@ -602,7 +595,7 @@ CODE_INFORMATION_754EF481_1721_4FA5_BF7F_DE1B91DFA69B_END]]></CodeInformation>
                     </ConnectionPointOut>
                   </OutputVariable>
                   <OutputVariable parameterName="MoveActive">
-                    <ConnectionPointOut connectionPointOutId="25">
+                    <ConnectionPointOut connectionPointOutId="23">
                       <RelPosition x="210" y="484" />
                     </ConnectionPointOut>
                   </OutputVariable>
@@ -644,11 +637,11 @@ CODE_INFORMATION_754EF481_1721_4FA5_BF7F_DE1B91DFA69B_END]]></CodeInformation>
                     <AnalogValue value="true" />
                   </Data>
                 </AddData>
-                <RelPosition x="753" y="94" />
+                <RelPosition x="723" y="94" />
                 <Size x="120" y="20" />
                 <ConnectionPointIn>
                   <RelPosition x="0" y="10" />
-                  <Connection refConnectionPointOutId="24" />
+                  <Connection refConnectionPointOutId="22" />
                 </ConnectionPointIn>
               </FbdObject>
               <FbdObject xsi:type="DataSink" identifier="Internal.Status.Done">
@@ -657,44 +650,44 @@ CODE_INFORMATION_754EF481_1721_4FA5_BF7F_DE1B91DFA69B_END]]></CodeInformation>
                     <AnalogValue value="true" />
                   </Data>
                 </AddData>
-                <RelPosition x="753" y="512" />
+                <RelPosition x="723" y="512" />
                 <Size x="120" y="20" />
-                <ConnectionPointIn>
-                  <RelPosition x="0" y="10" />
-                  <Connection refConnectionPointOutId="25" />
-                </ConnectionPointIn>
-              </FbdObject>
-              <LdObject xsi:type="Contact" operand="SortingConveyor.IsHomed" edge="none">
-                <RelPosition x="873" y="56" />
-                <Size x="150" y="20" />
                 <ConnectionPointIn>
                   <RelPosition x="0" y="10" />
                   <Connection refConnectionPointOutId="23" />
                 </ConnectionPointIn>
-                <ConnectionPointOut connectionPointOutId="26">
+              </FbdObject>
+              <LdObject xsi:type="Contact" operand="SortingConveyor.IsHomed" edge="none">
+                <RelPosition x="843" y="56" />
+                <Size x="150" y="20" />
+                <ConnectionPointIn>
+                  <RelPosition x="0" y="10" />
+                  <Connection refConnectionPointOutId="21" />
+                </ConnectionPointIn>
+                <ConnectionPointOut connectionPointOutId="24">
                   <RelPosition x="150" y="10" />
                 </ConnectionPointOut>
               </LdObject>
               <LdObject xsi:type="Coil" operand="Internal.Status.Active" edge="none" latch="none">
-                <RelPosition x="1023" y="56" />
+                <RelPosition x="993" y="56" />
                 <Size x="120" y="20" />
                 <ConnectionPointIn>
                   <RelPosition x="0" y="10" />
-                  <Connection refConnectionPointOutId="26" />
+                  <Connection refConnectionPointOutId="24" />
                 </ConnectionPointIn>
-                <ConnectionPointOut connectionPointOutId="27">
+                <ConnectionPointOut connectionPointOutId="25">
                   <RelPosition x="120" y="10" />
                 </ConnectionPointOut>
               </LdObject>
               <LdObject xsi:type="RightPowerRail">
-                <RelPosition x="1143" y="0" />
+                <RelPosition x="1113" y="0" />
                 <Size x="3" y="760" />
                 <ConnectionPointIn>
                   <RelPosition x="0" y="28" />
                 </ConnectionPointIn>
                 <ConnectionPointIn>
                   <RelPosition x="0" y="66" />
-                  <Connection refConnectionPointOutId="27" />
+                  <Connection refConnectionPointOutId="25" />
                 </ConnectionPointIn>
                 <ConnectionPointIn>
                   <RelPosition x="0" y="104" />
@@ -815,7 +808,7 @@ CODE_INFORMATION_754EF481_1721_4FA5_BF7F_DE1B91DFA69B_END]]></CodeInformation>
                     <ComputeBlock><![CDATA[mcERROR_MODULE_NOT_OK]]></ComputeBlock>
                   </Data>
                 </AddData>
-                <RelPosition x="813" y="152" />
+                <RelPosition x="783" y="152" />
                 <Size x="210" y="76" />
                 <InputVariables>
                   <InputVariable parameterName="EN">
@@ -854,7 +847,7 @@ CODE_INFORMATION_754EF481_1721_4FA5_BF7F_DE1B91DFA69B_END]]></CodeInformation>
                     <ComputeBlock><![CDATA[mcERROR_NONE]]></ComputeBlock>
                   </Data>
                 </AddData>
-                <RelPosition x="873" y="38" />
+                <RelPosition x="843" y="38" />
                 <Size x="150" y="76" />
                 <InputVariables>
                   <InputVariable parameterName="EN">
@@ -888,7 +881,7 @@ CODE_INFORMATION_754EF481_1721_4FA5_BF7F_DE1B91DFA69B_END]]></CodeInformation>
                 </OutputVariables>
               </FbdObject>
               <LdObject xsi:type="Coil" operand="Internal.Status.Error" edge="none" latch="reset">
-                <RelPosition x="1023" y="18" />
+                <RelPosition x="993" y="18" />
                 <Size x="120" y="20" />
                 <ConnectionPointIn>
                   <RelPosition x="0" y="10" />
@@ -904,7 +897,7 @@ CODE_INFORMATION_754EF481_1721_4FA5_BF7F_DE1B91DFA69B_END]]></CodeInformation>
                     <AnalogValue value="true" />
                   </Data>
                 </AddData>
-                <RelPosition x="1023" y="94" />
+                <RelPosition x="993" y="94" />
                 <Size x="120" y="20" />
                 <ConnectionPointIn>
                   <RelPosition x="0" y="10" />
@@ -912,7 +905,7 @@ CODE_INFORMATION_754EF481_1721_4FA5_BF7F_DE1B91DFA69B_END]]></CodeInformation>
                 </ConnectionPointIn>
               </FbdObject>
               <LdObject xsi:type="Coil" operand="Internal.Status.Error" edge="none" latch="set">
-                <RelPosition x="1023" y="132" />
+                <RelPosition x="993" y="132" />
                 <Size x="120" y="20" />
                 <ConnectionPointIn>
                   <RelPosition x="0" y="10" />
@@ -928,7 +921,7 @@ CODE_INFORMATION_754EF481_1721_4FA5_BF7F_DE1B91DFA69B_END]]></CodeInformation>
                     <AnalogValue value="true" />
                   </Data>
                 </AddData>
-                <RelPosition x="1023" y="208" />
+                <RelPosition x="993" y="208" />
                 <Size x="120" y="20" />
                 <ConnectionPointIn>
                   <RelPosition x="0" y="10" />
@@ -936,7 +929,7 @@ CODE_INFORMATION_754EF481_1721_4FA5_BF7F_DE1B91DFA69B_END]]></CodeInformation>
                 </ConnectionPointIn>
               </FbdObject>
               <LdObject xsi:type="RightPowerRail">
-                <RelPosition x="1143" y="0" />
+                <RelPosition x="1113" y="0" />
                 <Size x="3" y="228" />
                 <ConnectionPointIn>
                   <RelPosition x="0" y="28" />
@@ -962,7 +955,88 @@ CODE_INFORMATION_754EF481_1721_4FA5_BF7F_DE1B91DFA69B_END]]></CodeInformation>
                 </ConnectionPointIn>
               </LdObject>
             </Rung>
-            <Rung evaluationOrder="3" label="Assignments">
+            <Rung evaluationOrder="3" label="StopStatusAssignment">
+              <Documentation xsi:type="SimpleText"><![CDATA[THis network sets the stopped status]]></Documentation>
+              <LdObject xsi:type="LeftPowerRail">
+                <RelPosition x="0" y="0" />
+                <Size x="3" y="76" />
+                <ConnectionPointOut connectionPointOutId="1">
+                  <RelPosition x="3" y="28" />
+                </ConnectionPointOut>
+                <ConnectionPointOut connectionPointOutId="0">
+                  <RelPosition x="3" y="66" />
+                </ConnectionPointOut>
+              </LdObject>
+              <LdObject xsi:type="Contact" operand="Internal.Status.Active" edge="none">
+                <RelPosition x="3" y="18" />
+                <Size x="120" y="20" />
+                <ConnectionPointIn>
+                  <RelPosition x="0" y="10" />
+                  <Connection refConnectionPointOutId="1" />
+                </ConnectionPointIn>
+                <ConnectionPointOut connectionPointOutId="2">
+                  <RelPosition x="120" y="10" />
+                </ConnectionPointOut>
+              </LdObject>
+              <LdObject xsi:type="Contact" operand="Internal.Cmd.Stop" edge="none">
+                <RelPosition x="123" y="18" />
+                <Size x="120" y="20" />
+                <ConnectionPointIn>
+                  <RelPosition x="0" y="10" />
+                  <Connection refConnectionPointOutId="2" />
+                </ConnectionPointIn>
+                <ConnectionPointOut connectionPointOutId="3">
+                  <RelPosition x="120" y="10" />
+                </ConnectionPointOut>
+              </LdObject>
+              <LdObject xsi:type="Contact" operand="Internal.Cmd.Stop" negated="true" edge="none">
+                <RelPosition x="123" y="56" />
+                <Size x="120" y="20" />
+                <ConnectionPointIn>
+                  <RelPosition x="0" y="10" />
+                  <Connection refConnectionPointOutId="2" />
+                </ConnectionPointIn>
+                <ConnectionPointOut connectionPointOutId="4">
+                  <RelPosition x="120" y="10" />
+                </ConnectionPointOut>
+              </LdObject>
+              <LdObject xsi:type="Coil" operand="Internal.Status.Stopped" edge="none" latch="set">
+                <RelPosition x="963" y="18" />
+                <Size x="150" y="20" />
+                <ConnectionPointIn>
+                  <RelPosition x="0" y="10" />
+                  <Connection refConnectionPointOutId="3" />
+                </ConnectionPointIn>
+                <ConnectionPointOut connectionPointOutId="5">
+                  <RelPosition x="150" y="10" />
+                </ConnectionPointOut>
+              </LdObject>
+              <LdObject xsi:type="Coil" operand="Internal.Status.Stopped" edge="none" latch="reset">
+                <RelPosition x="963" y="56" />
+                <Size x="150" y="20" />
+                <ConnectionPointIn>
+                  <RelPosition x="0" y="10" />
+                  <Connection refConnectionPointOutId="4" />
+                </ConnectionPointIn>
+                <ConnectionPointOut connectionPointOutId="6">
+                  <RelPosition x="150" y="10" />
+                </ConnectionPointOut>
+              </LdObject>
+              <LdObject xsi:type="RightPowerRail">
+                <RelPosition x="1113" y="0" />
+                <Size x="3" y="76" />
+                <ConnectionPointIn>
+                  <RelPosition x="0" y="28" />
+                  <Connection refConnectionPointOutId="5" />
+                </ConnectionPointIn>
+                <ConnectionPointIn>
+                  <RelPosition x="0" y="66" />
+                  <Connection refConnectionPointOutId="6" />
+                </ConnectionPointIn>
+              </LdObject>
+            </Rung>
+            <Rung evaluationOrder="4" label="Assignments">
+              <Documentation xsi:type="SimpleText"><![CDATA[This network does structure assignments]]></Documentation>
               <LdObject xsi:type="LeftPowerRail">
                 <RelPosition x="0" y="0" />
                 <Size x="3" y="228" />
@@ -1002,7 +1076,7 @@ CODE_INFORMATION_754EF481_1721_4FA5_BF7F_DE1B91DFA69B_END]]></CodeInformation>
                     <ComputeBlock><![CDATA[Internal.Status]]></ComputeBlock>
                   </Data>
                 </AddData>
-                <RelPosition x="903" y="152" />
+                <RelPosition x="873" y="152" />
                 <Size x="120" y="76" />
                 <InputVariables>
                   <InputVariable parameterName="EN">
@@ -1041,7 +1115,7 @@ CODE_INFORMATION_754EF481_1721_4FA5_BF7F_DE1B91DFA69B_END]]></CodeInformation>
                     <ComputeBlock><![CDATA[gMoveCap.Cmd]]></ComputeBlock>
                   </Data>
                 </AddData>
-                <RelPosition x="933" y="0" />
+                <RelPosition x="903" y="0" />
                 <Size x="120" y="76" />
                 <InputVariables>
                   <InputVariable parameterName="EN">
@@ -1080,7 +1154,7 @@ CODE_INFORMATION_754EF481_1721_4FA5_BF7F_DE1B91DFA69B_END]]></CodeInformation>
                     <ComputeBlock><![CDATA[Internal.Par]]></ComputeBlock>
                   </Data>
                 </AddData>
-                <RelPosition x="933" y="76" />
+                <RelPosition x="903" y="76" />
                 <Size x="120" y="76" />
                 <InputVariables>
                   <InputVariable parameterName="EN">
@@ -1119,7 +1193,7 @@ CODE_INFORMATION_754EF481_1721_4FA5_BF7F_DE1B91DFA69B_END]]></CodeInformation>
                     <AnalogValue value="true" />
                   </Data>
                 </AddData>
-                <RelPosition x="1023" y="208" />
+                <RelPosition x="993" y="208" />
                 <Size x="120" y="20" />
                 <ConnectionPointIn>
                   <RelPosition x="0" y="10" />
@@ -1132,7 +1206,7 @@ CODE_INFORMATION_754EF481_1721_4FA5_BF7F_DE1B91DFA69B_END]]></CodeInformation>
                     <AnalogValue value="true" />
                   </Data>
                 </AddData>
-                <RelPosition x="1053" y="56" />
+                <RelPosition x="1023" y="56" />
                 <Size x="90" y="20" />
                 <ConnectionPointIn>
                   <RelPosition x="0" y="10" />
@@ -1145,7 +1219,7 @@ CODE_INFORMATION_754EF481_1721_4FA5_BF7F_DE1B91DFA69B_END]]></CodeInformation>
                     <AnalogValue value="true" />
                   </Data>
                 </AddData>
-                <RelPosition x="1053" y="132" />
+                <RelPosition x="1023" y="132" />
                 <Size x="90" y="20" />
                 <ConnectionPointIn>
                   <RelPosition x="0" y="10" />
@@ -1153,7 +1227,7 @@ CODE_INFORMATION_754EF481_1721_4FA5_BF7F_DE1B91DFA69B_END]]></CodeInformation>
                 </ConnectionPointIn>
               </FbdObject>
               <LdObject xsi:type="RightPowerRail">
-                <RelPosition x="1143" y="0" />
+                <RelPosition x="1113" y="0" />
                 <Size x="3" y="228" />
                 <ConnectionPointIn>
                   <RelPosition x="0" y="28" />
