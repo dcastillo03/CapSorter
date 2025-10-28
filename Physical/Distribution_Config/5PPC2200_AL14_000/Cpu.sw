@@ -8,6 +8,7 @@
   <TaskClass Name="Cyclic#2">
     <Task Name="DistBay" Source="Source.Distribution.Modules.DistBay.DistBay.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="SwivelArm" Source="Source.Distribution.Modules.SwivelArm.SwivelArm.prg" Memory="UserROM" Language="IEC" Debugging="true" />
+    <Task Name="Manager" Source="Source.Distribution.Manager.Manager.prg" Memory="UserROM" Language="IEC" Debugging="true" />
   </TaskClass>
   <TaskClass Name="Cyclic#3" />
   <TaskClass Name="Cyclic#4" />

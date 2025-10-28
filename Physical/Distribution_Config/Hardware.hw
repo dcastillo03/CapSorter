@@ -36,6 +36,11 @@
     <Parameter ID="FileDevicePath1" Value="USER_PATH" />
     <Parameter ID="ActivateHypervisor" Value="1" />
   </Module>
+  <Module Name="OpcUa_any" Type="OpcUa_any" Version="2.0.0.1">
+    <Connection Connector="ETH1" TargetModule="5PPC2200_AL14_000" TargetConnector="IF3">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+  </Module>
   <Module Name="X20BB80" Type="X20BB80" Version="1.1.0.0" />
   <Module Name="X20BC0083" Type="X20BC0083" Version="2.16.1.0">
     <Connection Connector="PLK1" TargetModule="5ACCIF01.FPLK-000" TargetConnector="IF1">
