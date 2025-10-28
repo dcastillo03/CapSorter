@@ -4,6 +4,6 @@
   <Objects>
     <Object Type="File" Description="Global types for cap detection">CapDetect.typ</Object>
     <Object Type="File" Description="Global vars for cap detection">CapDetect.var</Object>
-    <Object Type="Program" Language="IEC">CapDetect</Object>
+    <Object Type="Program" Language="IEC" Description="Cap detect ladder task">CapDetect</Object>
   </Objects>
 </Package>

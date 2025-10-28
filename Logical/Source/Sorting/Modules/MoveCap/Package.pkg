@@ -2,8 +2,8 @@
 <?AutomationStudio FileVersion="4.9"?>
 <Package xmlns="http://br-automation.co.at/AS/Package">
   <Objects>
-    <Object Type="File">MoveCap.typ</Object>
-    <Object Type="File">MoveCap.var</Object>
-    <Object Type="Program" Language="IEC">MoveCap</Object>
+    <Object Type="File" Description="Global types for move cap task">MoveCap.typ</Object>
+    <Object Type="File" Description="Global vars for move cap task">MoveCap.var</Object>
+    <Object Type="Program" Language="IEC" Description="Move cap ladder task">MoveCap</Object>
   </Objects>
 </Package>
