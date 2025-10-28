@@ -33,14 +33,14 @@
 PROGRAM _CYCLIC
 
 VAR
-	zz$$$$_0_Manager_Status_TooFull_ : BOOL;
-	zz$$$$_1_gCapDetect_Status_Error : BOOL;
-	zz$$$$_2_gMoveCap_Cmd_Start_AndR : BOOL;
-	zz$$$$_3_gMoveCap_Status_Stopped : BOOL;
-	zz$$$$_4_gCapDetect_Par_ProductA : BOOL;
-	zz$$$$_5_gCapDetect_Status_Done_ : BOOL;
-	zz$$$$_6_Eno_ComputeBlock : BOOL;
-	zz$$$$_7_r_trig_gMoveCap_Cmd_Sta : r_trig;
+	zz$$$$_0_Manager_Cmd_Start_AndRe : BOOL;
+	zz$$$$_1_Manager_Status_TooFull_ : BOOL;
+	zz$$$$_2_gCapDetect_Status_Error : BOOL;
+	zz$$$$_3_gMoveCap_Cmd_Start_AndR : BOOL;
+	zz$$$$_4_gMoveCap_Status_Stopped : BOOL;
+	zz$$$$_5_gCapDetect_Par_ProductA : BOOL;
+	zz$$$$_6_gCapDetect_Status_Done_ : BOOL;
+	zz$$$$_7_Eno_ComputeBlock : BOOL;
 	zz$$$$_8_Manager_Status_Active_A : BOOL;
 	zz$$$$_9_Manager_Cmd_Stop_AndRes : BOOL;
 END_VAR
@@ -49,17 +49,19 @@ END_VAR
 {NetworkNumber := 1}
 EnableSequence:
 LD	Manager.Cmd.Start {CheckDataType := BOOL}
+ST	zz$$$$_0_Manager_Cmd_Start_AndRe
 ANDN	Manager.Cmd.Stop {CheckDataType := BOOL}
 ANDN	Manager.Status.TooFull {CheckDataType := BOOL}
-ST	zz$$$$_0_Manager_Status_TooFull_
+ST	zz$$$$_1_Manager_Status_TooFull_
 S	gCapDetect.Cmd.Enable {CheckDataType := BOOL}
-LD	zz$$$$_0_Manager_Status_TooFull_
+LD	zz$$$$_1_Manager_Status_TooFull_
 S	gCapArmCtrl.Cmd.Enable {CheckDataType := BOOL}
-LD	zz$$$$_0_Manager_Status_TooFull_
+LD	zz$$$$_1_Manager_Status_TooFull_
 S	gMoveCap.Cmd.Enable {CheckDataType := BOOL}
-LD	zz$$$$_0_Manager_Status_TooFull_
-ST	Manager.Status.Active {CheckDataType := BOOL}
+LD	zz$$$$_1_Manager_Status_TooFull_
 R	Manager.Status.Stopped {CheckDataType := BOOL}
+LD	zz$$$$_0_Manager_Cmd_Start_AndRe
+ST	Manager.Status.Active {CheckDataType := BOOL}
 
 {NetworkNumber := 2}
 StartSequence:
@@ -69,7 +71,7 @@ AND	gMoveCap.Status.Active {CheckDataType := BOOL}
 ANDN	gMoveCap.Status.Error {CheckDataType := BOOL}
 ANDN	gCapArmCtrl.Status.Error {CheckDataType := BOOL}
 ANDN	gCapDetect.Status.Error {CheckDataType := BOOL}
-ST	zz$$$$_1_gCapDetect_Status_Error
+ST	zz$$$$_2_gCapDetect_Status_Error
 ST	gCapArmCtrl.Cmd.Start {CheckDataType := BOOL}
 ST	gCapDetect.Cmd.Start {CheckDataType := BOOL}
 ST	gMoveCap.Cmd.Start {CheckDataType := BOOL}
@@ -77,38 +79,35 @@ ST	gMoveCap.Cmd.Start {CheckDataType := BOOL}
 {NetworkNumber := 3}
 EntryStationLogic:
 LD	gMoveCap.Cmd.Start {CheckDataType := BOOL}
-ST	zz$$$$_2_gMoveCap_Cmd_Start_AndR
+ST	zz$$$$_3_gMoveCap_Cmd_Start_AndR
 ANDN	gMoveCap.Status.Stopped {CheckDataType := BOOL}
-ST	zz$$$$_3_gMoveCap_Status_Stopped
+ST	zz$$$$_4_gMoveCap_Status_Stopped
 AND	gCapDetect.Par.ProductAvailable {CheckDataType := BOOL}
-ST	zz$$$$_4_gCapDetect_Par_ProductA
+ST	zz$$$$_5_gCapDetect_Par_ProductA
 AND	gCapDetect.Status.Done {CheckDataType := BOOL}
-ST	zz$$$$_5_gCapDetect_Status_Done_
+ST	zz$$$$_6_gCapDetect_Status_Done_
 ST	gCapArmCtrl.Cmd.MoveSwitch {CheckDataType := BOOL}
 ST	gCapArmCtrl.Cmd.DoRetractStopper {CheckDataType := BOOL}
-LD	zz$$$$_4_gCapDetect_Par_ProductA
-ST	zz$$$$_6_Eno_ComputeBlock
+LD	zz$$$$_5_gCapDetect_Par_ProductA
+ST	zz$$$$_7_Eno_ComputeBlock
 JMPCN ll$$$$_IF_0
 Compute!	gCapDetect.Par.CapColor
 ST	gCapArmCtrl.Par.CapColor
 ll$$$$_IF_0:
-LD	zz$$$$_4_gCapDetect_Par_ProductA
+LD	zz$$$$_5_gCapDetect_Par_ProductA
 AND	gCapDetect.Status.Done {CheckDataType := BOOL}
-OR	zz$$$$_6_Eno_ComputeBlock
+OR	zz$$$$_7_Eno_ComputeBlock
 ST	gCapArmCtrl.Par.ProductAvailable {CheckDataType := BOOL}
-LD	gMoveCap.Cmd.Start {CheckDataType := BOOL}
-ST	zz$$$$_7_r_trig_gMoveCap_Cmd_Sta.CLK
-CAL	zz$$$$_7_r_trig_gMoveCap_Cmd_Sta
-LD	zz$$$$_3_gMoveCap_Status_Stopped
-AND	zz$$$$_7_r_trig_gMoveCap_Cmd_Sta.Q
+LD	zz$$$$_4_gMoveCap_Status_Stopped
+AND	gMoveCap.Cmd.Start {CheckDataType := BOOL}
 S	gMoveCap.Cmd.MoveFwd {CheckDataType := BOOL}
-LD	zz$$$$_2_gMoveCap_Cmd_Start_AndR
+LD	zz$$$$_3_gMoveCap_Cmd_Start_AndR
 AND	Manager.Cmd.JogFwd {CheckDataType := BOOL}
 ST	gMoveCap.Cmd.JogFwd {CheckDataType := BOOL}
-LD	zz$$$$_2_gMoveCap_Cmd_Start_AndR
+LD	zz$$$$_3_gMoveCap_Cmd_Start_AndR
 AND	Manager.Cmd.JogBkwd {CheckDataType := BOOL}
 ST	gMoveCap.Cmd.JogBkwd {CheckDataType := BOOL}
-LD	zz$$$$_2_gMoveCap_Cmd_Start_AndR
+LD	zz$$$$_3_gMoveCap_Cmd_Start_AndR
 AND	gMoveCap.Status.Stopped {CheckDataType := BOOL}
 R	gMoveCap.Cmd.MoveFwd {CheckDataType := BOOL}
 
@@ -145,82 +144,80 @@ CODE_INFORMATION_754EF481_1721_4FA5_BF7F_DE1B91DFA69B_END]]></CodeInformation>
                 <LineMapInfo line="17" column="1" position="Net:1" />
                 <LineMapInfo line="18" column="1" position="Net:1" />
                 <LineMapInfo line="19" column="4" position="Net:1, Ln:1, Col:1" />
-                <LineMapInfo line="20" column="6" position="Net:1, Ln:1, Col:5" />
-                <LineMapInfo line="21" column="6" position="Net:1, Ln:1, Col:9" />
-                <LineMapInfo line="23" column="3" position="Net:1, Ln:1, Col:31" />
-                <LineMapInfo line="24" column="4" position="Net:1, Ln:1, Col:9" />
-                <LineMapInfo line="25" column="3" position="Net:1, Ln:2, Col:31" />
-                <LineMapInfo line="26" column="4" position="Net:1, Ln:1, Col:9" />
-                <LineMapInfo line="27" column="3" position="Net:1, Ln:3, Col:31" />
-                <LineMapInfo line="28" column="4" position="Net:1, Ln:1, Col:9" />
-                <LineMapInfo line="29" column="4" position="Net:1, Ln:4, Col:31" />
-                <LineMapInfo line="30" column="3" position="Net:1, Ln:5, Col:31" />
-                <LineMapInfo line="32" column="1" position="Net:2" />
-                <LineMapInfo line="33" column="1" position="Net:2" />
-                <LineMapInfo line="34" column="4" position="Net:2, Ln:1, Col:1" />
-                <LineMapInfo line="35" column="5" position="Net:2, Ln:1, Col:6" />
-                <LineMapInfo line="36" column="5" position="Net:2, Ln:1, Col:11" />
-                <LineMapInfo line="37" column="6" position="Net:2, Ln:1, Col:16" />
-                <LineMapInfo line="38" column="6" position="Net:2, Ln:1, Col:21" />
-                <LineMapInfo line="39" column="6" position="Net:2, Ln:1, Col:26" />
-                <LineMapInfo line="41" column="4" position="Net:2, Ln:1, Col:31" />
-                <LineMapInfo line="42" column="4" position="Net:2, Ln:2, Col:31" />
-                <LineMapInfo line="43" column="4" position="Net:2, Ln:3, Col:32" />
-                <LineMapInfo line="45" column="1" position="Net:3" />
-                <LineMapInfo line="46" column="1" position="Net:3" />
-                <LineMapInfo line="47" column="4" position="Net:3, Ln:1, Col:1" />
-                <LineMapInfo line="49" column="6" position="Net:3, Ln:1, Col:5" />
-                <LineMapInfo line="51" column="5" position="Net:3, Ln:1, Col:10" />
-                <LineMapInfo line="53" column="5" position="Net:3, Ln:1, Col:16" />
-                <LineMapInfo line="55" column="4" position="Net:3, Ln:1, Col:30" />
-                <LineMapInfo line="56" column="4" position="Net:3, Ln:2, Col:29" />
-                <LineMapInfo line="57" column="4" position="Net:3, Ln:1, Col:10" />
-                <LineMapInfo line="58" column="4" position="Net:3, Ln:4, Col:16 [Block input EN]" />
-                <LineMapInfo line="60" column="10" position="Net:3, Ln:4, Col:16" />
-                <LineMapInfo line="61" column="4" position="Net:3, Ln:5, Col:22" />
-                <LineMapInfo line="63" column="4" position="Net:3, Ln:1, Col:10" />
-                <LineMapInfo line="64" column="5" position="Net:3, Ln:3, Col:16" />
-                <LineMapInfo line="65" column="4" position="Net:3, Ln:4, Col:16 [Block output ENO]" />
-                <LineMapInfo line="66" column="4" position="Net:3, Ln:3, Col:30" />
-                <LineMapInfo line="67" column="4" position="Net:3, Ln:6, Col:10" />
-                <LineMapInfo line="68" column="4" position="Net:3, Ln:6, Col:10" />
-                <LineMapInfo line="69" column="5" position="Net:3, Ln:6, Col:10" />
-                <LineMapInfo line="70" column="4" position="Net:3, Ln:1, Col:5" />
-                <LineMapInfo line="71" column="5" position="Net:3, Ln:6, Col:10" />
-                <LineMapInfo line="72" column="3" position="Net:3, Ln:6, Col:31" />
-                <LineMapInfo line="73" column="4" position="Net:3, Ln:1, Col:1" />
-                <LineMapInfo line="74" column="5" position="Net:3, Ln:7, Col:5" />
-                <LineMapInfo line="75" column="4" position="Net:3, Ln:7, Col:31" />
-                <LineMapInfo line="76" column="4" position="Net:3, Ln:1, Col:1" />
-                <LineMapInfo line="77" column="5" position="Net:3, Ln:8, Col:5" />
-                <LineMapInfo line="78" column="4" position="Net:3, Ln:8, Col:31" />
-                <LineMapInfo line="79" column="4" position="Net:3, Ln:1, Col:1" />
-                <LineMapInfo line="80" column="5" position="Net:3, Ln:9, Col:5" />
-                <LineMapInfo line="81" column="3" position="Net:3, Ln:9, Col:31" />
+                <LineMapInfo line="21" column="6" position="Net:1, Ln:1, Col:5" />
+                <LineMapInfo line="22" column="6" position="Net:1, Ln:1, Col:9" />
+                <LineMapInfo line="24" column="3" position="Net:1, Ln:1, Col:31" />
+                <LineMapInfo line="25" column="4" position="Net:1, Ln:1, Col:9" />
+                <LineMapInfo line="26" column="3" position="Net:1, Ln:2, Col:31" />
+                <LineMapInfo line="27" column="4" position="Net:1, Ln:1, Col:9" />
+                <LineMapInfo line="28" column="3" position="Net:1, Ln:3, Col:31" />
+                <LineMapInfo line="29" column="4" position="Net:1, Ln:1, Col:9" />
+                <LineMapInfo line="30" column="3" position="Net:1, Ln:4, Col:31" />
+                <LineMapInfo line="31" column="4" position="Net:1, Ln:1, Col:1" />
+                <LineMapInfo line="32" column="4" position="Net:1, Ln:5, Col:31" />
+                <LineMapInfo line="34" column="1" position="Net:2" />
+                <LineMapInfo line="35" column="1" position="Net:2" />
+                <LineMapInfo line="36" column="4" position="Net:2, Ln:1, Col:1" />
+                <LineMapInfo line="37" column="5" position="Net:2, Ln:1, Col:6" />
+                <LineMapInfo line="38" column="5" position="Net:2, Ln:1, Col:11" />
+                <LineMapInfo line="39" column="6" position="Net:2, Ln:1, Col:16" />
+                <LineMapInfo line="40" column="6" position="Net:2, Ln:1, Col:21" />
+                <LineMapInfo line="41" column="6" position="Net:2, Ln:1, Col:26" />
+                <LineMapInfo line="43" column="4" position="Net:2, Ln:1, Col:31" />
+                <LineMapInfo line="44" column="4" position="Net:2, Ln:2, Col:31" />
+                <LineMapInfo line="45" column="4" position="Net:2, Ln:3, Col:32" />
+                <LineMapInfo line="47" column="1" position="Net:3" />
+                <LineMapInfo line="48" column="1" position="Net:3" />
+                <LineMapInfo line="49" column="4" position="Net:3, Ln:1, Col:1" />
+                <LineMapInfo line="51" column="6" position="Net:3, Ln:1, Col:5" />
+                <LineMapInfo line="53" column="5" position="Net:3, Ln:1, Col:10" />
+                <LineMapInfo line="55" column="5" position="Net:3, Ln:1, Col:16" />
+                <LineMapInfo line="57" column="4" position="Net:3, Ln:1, Col:30" />
+                <LineMapInfo line="58" column="4" position="Net:3, Ln:2, Col:29" />
+                <LineMapInfo line="59" column="4" position="Net:3, Ln:1, Col:10" />
+                <LineMapInfo line="60" column="4" position="Net:3, Ln:4, Col:16 [Block input EN]" />
+                <LineMapInfo line="62" column="10" position="Net:3, Ln:4, Col:16" />
+                <LineMapInfo line="63" column="4" position="Net:3, Ln:5, Col:22" />
+                <LineMapInfo line="65" column="4" position="Net:3, Ln:1, Col:10" />
+                <LineMapInfo line="66" column="5" position="Net:3, Ln:3, Col:16" />
+                <LineMapInfo line="67" column="4" position="Net:3, Ln:4, Col:16 [Block output ENO]" />
+                <LineMapInfo line="68" column="4" position="Net:3, Ln:3, Col:30" />
+                <LineMapInfo line="69" column="4" position="Net:3, Ln:1, Col:5" />
+                <LineMapInfo line="70" column="5" position="Net:3, Ln:6, Col:10" />
+                <LineMapInfo line="71" column="3" position="Net:3, Ln:6, Col:31" />
+                <LineMapInfo line="72" column="4" position="Net:3, Ln:1, Col:1" />
+                <LineMapInfo line="73" column="5" position="Net:3, Ln:7, Col:5" />
+                <LineMapInfo line="74" column="4" position="Net:3, Ln:7, Col:31" />
+                <LineMapInfo line="75" column="4" position="Net:3, Ln:1, Col:1" />
+                <LineMapInfo line="76" column="5" position="Net:3, Ln:8, Col:5" />
+                <LineMapInfo line="77" column="4" position="Net:3, Ln:8, Col:31" />
+                <LineMapInfo line="78" column="4" position="Net:3, Ln:1, Col:1" />
+                <LineMapInfo line="79" column="5" position="Net:3, Ln:9, Col:5" />
+                <LineMapInfo line="80" column="3" position="Net:3, Ln:9, Col:31" />
+                <LineMapInfo line="82" column="1" position="Net:4" />
                 <LineMapInfo line="83" column="1" position="Net:4" />
-                <LineMapInfo line="84" column="1" position="Net:4" />
-                <LineMapInfo line="85" column="4" position="Net:4, Ln:1, Col:1" />
-                <LineMapInfo line="87" column="5" position="Net:4, Ln:1, Col:6" />
-                <LineMapInfo line="88" column="3" position="Net:4, Ln:1, Col:32" />
-                <LineMapInfo line="89" column="4" position="Net:4, Ln:1, Col:1" />
-                <LineMapInfo line="90" column="6" position="Net:4, Ln:2, Col:6" />
-                <LineMapInfo line="91" column="3" position="Net:4, Ln:2, Col:32" />
+                <LineMapInfo line="84" column="4" position="Net:4, Ln:1, Col:1" />
+                <LineMapInfo line="86" column="5" position="Net:4, Ln:1, Col:6" />
+                <LineMapInfo line="87" column="3" position="Net:4, Ln:1, Col:32" />
+                <LineMapInfo line="88" column="4" position="Net:4, Ln:1, Col:1" />
+                <LineMapInfo line="89" column="6" position="Net:4, Ln:2, Col:6" />
+                <LineMapInfo line="90" column="3" position="Net:4, Ln:2, Col:32" />
+                <LineMapInfo line="92" column="1" position="Net:5" />
                 <LineMapInfo line="93" column="1" position="Net:5" />
-                <LineMapInfo line="94" column="1" position="Net:5" />
-                <LineMapInfo line="95" column="4" position="Net:5, Ln:1, Col:1" />
-                <LineMapInfo line="97" column="4" position="Net:5, Ln:1, Col:31" />
-                <LineMapInfo line="98" column="4" position="Net:5, Ln:2, Col:31" />
-                <LineMapInfo line="99" column="4" position="Net:5, Ln:3, Col:32" />
-                <LineMapInfo line="100" column="3" position="Net:5, Ln:4, Col:31" />
+                <LineMapInfo line="94" column="4" position="Net:5, Ln:1, Col:1" />
+                <LineMapInfo line="96" column="4" position="Net:5, Ln:1, Col:31" />
+                <LineMapInfo line="97" column="4" position="Net:5, Ln:2, Col:31" />
+                <LineMapInfo line="98" column="4" position="Net:5, Ln:3, Col:32" />
+                <LineMapInfo line="99" column="3" position="Net:5, Ln:4, Col:31" />
+                <LineMapInfo line="101" column="1" position="Net:6" />
                 <LineMapInfo line="102" column="1" position="Net:6" />
-                <LineMapInfo line="103" column="1" position="Net:6" />
-                <LineMapInfo line="104" column="4" position="Net:6, Ln:1, Col:1" />
-                <LineMapInfo line="105" column="4" position="Net:6, Ln:1, Col:31" />
-                <LineMapInfo line="107" column="1" position="[POU end]" />
+                <LineMapInfo line="103" column="4" position="Net:6, Ln:1, Col:1" />
+                <LineMapInfo line="104" column="4" position="Net:6, Ln:1, Col:31" />
+                <LineMapInfo line="106" column="1" position="[POU end]" />
               </LineMapInfos>
             </Data>
             <Data name="BR_ChecksumInformation" handleUnknown="implementation">
-              <ChecksumInformation guid="A3044021_E131_45AC_AB9B_59041547F16C" checksum="DCEA637B" />
+              <ChecksumInformation guid="A3044021_E131_45AC_AB9B_59041547F16C" checksum="F92BAB3E" />
             </Data>
           </AddData>
           <BodyContent xsi:type="LD">
@@ -311,7 +308,7 @@ CODE_INFORMATION_754EF481_1721_4FA5_BF7F_DE1B91DFA69B_END]]></CodeInformation>
                   <RelPosition x="150" y="10" />
                 </ConnectionPointOut>
               </LdObject>
-              <LdObject xsi:type="Coil" operand="Manager.Status.Active" edge="none" latch="none">
+              <LdObject xsi:type="Coil" operand="Manager.Status.Stopped" edge="none" latch="reset">
                 <RelPosition x="903" y="132" />
                 <Size x="150" y="20" />
                 <ConnectionPointIn>
@@ -322,12 +319,12 @@ CODE_INFORMATION_754EF481_1721_4FA5_BF7F_DE1B91DFA69B_END]]></CodeInformation>
                   <RelPosition x="150" y="10" />
                 </ConnectionPointOut>
               </LdObject>
-              <LdObject xsi:type="Coil" operand="Manager.Status.Stopped" edge="none" latch="reset">
+              <LdObject xsi:type="Coil" operand="Manager.Status.Active" edge="none" latch="none">
                 <RelPosition x="903" y="170" />
                 <Size x="150" y="20" />
                 <ConnectionPointIn>
                   <RelPosition x="0" y="10" />
-                  <Connection refConnectionPointOutId="4" />
+                  <Connection refConnectionPointOutId="2" />
                 </ConnectionPointIn>
                 <ConnectionPointOut connectionPointOutId="9">
                   <RelPosition x="150" y="10" />
@@ -588,7 +585,7 @@ CODE_INFORMATION_754EF481_1721_4FA5_BF7F_DE1B91DFA69B_END]]></CodeInformation>
                   <RelPosition x="180" y="10" />
                 </ConnectionPointOut>
               </LdObject>
-              <LdObject xsi:type="Contact" operand="gMoveCap.Cmd.Start" edge="rising">
+              <LdObject xsi:type="Contact" operand="gMoveCap.Cmd.Start" edge="none">
                 <RelPosition x="273" y="208" />
                 <Size x="120" y="20" />
                 <ConnectionPointIn>
