@@ -23,7 +23,7 @@ TYPE
 		Active : BOOL; (*Task is active status*)
 		Done : BOOL; (*Task done status*)
 		Error : BOOL; (*Task errored status*)
-		ModuleOk : BOOL; (*DI IO slice ModuleOk status*)
+		ModuleOk : BOOL; (*X67 ModuleOK status*)
 		Stopped : BOOL; (*Task stopped status*)
 		ErrorID : MoveCapErrorEnum; (*ErrorID status*)
 	END_STRUCT;

@@ -3,6 +3,8 @@ TYPE
 	ManagerCmdType : 	STRUCT 
 		Start : BOOL; (*Start command*)
 		Stop : BOOL; (*Stop command*)
+		JogFwd : BOOL; (*Jog foward command*)
+		JogBkwd : BOOL; (*Jog backward command*)
 	END_STRUCT;
 	ManagerErrorEnum : 
 		(
@@ -21,6 +23,7 @@ TYPE
 		Error : BOOL; (*Task errored status*)
 		ModuleOk : BOOL; (*DI IO slice ModuleOk status*)
 		Stopped : BOOL; (*Task stopped status*)
+		TooFull : BOOL; (*Status for a lane being too full*)
 		ErrorID : ManagerErrorEnum; (*ErrorID status*)
 	END_STRUCT;
 	ManagerType : 	STRUCT 

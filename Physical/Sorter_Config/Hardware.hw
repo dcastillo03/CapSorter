@@ -45,6 +45,11 @@
     <Parameter ID="ActivateSdm" Value="1" />
     <Parameter ID="ActivateHypervisor" Value="1" />
   </Module>
+  <Module Name="OpcUa_any" Type="OpcUa_any" Version="2.0.0.1">
+    <Connection Connector="ETH1" TargetModule="5PPC2200_AL14_000" TargetConnector="IF3">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+  </Module>
   <Module Name="X20BB80" Type="X20BB80" Version="1.1.0.0">
     <Connector Name="IF1">
       <Parameter ID="CycleTime" Value="1000" />
@@ -115,7 +120,7 @@
     <Parameter ID="Supervision" Value="off" />
     <Parameter ID="AxisReference" Location="FunctionModel/DriveConfiguration/Channel[1]/RealAxis" Value="gSortingConveyor" />
     <Parameter ID="ReferenceDistance" Location="FunctionModel/DriveConfiguration/Channel[1]/RealAxis/MechanicalElements/RotaryToLinearTransformation" Value="30" />
-    <Parameter ID="ConstantSpeedCurrent" Location="FunctionModel/DriveConfiguration/Channel[1]/RealAxis/Controller/Mode/Current" Value="1.9" />
+    <Parameter ID="ConstantSpeedCurrent" Location="FunctionModel/DriveConfiguration/Channel[1]/RealAxis/Controller/Mode/Current" Value="2.0" />
     <Parameter ID="SpeedChangeCurrent" Location="FunctionModel/DriveConfiguration/Channel[1]/RealAxis/Controller/Mode/Current" Value="2.5" />
   </Module>
 </Hardware>
