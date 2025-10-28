@@ -7,6 +7,7 @@ TYPE
 	END_STRUCT;
 	AutoCmdTyp : 	STRUCT 
 		EnableModules : BOOL;
+		EnableAutoMode : BOOL;
 		Start : BOOL;
 		Stop : BOOL;
 		Home : BOOL;
@@ -23,6 +24,7 @@ TYPE
 	AutoStateTyp : 	STRUCT 
 		CapEjected : BOOL;
 		CapGripped : BOOL;
+		CapAtDropOff : BOOL;
 		CapDroppedOff : BOOL;
 		CapSent : BOOL;
 		CapSorted : BOOL;
