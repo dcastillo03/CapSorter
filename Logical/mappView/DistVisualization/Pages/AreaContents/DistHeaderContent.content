@@ -5,6 +5,7 @@
     <Widget xsi:type="widgets.brease.DateTimeOutput" id="DistHeaderDateTimeOutput" top="45" left="950" width="325" zIndex="1" />
     <Widget xsi:type="widgets.brease.Label" id="OperationModeLabel" top="10" left="995" width="130" zIndex="2" text="$IAT/Header.OpMode" fontSize="16px" />
     <Widget xsi:type="widgets.brease.TextOutput" id="OpModeTextOutput" top="10" left="1140" width="130" zIndex="3" value="$IAT/Header.Manual" />
-    <Widget xsi:type="widgets.brease.Label" id="Label1" top="25" left="315" width="125" zIndex="4" text="$IAT/Header.Status" fontSize="16px" />
+    <Widget xsi:type="widgets.brease.Label" id="Label1" top="30" left="735" width="125" zIndex="4" text="$IAT/Header.Status" fontSize="16px" />
+    <Widget xsi:type="widgets.brease.TextOutput" id="TextOutput1" top="15" left="320" width="205" height="50" zIndex="5" />
   </Widgets>
 </Content>

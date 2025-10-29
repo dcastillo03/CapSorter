@@ -55,6 +55,31 @@
         <seg>Automatic Mode</seg>
       </tuv>
     </tu>
+    <tu tuid="Main.CapsDist">
+      <tuv xml:lang="en">
+        <seg>Caps Distributed:</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Main.RedCaps">
+      <tuv xml:lang="en">
+        <seg>Red:</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Main.BlackCaps">
+      <tuv xml:lang="en">
+        <seg>Black:</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Main.MetalCaps">
+      <tuv xml:lang="en">
+        <seg>Metal:</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Main.TotalCaps">
+      <tuv xml:lang="en">
+        <seg>Caps Sorted:</seg>
+      </tuv>
+    </tu>
     <tu tuid="Nav.Main">
       <tuv xml:lang="en">
         <seg>Main</seg>

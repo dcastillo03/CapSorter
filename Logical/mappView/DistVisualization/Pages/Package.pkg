@@ -4,5 +4,9 @@
   <Objects>
     <Object Type="Package" Description="AreaContents">AreaContents</Object>
     <Object Type="Package">MainPage</Object>
+    <Object Type="Package">DistManualPage</Object>
+    <Object Type="Package">DistStatusPage</Object>
+    <Object Type="Package">DistAlarmPage</Object>
+    <Object Type="Package">DistDiagPage</Object>
   </Objects>
 </Package>

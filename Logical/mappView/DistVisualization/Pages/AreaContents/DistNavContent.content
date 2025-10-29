@@ -3,7 +3,11 @@
   <Widgets>
     <Widget xsi:type="widgets.brease.NavigationBar" id="DistNavigationBar" top="0" left="0" width="140" height="725" zIndex="0">
       <Widgets>
-        <Widget xsi:type="widgets.brease.NavigationButton" id="DistMainNavButton" top="0" left="0" width="140" height="65" zIndex="0" pageId="MainPage" text="$IAT/Nav.Main" />
+        <Widget xsi:type="widgets.brease.NavigationButton" id="DistMainNavButton" top="0" left="0" width="140" height="60" zIndex="0" pageId="MainPage" text="$IAT/Nav.Main" cornerRadius="15px" />
+        <Widget xsi:type="widgets.brease.NavigationButton" id="DistManualNavButton" top="106" left="0" width="140" height="60" zIndex="1" pageId="DistManualPage" text="$IAT/Nav.Manual" cornerRadius="15px" />
+        <Widget xsi:type="widgets.brease.NavigationButton" id="DistStatusNavButton" top="213" left="0" width="140" height="60" zIndex="2" pageId="DistStatusPage" text="$IAT/Nav.Status" cornerRadius="15px" />
+        <Widget xsi:type="widgets.brease.NavigationButton" id="DistAlarmNavButton" top="319" left="0" width="140" height="60" zIndex="3" pageId="DistAlarmPage" text="$IAT/Nav.Alarm" cornerRadius="15px" />
+        <Widget xsi:type="widgets.brease.NavigationButton" id="DistMainNavButton4" top="425" left="0" width="140" height="60" zIndex="4" pageId="DistDiagPage" text="$IAT/Nav.Diag" cornerRadius="15px" />
       </Widgets>
     </Widget>
   </Widgets>

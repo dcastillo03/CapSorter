@@ -3,6 +3,10 @@
   <StartPage pageRefId="MainPage" />
   <Pages>
     <Page refId="MainPage" />
+    <Page refId="DistStatusPage" />
+    <Page refId="DistAlarmPage" />
+    <Page refId="DistDiagPage" />
+    <Page refId="DistManualPage" />
   </Pages>
   <Navigations />
   <BindingsSets>
@@ -17,6 +21,10 @@
     <Content refId="DistHeaderContent" />
     <Content refId="DistMainContent" />
     <Content refId="DistNavContent" />
+    <Content refId="DistManualContent" />
+    <Content refId="DistStatusContent" />
+    <Content refId="DistAlarmContent" />
+    <Content refId="DistDiagContent" />
   </Contents>
   <SnippetsSets />
   <VariablesSets />

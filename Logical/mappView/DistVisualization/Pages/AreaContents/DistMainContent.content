@@ -7,5 +7,15 @@
     <Widget xsi:type="widgets.brease.ToggleButton" id="DistAutoToggleButton" top="50" left="895" width="190" height="110" zIndex="3" text="$IAT/Main.Auto" cornerRadius="15px" backColor="rgba(128, 128, 128, 1)" />
     <Widget xsi:type="widgets.brease.MomentaryPushButton" id="DistClearMomentaryPushButton" top="450" left="60" width="190" height="110" zIndex="4" text="$IAT/Main.Clear" cornerRadius="15px" backColor="rgba(218, 165, 32, 1)" />
     <Widget xsi:type="widgets.brease.ToggleButton" id="DistHomeToggleButton" top="50" left="60" width="190" height="110" zIndex="5" text="$IAT/Main.Home" cornerRadius="15px" backColor="rgba(0, 100, 0, 1)" />
+    <Widget xsi:type="widgets.brease.Label" id="CapsDistLabel" top="397" left="840" width="135" zIndex="6" text="$IAT/Main.CapsDist" textAlign="right" fontSize="16px" />
+    <Widget xsi:type="widgets.brease.Label" id="RedCapsLabel" top="443" left="840" width="135" zIndex="7" text="$IAT/Main.RedCaps" textAlign="right" fontSize="16px" />
+    <Widget xsi:type="widgets.brease.Label" id="TotalSortLabel" top="582" left="840" width="135" zIndex="8" text="$IAT/Main.TotalCaps" textAlign="right" fontSize="16px" />
+    <Widget xsi:type="widgets.brease.Label" id="MetalCapsLabel" top="536" left="840" width="135" zIndex="9" text="$IAT/Main.MetalCaps" textAlign="right" fontSize="16px" />
+    <Widget xsi:type="widgets.brease.Label" id="BlackCapsLabel" top="490" left="840" width="135" zIndex="10" text="$IAT/Main.BlackCaps" textAlign="right" fontSize="16px" />
+    <Widget xsi:type="widgets.brease.NumericOutput" id="CapsDistNumericOutput" top="395" left="985" zIndex="11" format="{'metric':{'decimalPlaces':0,'minimumIntegerDigits':1},'imperial':{'decimalPlaces':1,'minimumIntegerDigits':1},'imperial-us':{'decimalPlaces':1,'minimumIntegerDigits':1}}" textAlign="left" />
+    <Widget xsi:type="widgets.brease.NumericOutput" id="RedCapsNumericOutput" top="442" left="985" zIndex="12" format="{'metric':{'decimalPlaces':0,'minimumIntegerDigits':1},'imperial':{'decimalPlaces':1,'minimumIntegerDigits':1},'imperial-us':{'decimalPlaces':1,'minimumIntegerDigits':1}}" textAlign="left" />
+    <Widget xsi:type="widgets.brease.NumericOutput" id="SortedCapsNumericOutput" top="582" left="985" zIndex="13" format="{'metric':{'decimalPlaces':0,'minimumIntegerDigits':1},'imperial':{'decimalPlaces':1,'minimumIntegerDigits':1},'imperial-us':{'decimalPlaces':1,'minimumIntegerDigits':1}}" textAlign="left" />
+    <Widget xsi:type="widgets.brease.NumericOutput" id="BlackCapsNumericOutput" top="489" left="985" zIndex="14" format="{'metric':{'decimalPlaces':0,'minimumIntegerDigits':1},'imperial':{'decimalPlaces':1,'minimumIntegerDigits':1},'imperial-us':{'decimalPlaces':1,'minimumIntegerDigits':1}}" textAlign="left" />
+    <Widget xsi:type="widgets.brease.NumericOutput" id="MetalCapsNumericOutput" top="535" left="985" zIndex="15" format="{'metric':{'decimalPlaces':0,'minimumIntegerDigits':1},'imperial':{'decimalPlaces':1,'minimumIntegerDigits':1},'imperial-us':{'decimalPlaces':1,'minimumIntegerDigits':1}}" textAlign="left" />
   </Widgets>
 </Content>

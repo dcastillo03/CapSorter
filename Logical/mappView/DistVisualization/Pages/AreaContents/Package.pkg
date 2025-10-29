@@ -5,5 +5,9 @@
     <Object Type="File">DistHeaderContent.content</Object>
     <Object Type="File">DistMainContent.content</Object>
     <Object Type="File">DistNavContent.content</Object>
+    <Object Type="File">DistManualContent.content</Object>
+    <Object Type="File">DistStatusContent.content</Object>
+    <Object Type="File">DistAlarmContent.content</Object>
+    <Object Type="File">DistDiagContent.content</Object>
   </Objects>
 </Package>
