@@ -17,4 +17,16 @@ VAR_CONFIG
 	::DistConvey:IOInput.CapAtDropOff AT %IX."X67SM2436".TriggerInput01;
 	::DistConvey:IOInput.CapAtExit AT %IX."X67SM2436".StatusInput01;
 	::DistConvey:IOInput.ModuleOK AT %IX."X67SM2436".ModuleOk;
+	::DistComms:IO.Input.Status.Connected AT %IX."OpcUa_any".ModuleOk;
+	::DistComms:IO.Input.Cmd.Clear AT %IX."OpcUa_any".InClear;
+	::DistComms:IO.Input.Cmd.Start AT %IX."OpcUa_any".InStart;
+	::DistComms:IO.Input.Cmd.Stop AT %IX."OpcUa_any".InStop;
+	::DistComms:IO.Input.Par.DistAutoStart AT %IX."OpcUa_any".InDistAutoStart;
+	::DistComms:IO.Input.Par.SortAutoStart AT %IX."OpcUa_any".InSortAutoStart;
+	::DistComms:IO.Input.Status.BlackCapCount AT %ID."OpcUa_any".InBlackCapCount;
+	::DistComms:IO.Input.Status.RedCapCount AT %ID."OpcUa_any".InRedCapCount;
+	::DistComms:IO.Input.Status.MetalCapCount AT %ID."OpcUa_any".InMetalCapCount;
+	::DistComms:IO.Input.Status.CapSorted AT %IX."OpcUa_any".InCapSorted;
+	::DistComms:IO.Input.Status.Error AT %IX."OpcUa_any".InError;
+	::DistComms:IO.Input.Status.Ready AT %IX."OpcUa_any".InReady;
 END_VAR

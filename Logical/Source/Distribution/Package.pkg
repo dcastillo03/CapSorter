@@ -5,5 +5,6 @@
     <Object Type="Package">Manager</Object>
     <Object Type="Package" Description="Submodules of Distribution station">Modules</Object>
     <Object Type="Package">Communication</Object>
+    <Object Type="File">Project.language</Object>
   </Objects>
 </Package>

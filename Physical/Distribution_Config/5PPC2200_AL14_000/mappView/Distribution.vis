@@ -5,16 +5,28 @@
     <Page refId="MainPage" />
   </Pages>
   <Navigations />
-  <BindingsSets />
-  <EventBindingsSets />
+  <BindingsSets>
+    <BindingsSet refId="DistMainContent" />
+  </BindingsSets>
+  <EventBindingsSets>
+    <EventBindingsSet refId="HeaderEventBinding" />
+  </EventBindingsSets>
   <EventScriptsSets />
   <Dialogs />
-  <Contents />
+  <Contents>
+    <Content refId="DistHeaderContent" />
+    <Content refId="DistMainContent" />
+  </Contents>
   <SnippetsSets />
   <VariablesSets />
   <ExpressionsSets />
+  <StartTheme themeRefId="BuRThemeFlatDark" />
+  <Themes>
+    <Theme refId="BuRThemeFlatDark" />
+  </Themes>
   <Configurations>
     <Configuration key="activityCount" value="false" />
+    <Configuration key="zoom" value="true" />
     <Gestures>
       <!--<SystemGesture1 touchPoints="2" />
 		  <SystemGesture2 touchPoints="2" />

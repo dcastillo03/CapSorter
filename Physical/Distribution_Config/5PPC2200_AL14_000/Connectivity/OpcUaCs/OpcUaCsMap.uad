@@ -11,5 +11,8 @@
     <Task Name="DistComms">
       <Variable Name="IO" RecursiveEnable="2" />
     </Task>
+    <Task Name="Manager">
+      <Variable Name="AutoInterface" RecursiveEnable="2" />
+    </Task>
   </Module>
 </OpcUaSource>

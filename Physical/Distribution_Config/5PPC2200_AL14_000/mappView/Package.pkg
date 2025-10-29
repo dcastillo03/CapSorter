@@ -4,5 +4,7 @@
   <Objects>
     <Object Type="File">Distribution.vis</Object>
     <Object Type="File">Config.mappviewcfg</Object>
+    <Object Type="File">HeaderEventBinding.eventbinding</Object>
+    <Object Type="File">DistMainContent.binding</Object>
   </Objects>
 </Package>
