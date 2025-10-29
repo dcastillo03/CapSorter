@@ -12,6 +12,7 @@
   <Contents>
     <Content refId="SortNavContent" />
     <Content refId="SortAutoAreaContent" />
+    <Content refId="SortAutoHeaderContent" />
   </Contents>
   <SnippetsSets />
   <VariablesSets />
