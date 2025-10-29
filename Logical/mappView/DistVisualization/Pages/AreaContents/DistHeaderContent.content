@@ -1,9 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Content id="DistHeaderContent" guid="8b0a047a-6d55-4fd3-9ec8-68055255521d" height="80" width="1280" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Widgets>
-    <Widget xsi:type="widgets.brease.Image" id="Image1" top="15" left="15" width="180" height="50" zIndex="0" image="Media/BnR_Dark.svg" />
+    <Widget xsi:type="widgets.brease.Image" id="Image1" top="0" left="0" width="300" height="80" zIndex="0" image="Media/BnR_Dark.svg" />
     <Widget xsi:type="widgets.brease.DateTimeOutput" id="DistHeaderDateTimeOutput" top="45" left="950" width="325" zIndex="1" />
-    <Widget xsi:type="widgets.brease.Label" id="OperationModeLabel" top="10" left="995" width="130" zIndex="2" text="$IAT/OpMode" fontSize="16px" />
-    <Widget xsi:type="widgets.brease.TextOutput" id="OpModeTextOutput" top="10" left="1140" width="130" zIndex="3" value="$IAT/Manual" />
+    <Widget xsi:type="widgets.brease.Label" id="OperationModeLabel" top="10" left="995" width="130" zIndex="2" text="$IAT/Header.OpMode" fontSize="16px" />
+    <Widget xsi:type="widgets.brease.TextOutput" id="OpModeTextOutput" top="10" left="1140" width="130" zIndex="3" value="$IAT/Header.Manual" />
+    <Widget xsi:type="widgets.brease.Label" id="Label1" top="25" left="315" width="125" zIndex="4" text="$IAT/Header.Status" fontSize="16px" />
   </Widgets>
 </Content>

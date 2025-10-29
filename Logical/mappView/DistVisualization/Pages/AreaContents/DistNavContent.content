@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Content id="DistNavContent" guid="ff5e4531-8754-4455-9be1-6e337261e9e7" height="720" width="140" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Widgets>
+    <Widget xsi:type="widgets.brease.NavigationBar" id="DistNavigationBar" top="0" left="0" width="140" height="725" zIndex="0">
+      <Widgets>
+        <Widget xsi:type="widgets.brease.NavigationButton" id="DistMainNavButton" top="0" left="0" width="140" height="65" zIndex="0" pageId="MainPage" text="$IAT/Nav.Main" />
+      </Widgets>
+    </Widget>
+  </Widgets>
+</Content>

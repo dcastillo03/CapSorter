@@ -8,11 +8,23 @@
     <EngineeringUnitAliases />
   </Aliases>
   <Module Name="&lt;Default&gt;">
+    <GlobalVariables Name="Global Variables">
+      <Variable Name="gAutoInterface">
+        <Variable Name="Cmd">
+          <Variable Name="Home" />
+          <Variable Name="CapsCleared" />
+          <Variable Name="EnableManualMode" />
+        </Variable>
+      </Variable>
+    </GlobalVariables>
     <Task Name="DistComms">
-      <Variable Name="IO" RecursiveEnable="2" />
-    </Task>
-    <Task Name="Manager">
-      <Variable Name="AutoInterface" RecursiveEnable="2" />
+      <Variable Name="IO" RecursiveEnable="2">
+        <Variable Name="Output">
+          <Variable Name="Cmd">
+            <Variable Name="Start" />
+          </Variable>
+        </Variable>
+      </Variable>
     </Task>
   </Module>
 </OpcUaSource>

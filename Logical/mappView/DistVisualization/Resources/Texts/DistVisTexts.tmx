@@ -20,6 +20,16 @@
         <seg>Automatic</seg>
       </tuv>
     </tu>
+    <tu tuid="Header.Status">
+      <tuv xml:lang="en">
+        <seg>Machine Status:</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Main.Home">
+      <tuv xml:lang="en">
+        <seg>Home</seg>
+      </tuv>
+    </tu>
     <tu tuid="Main.Start">
       <tuv xml:lang="en">
         <seg>Start</seg>
@@ -33,6 +43,41 @@
     <tu tuid="Main.Clear">
       <tuv xml:lang="en">
         <seg>Clear</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Main.Manual">
+      <tuv xml:lang="en">
+        <seg>Manual Mode</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Main.Auto">
+      <tuv xml:lang="en">
+        <seg>Automatic Mode</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Nav.Main">
+      <tuv xml:lang="en">
+        <seg>Main</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Nav.Manual">
+      <tuv xml:lang="en">
+        <seg>Manual</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Nav.Status">
+      <tuv xml:lang="en">
+        <seg>Machine Status</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Nav.Alarm">
+      <tuv xml:lang="en">
+        <seg>Alarms</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Nav.Diag">
+      <tuv xml:lang="en">
+        <seg>Diagnostics</seg>
       </tuv>
     </tu>
   </body>

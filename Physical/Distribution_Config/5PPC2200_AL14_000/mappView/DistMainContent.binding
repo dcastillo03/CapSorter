@@ -1,5 +1,30 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <BindingsSet id="DistMainContent" xmlns="http://www.br-automation.com/iat2015/binding/engineering/v2" xmlns:bt="http://www.br-automation.com/iat2015/bindingListTypes/engineering/v2" xmlns:be="http://www.br-automation.com/iat2015/bindingListEmbedded/engineering/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Bindings>
+
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::DistComms:IO.Output.Cmd.Start" attribute="value" />
+<Target xsi:type="brease" contentRefId="DistMainContent" widgetRefId="DistStartToggleButton" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::DistComms:IO.Output.Cmd.Stop" attribute="value" />
+<Target xsi:type="brease" contentRefId="DistMainContent" widgetRefId="DistStopToggleButton" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::DistComms:IO.Output.Cmd.Clear" attribute="value" />
+<Target xsi:type="brease" contentRefId="DistMainContent" widgetRefId="DistClearMomentaryPushButton" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gAutoInterface.Cmd.Home" attribute="value" />
+<Target xsi:type="brease" contentRefId="DistMainContent" widgetRefId="DistHomeToggleButton" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::DistComms:IO.Output.Par.DistAutoStart" attribute="value" />
+<Target xsi:type="brease" contentRefId="DistMainContent" widgetRefId="DistAutoToggleButton" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gAutoInterface.Cmd.EnableManualMode" attribute="value" />
+<Target xsi:type="brease" contentRefId="DistMainContent" widgetRefId="DistManualToggleButton" attribute="value" />
+</Binding>
 </Bindings>
 </BindingsSet>

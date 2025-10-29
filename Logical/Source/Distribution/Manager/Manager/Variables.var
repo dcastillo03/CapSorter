@@ -1,6 +1,3 @@
-VAR
-	AutoInterface : AutoInterfaceTyp;
-END_VAR
 VAR CONSTANT
 	ARM_BACKOFF_TIME : TIME := T#550ms;
 END_VAR

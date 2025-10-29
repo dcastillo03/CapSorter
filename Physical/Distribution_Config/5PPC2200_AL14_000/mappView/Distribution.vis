@@ -16,6 +16,7 @@
   <Contents>
     <Content refId="DistHeaderContent" />
     <Content refId="DistMainContent" />
+    <Content refId="DistNavContent" />
   </Contents>
   <SnippetsSets />
   <VariablesSets />

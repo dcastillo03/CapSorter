@@ -4,5 +4,6 @@
   <Objects>
     <Object Type="File">DistHeaderContent.content</Object>
     <Object Type="File">DistMainContent.content</Object>
+    <Object Type="File">DistNavContent.content</Object>
   </Objects>
 </Package>
