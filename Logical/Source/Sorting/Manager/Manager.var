@@ -1,0 +1,3 @@
+VAR
+	gSortingManager : ManagerType;
+END_VAR

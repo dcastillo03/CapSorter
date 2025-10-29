@@ -9,4 +9,12 @@ VAR_CONFIG
 	::CapArmCtrl:IO.Outputs.doRetractStopper AT %QX."X20DO9322".DigitalOutput04;
 	::MoveCap:Internal.Status.ModuleOk AT %IX."X67SM2436".ModuleOk;
 	::CapArmCtrl:IO.Inputs.diLaneSensor AT %IX."X20DI9371".DigitalInput04;
+	::Communicat:IO.Inputs.Status.Connected AT %IX."OpcUa_any".ModuleOk;
+	::Communicat:IO.Inputs.Cmd.Start AT %IX."OpcUa_any".InboundStart;
+	::Communicat:IO.Inputs.Cmd.Stop AT %IX."OpcUa_any".InboundStop;
+	::Communicat:IO.Inputs.Cmd.Clear AT %IX."OpcUa_any".InboundClear;
+	::Communicat:IO.Inputs.Par.DistAutoStart AT %IX."OpcUa_any".InboundDistAutoStart;
+	::Communicat:IO.Inputs.Status.Error AT %IX."OpcUa_any".InboundError;
+	::Communicat:IO.Inputs.Status.Ready AT %IX."OpcUa_any".InboundReady;
+	::Communicat:IO.Inputs.Status.TotalCapCount AT %ID."OpcUa_any".InboundTotalCapCount;
 END_VAR

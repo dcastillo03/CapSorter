@@ -8,7 +8,8 @@
     <Task Name="CapDetect" Source="Source.Sorting.Modules.CapDetect.CapDetect.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="CapArmCtrl" Source="Source.Sorting.Modules.CapArmCtrl.CapArmCtrl.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="MoveCap" Source="Source.Sorting.Modules.MoveCap.MoveCap.prg" Memory="UserROM" Language="IEC" Debugging="true" />
-    <Task Name="SortingMan" Source="Source.Sorting.Modules.Manager.SortingManager.prg" Memory="UserROM" Language="IEC" Debugging="true" />
+    <Task Name="SortingMan" Source="Source.Sorting.Manager.SortingManager.prg" Memory="UserROM" Language="IEC" Debugging="true" />
+    <Task Name="Communicat" Source="Source.Sorting.Communications.Communications.prg" Memory="UserROM" Language="IEC" Debugging="true" />
   </TaskClass>
   <TaskClass Name="Cyclic#5" />
   <TaskClass Name="Cyclic#6" />

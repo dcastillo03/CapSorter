@@ -49,6 +49,38 @@
     <Connection Connector="ETH1" TargetModule="5PPC2200_AL14_000" TargetConnector="IF3">
       <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
     </Connection>
+    <Parameter ID="ServerEndpointUrl" Value="opc.tcp://192.168.68.71:4840" />
+    <Parameter ID="SecurityMsgMode" Value="1" />
+    <Parameter ID="SecurityPolicy" Value="1" />
+    <Group ID="Channel1" />
+    <Parameter ID="ChannelID1" Value="InboundStart" />
+    <Parameter ID="ChannelIdentification1" Value="NodeId" />
+    <Parameter ID="ChannelNodeId1" Value="ns=5;s=::DistComms:IO.Output.Cmd.Start" />
+    <Group ID="Channel2" />
+    <Parameter ID="ChannelID2" Value="InboundStop" />
+    <Parameter ID="ChannelIdentification2" Value="NodeId" />
+    <Parameter ID="ChannelNodeId2" Value="ns=5;s=::DistComms:IO.Output.Cmd.Stop" />
+    <Group ID="Channel3" />
+    <Parameter ID="ChannelID3" Value="InboundClear" />
+    <Parameter ID="ChannelIdentification3" Value="NodeId" />
+    <Parameter ID="ChannelNodeId3" Value="ns=5;s=::DistComms:IO.Output.Cmd.Clear" />
+    <Group ID="Channel4" />
+    <Parameter ID="ChannelID4" Value="InboundDistAutoStart" />
+    <Parameter ID="ChannelIdentification4" Value="NodeId" />
+    <Parameter ID="ChannelNodeId4" Value="ns=5;s=::DistComms:IO.Output.Par.DistAutoStart" />
+    <Group ID="Channel5" />
+    <Parameter ID="ChannelID5" Value="InboundError" />
+    <Parameter ID="ChannelIdentification5" Value="NodeId" />
+    <Parameter ID="ChannelNodeId5" Value="ns=5;s=::DistComms:IO.Output.Status.Error" />
+    <Group ID="Channel6" />
+    <Parameter ID="ChannelID6" Value="InboundReady" />
+    <Parameter ID="ChannelIdentification6" Value="NodeId" />
+    <Parameter ID="ChannelNodeId6" Value="ns=5;s=::DistComms:IO.Output.Status.Ready" />
+    <Group ID="Channel7" />
+    <Parameter ID="ChannelID7" Value="InboundTotalCapCount" />
+    <Parameter ID="ChannelIdentification7" Value="NodeId" />
+    <Parameter ID="ChannelNodeId7" Value="ns=5;s=::DistComms:IO.Output.Status.TotalCapCount" />
+    <Parameter ID="ChannelType7" Value="UDINT" />
   </Module>
   <Module Name="X20BB80" Type="X20BB80" Version="1.1.0.0">
     <Connector Name="IF1">
