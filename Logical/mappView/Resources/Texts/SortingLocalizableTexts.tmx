@@ -76,5 +76,77 @@
         <seg>System Diagnostics Manager</seg>
       </tuv>
     </tu>
+    <tu tuid="NAV.Home">
+      <note>Text for Home nav button</note>
+      <tuv xml:lang="fr">
+        <seg>Maison</seg>
+      </tuv>
+      <tuv xml:lang="de">
+        <seg>Home</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Home</seg>
+      </tuv>
+    </tu>
+    <tu tuid="NAV.SDM">
+      <note>Text for SDM nav button</note>
+      <tuv xml:lang="fr">
+        <seg>SDM</seg>
+      </tuv>
+      <tuv xml:lang="de">
+        <seg>SDM</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>SDM</seg>
+      </tuv>
+    </tu>
+    <tu tuid="AutoPage.CLEAR">
+      <note>Text for clear push button</note>
+      <tuv xml:lang="fr">
+        <seg>Effacez</seg>
+      </tuv>
+      <tuv xml:lang="de">
+        <seg>Clear</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Clear</seg>
+      </tuv>
+    </tu>
+    <tu tuid="AutoPage.AUTO_BUTTON">
+      <note>Text for automatic mode button</note>
+      <tuv xml:lang="fr">
+        <seg>Automatique</seg>
+      </tuv>
+      <tuv xml:lang="de">
+        <seg>Automatic</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Automatic</seg>
+      </tuv>
+    </tu>
+    <tu tuid="AutoPage.MANUAL_BUTTON">
+      <note>Text for manual mode button</note>
+      <tuv xml:lang="fr">
+        <seg>Manuel</seg>
+      </tuv>
+      <tuv xml:lang="de">
+        <seg>Manual</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Manual</seg>
+      </tuv>
+    </tu>
+    <tu tuid="ManualPage.HEADER">
+      <note>Text for manual page header label</note>
+      <tuv xml:lang="fr">
+        <seg>Page manuel</seg>
+      </tuv>
+      <tuv xml:lang="de">
+        <seg>Manual Page</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Manual Page</seg>
+      </tuv>
+    </tu>
   </body>
 </tmx>

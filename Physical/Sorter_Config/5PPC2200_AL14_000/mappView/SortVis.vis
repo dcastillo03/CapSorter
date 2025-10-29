@@ -4,6 +4,7 @@
   <Pages>
     <Page refId="SortAutoPage" />
     <Page refId="SDMPage" />
+    <Page refId="ManualPage" />
   </Pages>
   <Navigations />
   <BindingsSets>
@@ -20,6 +21,8 @@
     <Content refId="SortAutoHeaderContent" />
     <Content refId="SDMAreaContent" />
     <Content refId="SDMHeaderContent" />
+    <Content refId="ManualAreaContent" />
+    <Content refId="ManualPageHeader" />
   </Contents>
   <SnippetsSets />
   <VariablesSets />
