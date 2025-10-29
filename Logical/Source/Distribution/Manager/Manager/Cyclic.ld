@@ -16,6 +16,12 @@
   <Types>
     <GlobalNamespace>
       <Program name="">
+        <Documentation xsi:type="SimpleText"><![CDATA[(*********************************************************************************
+ * Copyright: B&R Industrial Automation GmbH 
+ * Author:    Johnathon Cato 
+ * Created:   October 28, 2025
+ * Description: Distribution Station Manager task
+ *********************************************************************************)]]></Documentation>
         <AddData>
           <Data name="BR_EntryPoint" handleUnknown="implementation">
             <EntryPoint entryPointType="_CYCLIC" />
@@ -532,7 +538,7 @@ CODE_INFORMATION_754EF481_1721_4FA5_BF7F_DE1B91DFA69B_END]]></CodeInformation>
               </LineMapInfos>
             </Data>
             <Data name="BR_ChecksumInformation" handleUnknown="implementation">
-              <ChecksumInformation guid="A3044021_E131_45AC_AB9B_59041547F16C" checksum="8C718D99" />
+              <ChecksumInformation guid="A3044021_E131_45AC_AB9B_59041547F16C" checksum="A923F304" />
             </Data>
           </AddData>
           <BodyContent xsi:type="LD">

@@ -1,0 +1,3 @@
+VAR
+	IO : DistIOTyp;
+END_VAR
