@@ -9,6 +9,7 @@
   <Navigations />
   <BindingsSets>
     <BindingsSet refId="SortAutoAreaContent" />
+    <BindingsSet refId="ManualAreaContent" />
   </BindingsSets>
   <EventBindingsSets>
     <EventBindingsSet refId="EventBinding" />

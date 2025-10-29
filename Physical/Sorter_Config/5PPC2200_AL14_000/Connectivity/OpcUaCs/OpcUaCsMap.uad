@@ -8,6 +8,9 @@
     <EngineeringUnitAliases />
   </Aliases>
   <Module Name="&lt;Default&gt;">
+    <GlobalVariables Name="Global Variables">
+      <Variable Name="gSortingManager" RecursiveEnable="2" />
+    </GlobalVariables>
     <Task Name="Communicat">
       <Variable Name="IO" RecursiveEnable="2" />
     </Task>

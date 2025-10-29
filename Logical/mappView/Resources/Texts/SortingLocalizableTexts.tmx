@@ -148,5 +148,62 @@
         <seg>Manual Page</seg>
       </tuv>
     </tu>
+    <tu tuid="ManualPage.JogButtonLabel">
+      <note>Text for jog buttons label</note>
+      <tuv xml:lang="fr">
+        <seg>Boutons de jogging</seg>
+      </tuv>
+      <tuv xml:lang="de">
+        <seg>Jog Buttons</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Jog Buttons</seg>
+      </tuv>
+    </tu>
+    <tu tuid="ManualPage.JogVelLabel">
+      <note>Text for jog vel label</note>
+      <tuv xml:lang="fr">
+        <seg>Vitesse de jogging</seg>
+      </tuv>
+      <tuv xml:lang="de">
+        <seg>Jog Velocity</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Jog Velocity</seg>
+      </tuv>
+    </tu>
+    <tu tuid="ManualPage.JogAccelLabel">
+      <note>Text for jog accel label</note>
+      <tuv xml:lang="fr">
+        <seg>Accélération du jogging</seg>
+      </tuv>
+      <tuv xml:lang="de">
+        <seg>Jog Acceleration</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Jog Acceleration</seg>
+      </tuv>
+    </tu>
+    <tu tuid="ManualPage.JogDecelLabel">
+      <note>Text for jog decel label</note>
+      <tuv xml:lang="fr">
+        <seg>Décélération du jogging</seg>
+      </tuv>
+      <tuv xml:lang="de">
+        <seg>Jog Deceleration</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Jog Deceleration</seg>
+      </tuv>
+    </tu>
+    <tu tuid="ManualPage.UpdateButton">
+      <note>Text for update button</note>
+      <tuv xml:lang="fr">
+        <seg>Mise à jour</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Update</seg>
+      </tuv>
+    </tu>
   </body>
 </tmx>

@@ -1,4 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Content id="ManualAreaContent" guid="602bcb42-d9c7-4ff6-bf8e-df3fb984938a" height="720" width="1140" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <Widgets />
+  <Widgets>
+    <Widget xsi:type="widgets.brease.NumericInput" id="AccelNumericInput" top="120" left="80" height="40" zIndex="4" cornerRadius="15px" />
+    <Widget xsi:type="widgets.brease.NumericInput" id="DecelNumericInput" top="120" left="240" height="40" zIndex="5" cornerRadius="15px" />
+    <Widget xsi:type="widgets.brease.NumericInput" id="VelNumericInput" top="120" left="400" height="40" zIndex="6" cornerRadius="15px" />
+    <Widget xsi:type="widgets.brease.MomentaryPushButton" id="JogBackMomentaryPushButton" top="120" left="660" width="80" height="40" zIndex="7" image="Media/SymbolLib/Edit/Undo.svg" cornerRadius="15px" />
+    <Widget xsi:type="widgets.brease.MomentaryPushButton" id="JogFwdMomentaryPushButton" top="120" left="760" width="80" height="40" zIndex="8" image="Media/SymbolLib/Edit/Redo.svg" cornerRadius="15px" />
+    <Widget xsi:type="widgets.brease.Label" id="Label1" top="60" left="640" width="220" height="70" zIndex="0" multiLine="true" text="$IAT/ManualPage.JogButtonLabel" wordWrap="true" textAlign="center" fontSize="20px" bold="true" />
+    <Widget xsi:type="widgets.brease.Label" id="Label2" top="60" left="400" width="140" height="70" zIndex="1" multiLine="true" text="$IAT/ManualPage.JogVelLabel" wordWrap="true" fontSize="20px" bold="true" />
+    <Widget xsi:type="widgets.brease.Label" id="Label3" top="60" left="240" width="140" height="70" zIndex="3" multiLine="true" text="$IAT/ManualPage.JogDecelLabel" wordWrap="true" fontSize="20px" bold="true" />
+    <Widget xsi:type="widgets.brease.Label" id="Label4" top="60" left="80" width="140" height="70" zIndex="2" multiLine="true" text="$IAT/ManualPage.JogAccelLabel" wordWrap="true" fontSize="20px" bold="true" />
+    <Widget xsi:type="widgets.brease.MomentaryPushButton" id="UpdateMomentaryPushButton" top="180" left="680" width="140" height="40" zIndex="9" image="Media/SymbolLib/Symbols/Upload.svg" text="$IAT/ManualPage.UpdateButton" cornerRadius="15px" bold="true" />
+  </Widgets>
 </Content>

@@ -9,6 +9,7 @@ TYPE
 		MoveBackSwitch : BOOL; (*Command for moving back arm switch*)
 		DoRetractStopper : BOOL; (*Command for actuating stopper*)
 		ManualCapDetect : BOOL; (*Command for manually detecting cap*)
+		UpdateConveyorPars : BOOL; (*Command for updating conveyor pars*)
 	END_STRUCT;
 	ManagerErrorEnum : 
 		(
@@ -16,10 +17,9 @@ TYPE
 		mgERROR_MODULE_NOT_OK := -1000 (*X67 drive is not properly detected*)
 		);
 	ManagerParType : 	STRUCT 
-		CapColor : CapColorEnum; (*Parameter for cap color (ENUM)*)
-		ProductAvailable : BOOL; (*Parameter for if a cap is available*)
-		CapIdentified : BOOL; (*Parameter for cap being identified*)
-		ArmsDone : BOOL; (*Parameter for the appropriate arms being fully actuated*)
+		JogVel : REAL; (*Parameter for jogging velocity*)
+		JogAccel : REAL; (*Parameter for jogging accel*)
+		JogDecel : REAL; (*Paremeter for jogging decel*)
 	END_STRUCT;
 	ManagerStatusType : 	STRUCT 
 		Active : BOOL; (*Task is active status*)
@@ -27,6 +27,7 @@ TYPE
 		Error : BOOL; (*Task errored status*)
 		ModuleOk : BOOL; (*DI IO slice ModuleOk status*)
 		Stopped : BOOL; (*Task stopped status*)
+		CapColor : CapColorEnum; (*Status  for cap color (ENUM)*)
 		TooFull : BOOL; (*Status for a lane being too full*)
 		ErrorID : ManagerErrorEnum; (*ErrorID status*)
 	END_STRUCT;
