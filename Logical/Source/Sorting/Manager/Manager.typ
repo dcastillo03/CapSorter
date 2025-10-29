@@ -5,6 +5,9 @@ TYPE
 		Stop : BOOL; (*Stop command*)
 		JogFwd : BOOL; (*Jog foward command*)
 		JogBkwd : BOOL; (*Jog backward command*)
+		MoveFrontSwitch : BOOL; (*Command for moving front arm switch*)
+		MoveBackSwitch : BOOL; (*Command for moving back arm switch*)
+		DoRetractStopper : BOOL; (*Command for actuating stopper*)
 	END_STRUCT;
 	ManagerErrorEnum : 
 		(
