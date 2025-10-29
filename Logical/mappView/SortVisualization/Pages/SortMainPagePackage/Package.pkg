@@ -2,7 +2,7 @@
 <?AutomationStudio FileVersion="4.9"?>
 <Package SubType="EmptyMappViewPackage" PackageType="EmptyMappViewPackage" xmlns="http://br-automation.co.at/AS/Package">
   <Objects>
-    <Object Type="Package">SortMainPage</Object>
-    <Object Type="Package">MainPageAC</Object>
+    <Object Type="Package">SortAutoPage</Object>
+    <Object Type="Package">SortAutoPageAC</Object>
   </Objects>
 </Package>
