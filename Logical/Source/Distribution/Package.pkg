@@ -4,5 +4,6 @@
   <Objects>
     <Object Type="Package">Manager</Object>
     <Object Type="Package" Description="Submodules of Distribution station">Modules</Object>
+    <Object Type="Package">Communication</Object>
   </Objects>
 </Package>
