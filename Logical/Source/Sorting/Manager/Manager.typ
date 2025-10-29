@@ -8,6 +8,7 @@ TYPE
 		MoveFrontSwitch : BOOL; (*Command for moving front arm switch*)
 		MoveBackSwitch : BOOL; (*Command for moving back arm switch*)
 		DoRetractStopper : BOOL; (*Command for actuating stopper*)
+		ManualCapDetect : BOOL; (*Command for manually detecting cap*)
 	END_STRUCT;
 	ManagerErrorEnum : 
 		(

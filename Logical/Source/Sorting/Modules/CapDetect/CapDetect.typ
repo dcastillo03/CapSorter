@@ -4,12 +4,14 @@ TYPE
 		Enable : BOOL; (*Enable command*)
 		Start : BOOL; (*Start command*)
 		Stop : BOOL; (*Stop command*)
+		ManualDetect : BOOL; (*Command for manual cap detection/identification*)
 	END_STRUCT;
 	CapDetectStatusType : 	STRUCT 
 		Active : BOOL; (*Task is active status*)
 		Done : BOOL; (*Task done status*)
 		Error : BOOL; (*Task errored status*)
 		ModuleOk : BOOL; (*DI IO slice ModuleOk status*)
+		CapIsSorted : BOOL; (*Cap has been sorted status*)
 		Stopped : BOOL; (*Task stopped status*)
 		ErrorID : cdErrorEnum; (*ErrorID status*)
 	END_STRUCT;

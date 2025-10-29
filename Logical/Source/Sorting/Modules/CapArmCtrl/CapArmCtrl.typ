@@ -19,6 +19,7 @@ TYPE
 		Error : BOOL; (*Task errored status*)
 		ModuleOk : BOOL; (*DI IO slice ModuleOk status*)
 		Stopped : BOOL; (*Task stopped status*)
+		LaneIsFull : BOOL; (*Status for a lane being too full*)
 		CapIsSorted : BOOL; (*Parameter for if the cap has been sorted*)
 		CapIdentified : BOOL; (*Parameter for cap being identified*)
 		ErrorID : CapArmCtrlErrorEnum; (*ErrorID status*)
