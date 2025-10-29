@@ -3,6 +3,7 @@
   <StartPage pageRefId="SortAutoPage" />
   <Pages>
     <Page refId="SortAutoPage" />
+    <Page refId="SDMPage" />
   </Pages>
   <Navigations />
   <BindingsSets>
@@ -17,6 +18,8 @@
     <Content refId="SortNavContent" />
     <Content refId="SortAutoAreaContent" />
     <Content refId="SortAutoHeaderContent" />
+    <Content refId="SDMAreaContent" />
+    <Content refId="SDMHeaderContent" />
   </Contents>
   <SnippetsSets />
   <VariablesSets />

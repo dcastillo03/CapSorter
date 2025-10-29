@@ -64,5 +64,17 @@
         <seg>Stopped</seg>
       </tuv>
     </tu>
+    <tu tuid="SDM.HEADER">
+      <note>Header for SDM Page</note>
+      <tuv xml:lang="fr">
+        <seg>Responsable du diagnostic systeme</seg>
+      </tuv>
+      <tuv xml:lang="de">
+        <seg>SDM Page</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>System Diagnostics Manager</seg>
+      </tuv>
+    </tu>
   </body>
 </tmx>

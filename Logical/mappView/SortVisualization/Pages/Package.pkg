@@ -4,5 +4,6 @@
   <Objects>
     <Object Type="Package" Description="AreaContents">SortGlobalAreaContents</Object>
     <Object Type="Package">SortMainPagePackage</Object>
+    <Object Type="Package">SDMPagePackage</Object>
   </Objects>
 </Package>

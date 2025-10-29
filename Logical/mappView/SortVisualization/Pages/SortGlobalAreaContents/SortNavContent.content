@@ -1,4 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Content id="SortNavContent" guid="8617a2f6-bcd6-41be-9bf4-2868cb1d4808" height="720" width="140" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <Widgets />
+  <Widgets>
+    <Widget xsi:type="widgets.brease.NavigationBar" id="NavigationBar1" top="0" left="0" width="140" height="720" zIndex="0">
+      <Widgets>
+        <Widget xsi:type="widgets.brease.NavigationButton" id="MainPageNavButton" top="40" left="0" width="140" height="80" zIndex="0" image="Media/SymbolLib/Symbols/Home.svg" pageId="SortAutoPage" cornerRadius="15px" />
+        <Widget xsi:type="widgets.brease.NavigationButton" id="SDMNavButton" top="620" left="0" width="140" height="80" zIndex="1" image="Media/SymbolLib/Diagnostic/Diagnostics.svg" pageId="SDMPage" cornerRadius="15px" />
+      </Widgets>
+    </Widget>
+  </Widgets>
 </Content>
