@@ -3,9 +3,9 @@
 <Package SubType="mappViewPackage" PackageType="mappViewPackage" xmlns="http://br-automation.co.at/AS/Package">
   <Objects>
     <Object Type="Package" Description="Layouts">Layouts</Object>
-    <Object Type="Package" Description="Widgets">Widgets</Object>
+    <Object Type="File" Description="Widgets">Widgets</Object>
     <Object Type="Package" Description="Resources">Resources</Object>
-    <Object Type="Package">DistVisualization</Object>
     <Object Type="Package">SortVisualization</Object>
+    <Object Type="Package">DistVisualization</Object>
   </Objects>
 </Package>
