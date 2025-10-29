@@ -28,5 +28,41 @@
         <seg>Automatic Page</seg>
       </tuv>
     </tu>
+    <tu tuid="AutoPage.START_BUTTON">
+      <note>Push button text for start button</note>
+      <tuv xml:lang="fr">
+        <seg>Commence</seg>
+      </tuv>
+      <tuv xml:lang="de">
+        <seg>Start</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Start</seg>
+      </tuv>
+    </tu>
+    <tu tuid="AutoPage.STOP_BUTTON">
+      <note>Toggle button text for stop button</note>
+      <tuv xml:lang="fr">
+        <seg>Arret</seg>
+      </tuv>
+      <tuv xml:lang="de">
+        <seg>Stop</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Stop</seg>
+      </tuv>
+    </tu>
+    <tu tuid="AutoPage.STOP_BUTTON_2">
+      <note>Toggle button text for is stopped state</note>
+      <tuv xml:lang="fr">
+        <seg>Est Arrete</seg>
+      </tuv>
+      <tuv xml:lang="de">
+        <seg>Stopped</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Stopped</seg>
+      </tuv>
+    </tu>
   </body>
 </tmx>

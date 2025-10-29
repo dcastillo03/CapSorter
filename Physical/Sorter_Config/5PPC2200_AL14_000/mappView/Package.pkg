@@ -4,5 +4,7 @@
   <Objects>
     <Object Type="File" Description="MappView config for sorting station">Config.mappviewcfg</Object>
     <Object Type="File" Description="MappView .vis for sorting station">SortVis.vis</Object>
+    <Object Type="File">SortAutoAreaContent.binding</Object>
+    <Object Type="File">EventBinding.eventbinding</Object>
   </Objects>
 </Package>

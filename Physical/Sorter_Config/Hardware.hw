@@ -152,7 +152,7 @@
     <Parameter ID="Supervision" Value="off" />
     <Parameter ID="AxisReference" Location="FunctionModel/DriveConfiguration/Channel[1]/RealAxis" Value="gSortingConveyor" />
     <Parameter ID="ReferenceDistance" Location="FunctionModel/DriveConfiguration/Channel[1]/RealAxis/MechanicalElements/RotaryToLinearTransformation" Value="30" />
-    <Parameter ID="ConstantSpeedCurrent" Location="FunctionModel/DriveConfiguration/Channel[1]/RealAxis/Controller/Mode/Current" Value="2.0" />
+    <Parameter ID="ConstantSpeedCurrent" Location="FunctionModel/DriveConfiguration/Channel[1]/RealAxis/Controller/Mode/Current" Value="2.4" />
     <Parameter ID="SpeedChangeCurrent" Location="FunctionModel/DriveConfiguration/Channel[1]/RealAxis/Controller/Mode/Current" Value="2.5" />
   </Module>
 </Hardware>

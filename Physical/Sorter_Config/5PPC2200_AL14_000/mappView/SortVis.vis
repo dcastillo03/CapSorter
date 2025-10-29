@@ -5,8 +5,12 @@
     <Page refId="SortAutoPage" />
   </Pages>
   <Navigations />
-  <BindingsSets />
-  <EventBindingsSets />
+  <BindingsSets>
+    <BindingsSet refId="SortAutoAreaContent" />
+  </BindingsSets>
+  <EventBindingsSets>
+    <EventBindingsSet refId="EventBinding" />
+  </EventBindingsSets>
   <EventScriptsSets />
   <Dialogs />
   <Contents>

@@ -24,6 +24,9 @@ PROGRAM _CYCLIC
 //		
 //	END_CASE
 	
+	gSortingManager.Cmd.Start := IO.Outputs.Cmd.Start;
+	gSortingManager.Cmd.Stop := IO.Outputs.Cmd.Stop;
+	
 END_PROGRAM
 
 PROGRAM _EXIT
