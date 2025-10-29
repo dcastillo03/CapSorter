@@ -3,5 +3,6 @@
   <Widgets>
     <Widget xsi:type="widgets.brease.DateTimeOutput" id="DateTimeOutput1" top="0" left="860" width="420" height="80" zIndex="0" fontSize="20px" />
     <Widget xsi:type="widgets.brease.Image" id="BRImage" top="0" left="0" width="300" height="80" zIndex="1" image="Media/BnR_Dark.svg" />
+    <Widget xsi:type="widgets.brease.Label" id="AutomaticPageHeader" top="0" left="360" width="240" height="80" zIndex="2" text="$IAT/AutoPage.HEADER" fontSize="24px" bold="true" />
   </Widgets>
 </Content>
