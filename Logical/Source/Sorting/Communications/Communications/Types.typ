@@ -28,4 +28,9 @@ TYPE
 		Inputs : SortCommsType;
 		Outputs : SortCommsType;
 	END_STRUCT;
+	SortConnectedEnum : 
+		(
+		sortDISCONNECTED := 0,
+		sortCONNECTED := 1
+		);
 END_TYPE
