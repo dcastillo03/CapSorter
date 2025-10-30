@@ -11,9 +11,10 @@ TYPE
 		ManualCapDetect : BOOL; (*Command for manually detecting cap*)
 		UpdateConveyorPars : BOOL; (*Command for updating conveyor pars*)
 		PowerOn : BOOL; (*Command for powering on motor*)
-		Auto : BOOL;
-		Manual : BOOL;
-		Clear : BOOL;
+		Auto : BOOL; (*Command for going to auto mode*)
+		Manual : BOOL; (*Command for going to manual mode*)
+		Clear : BOOL; (*Command for clearing*)
+		ErrorReset : BOOL; (*COmmand foe error reset*)
 	END_STRUCT;
 	ManagerErrorEnum : 
 		(
@@ -38,9 +39,9 @@ TYPE
 		ProductAvailable : BOOL; (*Status for product available*)
 		SwitchTwoExtended : BOOL; (*Status for switch two being extended*)
 		SwitchOneExtended : BOOL; (*Status for switch one  being extended*)
-		RedCount : UDINT;
-		MetalCount : UDINT;
-		BlackCount : UDINT;
+		RedCount : UDINT; (*Red count status*)
+		MetalCount : UDINT; (*Metal count status*)
+		BlackCount : UDINT; (*Black count status*)
 		CapColorID : UDINT; (*ID number for cap color*)
 		CapColor : CapColorEnum; (*Status  for cap color (ENUM)*)
 		ErrorID : ManagerErrorEnum; (*ErrorID status*)

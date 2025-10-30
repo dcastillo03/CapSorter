@@ -9,6 +9,7 @@ TYPE
 		MoveFrontSwitch : BOOL; (*Command for enabling front switch*)
 		MoveBackSwitch : BOOL; (*Command for enabling rear switch*)
 		Clear : BOOL; (*Command for clearing counter*)
+		ErrorReset : BOOL; (*Command for error reset*)
 	END_STRUCT;
 	CapArmCtrlParType : 	STRUCT 
 		CapColor : CapColorEnum; (*Parameter for cap color (ENUM)*)
