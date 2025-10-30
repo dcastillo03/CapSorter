@@ -18,6 +18,9 @@ TYPE
 		JogVel : REAL; (*Parameter for jogging vel*)
 		JogAccel : REAL; (*Parameter for jogging accel*)
 		JogDecel : REAL; (*Parameter for jogging decel*)
+		Vel : REAL; (*Parameter for velocity*)
+		Accel : REAL; (*Parameter for accel*)
+		Decel : REAL; (*Paremeter for decel*)
 	END_STRUCT;
 	MoveCapStatusType : 	STRUCT 
 		Active : BOOL; (*Task is active status*)

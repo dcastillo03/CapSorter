@@ -20,6 +20,9 @@ TYPE
 		JogVel : REAL; (*Parameter for jogging velocity*)
 		JogAccel : REAL; (*Parameter for jogging accel*)
 		JogDecel : REAL; (*Paremeter for jogging decel*)
+		Vel : REAL; (*Paremeter for velocity*)
+		Accel : REAL; (*Paremeter for accel*)
+		Decel : REAL; (*Paremeter for decel*)
 	END_STRUCT;
 	ManagerStatusType : 	STRUCT 
 		Active : BOOL; (*Task is active status*)
@@ -27,8 +30,9 @@ TYPE
 		Error : BOOL; (*Task errored status*)
 		ModuleOk : BOOL; (*DI IO slice ModuleOk status*)
 		Stopped : BOOL; (*Task stopped status*)
-		CapColor : CapColorEnum; (*Status  for cap color (ENUM)*)
 		TooFull : BOOL; (*Status for a lane being too full*)
+		CapColorID : UDINT; (*ID number for cap color*)
+		CapColor : CapColorEnum; (*Status  for cap color (ENUM)*)
 		ErrorID : ManagerErrorEnum; (*ErrorID status*)
 	END_STRUCT;
 	ManagerType : 	STRUCT 

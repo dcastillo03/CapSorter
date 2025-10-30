@@ -5,6 +5,7 @@
     <Object Type="Package" Description="AreaContents">SortGlobalAreaContents</Object>
     <Object Type="Package">SortMainPagePackage</Object>
     <Object Type="Package">SDMPagePackage</Object>
+    <Object Type="Package">MachineStatusPackage</Object>
     <Object Type="Package">ManualPagePackage</Object>
   </Objects>
 </Package>

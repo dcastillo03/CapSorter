@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Content id="ManualAreaContent" guid="83dad4f5-8a46-45d6-a426-ca0cf7d9e565" height="720" width="1140" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Widgets>
+    <Widget xsi:type="widgets.brease.Label" id="JogButtonsLabel" top="320" left="140" width="140" height="60" zIndex="0" multiLine="true" text="$IAT/ManualPage.JogButtonLabel" wordWrap="true" textAlign="center" fontSize="20px" bold="true" />
+    <Widget xsi:type="widgets.brease.MomentaryPushButton" id="JogBackMomentaryPushButton" top="380" left="100" width="80" height="60" zIndex="1" image="Media/SymbolLib/Edit/Undo.svg" cornerRadius="15px" />
+    <Widget xsi:type="widgets.brease.MomentaryPushButton" id="JogFwdMomentaryPushButton" top="380" left="240" width="80" height="60" zIndex="2" image="Media/SymbolLib/Edit/Redo.svg" cornerRadius="15px" />
+    <Widget xsi:type="widgets.brease.MomentaryPushButton" id="DetectCapMomentaryPushButton" top="100" left="140" width="140" height="60" zIndex="3" image="Media/SymbolLib/Symbols/Webcam.svg" multiLine="true" text="$IAT/MachineStatus.DetectCapButton" wordWrap="true" cornerRadius="15px" bold="true" />
+    <Widget xsi:type="widgets.brease.Label" id="DetectCapLabel" top="40" left="140" width="160" height="60" zIndex="4" multiLine="true" text="$IAT/MachineStatus.DetectCapButton" wordWrap="true" textAlign="center" fontSize="20px" bold="true" />
+    <Widget xsi:type="widgets.brease.ToggleButton" id="SecondArmToggleButton" top="240" left="280" height="60" zIndex="5" multiLine="true" text="$IAT/MachineStatus.SECOND_ARM_BUTTON" wordWrap="true" cornerRadius="15px" bold="true" />
+    <Widget xsi:type="widgets.brease.ToggleButton" id="FirstArmToggleButton" top="240" left="160" height="60" zIndex="6" multiLine="true" text="$IAT/MachineStatus.FirstArmButton" wordWrap="true" cornerRadius="15px" bold="true" />
+    <Widget xsi:type="widgets.brease.ToggleButton" id="StopperToggleButton" top="240" left="40" height="60" zIndex="7" multiLine="true" text="$IAT/MachineStatus.StopperButtonLabel" wordWrap="true" cornerRadius="15px" bold="true" />
+    <Widget xsi:type="widgets.brease.Label" id="JogButtonsLabel1" top="180" left="140" width="140" height="60" zIndex="8" multiLine="true" text="$IAT/MachineStatus.ArmControlLabel" wordWrap="true" textAlign="center" fontSize="20px" bold="true" />
+    <Widget xsi:type="widgets.brease.Image" id="BlackCapImage" top="80" left="300" width="100" zIndex="9" image="Media/ice-hockey-puck.svg" backColor="rgba(255, 255, 255, 0)" imageColor="rgba(255, 228, 181, 1)" visible="false" />
+    <Widget xsi:type="widgets.brease.Image" id="RedCapImage" top="80" left="440" width="100" zIndex="10" image="Media/RedPuck.svg" backColor="rgba(255, 255, 255, 0)" imageColor="rgba(255, 228, 181, 1)" visible="false" />
+    <Widget xsi:type="widgets.brease.Image" id="MetalCapImage" top="80" left="580" width="100" zIndex="11" image="Media/MetalPuck.svg" backColor="rgba(255, 255, 255, 0)" imageColor="rgba(255, 228, 181, 1)" visible="false" />
+  </Widgets>
+</Content>

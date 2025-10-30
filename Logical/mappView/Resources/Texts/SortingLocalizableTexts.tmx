@@ -136,16 +136,16 @@
         <seg>Manual</seg>
       </tuv>
     </tu>
-    <tu tuid="ManualPage.HEADER">
+    <tu tuid="MachineStatus.HEADER">
       <note>Text for manual page header label</note>
       <tuv xml:lang="fr">
-        <seg>Page manuel</seg>
+        <seg>Page d'etat de la machine</seg>
       </tuv>
       <tuv xml:lang="de">
         <seg>Manual Page</seg>
       </tuv>
       <tuv xml:lang="en">
-        <seg>Manual Page</seg>
+        <seg>Machine Status Page</seg>
       </tuv>
     </tu>
     <tu tuid="ManualPage.JogButtonLabel">
@@ -203,6 +203,105 @@
       </tuv>
       <tuv xml:lang="en">
         <seg>Update</seg>
+      </tuv>
+    </tu>
+    <tu tuid="ManualPage.VelLabel">
+      <note>Text for conveyor velocity label</note>
+      <tuv xml:lang="fr">
+        <seg>Vitesse</seg>
+      </tuv>
+      <tuv xml:lang="de">
+        <seg>Velocity</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Velocity</seg>
+      </tuv>
+    </tu>
+    <tu tuid="ManualPage.AccelLabel">
+      <note>Text for conveyor accel label</note>
+      <tuv xml:lang="fr">
+        <seg>Accélération</seg>
+      </tuv>
+      <tuv xml:lang="de">
+        <seg>Acceleration</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Acceleration</seg>
+      </tuv>
+    </tu>
+    <tu tuid="ManualPage.DecelLabel">
+      <note>Text for conveyor decel label</note>
+      <tuv xml:lang="fr">
+        <seg>Décélération</seg>
+      </tuv>
+      <tuv xml:lang="de">
+        <seg>Deceleration</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Deceleration</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Nav.MACHINE_STATUS">
+      <note>Text for machine status nav button</note>
+      <tuv xml:lang="fr">
+        <seg>Etat de la machine</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Machine Status</seg>
+      </tuv>
+    </tu>
+    <tu tuid="ManualPage.HEADER">
+      <note>Text for manual page header label</note>
+      <tuv xml:lang="fr">
+        <seg>Page manuel</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Manual Page</seg>
+      </tuv>
+    </tu>
+    <tu tuid="MachineStatus.DetectCapButton">
+      <note>Text for detect cap button</note>
+      <tuv xml:lang="fr">
+        <seg>Détecter le capuchon</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Detect Cap</seg>
+      </tuv>
+    </tu>
+    <tu tuid="MachineStatus.ArmControlLabel">
+      <note>Text for arm control label</note>
+      <tuv xml:lang="fr">
+        <seg>Contrôle des bras</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Arm Control</seg>
+      </tuv>
+    </tu>
+    <tu tuid="MachineStatus.StopperButtonLabel">
+      <note>Text for stopper button </note>
+      <tuv xml:lang="fr">
+        <seg>Bouchon</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Stopper</seg>
+      </tuv>
+    </tu>
+    <tu tuid="MachineStatus.FirstArmButton">
+      <note>Text for first arm button</note>
+      <tuv xml:lang="fr">
+        <seg>Premier bras</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>First Arm</seg>
+      </tuv>
+    </tu>
+    <tu tuid="MachineStatus.SECOND_ARM_BUTTON">
+      <note>Text for second arm button</note>
+      <tuv xml:lang="fr">
+        <seg>Second bras</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Second Arm</seg>
       </tuv>
     </tu>
   </body>

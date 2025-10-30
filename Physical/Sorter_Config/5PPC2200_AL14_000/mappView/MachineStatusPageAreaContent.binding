@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BindingsSet id="MachineStatusPageAreaContent" xmlns="http://www.br-automation.com/iat2015/binding/engineering/v2" xmlns:bt="http://www.br-automation.com/iat2015/bindingListTypes/engineering/v2" xmlns:be="http://www.br-automation.com/iat2015/bindingListEmbedded/engineering/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Bindings>
+    <Binding mode="twoWay">
+      <Source xsi:type="opcUa" refId="::AsGlobalPV:gSortingManager.Par.JogAccel" attribute="value" />
+      <Target xsi:type="brease" contentRefId="MachineStatusPageAreaContent" widgetRefId="JogAccelNumericInput" attribute="value" />
+    </Binding>
+    <Binding mode="twoWay">
+      <Source xsi:type="opcUa" refId="::AsGlobalPV:gSortingManager.Par.JogDecel" attribute="value" />
+      <Target xsi:type="brease" contentRefId="MachineStatusPageAreaContent" widgetRefId="JogDecelNumericInput" attribute="value" />
+    </Binding>
+    <Binding mode="twoWay">
+      <Source xsi:type="opcUa" refId="::AsGlobalPV:gSortingManager.Par.JogVel" attribute="value" />
+      <Target xsi:type="brease" contentRefId="MachineStatusPageAreaContent" widgetRefId="JogVelNumericInput" attribute="value" />
+    </Binding>
+    
+    
+    <Binding mode="twoWay">
+      <Source xsi:type="opcUa" refId="::AsGlobalPV:gSortingManager.Cmd.UpdateConveyorPars" attribute="value" />
+      <Target xsi:type="brease" contentRefId="MachineStatusPageAreaContent" widgetRefId="UpdateMomentaryPushButton" attribute="value" />
+    </Binding>
+    <Binding mode="twoWay">
+      <Source xsi:type="opcUa" refId="::AsGlobalPV:gSortingManager.Par.Decel" attribute="value" />
+      <Target xsi:type="brease" contentRefId="MachineStatusPageAreaContent" widgetRefId="DecelNumericInput" attribute="value" />
+    </Binding>
+    <Binding mode="twoWay">
+      <Source xsi:type="opcUa" refId="::AsGlobalPV:gSortingManager.Par.Accel" attribute="value" />
+      <Target xsi:type="brease" contentRefId="MachineStatusPageAreaContent" widgetRefId="AccelNumericInput" attribute="value" />
+    </Binding>
+    <Binding mode="twoWay">
+      <Source xsi:type="opcUa" refId="::AsGlobalPV:gSortingManager.Par.Vel" attribute="value" />
+      <Target xsi:type="brease" contentRefId="MachineStatusPageAreaContent" widgetRefId="VelNumericInput" attribute="value" />
+    </Binding>
+  </Bindings>
+</BindingsSet>

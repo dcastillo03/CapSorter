@@ -4,5 +4,8 @@
   <Objects>
     <Object Type="Package">SymbolLib</Object>
     <Object Type="File">BnR_Dark.svg</Object>
+    <Object Type="File">BlackPuck.svg</Object>
+    <Object Type="File">RedPuck.svg</Object>
+    <Object Type="File">MetalPuck.svg</Object>
   </Objects>
 </Package>

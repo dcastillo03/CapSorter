@@ -2,7 +2,7 @@
 <?AutomationStudio FileVersion="4.9"?>
 <Package SubType="EmptyMappViewPackage" PackageType="EmptyMappViewPackage" xmlns="http://br-automation.co.at/AS/Package">
   <Objects>
-    <Object Type="Package">ManualAC</Object>
-    <Object Type="Package">ManualPage</Object>
+    <Object Type="Package">MachineStatusPage</Object>
+    <Object Type="Package">MachineStatusPageAC</Object>
   </Objects>
 </Package>

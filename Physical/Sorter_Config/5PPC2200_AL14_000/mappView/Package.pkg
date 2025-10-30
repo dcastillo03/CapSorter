@@ -6,6 +6,7 @@
     <Object Type="File" Description="MappView .vis for sorting station">SortVis.vis</Object>
     <Object Type="File">SortAutoAreaContent.binding</Object>
     <Object Type="File">EventBinding.eventbinding</Object>
+    <Object Type="File">MachineStatusPageAreaContent.binding</Object>
     <Object Type="File">ManualAreaContent.binding</Object>
   </Objects>
 </Package>

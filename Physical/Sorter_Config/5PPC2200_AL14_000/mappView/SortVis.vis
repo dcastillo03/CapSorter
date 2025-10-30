@@ -4,11 +4,13 @@
   <Pages>
     <Page refId="SortAutoPage" />
     <Page refId="SDMPage" />
+    <Page refId="MachineStatusPage" />
     <Page refId="ManualPage" />
   </Pages>
   <Navigations />
   <BindingsSets>
     <BindingsSet refId="SortAutoAreaContent" />
+    <BindingsSet refId="MachineStatusPageAreaContent" />
     <BindingsSet refId="ManualAreaContent" />
   </BindingsSets>
   <EventBindingsSets>
@@ -22,8 +24,10 @@
     <Content refId="SortAutoHeaderContent" />
     <Content refId="SDMAreaContent" />
     <Content refId="SDMHeaderContent" />
+    <Content refId="MachineStatusPageAreaContent" />
+    <Content refId="MachineStatusPageHeader" />
     <Content refId="ManualAreaContent" />
-    <Content refId="ManualPageHeader" />
+    <Content refId="ManualHeader" />
   </Contents>
   <SnippetsSets />
   <VariablesSets />

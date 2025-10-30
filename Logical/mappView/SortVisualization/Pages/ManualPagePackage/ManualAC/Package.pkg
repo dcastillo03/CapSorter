@@ -3,6 +3,6 @@
 <Package SubType="AreaContentsPackage" PackageType="AreaContentsPackage" xmlns="http://br-automation.co.at/AS/Package">
   <Objects>
     <Object Type="File">ManualAreaContent.content</Object>
-    <Object Type="File">ManualPageHeader.content</Object>
+    <Object Type="File">ManualHeader.content</Object>
   </Objects>
 </Package>
