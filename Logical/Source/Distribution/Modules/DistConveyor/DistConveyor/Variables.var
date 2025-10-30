@@ -3,7 +3,7 @@ VAR
 	Internal : {REDUND_UNREPLICABLE} DistConveyorInterfaceTyp; (*Internal structure to hold old cmds and pass new statuses*)
 END_VAR
 VAR CONSTANT
-	AXIS_RESET_TIME : TIME := T#2S; (*Time until power is restored to conveyor after ModuleOK error*)
+	AXIS_RESET_TIME : TIME := T#500ms; (*Time until power is restored to conveyor after ModuleOK error*)
 	CAP_TRANSIT_TIME : TIME := T#7S; (*Time until cap transit will report an error*)
 END_VAR
 VAR
