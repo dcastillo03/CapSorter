@@ -12,6 +12,7 @@ TYPE
 		Start : BOOL;
 		Stop : BOOL;
 		Home : BOOL;
+		Clear : BOOL;
 		CapsCleared : BOOL;
 	END_STRUCT;
 	AutoStatusTyp : 	STRUCT 
@@ -21,6 +22,11 @@ TYPE
 		ConveyorHomed : BOOL;
 		DistBayHomed : BOOL;
 		SwivelArmHomed : BOOL;
+		AutoStartTime : TIME;
+		AutoCurrentTime : TIME;
+		TimeInAuto_ms : TIME;
+		TimeInAuto_s : UDINT;
+		CapsDistributed : UDINT;
 	END_STRUCT;
 	AutoStateTyp : 	STRUCT 
 		CapEjected : BOOL;

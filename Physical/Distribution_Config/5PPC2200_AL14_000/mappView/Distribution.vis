@@ -19,6 +19,7 @@
     <EventBindingsSet refId="HeaderEventBinding" />
     <EventBindingsSet refId="DistClearDialogEventBinding" />
     <EventBindingsSet refId="DistManualEventBinding" />
+    <EventBindingsSet refId="DistMainEventBinding" />
   </EventBindingsSets>
   <EventScriptsSets />
   <Dialogs>

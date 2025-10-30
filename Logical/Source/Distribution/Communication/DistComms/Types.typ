@@ -16,9 +16,11 @@ TYPE
 	END_STRUCT;
 	DistStatusTyp : 	STRUCT 
 		TotalCapCount : UDINT;
+		CapsDistributed : UDINT;
 		RedCapCount : UDINT;
 		BlackCapCount : UDINT;
 		MetalCapCount : UDINT;
+		TimeInAuto_s : UDINT;
 		Error : BOOL;
 		CapSorted : BOOL;
 		Ready : BOOL;
@@ -30,8 +32,11 @@ TYPE
 	END_STRUCT;
 	DistCommsInternalTyp : 	STRUCT 
 		State : DistCommsStateEnum;
+		ErrorReset : BOOL;
 		Error : BOOL;
 		ErrorID : DistCommsErrorEnum;
+		ModeSwitchEnable : BOOL;
+		AutoButtonsEnable : BOOL;
 	END_STRUCT;
 	DistCommsStateEnum : 
 		(

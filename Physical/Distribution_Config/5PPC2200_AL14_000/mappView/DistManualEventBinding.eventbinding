@@ -32,5 +32,84 @@
         </Action>
       </EventHandler>
     </EventBinding>
+    <EventBinding id="CapEjectedEventBinding">
+      <Source xsi:type="opcUa.Event" refId="::AsGlobalPV:gBayInterface.Status.CapEjected" event="ValueChanged" />
+      <EventHandler condition="newValue=true">
+        <Action>
+          <Target xsi:type="widgets.brease.MomentaryPushButton.Action" contentRefId="DistManualContent" widgetRefId="CapTakenMomentaryPushButton">
+            <Method xsi:type="widgets.brease.MomentaryPushButton.Action.SetVisible" value="true" />
+          </Target>
+        </Action>
+      </EventHandler>
+      <EventHandler condition="newValue=true">
+        <Action>
+          <Target xsi:type="widgets.brease.Label.Action" contentRefId="DistManualContent" widgetRefId="EjectCapPresentLabel">
+            <Method xsi:type="widgets.brease.Label.Action.SetVisible" value="true" />
+          </Target>
+        </Action>
+      </EventHandler>
+      <EventHandler condition="newValue=false">
+        <Action>
+          <Target xsi:type="widgets.brease.MomentaryPushButton.Action" contentRefId="DistManualContent" widgetRefId="CapTakenMomentaryPushButton">
+            <Method xsi:type="widgets.brease.MomentaryPushButton.Action.SetVisible" value="false" />
+          </Target>
+        </Action>
+      </EventHandler>
+      <EventHandler condition="newValue=false">
+        <Action>
+          <Target xsi:type="widgets.brease.Label.Action" contentRefId="DistManualContent" widgetRefId="EjectCapPresentLabel">
+            <Method xsi:type="widgets.brease.Label.Action.SetVisible" value="false" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="MagEmptyEventBinding">
+      <Source xsi:type="opcUa.Event" refId="::AsGlobalPV:gBayInterface.Status.MagazineEmpty" event="ValueChanged" />
+      <EventHandler condition="newValue=true">
+        <Action>
+          <Target xsi:type="widgets.brease.Rectangle.Action" contentRefId="DistManualContent" widgetRefId="EjectNotAllowedRectangle">
+            <Method xsi:type="widgets.brease.Rectangle.Action.SetVisible" value="true" />
+          </Target>
+        </Action>
+      </EventHandler>
+      <EventHandler condition="newValue=true">
+        <Action>
+          <Target xsi:type="widgets.brease.Label.Action" contentRefId="DistManualContent" widgetRefId="EjectMagEmptyLabel">
+            <Method xsi:type="widgets.brease.Label.Action.SetVisible" value="true" />
+          </Target>
+        </Action>
+      </EventHandler>
+      <EventHandler condition="newValue=false">
+        <Action>
+          <Target xsi:type="widgets.brease.Rectangle.Action" contentRefId="DistManualContent" widgetRefId="EjectNotAllowedRectangle">
+            <Method xsi:type="widgets.brease.Rectangle.Action.SetVisible" value="false" />
+          </Target>
+        </Action>
+      </EventHandler>
+      <EventHandler condition="newValue=false">
+        <Action>
+          <Target xsi:type="widgets.brease.Label.Action" contentRefId="DistManualContent" widgetRefId="EjectMagEmptyLabel">
+            <Method xsi:type="widgets.brease.Label.Action.SetVisible" value="false" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="JogBwdEventBinding">
+      <Source xsi:type="opcUa.Event" refId="::DistConvey:IOInput.CapAtDropOff" event="ValueChanged" />
+      <EventHandler condition="newValue=true">
+        <Action>
+          <Target xsi:type="widgets.brease.Label.Action" contentRefId="DistManualContent" widgetRefId="JogBwdNotAllowedLabel">
+            <Method xsi:type="widgets.brease.Label.Action.SetVisible" value="true" />
+          </Target>
+        </Action>
+      </EventHandler>
+      <EventHandler condition="newValue=false">
+        <Action>
+          <Target xsi:type="widgets.brease.Label.Action" contentRefId="DistManualContent" widgetRefId="JogBwdNotAllowedLabel">
+            <Method xsi:type="widgets.brease.Label.Action.SetVisible" value="false" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
   </Bindings>
 </EventBindingSet>

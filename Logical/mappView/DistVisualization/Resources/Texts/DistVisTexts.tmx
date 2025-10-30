@@ -85,6 +85,16 @@
         <seg>Caps Sorted:</seg>
       </tuv>
     </tu>
+    <tu tuid="Main.TimeInAuto">
+      <tuv xml:lang="en">
+        <seg>Automatic Running Time:</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Main.SortHost">
+      <tuv xml:lang="en">
+        <seg>Automatic mode is currently being controlled by the Sorting Station</seg>
+      </tuv>
+    </tu>
     <tu tuid="Nav.Main">
       <tuv xml:lang="en">
         <seg>Main</seg>
@@ -135,6 +145,26 @@
         <seg>Retract</seg>
       </tuv>
     </tu>
+    <tu tuid="Manual.NoRelease">
+      <tuv xml:lang="en">
+        <seg>Cannot release cap if not at drop off</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Manual.NoGrip">
+      <tuv xml:lang="en">
+        <seg>Cannot activate gripper suction without cap present</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Manual.CapGripped">
+      <tuv xml:lang="en">
+        <seg>Cannot move arm back to bay with cap gripped</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Manual.CapAtDrop">
+      <tuv xml:lang="en">
+        <seg>Cannot move arm to drop off with cap at drop off</seg>
+      </tuv>
+    </tu>
     <tu tuid="Manual.Arm">
       <tuv xml:lang="en">
         <seg>Arm Control:</seg>
@@ -155,6 +185,11 @@
         <seg>Eject</seg>
       </tuv>
     </tu>
+    <tu tuid="Manual.ConvBwdMsg">
+      <tuv xml:lang="en">
+        <seg>Cannot move product off back end of conveyor</seg>
+      </tuv>
+    </tu>
     <tu tuid="Manual.Conveyor">
       <tuv xml:lang="en">
         <seg>Distribution Conveyor:</seg>
@@ -173,6 +208,21 @@
     <tu tuid="Manual.Update">
       <tuv xml:lang="en">
         <seg>Update</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Manual.CapTaken">
+      <tuv xml:lang="en">
+        <seg>Cap Taken</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Manual.TakeCap">
+      <tuv xml:lang="en">
+        <seg>Cap must be taken from bay in order to eject another</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Manual.MagEmpty">
+      <tuv xml:lang="en">
+        <seg>The magazine is empty -- Please refill caps before extending ejector</seg>
       </tuv>
     </tu>
     <tu tuid="Status.Extend">

@@ -4,6 +4,7 @@ TYPE
 		Cmd : ArmCmdTyp; (*Commands*)
 		Par : ArmParTyp; (*Parameters*)
 		Status : ArmStatusTyp; (*Statuses*)
+		Msg : ArmMsgTyp;
 	END_STRUCT;
 	ArmCmdTyp : 	STRUCT 
 		Enable : BOOL; (*Enable the module*)
@@ -34,4 +35,10 @@ TYPE
 		errARM_INPUT_MODULE_NOT_OK, (*Input module reporting not OK*)
 		errARM_OUTPUT_MODULE_NOT_OK (*Output module reporting not OK*)
 		);
+	ArmMsgTyp : 	STRUCT 
+		NoGrip : BOOL;
+		NoRelease : BOOL;
+		NoFwd : BOOL;
+		NoBwd : BOOL;
+	END_STRUCT;
 END_TYPE

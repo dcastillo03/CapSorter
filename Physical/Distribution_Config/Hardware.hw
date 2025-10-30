@@ -93,6 +93,11 @@
     <Parameter ID="ChannelID11" Value="InReady" />
     <Parameter ID="ChannelIdentification11" Value="NodeId" />
     <Parameter ID="ChannelNodeId11" Value="ns=5;s=::Communicat:IO.Outputs.Status.Ready" />
+    <Group ID="Channel12" />
+    <Parameter ID="ChannelID12" Value="InTotalCapCount" />
+    <Parameter ID="ChannelIdentification12" Value="NodeId" />
+    <Parameter ID="ChannelNodeId12" Value="ns=5;s=::Communicat:IO.Outputs.Status.TotalCapCount" />
+    <Parameter ID="ChannelType12" Value="UDINT" />
   </Module>
   <Module Name="X20BB80" Type="X20BB80" Version="1.1.0.0" />
   <Module Name="X20BC0083" Type="X20BC0083" Version="2.16.1.0">

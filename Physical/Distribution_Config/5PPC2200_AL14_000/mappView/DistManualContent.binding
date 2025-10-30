@@ -47,5 +47,26 @@
 <Target xsi:type="brease" contentRefId="DistManualContent" widgetRefId="DistConvUpdateMomentaryPushButton" attribute="value" />
 </Binding>
 
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gBayInterface.Cmd.CapTaken" attribute="value" />
+<Target xsi:type="brease" contentRefId="DistManualContent" widgetRefId="CapTakenMomentaryPushButton" attribute="value" />
+</Binding>
+
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gArmInterface.Msg.NoRelease" attribute="value" />
+<Target xsi:type="brease" contentRefId="DistManualContent" widgetRefId="NoReleaseLabel" attribute="visible" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gArmInterface.Msg.NoGrip" attribute="value" />
+<Target xsi:type="brease" contentRefId="DistManualContent" widgetRefId="NoGripLabel" attribute="visible" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gArmInterface.Msg.NoBwd" attribute="value" />
+<Target xsi:type="brease" contentRefId="DistManualContent" widgetRefId="CapGrippedLabel" attribute="visible" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gArmInterface.Msg.NoFwd" attribute="value" />
+<Target xsi:type="brease" contentRefId="DistManualContent" widgetRefId="CapAtDropLabel" attribute="visible" />
+</Binding>
 </Bindings>
 </BindingsSet>

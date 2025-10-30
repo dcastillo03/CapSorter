@@ -1,4 +1,5 @@
 VAR
 	IO : DistIOTyp;
+	IOOld : DistIOTyp;
 	Internal : DistCommsInternalTyp;
 END_VAR

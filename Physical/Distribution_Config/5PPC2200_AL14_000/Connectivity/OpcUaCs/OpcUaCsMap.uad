@@ -4,7 +4,20 @@
   <Aliases>
     <ACLAliases />
     <EURangeViolationAliases />
-    <EURangesAliases />
+    <EURangesAliases>
+      <EURanges Id="2">
+        <EURange>
+          <Low ValueProvider="Const">10</Low>
+          <High ValueProvider="Const">500</High>
+        </EURange>
+      </EURanges>
+      <EURanges Id="3">
+        <EURange>
+          <Low ValueProvider="Const">10</Low>
+          <High ValueProvider="Const">125</High>
+        </EURange>
+      </EURanges>
+    </EURangesAliases>
     <EngineeringUnitAliases>
       <EngineeringUnit Id="1" UnitId="5059633" NameSpaceUri="http://www.opcfoundation.org/UA/units/un/cefact" Name="millimetre per second squared" Symbol="mm/s²" />
       <EngineeringUnit Id="2" UnitId="4403510" NameSpaceUri="http://www.opcfoundation.org/UA/units/un/cefact" Name="millimetre per second" Symbol="mm/s" />
@@ -20,16 +33,18 @@
         </Variable>
         <Variable Name="Status">
           <Variable Name="HomeDone" />
+          <Variable Name="CapsDistributed" />
+          <Variable Name="TimeInAuto_s" />
         </Variable>
       </Variable>
       <Variable Name="gArmInterface" RecursiveEnable="2" />
       <Variable Name="gBayInterface" RecursiveEnable="2" />
       <Variable Name="gDistConveyorInterface" RecursiveEnable="2">
         <Variable Name="Par">
-          <Variable Name="JogAcceleration_mmss" EngineeringUnitId="1" />
-          <Variable Name="MoveAcceleration_mmss" EngineeringUnitId="1" />
-          <Variable Name="SetSpeed_mms" EngineeringUnitId="2" />
-          <Variable Name="JogSpeed_mms" EngineeringUnitId="2" />
+          <Variable Name="JogAcceleration_mmss" EURangesId="2" EngineeringUnitId="1" />
+          <Variable Name="MoveAcceleration_mmss" EURangesId="2" EngineeringUnitId="1" />
+          <Variable Name="SetSpeed_mms" EURangesId="2" EngineeringUnitId="2" />
+          <Variable Name="JogSpeed_mms" EURangesId="3" EngineeringUnitId="2" />
         </Variable>
         <Variable Name="Status">
           <Variable Name="Velocity_mms" EngineeringUnitId="2" />
@@ -43,6 +58,10 @@
             <Variable Name="Start" />
           </Variable>
         </Variable>
+      </Variable>
+      <Variable Name="Internal">
+        <Variable Name="ModeSwitchEnable" />
+        <Variable Name="AutoButtonsEnable" />
       </Variable>
     </Task>
     <Task Name="DistConvey">

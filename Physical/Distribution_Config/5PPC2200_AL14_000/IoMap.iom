@@ -29,4 +29,5 @@ VAR_CONFIG
 	::DistComms:IO.Input.Status.CapSorted AT %IX."OpcUa_any".InCapSorted;
 	::DistComms:IO.Input.Status.Error AT %IX."OpcUa_any".InError;
 	::DistComms:IO.Input.Status.Ready AT %IX."OpcUa_any".InReady;
+	::DistComms:IO.Input.Status.TotalCapCount AT %ID."OpcUa_any".InTotalCapCount;
 END_VAR

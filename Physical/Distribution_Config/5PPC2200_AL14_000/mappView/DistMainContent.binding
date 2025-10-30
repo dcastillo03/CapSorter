@@ -35,5 +35,56 @@
 <Source xsi:type="opcUa" refId="::AsGlobalPV:gAutoInterface.Status.HomeDone" attribute="value" />
 <Target xsi:type="brease" contentRefId="DistMainContent" widgetRefId="HomedLabel" attribute="visible" />
 </Binding>
+
+
+
+
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gAutoInterface.Status.CapsDistributed" attribute="value" />
+<Target xsi:type="brease" contentRefId="DistMainContent" widgetRefId="CapsDistNumericOutput" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gAutoInterface.Status.TimeInAuto_s" attribute="node" />
+<Target xsi:type="brease" contentRefId="DistMainContent" widgetRefId="AutoTimeNumericOutput" attribute="node" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::DistComms:IO.Input.Status.BlackCapCount" attribute="value" />
+<Target xsi:type="brease" contentRefId="DistMainContent" widgetRefId="BlackCapsNumericOutput" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::DistComms:IO.Input.Status.RedCapCount" attribute="value" />
+<Target xsi:type="brease" contentRefId="DistMainContent" widgetRefId="RedCapsNumericOutput" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::DistComms:IO.Input.Status.MetalCapCount" attribute="value" />
+<Target xsi:type="brease" contentRefId="DistMainContent" widgetRefId="MetalCapsNumericOutput" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::DistComms:IO.Input.Status.TotalCapCount" attribute="value" />
+<Target xsi:type="brease" contentRefId="DistMainContent" widgetRefId="SortedCapsNumericOutput" attribute="value" />
+</Binding>
+
+
+
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::DistComms:Internal.AutoButtonsEnable" attribute="value" />
+<Target xsi:type="brease" contentRefId="DistMainContent" widgetRefId="DistClearMomentaryPushButton" attribute="enable" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::DistComms:Internal.AutoButtonsEnable" attribute="value" />
+<Target xsi:type="brease" contentRefId="DistMainContent" widgetRefId="DistStartToggleButton" attribute="enable" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::DistComms:Internal.AutoButtonsEnable" attribute="value" />
+<Target xsi:type="brease" contentRefId="DistMainContent" widgetRefId="DistStopToggleButton" attribute="enable" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::DistComms:Internal.ModeSwitchEnable" attribute="value" />
+<Target xsi:type="brease" contentRefId="DistMainContent" widgetRefId="DistAutoToggleButton" attribute="enable" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::DistComms:Internal.ModeSwitchEnable" attribute="value" />
+<Target xsi:type="brease" contentRefId="DistMainContent" widgetRefId="DistManualToggleButton" attribute="enable" />
+</Binding>
 </Bindings>
 </BindingsSet>

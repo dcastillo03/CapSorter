@@ -11,5 +11,6 @@
     <Object Type="File">DistHomeDialogContent.binding</Object>
     <Object Type="File">DistClearDialogEventBinding.eventbinding</Object>
     <Object Type="File">DistManualEventBinding.eventbinding</Object>
+    <Object Type="File">DistMainEventBinding.eventbinding</Object>
   </Objects>
 </Package>
