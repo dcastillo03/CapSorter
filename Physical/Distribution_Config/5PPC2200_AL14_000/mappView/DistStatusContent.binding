@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BindingsSet id="DistStatusContent" xmlns="http://www.br-automation.com/iat2015/binding/engineering/v2" xmlns:bt="http://www.br-automation.com/iat2015/bindingListTypes/engineering/v2" xmlns:be="http://www.br-automation.com/iat2015/bindingListEmbedded/engineering/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Bindings>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::DistBay:IO.Input.diMagazineEmpty" attribute="value" />
+<Target xsi:type="brease" contentRefId="DistStatusContent" widgetRefId="MagEmptyOnEllipse" attribute="visible" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::DistBay:IO.Input.diEjectorExtended" attribute="value" />
+<Target xsi:type="brease" contentRefId="DistStatusContent" widgetRefId="EjectorExtOnEllipse" attribute="visible" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::DistBay:IO.Input.diEjectorRetracted" attribute="value" />
+<Target xsi:type="brease" contentRefId="DistStatusContent" widgetRefId="EjectorRetOnEllipse" attribute="visible" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::SwivelArm:IO.Input.diSwivelArmAtPickup" attribute="value" />
+<Target xsi:type="brease" contentRefId="DistStatusContent" widgetRefId="ArmPickOnEllipse" attribute="visible" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::SwivelArm:IO.Input.diSwivelArmAtDropoff" attribute="value" />
+<Target xsi:type="brease" contentRefId="DistStatusContent" widgetRefId="ArmDropOnEllipse" attribute="visible" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::SwivelArm:IO.Input.diCapGripperVacuum" attribute="value" />
+<Target xsi:type="brease" contentRefId="DistStatusContent" widgetRefId="VacPullOnEllipse" attribute="visible" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::DistConvey:IOInput.CapAtDropOff" attribute="value" />
+<Target xsi:type="brease" contentRefId="DistStatusContent" widgetRefId="CapDropOnEllipse" attribute="visible" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::DistConvey:IOInput.CapAtExit" attribute="value" />
+<Target xsi:type="brease" contentRefId="DistStatusContent" widgetRefId="CapExitOnEllipse" attribute="visible" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::DistBay:IO.Output.doEjectCap" attribute="value" />
+<Target xsi:type="brease" contentRefId="DistStatusContent" widgetRefId="EjectingOnEllipse" attribute="visible" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::SwivelArm:IO.Output.doCapGripperPick" attribute="value" />
+<Target xsi:type="brease" contentRefId="DistStatusContent" widgetRefId="SuctionOnEllipse" attribute="visible" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::SwivelArm:IO.Output.doCapGripperEject" attribute="value" />
+<Target xsi:type="brease" contentRefId="DistStatusContent" widgetRefId="GripEjectOnEllipse" attribute="visible" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::SwivelArm:IO.Output.doSwivelArmFwd" attribute="value" />
+<Target xsi:type="brease" contentRefId="DistStatusContent" widgetRefId="ArmFwdOnEllipse" attribute="visible" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::SwivelArm:IO.Output.doSwivelArmBwd" attribute="value" />
+<Target xsi:type="brease" contentRefId="DistStatusContent" widgetRefId="ArmBwdOnEllipse" attribute="visible" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gDistConveyorInterface.Par.SetSpeed_mms" attribute="node" />
+<Target xsi:type="brease" contentRefId="DistStatusContent" widgetRefId="ConvSpeedNumericInput" attribute="node" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gDistConveyorInterface.Par.MoveAcceleration_mmss" attribute="node" />
+<Target xsi:type="brease" contentRefId="DistStatusContent" widgetRefId="ConvAccelDecelNumericInput" attribute="node" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gDistConveyorInterface.Status.Velocity_mms" attribute="node" />
+<Target xsi:type="brease" contentRefId="DistStatusContent" widgetRefId="ConvCurrentVelNumericOutput" attribute="node" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gDistConveyorInterface.Cmd.UpdatePar" attribute="value" />
+<Target xsi:type="brease" contentRefId="DistStatusContent" widgetRefId="UpdateParMomentaryPushButton" attribute="value" />
+</Binding>
+</Bindings>
+</BindingsSet>

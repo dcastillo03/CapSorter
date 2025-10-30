@@ -11,12 +11,19 @@
   <Navigations />
   <BindingsSets>
     <BindingsSet refId="DistMainContent" />
+    <BindingsSet refId="DistManualContent" />
+    <BindingsSet refId="DistStatusContent" />
+    <BindingsSet refId="DistHomeDialogContent" />
   </BindingsSets>
   <EventBindingsSets>
     <EventBindingsSet refId="HeaderEventBinding" />
+    <EventBindingsSet refId="DistClearDialogEventBinding" />
+    <EventBindingsSet refId="DistManualEventBinding" />
   </EventBindingsSets>
   <EventScriptsSets />
-  <Dialogs />
+  <Dialogs>
+    <Dialog refId="DistHomeDialog" />
+  </Dialogs>
   <Contents>
     <Content refId="DistHeaderContent" />
     <Content refId="DistMainContent" />
@@ -25,6 +32,7 @@
     <Content refId="DistStatusContent" />
     <Content refId="DistAlarmContent" />
     <Content refId="DistDiagContent" />
+    <Content refId="DistHomeDialogContent" />
   </Contents>
   <SnippetsSets />
   <VariablesSets />

@@ -5,7 +5,10 @@
     <ACLAliases />
     <EURangeViolationAliases />
     <EURangesAliases />
-    <EngineeringUnitAliases />
+    <EngineeringUnitAliases>
+      <EngineeringUnit Id="1" UnitId="5059633" NameSpaceUri="http://www.opcfoundation.org/UA/units/un/cefact" Name="millimetre per second squared" Symbol="mm/s²" />
+      <EngineeringUnit Id="2" UnitId="4403510" NameSpaceUri="http://www.opcfoundation.org/UA/units/un/cefact" Name="millimetre per second" Symbol="mm/s" />
+    </EngineeringUnitAliases>
   </Aliases>
   <Module Name="&lt;Default&gt;">
     <GlobalVariables Name="Global Variables">
@@ -14,6 +17,22 @@
           <Variable Name="Home" />
           <Variable Name="CapsCleared" />
           <Variable Name="EnableManualMode" />
+        </Variable>
+        <Variable Name="Status">
+          <Variable Name="HomeDone" />
+        </Variable>
+      </Variable>
+      <Variable Name="gArmInterface" RecursiveEnable="2" />
+      <Variable Name="gBayInterface" RecursiveEnable="2" />
+      <Variable Name="gDistConveyorInterface" RecursiveEnable="2">
+        <Variable Name="Par">
+          <Variable Name="JogAcceleration_mmss" EngineeringUnitId="1" />
+          <Variable Name="MoveAcceleration_mmss" EngineeringUnitId="1" />
+          <Variable Name="SetSpeed_mms" EngineeringUnitId="2" />
+          <Variable Name="JogSpeed_mms" EngineeringUnitId="2" />
+        </Variable>
+        <Variable Name="Status">
+          <Variable Name="Velocity_mms" EngineeringUnitId="2" />
         </Variable>
       </Variable>
     </GlobalVariables>
@@ -25,6 +44,15 @@
           </Variable>
         </Variable>
       </Variable>
+    </Task>
+    <Task Name="DistConvey">
+      <Variable Name="IOInput" RecursiveEnable="2" />
+    </Task>
+    <Task Name="DistBay">
+      <Variable Name="IO" RecursiveEnable="2" />
+    </Task>
+    <Task Name="SwivelArm">
+      <Variable Name="IO" RecursiveEnable="2" />
     </Task>
   </Module>
 </OpcUaSource>

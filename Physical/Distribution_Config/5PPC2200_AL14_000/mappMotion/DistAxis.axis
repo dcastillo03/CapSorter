@@ -8,10 +8,10 @@
         <Property ID="Velocity" Value="500" />
       </Selector>
       <Selector ID="Acceleration">
-        <Property ID="Acceleration" Value="300" />
+        <Property ID="Acceleration" Value="500" />
       </Selector>
       <Selector ID="Deceleration">
-        <Property ID="Deceleration" Value="300" />
+        <Property ID="Deceleration" Value="500" />
       </Selector>
     </Selector>
   </Element>

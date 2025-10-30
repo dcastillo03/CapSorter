@@ -1,4 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Content id="DistManualContent" guid="b5cf75b4-9da0-4299-b956-1b0cf9d535a1" height="720" width="1140" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <Widgets />
+  <Widgets>
+    <Widget xsi:type="widgets.brease.Label" id="EjectorLabel" top="85" left="75" width="105" zIndex="0" text="$IAT/Manual.Ejector" fontSize="18px" />
+    <Widget xsi:type="widgets.brease.ToggleButton" id="EjectorToggleButton" top="130" left="70" width="115" height="65" zIndex="1" text="$IAT/Manual.Eject" cornerRadius="15px" />
+    <Widget xsi:type="widgets.brease.MomentaryPushButton" id="ArmBwdMomentaryPushButton" top="155" left="345" width="70" height="55" zIndex="2" image="Media/SymbolLib/Edit/Undo.svg" cornerRadius="15px" />
+    <Widget xsi:type="widgets.brease.Label" id="ArmCtrlLabel" top="75" left="420" width="115" height="50" zIndex="3" text="$IAT/Manual.Arm" fontSize="18px" />
+    <Widget xsi:type="widgets.brease.MomentaryPushButton" id="ArmFwdMomentaryPushButton" top="155" left="540" width="70" height="55" zIndex="4" image="Media/SymbolLib/Edit/Redo.svg" cornerRadius="15px" />
+    <Widget xsi:type="widgets.brease.ToggleButton" id="GripToggleButton" top="145" left="435" width="85" zIndex="5" text="$IAT/Manual.Grip" cornerRadius="15px" />
+    <Widget xsi:type="widgets.brease.MomentaryPushButton" id="EjectCapMomentaryPushButton" top="195" left="435" width="85" zIndex="6" text="$IAT/Manual.Eject" cornerRadius="15px" />
+    <Widget xsi:type="widgets.brease.Label" id="DistConveyorLabel" top="85" left="768" width="190" zIndex="7" text="$IAT/Manual.Conveyor" fontSize="18px" />
+    <Widget xsi:type="widgets.brease.ToggleButton" id="ConveyorPowerToggleButton" top="220" left="830" width="65" height="65" zIndex="8" image="Media/SymbolLib/Symbols/Off.svg" mouseDownImage="Media/SymbolLib/Symbols/On.svg" imageColor="rgba(255, 0, 0, 1)" mouseDownImageColor="rgba(50, 205, 50, 1)" cornerRadius="15px" backColor="rgba(139, 0, 0, 1)" checkedBackColor="rgba(0, 128, 0, 1)" checkedImageColor="rgba(0, 255, 0, 1)" />
+    <Widget xsi:type="widgets.brease.MomentaryPushButton" id="ConvJogBwdMomentaryPushButton" top="225" left="735" width="70" height="55" zIndex="9" image="Media/SymbolLib/Edit/Undo.svg" cornerRadius="15px" />
+    <Widget xsi:type="widgets.brease.MomentaryPushButton" id="ConvJogFwdMomentaryPushButton" top="225" left="920" width="70" height="55" zIndex="10" image="Media/SymbolLib/Edit/Redo.svg" cornerRadius="15px" />
+    <Widget xsi:type="widgets.brease.Label" id="DistConvSpeedLabel" top="135" left="755" zIndex="11" text="$IAT/Manual.Speed" textAlign="right" fontSize="16px" />
+    <Widget xsi:type="widgets.brease.Label" id="DistConvAccelDecelLabel" top="170" left="640" width="195" zIndex="12" text="$IAT/Manual.AccelDecel" textAlign="right" fontSize="16px" />
+    <Widget xsi:type="widgets.brease.NumericInput" id="DistConvSpeedNumericInput" top="135" left="850" width="145" zIndex="13" maxValue="125" minValue="10" unit="{'metric':'C16','imperial':'C16','imperial-us':'C16'}" unitAlign="right" unitTextAlign="right" />
+    <Widget xsi:type="widgets.brease.NumericInput" id="DistConvAccelDecelNumericInput" top="170" left="850" width="145" zIndex="14" maxValue="500" minValue="10" unit="{'metric':'M41','imperial':'M41','imperial-us':'M41'}" unitAlign="right" />
+    <Widget xsi:type="widgets.brease.MomentaryPushButton" id="DistConvUpdateMomentaryPushButton" top="135" left="1015" width="60" height="60" zIndex="15" image="Media/SymbolLib/Symbols/Upload.svg" cornerRadius="15px" />
+    <Widget xsi:type="widgets.brease.Rectangle" id="ManualDisabledRectangle" top="0" left="0" width="1140" height="725" zIndex="16" borderStyle="none" backColor="rgba(211, 211, 211, 1)" opacity="0.25" />
+    <Widget xsi:type="widgets.brease.Label" id="ManualDisabledLabel" top="303" left="355" width="430" height="120" zIndex="17" text="$IAT/Manual.Disabled" backColor="rgba(0, 0, 0, 1)" textAlign="center" opacity="0.5" fontSize="20px" />
+  </Widgets>
 </Content>

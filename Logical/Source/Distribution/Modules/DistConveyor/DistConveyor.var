@@ -1,3 +1,3 @@
 VAR
-	gDistConveyorInterface : DistConveyorInterfaceTyp; (*Interface to interact with module*)
+	gDistConveyorInterface : DistConveyorInterfaceTyp := (Par:=(SetSpeed_mms:=300,JogSpeed_mms:=100,MoveAcceleration_mmss:=300,JogAcceleration_mmss:=300)); (*Interface to interact with module*)
 END_VAR

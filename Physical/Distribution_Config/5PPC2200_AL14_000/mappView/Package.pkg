@@ -6,5 +6,10 @@
     <Object Type="File">Config.mappviewcfg</Object>
     <Object Type="File">HeaderEventBinding.eventbinding</Object>
     <Object Type="File">DistMainContent.binding</Object>
+    <Object Type="File">DistManualContent.binding</Object>
+    <Object Type="File">DistStatusContent.binding</Object>
+    <Object Type="File">DistHomeDialogContent.binding</Object>
+    <Object Type="File">DistClearDialogEventBinding.eventbinding</Object>
+    <Object Type="File">DistManualEventBinding.eventbinding</Object>
   </Objects>
 </Package>

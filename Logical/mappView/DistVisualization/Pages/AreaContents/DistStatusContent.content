@@ -1,4 +1,54 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Content id="DistStatusContent" guid="05cceb97-7e71-4951-95ca-9e244d2263c1" height="720" width="1140" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <Widgets />
+  <Widgets>
+    <Widget xsi:type="widgets.brease.Label" id="MagEmptyLabel" top="100" left="55" width="145" zIndex="0" text="$IAT/Status.Mag" textAlign="right" fontSize="18px" />
+    <Widget xsi:type="widgets.brease.Label" id="InputsLabel" top="35" left="205" width="70" zIndex="1" text="$IAT/Status.Input" textAlign="right" fontSize="22px" underline="true" />
+    <Widget xsi:type="widgets.brease.Label" id="EjectorExtLabel" top="158" left="45" width="155" zIndex="2" text="$IAT/Status.Extend" textAlign="right" fontSize="18px" />
+    <Widget xsi:type="widgets.brease.Label" id="EjectorRetLabel" top="216" left="35" width="165" zIndex="3" text="$IAT/Status.Retracted" textAlign="right" fontSize="18px" />
+    <Widget xsi:type="widgets.brease.Label" id="ArmPickUpLabel" top="274" left="55" width="145" zIndex="4" text="$IAT/Status.Pick" textAlign="right" fontSize="18px" />
+    <Widget xsi:type="widgets.brease.Label" id="ArmDropLabel" top="331" left="55" width="145" zIndex="5" text="$IAT/Status.Drop" textAlign="right" fontSize="18px" />
+    <Widget xsi:type="widgets.brease.Label" id="VacPullLabel" top="389" left="55" width="145" zIndex="6" text="$IAT/Status.VacPull" textAlign="right" fontSize="18px" />
+    <Widget xsi:type="widgets.brease.Label" id="CapExitLabel" top="505" left="55" width="145" zIndex="7" text="$IAT/Status.CapExit" textAlign="right" fontSize="18px" />
+    <Widget xsi:type="widgets.brease.Label" id="CapDropLabel" top="447" left="55" width="145" zIndex="8" text="$IAT/Status.CapDrop" textAlign="right" fontSize="18px" />
+    <Widget xsi:type="widgets.brease.Ellipse" id="MagEmptyOffEllipse" top="100" left="225" width="30" height="30" zIndex="9" lineColor="rgba(192, 192, 192, 1)" backColor="rgba(192, 192, 192, 1)" />
+    <Widget xsi:type="widgets.brease.Ellipse" id="EjectorExtOffEllipse" top="158" left="225" width="30" height="30" zIndex="10" lineColor="rgba(192, 192, 192, 1)" backColor="rgba(192, 192, 192, 1)" />
+    <Widget xsi:type="widgets.brease.Ellipse" id="EjectorRetOffEllipse" top="215" left="225" width="30" height="30" zIndex="11" lineColor="rgba(192, 192, 192, 1)" backColor="rgba(192, 192, 192, 1)" />
+    <Widget xsi:type="widgets.brease.Ellipse" id="ArmPickOffEllipse" top="274" left="225" width="30" height="30" zIndex="12" lineColor="rgba(192, 192, 192, 1)" backColor="rgba(192, 192, 192, 1)" />
+    <Widget xsi:type="widgets.brease.Ellipse" id="ArmDropOffEllipse" top="331" left="225" width="30" height="30" zIndex="13" lineColor="rgba(192, 192, 192, 1)" backColor="rgba(192, 192, 192, 1)" />
+    <Widget xsi:type="widgets.brease.Ellipse" id="VacPullOffEllipse" top="390" left="225" width="30" height="30" zIndex="14" lineColor="rgba(192, 192, 192, 1)" backColor="rgba(192, 192, 192, 1)" />
+    <Widget xsi:type="widgets.brease.Ellipse" id="CapDropOffEllipse" top="447" left="225" width="30" height="30" zIndex="15" lineColor="rgba(192, 192, 192, 1)" backColor="rgba(192, 192, 192, 1)" />
+    <Widget xsi:type="widgets.brease.Ellipse" id="CapExitOffEllipse" top="505" left="225" width="30" height="30" zIndex="16" lineColor="rgba(192, 192, 192, 1)" backColor="rgba(192, 192, 192, 1)" />
+    <Widget xsi:type="widgets.brease.Label" id="ExtendingLabel" top="102" left="360" width="155" zIndex="17" text="$IAT/Status.Ejecting" textAlign="right" fontSize="18px" />
+    <Widget xsi:type="widgets.brease.Label" id="OutputsLabel" top="37" left="513" width="85" zIndex="18" text="$IAT/Status.Output" textAlign="right" fontSize="22px" underline="true" />
+    <Widget xsi:type="widgets.brease.Label" id="SuctionLabel" top="160" left="360" width="155" zIndex="19" text="$IAT/Status.Suction" textAlign="right" fontSize="18px" />
+    <Widget xsi:type="widgets.brease.Label" id="GripEjectLabel" top="218" left="350" width="165" zIndex="20" text="$IAT/Status.Ejection" textAlign="right" fontSize="18px" />
+    <Widget xsi:type="widgets.brease.Label" id="ArmFwdLabel" top="276" left="370" width="145" zIndex="21" text="$IAT/Status.ArmFwd" textAlign="right" fontSize="18px" />
+    <Widget xsi:type="widgets.brease.Label" id="ArmBwdLabel" top="333" left="370" width="145" zIndex="22" text="$IAT/Status.ArmBwd" textAlign="right" fontSize="18px" />
+    <Widget xsi:type="widgets.brease.Ellipse" id="EjectingOffEllipse" top="102" left="540" width="30" height="30" zIndex="23" lineColor="rgba(192, 192, 192, 1)" backColor="rgba(192, 192, 192, 1)" />
+    <Widget xsi:type="widgets.brease.Ellipse" id="SuctionOffEllipse" top="160" left="540" width="30" height="30" zIndex="24" lineColor="rgba(192, 192, 192, 1)" backColor="rgba(192, 192, 192, 1)" />
+    <Widget xsi:type="widgets.brease.Ellipse" id="GripEjectOffEllipse" top="218" left="540" width="30" height="30" zIndex="25" lineColor="rgba(192, 192, 192, 1)" backColor="rgba(192, 192, 192, 1)" />
+    <Widget xsi:type="widgets.brease.Ellipse" id="ArmFwdOffEllipse" top="276" left="540" width="30" height="30" zIndex="26" lineColor="rgba(192, 192, 192, 1)" backColor="rgba(192, 192, 192, 1)" />
+    <Widget xsi:type="widgets.brease.Ellipse" id="ArmBwdOffEllipse" top="333" left="540" width="30" height="30" zIndex="27" lineColor="rgba(192, 192, 192, 1)" backColor="rgba(192, 192, 192, 1)" />
+    <Widget xsi:type="widgets.brease.Ellipse" id="MagEmptyOnEllipse" top="100" left="225" width="30" height="30" zIndex="28" lineColor="rgba(0, 192, 0, 1)" backColor="rgba(0, 192, 0, 1)" />
+    <Widget xsi:type="widgets.brease.Ellipse" id="EjectorExtOnEllipse" top="158" left="225" width="30" height="30" zIndex="29" lineColor="rgba(0, 192, 0, 1)" backColor="rgba(0, 192, 0, 1)" />
+    <Widget xsi:type="widgets.brease.Ellipse" id="EjectorRetOnEllipse" top="215" left="225" width="30" height="30" zIndex="30" lineColor="rgba(0, 192, 0, 1)" backColor="rgba(0, 192, 0, 1)" />
+    <Widget xsi:type="widgets.brease.Ellipse" id="ArmPickOnEllipse" top="274" left="225" width="30" height="30" zIndex="31" lineColor="rgba(0, 192, 0, 1)" backColor="rgba(0, 192, 0, 1)" />
+    <Widget xsi:type="widgets.brease.Ellipse" id="ArmDropOnEllipse" top="331" left="225" width="30" height="30" zIndex="32" lineColor="rgba(0, 192, 0, 1)" backColor="rgba(0, 192, 0, 1)" />
+    <Widget xsi:type="widgets.brease.Ellipse" id="VacPullOnEllipse" top="390" left="225" width="30" height="30" zIndex="33" lineColor="rgba(0, 192, 0, 1)" backColor="rgba(0, 192, 0, 1)" />
+    <Widget xsi:type="widgets.brease.Ellipse" id="CapDropOnEllipse" top="447" left="225" width="30" height="30" zIndex="34" lineColor="rgba(0, 192, 0, 1)" backColor="rgba(0, 192, 0, 1)" />
+    <Widget xsi:type="widgets.brease.Ellipse" id="CapExitOnEllipse" top="505" left="225" width="30" height="30" zIndex="35" lineColor="rgba(0, 192, 0, 1)" backColor="rgba(0, 192, 0, 1)" />
+    <Widget xsi:type="widgets.brease.Ellipse" id="EjectingOnEllipse" top="102" left="540" width="30" height="30" zIndex="36" lineColor="rgba(255, 0, 0, 1)" backColor="rgba(255, 0, 0, 1)" />
+    <Widget xsi:type="widgets.brease.Ellipse" id="SuctionOnEllipse" top="160" left="540" width="30" height="30" zIndex="37" lineColor="rgba(255, 0, 0, 1)" backColor="rgba(255, 0, 0, 1)" />
+    <Widget xsi:type="widgets.brease.Ellipse" id="GripEjectOnEllipse" top="218" left="540" width="30" height="30" zIndex="38" lineColor="rgba(255, 0, 0, 1)" backColor="rgba(255, 0, 0, 1)" />
+    <Widget xsi:type="widgets.brease.Ellipse" id="ArmFwdOnEllipse" top="276" left="540" width="30" height="30" zIndex="39" lineColor="rgba(255, 0, 0, 1)" backColor="rgba(255, 0, 0, 1)" />
+    <Widget xsi:type="widgets.brease.Ellipse" id="ArmBwdOnEllipse" top="333" left="540" width="30" height="30" zIndex="40" lineColor="rgba(255, 0, 0, 1)" backColor="rgba(255, 0, 0, 1)" />
+    <Widget xsi:type="widgets.brease.Label" id="OutputsLabel1" top="40" left="825" width="220" zIndex="41" text="$IAT/Status.ConvPar" textAlign="right" fontSize="22px" underline="true" />
+    <Widget xsi:type="widgets.brease.Label" id="Label1" top="102" left="710" width="140" zIndex="42" text="$IAT/Status.Speed" textAlign="right" fontSize="18px" />
+    <Widget xsi:type="widgets.brease.Label" id="Label2" top="160" left="625" width="225" zIndex="43" text="$IAT/Status.AccelDecel" textAlign="right" fontSize="18px" />
+    <Widget xsi:type="widgets.brease.Label" id="Label3" top="218" left="625" width="225" zIndex="44" text="$IAT/Status.CurrentVel" textAlign="right" fontSize="18px" />
+    <Widget xsi:type="widgets.brease.NumericOutput" id="ConvCurrentVelNumericOutput" top="220" left="870" width="130" zIndex="45" unit="{'metric':'C16','imperial':'C16','imperial-us':'C16'}" unitAlign="right" textAlign="left" />
+    <Widget xsi:type="widgets.brease.NumericInput" id="ConvSpeedNumericInput" top="102" left="870" width="130" zIndex="46" maxValue="500" minValue="10" unit="{'metric':'C16','imperial':'C16','imperial-us':'C16'}" unitAlign="right" textAlign="left" />
+    <Widget xsi:type="widgets.brease.NumericInput" id="ConvAccelDecelNumericInput" top="160" left="870" width="130" zIndex="47" maxValue="500" minValue="10" unit="{'metric':'M41','imperial':'M41','imperial-us':'M41'}" unitAlign="right" textAlign="left" />
+    <Widget xsi:type="widgets.brease.MomentaryPushButton" id="UpdateParMomentaryPushButton" top="270" left="905" width="60" height="60" zIndex="48" image="Media/SymbolLib/Symbols/Upload.svg" />
+  </Widgets>
 </Content>

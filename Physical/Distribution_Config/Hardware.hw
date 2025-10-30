@@ -34,6 +34,9 @@
     <Group ID="FileDevice1" />
     <Parameter ID="FileDeviceName1" Value="USER" />
     <Parameter ID="FileDevicePath1" Value="USER_PATH" />
+    <Parameter ID="ActivateWebServer" Value="1" />
+    <Parameter ID="WebServerProtocol" Value="1" />
+    <Parameter ID="ActivateSdm" Value="1" />
     <Parameter ID="ActivateHypervisor" Value="1" />
   </Module>
   <Module Name="OpcUa_any" Type="OpcUa_any" Version="2.0.0.1">

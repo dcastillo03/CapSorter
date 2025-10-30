@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Content id="DistHomeDialogContent" guid="0590c548-90f2-424d-b0d4-5b35e0b4f752" height="300" width="800" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Widgets>
+    <Widget xsi:type="widgets.brease.Label" id="Label1" top="0" left="0" width="800" height="150" zIndex="0" text="$IAT/Home.ClearMsg" textAlign="center" fontSize="28px" />
+    <Widget xsi:type="widgets.brease.PushButton" id="ClearConfirmPushButton" top="155" left="295" width="210" height="110" zIndex="1" text="$IAT/Home.Confirm" cornerRadius="15px" fontSize="28px" />
+  </Widgets>
+</Content>

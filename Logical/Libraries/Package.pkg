@@ -22,5 +22,6 @@
     <Object Type="Library" Language="Binary" Description="Advanced alarm management">MpAlarmX</Object>
     <Object Type="Library" Language="binary" Description="The AsOpcUac library provides function blocks for communication with an OPC UA Server">AsOpcUac</Object>
     <Object Type="Library" Language="binary" Description="The AsOpcUas library provides function blocks for handling OPC UA Server functionality">AsOpcUas</Object>
+    <Object Type="Library" Language="binary" Description="The AsBrStr Library contains FBKs for memory and character string handling.">AsBrStr</Object>
   </Objects>
 </Package>

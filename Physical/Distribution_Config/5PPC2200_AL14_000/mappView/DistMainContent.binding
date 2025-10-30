@@ -14,10 +14,7 @@
 <Source xsi:type="opcUa" refId="::DistComms:IO.Output.Cmd.Clear" attribute="value" />
 <Target xsi:type="brease" contentRefId="DistMainContent" widgetRefId="DistClearMomentaryPushButton" attribute="value" />
 </Binding>
-<Binding mode="twoWay">
-<Source xsi:type="opcUa" refId="::AsGlobalPV:gAutoInterface.Cmd.Home" attribute="value" />
-<Target xsi:type="brease" contentRefId="DistMainContent" widgetRefId="DistHomeToggleButton" attribute="value" />
-</Binding>
+
 <Binding mode="twoWay">
 <Source xsi:type="opcUa" refId="::DistComms:IO.Output.Par.DistAutoStart" attribute="value" />
 <Target xsi:type="brease" contentRefId="DistMainContent" widgetRefId="DistAutoToggleButton" attribute="value" />
@@ -25,6 +22,18 @@
 <Binding mode="twoWay">
 <Source xsi:type="opcUa" refId="::AsGlobalPV:gAutoInterface.Cmd.EnableManualMode" attribute="value" />
 <Target xsi:type="brease" contentRefId="DistMainContent" widgetRefId="DistManualToggleButton" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gAutoInterface.Cmd.Home" attribute="value" />
+<Target xsi:type="brease" contentRefId="DistMainContent" widgetRefId="DistHomePushButton" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gAutoInterface.Status.HomeDone" attribute="value" />
+<Target xsi:type="brease" contentRefId="DistMainContent" widgetRefId="HomedImage" attribute="visible" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gAutoInterface.Status.HomeDone" attribute="value" />
+<Target xsi:type="brease" contentRefId="DistMainContent" widgetRefId="HomedLabel" attribute="visible" />
 </Binding>
 </Bindings>
 </BindingsSet>

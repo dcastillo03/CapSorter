@@ -25,6 +25,11 @@
         <seg>Machine Status:</seg>
       </tuv>
     </tu>
+    <tu tuid="Main.HomeDone">
+      <tuv xml:lang="en">
+        <seg>Homed</seg>
+      </tuv>
+    </tu>
     <tu tuid="Main.Home">
       <tuv xml:lang="en">
         <seg>Home</seg>
@@ -92,7 +97,7 @@
     </tu>
     <tu tuid="Nav.Status">
       <tuv xml:lang="en">
-        <seg>Machine Status</seg>
+        <seg>Status</seg>
       </tuv>
     </tu>
     <tu tuid="Nav.Alarm">
@@ -103,6 +108,176 @@
     <tu tuid="Nav.Diag">
       <tuv xml:lang="en">
         <seg>Diagnostics</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Manual.Disabled">
+      <tuv xml:lang="en">
+        <seg>Please enable manual mode to continue</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Manual.On">
+      <tuv xml:lang="en">
+        <seg>On</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Manual.Off">
+      <tuv xml:lang="en">
+        <seg>Off</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Manual.Ejector">
+      <tuv xml:lang="en">
+        <seg>Cap Ejector</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Manual.Retract">
+      <tuv xml:lang="en">
+        <seg>Retract</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Manual.Arm">
+      <tuv xml:lang="en">
+        <seg>Arm Control:</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Manual.Gripper">
+      <tuv xml:lang="en">
+        <seg>Gripper</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Manual.Grip">
+      <tuv xml:lang="en">
+        <seg>Grip</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Manual.Eject">
+      <tuv xml:lang="en">
+        <seg>Eject</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Manual.Conveyor">
+      <tuv xml:lang="en">
+        <seg>Distribution Conveyor:</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Manual.Speed">
+      <tuv xml:lang="en">
+        <seg>Speed</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Manual.AccelDecel">
+      <tuv xml:lang="en">
+        <seg>Acceleration/Deceleration</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Manual.Update">
+      <tuv xml:lang="en">
+        <seg>Update</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Status.Extend">
+      <tuv xml:lang="en">
+        <seg>Ejector Extended:</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Status.Retracted">
+      <tuv xml:lang="en">
+        <seg>Ejector Retracted:</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Status.Mag">
+      <tuv xml:lang="en">
+        <seg>Magazine Empty:</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Status.Pick">
+      <tuv xml:lang="en">
+        <seg>Arm At Pick Up:</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Status.Drop">
+      <tuv xml:lang="en">
+        <seg>Arm At Drop Off:</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Status.VacPull">
+      <tuv xml:lang="en">
+        <seg>Vacuum Pulled:</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Status.CapDrop">
+      <tuv xml:lang="en">
+        <seg>Cap At Drop Off:</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Status.CapExit">
+      <tuv xml:lang="en">
+        <seg>Cap At Exit:</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Status.Input">
+      <tuv xml:lang="en">
+        <seg>Inputs</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Status.Output">
+      <tuv xml:lang="en">
+        <seg>Outputs</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Status.Ejecting">
+      <tuv xml:lang="en">
+        <seg>Ejector Extending:</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Status.ArmFwd">
+      <tuv xml:lang="en">
+        <seg>Arm Forward:</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Status.ArmBwd">
+      <tuv xml:lang="en">
+        <seg>Arm Backward:</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Status.Suction">
+      <tuv xml:lang="en">
+        <seg>Gripper Suction:</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Status.Ejection">
+      <tuv xml:lang="en">
+        <seg>Gripper Ejection:</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Status.ConvPar">
+      <tuv xml:lang="en">
+        <seg>Conveyor Parameters</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Status.Speed">
+      <tuv xml:lang="en">
+        <seg>Speed:</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Status.AccelDecel">
+      <tuv xml:lang="en">
+        <seg>Acceleration/Deceleration:</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Status.CurrentVel">
+      <tuv xml:lang="en">
+        <seg>Current Velocity:</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Home.ClearMsg">
+      <tuv xml:lang="en">
+        <seg>Please clear all product from station and click confirm.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Home.Confirm">
+      <tuv xml:lang="en">
+        <seg>Confirm</seg>
       </tuv>
     </tu>
   </body>
