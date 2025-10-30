@@ -303,7 +303,7 @@ LD	Timer.TIME_DELAY
 ST	Timer.DetectTime.PT
 CAL	Timer.DetectTime
 LD	Timer.DetectTime.Q
-AND	Internal.Status.CapIsSorted {CheckDataType := BOOL}
+ANDN	Internal.Status.CapIsSorted {CheckDataType := BOOL}
 ST	zz$$$$_32_Internal_Status_CapIsS
 S	Internal.Status.Error {CheckDataType := BOOL}
 LD	zz$$$$_32_Internal_Status_CapIsS
@@ -552,7 +552,7 @@ CODE_INFORMATION_754EF481_1721_4FA5_BF7F_DE1B91DFA69B_END]]></CodeInformation>
                 <LineMapInfo line="271" column="4" position="Net:8, Ln:2, Col:31 [Block input PT]" />
                 <LineMapInfo line="272" column="5" position="Net:8, Ln:2, Col:31" />
                 <LineMapInfo line="273" column="4" position="Net:8, Ln:2, Col:31 [Block output Q]" />
-                <LineMapInfo line="274" column="5" position="Net:8, Ln:3, Col:35" />
+                <LineMapInfo line="274" column="6" position="Net:8, Ln:3, Col:35" />
                 <LineMapInfo line="276" column="3" position="Net:8, Ln:3, Col:47" />
                 <LineMapInfo line="277" column="4" position="Net:8, Ln:3, Col:35" />
                 <LineMapInfo line="278" column="4" position="Net:8, Ln:4, Col:40 [Block input EN]" />
@@ -608,7 +608,7 @@ CODE_INFORMATION_754EF481_1721_4FA5_BF7F_DE1B91DFA69B_END]]></CodeInformation>
               </LineMapInfos>
             </Data>
             <Data name="BR_ChecksumInformation" handleUnknown="implementation">
-              <ChecksumInformation guid="A3044021_E131_45AC_AB9B_59041547F16C" checksum="396DC6DA" />
+              <ChecksumInformation guid="A3044021_E131_45AC_AB9B_59041547F16C" checksum="D301C19B" />
             </Data>
           </AddData>
           <BodyContent xsi:type="LD">
@@ -2614,7 +2614,7 @@ CODE_INFORMATION_754EF481_1721_4FA5_BF7F_DE1B91DFA69B_END]]></CodeInformation>
                   </OutputVariable>
                 </OutputVariables>
               </FbdObject>
-              <LdObject xsi:type="Contact" operand="Internal.Status.CapIsSorted" edge="none">
+              <LdObject xsi:type="Contact" operand="Internal.Status.CapIsSorted" negated="true" edge="none">
                 <RelPosition x="1023" y="94" />
                 <Size x="150" y="20" />
                 <ConnectionPointIn>

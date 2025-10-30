@@ -10,6 +10,9 @@
   <Module Name="&lt;Default&gt;">
     <GlobalVariables Name="Global Variables">
       <Variable Name="gSortingManager" RecursiveEnable="2" />
+      <Variable Name="gMoveCap">
+        <Variable Name="Par" RecursiveEnable="2" />
+      </Variable>
     </GlobalVariables>
     <Task Name="Communicat">
       <Variable Name="IO" RecursiveEnable="2" />
