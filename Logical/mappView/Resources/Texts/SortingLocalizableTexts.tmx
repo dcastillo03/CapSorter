@@ -338,13 +338,58 @@
         <seg>Inputs</seg>
       </tuv>
     </tu>
-    <tu tuid="MachineOutputs.OutputsLabel">
+    <tu tuid="MachineStatus.OutputsLabel">
       <note>Outputs text label</note>
       <tuv xml:lang="fr">
         <seg>Sorties</seg>
       </tuv>
       <tuv xml:lang="en">
         <seg>Outputs</seg>
+      </tuv>
+    </tu>
+    <tu tuid="MachineStatus.ProdAvail">
+      <note>Prod avail text label</note>
+      <tuv xml:lang="fr">
+        <seg>Produit disponible</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Product Available</seg>
+      </tuv>
+    </tu>
+    <tu tuid="MachineStatus.SwitchOneLabel">
+      <note>Text for switch one</note>
+      <tuv xml:lang="fr">
+        <seg>Premier bras</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Switch One</seg>
+      </tuv>
+    </tu>
+    <tu tuid="MachineStatus.SwitchTwoLabel">
+      <note>Text for switch two</note>
+      <tuv xml:lang="fr">
+        <seg>Second bras</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Switch Two</seg>
+      </tuv>
+    </tu>
+    <tu tuid="MachineStatus.LaneFullLabel">
+      <note>Text for lane full label</note>
+      <tuv xml:lang="fr">
+        <seg>Voie pleine</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Lane Full</seg>
+      </tuv>
+    </tu>
+    <tu tuid="MachineStatus.StopperLabel">
+      <note>Text for stopper label</note>
+      <tuv xml:lang="fr">
+        <seg>Bouchon</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Stopper</seg>
       </tuv>
     </tu>
   </body>

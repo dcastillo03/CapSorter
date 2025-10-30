@@ -31,5 +31,24 @@
       <Source xsi:type="opcUa" refId="::AsGlobalPV:gSortingManager.Par.Vel" attribute="value" />
       <Target xsi:type="brease" contentRefId="MachineStatusPageAreaContent" widgetRefId="VelNumericInput" attribute="value" />
     </Binding>
-  </Bindings>
+  
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gSortingManager.Status.TooFull" attribute="value" />
+<Target xsi:type="brease" contentRefId="MachineStatusPageAreaContent" widgetRefId="GreenEllipse3" attribute="visible" />
+</Binding>
+
+
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::SortingMan:Manager.Status.ProductAvailable" attribute="value" />
+<Target xsi:type="brease" contentRefId="MachineStatusPageAreaContent" widgetRefId="GreenEllipse1" attribute="visible" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::SortingMan:Manager.Status.SwitchOneExtended" attribute="value" />
+<Target xsi:type="brease" contentRefId="MachineStatusPageAreaContent" widgetRefId="GreenEllipse4" attribute="visible" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::SortingMan:Manager.Status.SwitchTwoExtended" attribute="value" />
+<Target xsi:type="brease" contentRefId="MachineStatusPageAreaContent" widgetRefId="GreenEllipse2" attribute="visible" />
+</Binding>
+</Bindings>
 </BindingsSet>

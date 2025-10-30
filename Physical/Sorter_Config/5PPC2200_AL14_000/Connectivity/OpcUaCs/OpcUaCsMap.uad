@@ -14,5 +14,14 @@
     <Task Name="Communicat">
       <Variable Name="IO" RecursiveEnable="2" />
     </Task>
+    <Task Name="SortingMan">
+      <Variable Name="Manager">
+        <Variable Name="Status">
+          <Variable Name="ProductAvailable" />
+          <Variable Name="SwitchTwoExtended" />
+          <Variable Name="SwitchOneExtended" />
+        </Variable>
+      </Variable>
+    </Task>
   </Module>
 </OpcUaSource>

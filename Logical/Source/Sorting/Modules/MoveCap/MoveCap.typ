@@ -8,6 +8,7 @@ TYPE
 		JogBkwd : BOOL; (*Command for jogging conveyor bkwd*)
 		MoveFwd : BOOL; (*Command for moving conveyor fwd*)
 		UpdatePars : BOOL; (*Command for updating jogging pars*)
+		PowerOn : BOOL; (*Command for powering on conveyor*)
 	END_STRUCT;
 	MoveCapErrorEnum : 
 		(

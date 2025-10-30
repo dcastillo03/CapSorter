@@ -14,7 +14,28 @@
     <Widget xsi:type="widgets.brease.Label" id="Label5" top="200" left="400" width="140" height="70" zIndex="10" multiLine="true" text="$IAT/ManualPage.VelLabel" wordWrap="true" fontSize="20px" bold="true" />
     <Widget xsi:type="widgets.brease.Label" id="Label6" top="200" left="240" width="140" height="70" zIndex="12" multiLine="true" text="$IAT/ManualPage.DecelLabel" wordWrap="true" fontSize="20px" bold="true" />
     <Widget xsi:type="widgets.brease.Label" id="Label7" top="200" left="80" width="140" height="70" zIndex="11" multiLine="true" text="$IAT/ManualPage.AccelLabel" wordWrap="true" fontSize="20px" bold="true" />
-    <Widget xsi:type="widgets.brease.Label" id="Label8" top="380" left="280" width="140" height="70" zIndex="13" multiLine="true" text="$IAT/MachineStatus.InputsLabel" wordWrap="true" fontSize="20px" bold="true" />
-    <Widget xsi:type="widgets.brease.Label" id="Label9" top="380" left="760" width="140" height="70" zIndex="14" multiLine="true" text="$IAT/New_Text_ID" wordWrap="true" fontSize="20px" bold="true" />
+    <Widget xsi:type="widgets.brease.Label" id="InputsLabel" top="320" left="280" width="140" height="70" zIndex="13" multiLine="true" text="$IAT/MachineStatus.InputsLabel" wordWrap="true" fontSize="20px" bold="true" />
+    <Widget xsi:type="widgets.brease.Label" id="OutputsLabel" top="320" left="760" width="140" height="70" zIndex="14" multiLine="true" text="$IAT/MachineStatus.OutputsLabel" wordWrap="true" fontSize="20px" bold="true" />
+    <Widget xsi:type="widgets.brease.Label" id="ProdAvailLabel" top="400" left="140" width="140" height="70" zIndex="15" multiLine="true" text="$IAT/MachineStatus.ProdAvail" wordWrap="true" fontSize="20px" bold="true" />
+    <Widget xsi:type="widgets.brease.Label" id="SwitchOneLabel" top="560" left="140" width="140" height="70" zIndex="16" multiLine="true" text="$IAT/MachineStatus.SwitchOneLabel" wordWrap="true" fontSize="20px" bold="true" />
+    <Widget xsi:type="widgets.brease.Label" id="SwitchTwoLabel" top="640" left="140" width="140" height="70" zIndex="17" multiLine="true" text="$IAT/MachineStatus.SwitchTwoLabel" wordWrap="true" fontSize="20px" bold="true" />
+    <Widget xsi:type="widgets.brease.Ellipse" id="GreyEllipse1" top="400" left="280" width="60" height="60" zIndex="18" backColor="rgba(192, 192, 192, 1)" />
+    <Widget xsi:type="widgets.brease.Ellipse" id="GreyEllipse2" top="560" left="280" width="60" height="60" zIndex="19" backColor="rgba(192, 192, 192, 1)" />
+    <Widget xsi:type="widgets.brease.Ellipse" id="GreyEllipse3" top="640" left="280" width="60" height="60" zIndex="20" backColor="rgba(192, 192, 192, 1)" />
+    <Widget xsi:type="widgets.brease.Ellipse" id="GreyEllipse4" top="480" left="280" width="60" height="60" zIndex="21" backColor="rgba(192, 192, 192, 1)" />
+    <Widget xsi:type="widgets.brease.Label" id="LaneFullLabel" top="480" left="140" width="140" height="70" zIndex="22" multiLine="true" text="$IAT/MachineStatus.LaneFullLabel" wordWrap="true" fontSize="20px" bold="true" />
+    <Widget xsi:type="widgets.brease.Ellipse" id="GreenEllipse1" top="400" left="280" width="60" height="60" zIndex="23" backColor="rgba(0, 255, 0, 1)" visible="false" />
+    <Widget xsi:type="widgets.brease.Ellipse" id="GreenEllipse2" top="640" left="280" width="60" height="60" zIndex="24" backColor="rgba(0, 255, 0, 1)" visible="false" />
+    <Widget xsi:type="widgets.brease.Ellipse" id="GreenEllipse3" top="480" left="280" width="60" height="60" zIndex="25" backColor="rgba(0, 255, 0, 1)" visible="false" />
+    <Widget xsi:type="widgets.brease.Ellipse" id="GreenEllipse4" top="560" left="280" width="60" height="60" zIndex="26" backColor="rgba(0, 255, 0, 1)" visible="false" />
+    <Widget xsi:type="widgets.brease.Ellipse" id="GreyEllipse5" top="560" left="760" width="60" height="60" zIndex="27" backColor="rgba(192, 192, 192, 1)" />
+    <Widget xsi:type="widgets.brease.Ellipse" id="GreyEllipse6" top="480" left="760" width="60" height="60" zIndex="28" backColor="rgba(192, 192, 192, 1)" />
+    <Widget xsi:type="widgets.brease.Ellipse" id="GreyEllipse7" top="400" left="760" width="60" height="60" zIndex="29" backColor="rgba(192, 192, 192, 1)" />
+    <Widget xsi:type="widgets.brease.Ellipse" id="RedEllipse1" top="560" left="760" width="60" height="60" zIndex="30" backColor="rgba(255, 0, 0, 1)" visible="false" />
+    <Widget xsi:type="widgets.brease.Ellipse" id="RedEllipse2" top="480" left="760" width="60" height="60" zIndex="31" backColor="rgba(255, 0, 0, 1)" visible="false" />
+    <Widget xsi:type="widgets.brease.Ellipse" id="RedEllipse3" top="400" left="760" width="60" height="60" zIndex="32" backColor="rgba(255, 0, 0, 1)" visible="false" />
+    <Widget xsi:type="widgets.brease.Label" id="SwitchOneLabel2" top="400" left="600" width="140" height="70" zIndex="33" multiLine="true" text="$IAT/MachineStatus.SwitchOneLabel" wordWrap="true" fontSize="20px" bold="true" />
+    <Widget xsi:type="widgets.brease.Label" id="SwitchTwoLabel2" top="480" left="600" width="140" height="70" zIndex="34" multiLine="true" text="$IAT/MachineStatus.SwitchTwoLabel" wordWrap="true" fontSize="20px" bold="true" />
+    <Widget xsi:type="widgets.brease.Label" id="StopperLabel1" top="560" left="600" width="140" height="70" zIndex="35" multiLine="true" text="$IAT/MachineStatus.StopperLabel" wordWrap="true" fontSize="20px" bold="true" />
   </Widgets>
 </Content>
