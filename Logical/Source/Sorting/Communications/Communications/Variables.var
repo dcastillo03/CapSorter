@@ -1,3 +1,4 @@
 VAR
 	IO : SortIOType;
+	Internal : InternalType;
 END_VAR

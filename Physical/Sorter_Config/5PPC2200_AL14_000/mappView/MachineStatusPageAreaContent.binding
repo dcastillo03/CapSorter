@@ -9,10 +9,7 @@
       <Source xsi:type="opcUa" refId="::AsGlobalPV:gSortingManager.Par.JogDecel" attribute="value" />
       <Target xsi:type="brease" contentRefId="MachineStatusPageAreaContent" widgetRefId="JogDecelNumericInput" attribute="value" />
     </Binding>
-    <Binding mode="twoWay">
-      <Source xsi:type="opcUa" refId="::AsGlobalPV:gSortingManager.Par.JogVel" attribute="value" />
-      <Target xsi:type="brease" contentRefId="MachineStatusPageAreaContent" widgetRefId="JogVelNumericInput" attribute="value" />
-    </Binding>
+    
     
     
     <Binding mode="twoWay">
@@ -49,6 +46,22 @@
 <Binding mode="twoWay">
 <Source xsi:type="opcUa" refId="::SortingMan:Manager.Status.SwitchTwoExtended" attribute="value" />
 <Target xsi:type="brease" contentRefId="MachineStatusPageAreaContent" widgetRefId="GreenEllipse2" attribute="visible" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gSortingManager.Cmd.MoveFrontSwitch" attribute="value" />
+<Target xsi:type="brease" contentRefId="MachineStatusPageAreaContent" widgetRefId="RedEllipse3" attribute="visible" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gSortingManager.Cmd.MoveBackSwitch" attribute="value" />
+<Target xsi:type="brease" contentRefId="MachineStatusPageAreaContent" widgetRefId="RedEllipse2" attribute="visible" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gSortingManager.Cmd.DoRetractStopper" attribute="value" />
+<Target xsi:type="brease" contentRefId="MachineStatusPageAreaContent" widgetRefId="RedEllipse1" attribute="visible" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gSortingManager.Par.JogVel" attribute="value" />
+<Target xsi:type="brease" contentRefId="MachineStatusPageAreaContent" widgetRefId="JogVelNumericInput" attribute="value" />
 </Binding>
 </Bindings>
 </BindingsSet>

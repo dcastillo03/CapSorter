@@ -392,5 +392,17 @@
         <seg>Stopper</seg>
       </tuv>
     </tu>
+    <tu tuid="AutoPage.PowerOn">
+      <note>Text for motor on button</note>
+      <tuv xml:lang="en">
+        <seg>Motor On</seg>
+      </tuv>
+    </tu>
+    <tu tuid="AutoPage.PowerOff">
+      <note>Text for motor off button</note>
+      <tuv xml:lang="en">
+        <seg>Motor Off</seg>
+      </tuv>
+    </tu>
   </body>
 </tmx>

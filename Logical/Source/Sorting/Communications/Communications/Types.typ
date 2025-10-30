@@ -19,6 +19,7 @@ TYPE
 		Start : BOOL;
 		Stop : BOOL;
 		Clear : BOOL;
+		DoManual : BOOL;
 	END_STRUCT;
 	SortParType : 	STRUCT 
 		SortAutoStart : BOOL;
@@ -30,7 +31,12 @@ TYPE
 	END_STRUCT;
 	SortConnectedEnum : 
 		(
-		sortDISCONNECTED := 0,
-		sortCONNECTED := 1
+		sortIDLE,
+		sortAUTO_SORT,
+		sortAUTO_DIST,
+		sortMANUAL
 		);
+	InternalType : 	STRUCT 
+		State : SortConnectedEnum;
+	END_STRUCT;
 END_TYPE

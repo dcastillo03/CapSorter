@@ -13,5 +13,21 @@
       <Source xsi:type="opcUa" refId="::Communicat:IO.Outputs.Cmd.Clear" attribute="value" />
       <Target xsi:type="brease" contentRefId="SortAutoAreaContent" widgetRefId="ClearPushButton" attribute="value" />
     </Binding>
-  </Bindings>
+  <Binding mode="twoWay">
+<Source xsi:type="brease" contentRefId="SortAutoAreaContent" widgetRefId="PowerOnToggleButton" attribute="value" />
+<Target xsi:type="brease" contentRefId="SortAutoAreaContent" widgetRefId="StartPushButton" attribute="enable" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="brease" contentRefId="SortAutoAreaContent" widgetRefId="PowerOnToggleButton" attribute="value" />
+<Target xsi:type="brease" contentRefId="SortAutoAreaContent" widgetRefId="StopToggleButton" attribute="enable" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gSortingManager.Cmd.PowerOn" attribute="value" />
+<Target xsi:type="brease" contentRefId="SortAutoAreaContent" widgetRefId="PowerOnToggleButton" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="brease" contentRefId="SortAutoAreaContent" widgetRefId="AutoToggleButton" attribute="value" />
+<Target xsi:type="brease" contentRefId="SortAutoAreaContent" widgetRefId="StopToggleButton" attribute="visible" />
+</Binding>
+</Bindings>
 </BindingsSet>

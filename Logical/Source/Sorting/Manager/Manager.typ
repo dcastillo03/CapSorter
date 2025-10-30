@@ -10,6 +10,7 @@ TYPE
 		DoRetractStopper : BOOL; (*Command for actuating stopper*)
 		ManualCapDetect : BOOL; (*Command for manually detecting cap*)
 		UpdateConveyorPars : BOOL; (*Command for updating conveyor pars*)
+		PowerOn : BOOL; (*Command for powering on motor*)
 	END_STRUCT;
 	ManagerErrorEnum : 
 		(
@@ -37,6 +38,9 @@ TYPE
 		SwitchOneExtended : BOOL; (*Status for switch one  being extended*)
 		CapColor : CapColorEnum; (*Status  for cap color (ENUM)*)
 		ErrorID : ManagerErrorEnum; (*ErrorID status*)
+		RedCount : UDINT;
+		MetalCount : UDINT;
+		BlackCount : UDINT;
 	END_STRUCT;
 	ManagerType : 	STRUCT 
 		Cmd : ManagerCmdType; (*Command type for cap arm ctrl structure*)
