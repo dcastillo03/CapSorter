@@ -81,6 +81,16 @@
     <Parameter ID="ChannelIdentification7" Value="NodeId" />
     <Parameter ID="ChannelNodeId7" Value="ns=5;s=::DistComms:IO.Output.Status.TotalCapCount" />
     <Parameter ID="ChannelType7" Value="UDINT" />
+    <Group ID="Channel8" />
+    <Parameter ID="ChannelID8" Value="InboundCapsDist" />
+    <Parameter ID="ChannelIdentification8" Value="NodeId" />
+    <Parameter ID="ChannelNodeId8" Value="ns=5;s=::DistComms:IO.Output.Status.CapsDistributed" />
+    <Parameter ID="ChannelType8" Value="UDINT" />
+    <Group ID="Channel9" />
+    <Parameter ID="ChannelID9" Value="InboundTime" />
+    <Parameter ID="ChannelIdentification9" Value="NodeId" />
+    <Parameter ID="ChannelNodeId9" Value="ns=5;s=::DistComms:IO.Output.Status.TimeInAuto_s" />
+    <Parameter ID="ChannelType9" Value="UDINT" />
   </Module>
   <Module Name="X20BB80" Type="X20BB80" Version="1.1.0.0">
     <Connector Name="IF1">

@@ -9,11 +9,14 @@ TYPE
 		RedCapCount : UDINT;
 		BlackCapCount : UDINT;
 		MetalCapCount : UDINT;
+		CapsDistributed : UDINT;
+		TimeInAuto_s : UDINT;
 		TotalCapCount : UDINT;
 		CapSorted : BOOL;
 		Error : BOOL;
 		Ready : BOOL;
 		Connected : BOOL;
+		ErrorID : CommsErrorEnum;
 	END_STRUCT;
 	SortCmdType : 	STRUCT 
 		Start : BOOL;
@@ -39,4 +42,9 @@ TYPE
 	InternalType : 	STRUCT 
 		State : SortConnectedEnum;
 	END_STRUCT;
+	CommsErrorEnum : 
+		(
+		commsERROR_NONE,
+		commsCONNECTION_LOST := -2000
+		);
 END_TYPE

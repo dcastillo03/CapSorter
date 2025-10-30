@@ -11,6 +11,9 @@ TYPE
 		ManualCapDetect : BOOL; (*Command for manually detecting cap*)
 		UpdateConveyorPars : BOOL; (*Command for updating conveyor pars*)
 		PowerOn : BOOL; (*Command for powering on motor*)
+		Auto : BOOL;
+		Manual : BOOL;
+		Clear : BOOL;
 	END_STRUCT;
 	ManagerErrorEnum : 
 		(
@@ -32,15 +35,15 @@ TYPE
 		ModuleOk : BOOL; (*DI IO slice ModuleOk status*)
 		Stopped : BOOL; (*Task stopped status*)
 		TooFull : BOOL; (*Status for a lane being too full*)
-		CapColorID : UDINT; (*ID number for cap color*)
 		ProductAvailable : BOOL; (*Status for product available*)
 		SwitchTwoExtended : BOOL; (*Status for switch two being extended*)
 		SwitchOneExtended : BOOL; (*Status for switch one  being extended*)
-		CapColor : CapColorEnum; (*Status  for cap color (ENUM)*)
-		ErrorID : ManagerErrorEnum; (*ErrorID status*)
 		RedCount : UDINT;
 		MetalCount : UDINT;
 		BlackCount : UDINT;
+		CapColorID : UDINT; (*ID number for cap color*)
+		CapColor : CapColorEnum; (*Status  for cap color (ENUM)*)
+		ErrorID : ManagerErrorEnum; (*ErrorID status*)
 	END_STRUCT;
 	ManagerType : 	STRUCT 
 		Cmd : ManagerCmdType; (*Command type for cap arm ctrl structure*)

@@ -26,4 +26,9 @@ TYPE
 		Red : BOOL; (*Parameter for cap being red*)
 		Black : BOOL; (*Parameter for cap being black*)
 	END_STRUCT;
+	DelayTimerType : 	STRUCT 
+		DetectTime : TON;
+		TIME_DELAY : TIME := T#2000ms;
+		Q : BOOL;
+	END_STRUCT;
 END_TYPE

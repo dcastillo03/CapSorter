@@ -8,6 +8,7 @@ TYPE
 		DoRetractStopper : BOOL; (*Command for retracting stopper*)
 		MoveFrontSwitch : BOOL; (*Command for enabling front switch*)
 		MoveBackSwitch : BOOL; (*Command for enabling rear switch*)
+		Clear : BOOL; (*Command for clearing counter*)
 	END_STRUCT;
 	CapArmCtrlParType : 	STRUCT 
 		CapColor : CapColorEnum; (*Parameter for cap color (ENUM)*)
@@ -37,6 +38,8 @@ TYPE
 	CapArmCtrlErrorEnum : 
 		(
 		cacERROR_NONE := 0, (*No error*)
-		cacERROR_MODULE_NOT_OK := -1000 (*DO9322 is not seated correctly or not detecting*)
+		cacERROR_MODULE_NOT_OK := -1000, (*DO9322 is not seated correctly or not detecting*)
+		cacERROR_ARM_TIMEOUT := -2000, (*Timeout error, arm did not extend in time.*)
+		cacERROR_CAP_TIMEOUT := -3000 (*Timeout error, cap did not get sorted in time. Check conveyor to see if it was lost.*)
 		);
 END_TYPE

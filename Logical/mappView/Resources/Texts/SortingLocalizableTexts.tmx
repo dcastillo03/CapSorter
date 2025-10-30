@@ -404,5 +404,30 @@
         <seg>Motor Off</seg>
       </tuv>
     </tu>
+    <tu tuid="AutoPage.RedCApCount">
+      <tuv xml:lang="en">
+        <seg>Red Cap Count</seg>
+      </tuv>
+    </tu>
+    <tu tuid="AutoPage.BlackCapCount">
+      <tuv xml:lang="en">
+        <seg>Black Cap Count</seg>
+      </tuv>
+    </tu>
+    <tu tuid="AutoPage.MetalCapCount">
+      <tuv xml:lang="en">
+        <seg>Metal Cap Count</seg>
+      </tuv>
+    </tu>
+    <tu tuid="AutoPage.TOtalCapCount">
+      <tuv xml:lang="en">
+        <seg>Total Caps</seg>
+      </tuv>
+    </tu>
+    <tu tuid="AutoPage.CapsDist">
+      <tuv xml:lang="en">
+        <seg>Caps Distributed</seg>
+      </tuv>
+    </tu>
   </body>
 </tmx>

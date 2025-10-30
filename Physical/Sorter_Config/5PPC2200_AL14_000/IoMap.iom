@@ -21,4 +21,6 @@ VAR_CONFIG
 	::CapArmCtrl:IO.Inputs.SwitchOneExtended AT %IX."X20DI9371".DigitalInput06;
 	::CapArmCtrl:IO.Inputs.SwitchTwoRetracted AT %IX."X20DI9371".DigitalInput07;
 	::CapArmCtrl:IO.Inputs.SwitchTwoExtended AT %IX."X20DI9371".DigitalInput08;
+	::Communicat:IO.Inputs.Status.CapsDistributed AT %ID."OpcUa_any".InboundCapsDist;
+	::Communicat:IO.Inputs.Status.TimeInAuto_s AT %ID."OpcUa_any".InboundTime;
 END_VAR

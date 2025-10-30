@@ -2,4 +2,5 @@ VAR
 	Internal : InternalType;
 	IO : IOType;
 	CapColor : CapColorType;
+	Timer : DelayTimerType; (*Timer used to delay cap detection*)
 END_VAR
