@@ -10,8 +10,8 @@
     <Widget xsi:type="widgets.brease.ToggleButton" id="FirstArmToggleButton" top="240" left="160" height="60" zIndex="6" multiLine="true" text="$IAT/MachineStatus.FirstArmButton" wordWrap="true" cornerRadius="15px" bold="true" />
     <Widget xsi:type="widgets.brease.ToggleButton" id="StopperToggleButton" top="240" left="40" height="60" zIndex="7" multiLine="true" text="$IAT/MachineStatus.StopperButtonLabel" wordWrap="true" cornerRadius="15px" bold="true" />
     <Widget xsi:type="widgets.brease.Label" id="JogButtonsLabel1" top="180" left="140" width="140" height="60" zIndex="8" multiLine="true" text="$IAT/MachineStatus.ArmControlLabel" wordWrap="true" textAlign="center" fontSize="20px" bold="true" />
-    <Widget xsi:type="widgets.brease.Image" id="BlackCapImage" top="80" left="300" width="100" zIndex="9" image="Media/ice-hockey-puck.svg" backColor="rgba(255, 255, 255, 0)" imageColor="rgba(255, 228, 181, 1)" visible="false" />
-    <Widget xsi:type="widgets.brease.Image" id="RedCapImage" top="80" left="440" width="100" zIndex="10" image="Media/RedPuck.svg" backColor="rgba(255, 255, 255, 0)" imageColor="rgba(255, 228, 181, 1)" visible="false" />
-    <Widget xsi:type="widgets.brease.Image" id="MetalCapImage" top="80" left="580" width="100" zIndex="11" image="Media/MetalPuck.svg" backColor="rgba(255, 255, 255, 0)" imageColor="rgba(255, 228, 181, 1)" visible="false" />
+    <Widget xsi:type="widgets.brease.Image" id="BlackCapImage" top="80" left="300" width="100" zIndex="9" image="Media/BlackPuck.svg" backColor="rgba(255, 255, 255, 0)" imageColor="rgba(255, 228, 181, 1)" visible="false" />
+    <Widget xsi:type="widgets.brease.Image" id="RedCapImage" top="80" left="300" width="100" zIndex="10" image="Media/RedPuck.svg" backColor="rgba(255, 255, 255, 0)" imageColor="rgba(255, 228, 181, 1)" visible="false" />
+    <Widget xsi:type="widgets.brease.Image" id="MetalCapImage" top="80" left="300" width="100" zIndex="11" image="Media/MetalPuck.svg" backColor="rgba(255, 255, 255, 0)" imageColor="rgba(255, 228, 181, 1)" visible="false" />
   </Widgets>
 </Content>

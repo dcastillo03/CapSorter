@@ -6,6 +6,7 @@
     <Page refId="SDMPage" />
     <Page refId="MachineStatusPage" />
     <Page refId="ManualPage" />
+    <Page refId="AlarmPage" />
   </Pages>
   <Navigations />
   <BindingsSets>
@@ -28,6 +29,8 @@
     <Content refId="MachineStatusPageHeader" />
     <Content refId="ManualAreaContent" />
     <Content refId="ManualHeader" />
+    <Content refId="AlarmAreaContent" />
+    <Content refId="AlarmHeader" />
   </Contents>
   <SnippetsSets />
   <VariablesSets />

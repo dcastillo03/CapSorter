@@ -32,6 +32,9 @@ TYPE
 		Stopped : BOOL; (*Task stopped status*)
 		TooFull : BOOL; (*Status for a lane being too full*)
 		CapColorID : UDINT; (*ID number for cap color*)
+		ProductAvailable : BOOL; (*Status for product available*)
+		SwitchTwoExtended : BOOL; (*Status for switch two being extended*)
+		SwitchOneExtended : BOOL; (*Status for switch one  being extended*)
 		CapColor : CapColorEnum; (*Status  for cap color (ENUM)*)
 		ErrorID : ManagerErrorEnum; (*ErrorID status*)
 	END_STRUCT;

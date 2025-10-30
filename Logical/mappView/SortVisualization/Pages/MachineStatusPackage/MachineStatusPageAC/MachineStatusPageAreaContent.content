@@ -8,11 +8,13 @@
     <Widget xsi:type="widgets.brease.Label" id="Label3" top="60" left="240" width="140" height="70" zIndex="2" multiLine="true" text="$IAT/ManualPage.JogDecelLabel" wordWrap="true" fontSize="20px" bold="true" />
     <Widget xsi:type="widgets.brease.Label" id="Label4" top="60" left="80" width="140" height="70" zIndex="1" multiLine="true" text="$IAT/ManualPage.JogAccelLabel" wordWrap="true" fontSize="20px" bold="true" />
     <Widget xsi:type="widgets.brease.MomentaryPushButton" id="UpdateMomentaryPushButton" top="180" left="540" width="120" height="60" zIndex="6" image="Media/SymbolLib/Symbols/Upload.svg" text="$IAT/ManualPage.UpdateButton" cornerRadius="15px" backColor="rgba(0, 192, 192, 1)" bold="true" />
-    <Widget xsi:type="widgets.brease.NumericInput" id="AccelNumericInput" top="260" left="80" width="120" height="40" zIndex="7" maxValue="1000" unit="{'metric':'M41','imperial':'C16','imperial-us':'C16'}" unitAlign="right" cornerRadius="15px" />
-    <Widget xsi:type="widgets.brease.NumericInput" id="DecelNumericInput" top="260" left="240" width="120" height="40" zIndex="8" maxValue="1000" unit="{'metric':'M41','imperial':'C16','imperial-us':'C16'}" unitAlign="right" cornerRadius="15px" />
-    <Widget xsi:type="widgets.brease.NumericInput" id="VelNumericInput" top="260" left="400" width="120" height="40" zIndex="9" maxValue="225" unit="{'metric':'C16','imperial':'C16','imperial-us':'C16'}" unitAlign="right" cornerRadius="15px" />
+    <Widget xsi:type="widgets.brease.NumericInput" id="AccelNumericInput" top="260" left="80" width="120" height="40" zIndex="7" maxValue="1000" unit="{'metric':'M41','imperial':'C16','imperial-us':'C16'}" unitAlign="right" value="1000" cornerRadius="15px" />
+    <Widget xsi:type="widgets.brease.NumericInput" id="DecelNumericInput" top="260" left="240" width="120" height="40" zIndex="8" maxValue="1000" unit="{'metric':'M41','imperial':'C16','imperial-us':'C16'}" unitAlign="right" value="1000" cornerRadius="15px" />
+    <Widget xsi:type="widgets.brease.NumericInput" id="VelNumericInput" top="260" left="400" width="120" height="40" zIndex="9" maxValue="225" unit="{'metric':'C16','imperial':'C16','imperial-us':'C16'}" unitAlign="right" value="175" cornerRadius="15px" />
     <Widget xsi:type="widgets.brease.Label" id="Label5" top="200" left="400" width="140" height="70" zIndex="10" multiLine="true" text="$IAT/ManualPage.VelLabel" wordWrap="true" fontSize="20px" bold="true" />
     <Widget xsi:type="widgets.brease.Label" id="Label6" top="200" left="240" width="140" height="70" zIndex="12" multiLine="true" text="$IAT/ManualPage.DecelLabel" wordWrap="true" fontSize="20px" bold="true" />
     <Widget xsi:type="widgets.brease.Label" id="Label7" top="200" left="80" width="140" height="70" zIndex="11" multiLine="true" text="$IAT/ManualPage.AccelLabel" wordWrap="true" fontSize="20px" bold="true" />
+    <Widget xsi:type="widgets.brease.Label" id="Label8" top="380" left="280" width="140" height="70" zIndex="13" multiLine="true" text="$IAT/MachineStatus.InputsLabel" wordWrap="true" fontSize="20px" bold="true" />
+    <Widget xsi:type="widgets.brease.Label" id="Label9" top="380" left="760" width="140" height="70" zIndex="14" multiLine="true" text="$IAT/New_Text_ID" wordWrap="true" fontSize="20px" bold="true" />
   </Widgets>
 </Content>

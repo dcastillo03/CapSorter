@@ -1,12 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Content id="SortNavContent" guid="8617a2f6-bcd6-41be-9bf4-2868cb1d4808" height="720" width="140" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Widgets>
-    <Widget xsi:type="widgets.brease.NavigationBar" id="NavigationBar1" top="0" left="0" width="140" height="720" zIndex="0">
+    <Widget xsi:type="widgets.brease.NavigationBar" id="NavigationBar" top="0" left="0" width="140" height="720" zIndex="0">
       <Widgets>
         <Widget xsi:type="widgets.brease.NavigationButton" id="MainPageNavButton" top="40" left="0" width="140" height="80" zIndex="0" image="Media/SymbolLib/Symbols/Home.svg" pageId="SortAutoPage" text="$IAT/NAV.Home" cornerRadius="15px" bold="true" />
         <Widget xsi:type="widgets.brease.NavigationButton" id="SDMNavButton" top="620" left="0" width="140" height="80" zIndex="1" image="Media/SymbolLib/Diagnostic/Diagnostics.svg" pageId="SDMPage" text="$IAT/NAV.SDM" cornerRadius="15px" bold="true" />
         <Widget xsi:type="widgets.brease.NavigationButton" id="MachineStatusNavButton" top="160" left="0" width="140" height="80" zIndex="2" image="Media/SymbolLib/Symbols/SystemSettings.svg" multiLine="true" pageId="MachineStatusPage" text="$IAT/Nav.MACHINE_STATUS" wordWrap="true" cornerRadius="15px" bold="true" />
         <Widget xsi:type="widgets.brease.NavigationButton" id="ManualPageNavButton" top="280" left="0" width="140" height="80" zIndex="3" image="Media/SymbolLib/Symbols/TouchMe.svg" multiLine="true" pageId="ManualPage" text="$IAT/AutoPage.MANUAL_BUTTON" wordWrap="true" cornerRadius="15px" bold="true" />
+        <Widget xsi:type="widgets.brease.NavigationButton" id="AlarmPageNavButton" top="400" left="0" width="140" height="80" zIndex="4" image="Media/SymbolLib/Alarm/Alarm.svg" multiLine="true" pageId="AlarmPage" text="$IAT/Nav.ALARM" wordWrap="true" cornerRadius="15px" bold="true" />
       </Widgets>
     </Widget>
   </Widgets>

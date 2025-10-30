@@ -7,5 +7,6 @@
     <Object Type="Package">SDMPagePackage</Object>
     <Object Type="Package">MachineStatusPackage</Object>
     <Object Type="Package">ManualPagePackage</Object>
+    <Object Type="Package">AlarmPagePackage</Object>
   </Objects>
 </Package>

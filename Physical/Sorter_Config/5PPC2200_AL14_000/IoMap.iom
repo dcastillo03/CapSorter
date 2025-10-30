@@ -17,4 +17,8 @@ VAR_CONFIG
 	::Communicat:IO.Inputs.Status.Error AT %IX."OpcUa_any".InboundError;
 	::Communicat:IO.Inputs.Status.Ready AT %IX."OpcUa_any".InboundReady;
 	::Communicat:IO.Inputs.Status.TotalCapCount AT %ID."OpcUa_any".InboundTotalCapCount;
+	::CapArmCtrl:IO.Inputs.SwitchOneRetracted AT %IX."X20DI9371".DigitalInput05;
+	::CapArmCtrl:IO.Inputs.SwitchOneExtended AT %IX."X20DI9371".DigitalInput06;
+	::CapArmCtrl:IO.Inputs.SwitchTwoRetracted AT %IX."X20DI9371".DigitalInput07;
+	::CapArmCtrl:IO.Inputs.SwitchTwoExtended AT %IX."X20DI9371".DigitalInput08;
 END_VAR
