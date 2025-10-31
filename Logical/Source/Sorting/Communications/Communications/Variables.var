@@ -1,4 +1,4 @@
 VAR
-	IO : SortIOType;
-	Internal : InternalType;
+	IO : SortIOType; (*IO structure that is used to send and receive information*)
+	Internal : InternalType; (*Internal structure for state machine*)
 END_VAR

@@ -14,9 +14,6 @@ TYPE
 		CapIsSorted : BOOL; (*Cap has been sorted status*)
 		Stopped : BOOL; (*Task stopped status*)
 		ErrorID : cdErrorEnum; (*ErrorID status*)
-		BlackCapCount : UDINT;
-		RedCapCount : UDINT;
-		MetalCapCount : UDINT;
 	END_STRUCT;
 	CapDetectType : 	STRUCT 
 		Cmd : CapDetectCmdType; (*CommandType for cap detect structure*)

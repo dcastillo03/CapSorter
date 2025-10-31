@@ -24,9 +24,9 @@ TYPE
 		LaneIsFull : BOOL; (*Status for a lane being too full*)
 		CapIsSorted : BOOL; (*Parameter for if the cap has been sorted*)
 		CapIdentified : BOOL; (*Parameter for cap being identified*)
-		BlackCapCount : UDINT;
-		RedCapCount : UDINT;
-		MetalCapCount : UDINT;
+		BlackCapCount : UDINT; (*Parameter for black cap count*)
+		RedCapCount : UDINT; (*Parameter for red cap count*)
+		MetalCapCount : UDINT; (*Parameter for metal cap count*)
 		SwitchOneExtended : BOOL; (*Status for switch one being extended*)
 		SwitchTwoExtended : BOOL; (*Status for switch two being extended*)
 		ErrorID : CapArmCtrlErrorEnum; (*ErrorID status*)

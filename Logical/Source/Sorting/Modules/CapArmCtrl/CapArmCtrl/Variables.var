@@ -1,6 +1,6 @@
 VAR
-	Internal : InternalType;
-	IO : IOType;
-	CapColor : CapColorType;
+	Internal : InternalType; (*Internal cap arm ctrl structure*)
+	IO : IOType; (*IO structure*)
+	CapColor : CapColorType; (*Cap color type structure*)
 	Timer : DelayTimerType; (*Timer used to delay cap detection*)
 END_VAR

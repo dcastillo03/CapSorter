@@ -15,7 +15,7 @@ TYPE
 		CapSorted : BOOL; (*Cap sorted bool*)
 		Error : BOOL; (*Error bool*)
 		Ready : BOOL; (*Ready bool*)
-		Connected : BOOL; (*COnnected boom*)
+		Connected : BOOL; (*Connected boom*)
 		ErrorID : CommsErrorEnum; (*Error enum*)
 	END_STRUCT;
 	SortCmdType : 	STRUCT 
@@ -47,10 +47,10 @@ TYPE
 	CommsErrorEnum : 
 		(
 		commsERROR_NONE, (*No error*)
-		commsCONNECTION_LOST := -4000,
-		commsDISTRIBUTION_ERROR := -5000
+		commsCONNECTION_LOST := -4000, (*Lost comms to other station*)
+		commsDISTRIBUTION_ERROR := -5000 (*Other station had an error*)
 		);
 	InternalCmdType : 	STRUCT 
-		ErrorReset : BOOL; (*command for error reset*)
+		ErrorReset : BOOL; (*Command for error reset*)
 	END_STRUCT;
 END_TYPE

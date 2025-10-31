@@ -1,3 +1,3 @@
 VAR
-	gMoveCap : MoveCapType := (Par:=(JogVel:=50,JogAccel:=1000,JogDecel:=1000,Vel:=175,Accel:=1000,Decel:=1000));
+	gMoveCap : MoveCapType := (Par:=(JogVel:=50,JogAccel:=1000,JogDecel:=1000,Vel:=175,Accel:=1000,Decel:=1000)); (*Global move cap structure*)
 END_VAR
