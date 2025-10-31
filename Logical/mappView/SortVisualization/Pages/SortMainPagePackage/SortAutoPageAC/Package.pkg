@@ -2,7 +2,7 @@
 <?AutomationStudio FileVersion="4.9"?>
 <Package SubType="AreaContentsPackage" PackageType="AreaContentsPackage" xmlns="http://br-automation.co.at/AS/Package">
   <Objects>
-    <Object Type="File">SortAutoAreaContent.content</Object>
-    <Object Type="File">SortAutoHeaderContent.content</Object>
+    <Object Type="File" Description="Area content for main page">SortAutoAreaContent.content</Object>
+    <Object Type="File" Description="Header content for main page">SortAutoHeaderContent.content</Object>
   </Objects>
 </Package>

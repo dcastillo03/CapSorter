@@ -37,14 +37,20 @@ TYPE
 		sortIDLE,
 		sortAUTO_SORT,
 		sortAUTO_DIST,
-		sortMANUAL
+		sortMANUAL,
+		sortERROR
 		);
 	InternalType : 	STRUCT 
 		State : SortConnectedEnum;
+		Cmd : InternalCmdType;
 	END_STRUCT;
 	CommsErrorEnum : 
 		(
 		commsERROR_NONE,
-		commsCONNECTION_LOST := -2000
+		commsCONNECTION_LOST := -4000,
+		commsDISTRIBUTION_ERROR := -5000
 		);
+	InternalCmdType : 	STRUCT 
+		ErrorReset : BOOL; (*command for error reset*)
+	END_STRUCT;
 END_TYPE

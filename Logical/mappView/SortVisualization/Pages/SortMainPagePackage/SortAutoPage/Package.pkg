@@ -2,6 +2,6 @@
 <?AutomationStudio FileVersion="4.9"?>
 <Package SubType="PagePackage" PackageType="PagePackage" xmlns="http://br-automation.co.at/AS/Package">
   <Objects>
-    <Object Type="File" Description="Page description">SortAutoPage.page</Object>
+    <Object Type="File" Description="Main page">SortAutoPage.page</Object>
   </Objects>
 </Package>

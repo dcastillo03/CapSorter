@@ -2,6 +2,6 @@
 <?AutomationStudio FileVersion="4.9"?>
 <Package SubType="PagePackage" PackageType="PagePackage" xmlns="http://br-automation.co.at/AS/Package">
   <Objects>
-    <Object Type="File" Description="Page description">MachineStatusPage.page</Object>
+    <Object Type="File" Description="Machine status page">MachineStatusPage.page</Object>
   </Objects>
 </Package>

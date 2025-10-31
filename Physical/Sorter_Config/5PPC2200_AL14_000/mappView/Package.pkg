@@ -8,5 +8,6 @@
     <Object Type="File">EventBinding.eventbinding</Object>
     <Object Type="File">MachineStatusPageAreaContent.binding</Object>
     <Object Type="File">ManualAreaContent.binding</Object>
+    <Object Type="File">AlarmAreaContent.binding</Object>
   </Objects>
 </Package>

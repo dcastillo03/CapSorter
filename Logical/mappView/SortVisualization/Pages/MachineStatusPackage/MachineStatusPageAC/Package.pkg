@@ -2,7 +2,7 @@
 <?AutomationStudio FileVersion="4.9"?>
 <Package SubType="AreaContentsPackage" PackageType="AreaContentsPackage" xmlns="http://br-automation.co.at/AS/Package">
   <Objects>
-    <Object Type="File">MachineStatusPageAreaContent.content</Object>
-    <Object Type="File">MachineStatusPageHeader.content</Object>
+    <Object Type="File" Description="Machine status area content">MachineStatusPageAreaContent.content</Object>
+    <Object Type="File" Description="Machine status header content">MachineStatusPageHeader.content</Object>
   </Objects>
 </Package>

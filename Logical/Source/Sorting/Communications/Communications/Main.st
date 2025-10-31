@@ -1,6 +1,5 @@
 
 PROGRAM _INIT
-	(* Insert code here *)
 	 
 END_PROGRAM
 
@@ -9,9 +8,11 @@ PROGRAM _CYCLIC
 	CASE Internal.State OF
 		
 		sortIDLE:
+			// Checks if dist station is connected
 			IF NOT IO.Inputs.Status.Connected THEN
 				IO.Outputs.Status.Error := TRUE;
 				IO.Outputs.Status.ErrorID := commsCONNECTION_LOST;
+				Internal.State := sortERROR;
 			ELSE
 				IO.Outputs.Status.Error := FALSE;
 				IO.Outputs.Status.ErrorID := commsERROR_NONE;
@@ -22,9 +23,14 @@ PROGRAM _CYCLIC
 				ELSIF IO.Inputs.Par.DistAutoStart THEN
 					Internal.State := sortAUTO_DIST;
 				END_IF
+				
 			END_IF
 			
 		sortAUTO_DIST:
+			
+			IF IO.Outputs.Status.Error THEN
+				Internal.State := sortERROR;
+			END_IF
 			
 			IF NOT IO.Inputs.Status.Connected THEN
 				Internal.State := sortIDLE;
@@ -45,7 +51,17 @@ PROGRAM _CYCLIC
 				Internal.State := sortIDLE;
 			END_IF
 			
+			IF IO.Inputs.Status.Error THEN
+				IO.Outputs.Status.ErrorID := commsDISTRIBUTION_ERROR;
+			END_IF
+			
+			
 		sortAUTO_SORT:
+			
+			IF IO.Outputs.Status.Error THEN
+				Internal.State := sortERROR;
+			END_IF
+			
 			
 			IF NOT IO.Inputs.Status.Connected THEN
 				Internal.State := sortIDLE;
@@ -61,6 +77,11 @@ PROGRAM _CYCLIC
 				
 			END_IF
 			
+			IF gAlarm.Core.ActiveAlarms > 0 THEN
+				IO.Outputs.Status.Error := TRUE;
+			END_IF
+			
+			
 			IF NOT gSortingManager.Cmd.Auto THEN
 				Internal.State := sortIDLE;
 			END_IF
@@ -72,6 +93,16 @@ PROGRAM _CYCLIC
 				Internal.State := sortIDLE;
 			END_IF
 		
+		sortERROR:
+			
+			IF IO.Inputs.Status.Connected THEN
+				Internal.State := sortIDLE;
+			END_IF
+		
+			IF NOT gSortingManager.Status.Error THEN
+				Internal.State := sortIDLE;
+			END_IF
+		
 	END_CASE
 	
 	IO.Outputs.Status.CapSorted := gSortingManager.Status.Done;
@@ -80,7 +111,6 @@ PROGRAM _CYCLIC
 	IO.Outputs.Status.RedCapCount := gSortingManager.Status.RedCount;
 	IO.Outputs.Status.MetalCapCount := gSortingManager.Status.MetalCount;
 	IO.Outputs.Status.TotalCapCount := gSortingManager.Status.BlackCount + gSortingManager.Status.RedCount + gSortingManager.Status.MetalCount;
-	
 	
 	
 END_PROGRAM

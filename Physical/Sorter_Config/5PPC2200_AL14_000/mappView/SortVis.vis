@@ -13,6 +13,7 @@
     <BindingsSet refId="SortAutoAreaContent" />
     <BindingsSet refId="MachineStatusPageAreaContent" />
     <BindingsSet refId="ManualAreaContent" />
+    <BindingsSet refId="AlarmAreaContent" />
   </BindingsSets>
   <EventBindingsSets>
     <EventBindingsSet refId="EventBinding" />

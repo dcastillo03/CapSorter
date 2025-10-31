@@ -26,5 +26,12 @@
         </Variable>
       </Variable>
     </Task>
+    <Task Name="Alarms">
+      <Variable Name="Alarm">
+        <Variable Name="ListUIConnect" RecursiveEnable="2" />
+        <Variable Name="Core" RecursiveEnable="2" />
+        <Variable Name="History" RecursiveEnable="2" />
+      </Variable>
+    </Task>
   </Module>
 </OpcUaSource>

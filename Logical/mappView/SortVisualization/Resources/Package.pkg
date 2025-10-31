@@ -4,6 +4,6 @@
   <Objects>
     <Object Type="Package" Description="Texts">Texts</Object>
     <Object Type="Package" Description="Snippets">Snippets</Object>
-    <Object Type="File">Project.language</Object>
+    <Object Type="File" Description="Project languages">Project.language</Object>
   </Objects>
 </Package>
