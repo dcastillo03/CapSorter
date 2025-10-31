@@ -67,15 +67,18 @@ PROGRAM _CYCLIC
 				Internal.State := sortIDLE;
 			END_IF
 			
-			IF IO.Inputs.Status.Ready THEN
-				
-				IO.Outputs.Par.SortAutoStart := gSortingManager.Cmd.Auto;
-				
-				gSortingManager.Cmd.Start := IO.Outputs.Cmd.Start;
-				gSortingManager.Cmd.Stop := IO.Outputs.Cmd.Stop;
-				gSortingManager.Cmd.Clear := IO.Outputs.Cmd.Clear;
-				
+			IO.Outputs.Par.SortAutoStart := gSortingManager.Cmd.Auto;
+			
+			IF gSortingManager.Cmd.PowerOn THEN
+				IO.Outputs.Status.Ready := TRUE;
 			END_IF
+			
+			IF IO.Inputs.Status.Ready THEN
+				gSortingManager.Cmd.Start := IO.Outputs.Cmd.Start;
+			END_IF
+			
+			gSortingManager.Cmd.Stop := IO.Outputs.Cmd.Stop;
+			gSortingManager.Cmd.Clear := IO.Outputs.Cmd.Clear;
 			
 			IF gAlarm.Core.ActiveAlarms > 0 THEN
 				IO.Outputs.Status.Error := TRUE;

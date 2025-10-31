@@ -23,6 +23,11 @@ PROGRAM _CYCLIC
 	Alarm.History.DeviceName := ADR('AlarmHistory');
 	Alarm.History.FileName := ADR(Alarm.HistoryName);
 	
+	IF Alarm.Core.ActiveAlarms > 0 THEN
+		gSortingManager.Cmd.Stop := TRUE;
+	END_IF
+	
+	
 	// Call FUBs
 	Alarm.Core();
 	Alarm.ListUI();

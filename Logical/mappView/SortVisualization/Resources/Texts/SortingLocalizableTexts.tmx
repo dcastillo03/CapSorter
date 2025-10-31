@@ -429,5 +429,16 @@
         <seg>Caps Distributed</seg>
       </tuv>
     </tu>
+    <tu tuid="AutoPage.RunetimeLabel">
+      <note>System runtime label in seconds</note>
+      <tuv xml:lang="en">
+        <seg>System runtime</seg>
+      </tuv>
+    </tu>
+    <tu tuid="AutoPage.PLeaseSeeOtherHMI">
+      <tuv xml:lang="en">
+        <seg>Please see Distribution HMI</seg>
+      </tuv>
+    </tu>
   </body>
 </tmx>

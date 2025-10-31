@@ -68,5 +68,21 @@
 <Source xsi:type="opcUa" refId="::Communicat:IO.Outputs.Par.SortAutoStart" attribute="value" />
 <Target xsi:type="brease" contentRefId="SortAutoAreaContent" widgetRefId="StartPushButton" attribute="enable" />
 </Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::Communicat:IO.Inputs.Status.TimeInAuto_s" attribute="value" />
+<Target xsi:type="brease" contentRefId="SortAutoAreaContent" widgetRefId="RuntimeNumericOutput" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::Communicat:IO.Inputs.Par.DistAutoStart" attribute="value" />
+<Target xsi:type="brease" contentRefId="SortAutoAreaContent" widgetRefId="MassiveLabel" attribute="visible" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::Communicat:IO.Inputs.Par.DistAutoStart" attribute="value" />
+<Target xsi:type="brease" contentRefId="SortAutoAreaContent" widgetRefId="DisableRectangle" attribute="enable" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::Communicat:IO.Inputs.Par.DistAutoStart" attribute="value" />
+<Target xsi:type="brease" contentRefId="SortAutoAreaContent" widgetRefId="DisableRectangle" attribute="visible" />
+</Binding>
 </Bindings>
 </BindingsSet>

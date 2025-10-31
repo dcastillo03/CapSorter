@@ -20,7 +20,7 @@
             <Property ID="Update" Value="FALSE" />
           </Group>
           <Group ID="Monitoring">
-            <Property ID="MonitoredPV" Value="::gCapArmCtrl.Status.ErrorID" />
+            <Property ID="MonitoredPV" Value="gCapDetect.Status.ErrorID" />
             <Group ID="TriggerValues">
               <Property ID="[0]" Value="-1000" />
             </Group>

@@ -3,5 +3,8 @@
 <Package SubType="TextsPackage" PackageType="TextsPackage" xmlns="http://br-automation.co.at/AS/Package">
   <Objects>
     <Object Type="File">UnitTexts.tmx</Object>
+    <Object Type="File" Description="Localizable texts for Sorting HMI">SortingLocalizableTexts.tmx</Object>
+    <Object Type="File">SortAlarmHistory.tmx</Object>
+    <Object Type="File">SortAlarmList.tmx</Object>
   </Objects>
 </Package>

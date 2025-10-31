@@ -11,7 +11,10 @@
       </Group>
     </Group>
     <Group ID="TargetFiles">
-      <Property ID="TargetFile[1]" Value="mappView.Resources.Texts.SortingLocalizableTexts.tmx" />
+      <Property ID="TargetFile[1]" Value="mappView.SortVisualization.Resources.Texts.UnitTexts.tmx" />
+      <Property ID="TargetFile[2]" Value="mappView.SortVisualization.Resources.Texts.SortingLocalizableTexts.tmx" />
+      <Property ID="TargetFile[3]" Value="mappView.SortVisualization.Resources.Texts.SortAlarmHistory.tmx" />
+      <Property ID="TargetFile[4]" Value="mappView.SortVisualization.Resources.Texts.SortAlarmList.tmx" />
     </Group>
   </Element>
 </Configuration>
