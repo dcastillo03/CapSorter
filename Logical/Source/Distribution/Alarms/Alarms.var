@@ -1,0 +1,3 @@
+VAR
+	gAlarm : AlarmTyp;
+END_VAR

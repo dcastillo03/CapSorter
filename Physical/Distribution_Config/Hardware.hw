@@ -29,6 +29,7 @@
       <Parameter ID="AssignedOperatingSystem" Value="GPOS" />
     </Connector>
     <Parameter ID="ConfigurationID" Value="CapSorter_Distribution_Config" />
+    <Parameter ID="VolatileGlobalPvSize" Value="128000" />
     <Parameter ID="Cyclic1Duration" Value="2000" />
     <Parameter ID="Cyclic1Tolerance" Value="2000" />
     <Group ID="FileDevice1" />

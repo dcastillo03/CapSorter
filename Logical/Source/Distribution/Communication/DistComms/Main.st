@@ -13,6 +13,12 @@ PROGRAM _CYCLIC
 		Internal.ErrorID := errCOMM_CONNECTION_LOST;
 		Internal.State := distERROR;
 	END_IF
+		
+	IF gAlarm.Core.ActiveAlarms > 0 THEN
+		IO.Output.Status.Error := TRUE;
+	ELSE
+		IO.Output.Status.Error := FALSE;
+	END_IF
 	
 	IO.Output.Status.TimeInAuto_s := gAutoInterface.Status.TimeInAuto_s;
 	
@@ -47,6 +53,11 @@ PROGRAM _CYCLIC
 				gAutoInterface.State.CapSorted := TRUE;
 			END_IF
 			
+			IF IO.Input.Status.Error THEN
+				Internal.ErrorID := errCOMM_SORT_ERROR;
+				Internal.State := distERROR;
+			END_IF
+			
 			IF NOT IO.Output.Par.DistAutoStart THEN
 				gAutoInterface.Cmd.Start := FALSE;
 				gAutoInterface.Cmd.Stop := TRUE;
@@ -63,6 +74,11 @@ PROGRAM _CYCLIC
 			gAutoInterface.Cmd.EnableAutoMode := TRUE;
 			IF IO.Input.Status.CapSorted AND NOT IOOld.Input.Status.CapSorted THEN
 				gAutoInterface.State.CapSorted := TRUE;
+			END_IF
+			
+			IF IO.Input.Status.Error THEN
+				Internal.ErrorID := errCOMM_SORT_ERROR;
+				Internal.State := distERROR;
 			END_IF
 			
 			IF NOT IO.Input.Par.SortAutoStart THEN

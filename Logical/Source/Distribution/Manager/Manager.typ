@@ -22,6 +22,7 @@ TYPE
 		ConveyorHomed : BOOL;
 		DistBayHomed : BOOL;
 		SwivelArmHomed : BOOL;
+		AutoContinue : BOOL;
 		AutoStartTime : TIME;
 		AutoCurrentTime : TIME;
 		TimeInAuto_ms : TIME;
