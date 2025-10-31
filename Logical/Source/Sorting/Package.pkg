@@ -5,5 +5,6 @@
     <Object Type="Package" Description="Manager package">Manager</Object>
     <Object Type="Package" Description="Package for communications task">Communications</Object>
     <Object Type="Package">Modules</Object>
+    <Object Type="Package" Description="Package for alarms">Alarms</Object>
   </Objects>
 </Package>

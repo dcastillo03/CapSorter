@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Content id="AlarmHeader" guid="3ccd878b-954f-4324-8adb-7a0ebeefec6b" height="80" width="1280" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Widgets>
+    <Widget xsi:type="widgets.brease.DateTimeOutput" id="DateTimeOutput1" top="0" left="860" width="420" height="80" zIndex="0" fontSize="20px" />
+    <Widget xsi:type="widgets.brease.Image" id="BRImage" top="0" left="0" width="300" height="80" zIndex="1" image="Media/BnR_Dark.svg" />
+    <Widget xsi:type="widgets.brease.Label" id="AlarmHeaderLabel" top="0" left="360" width="280" height="80" zIndex="2" text="$IAT/AlarmPage.HEADER" fontSize="24px" bold="true" />
+  </Widgets>
+</Content>

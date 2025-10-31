@@ -1,5 +1,5 @@
 VAR
-	Internal : MoveCapType;
-	SortingConveyor : MpAxisBasic;
-	SortingConveyorPar : MpAxisBasicParType := (Velocity:=150,Acceleration:=1000,Deceleration:=1000,Jog:=(Velocity:=40,Acceleration:=100,Deceleration:=100));
+	Internal : MoveCapType := (Par:=(JogVel:=50,JogAccel:=1000,JogDecel:=1000,Vel:=175,Accel:=1000,Decel:=1000)); (*Internal move cap structure*)
+	SortingConveyor : MpAxisBasic; (*MpAxisBasic FUB*)
+	SortingConveyorPar : MpAxisBasicParType; (*MpAxisBasicParType FUB*)
 END_VAR

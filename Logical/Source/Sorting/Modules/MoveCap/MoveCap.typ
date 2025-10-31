@@ -4,9 +4,11 @@ TYPE
 		Enable : BOOL; (*Enable command*)
 		Start : BOOL; (*Start command*)
 		Stop : BOOL; (*Stop command*)
-		JogFwd : BOOL;
-		JogBkwd : BOOL;
-		MoveFwd : BOOL;
+		JogFwd : BOOL; (*Command for jogging conveyor fwd*)
+		JogBkwd : BOOL; (*Command for jogging conveyor bkwd*)
+		MoveFwd : BOOL; (*Command for moving conveyor fwd*)
+		UpdatePars : BOOL; (*Command for updating jogging pars*)
+		PowerOn : BOOL; (*Command for powering on conveyor*)
 	END_STRUCT;
 	MoveCapErrorEnum : 
 		(
@@ -14,10 +16,12 @@ TYPE
 		mcERROR_MODULE_NOT_OK := -1000 (*X67 drive is not properly detected*)
 		);
 	MoveCapParType : 	STRUCT 
-		CapColor : CapColorEnum; (*Parameter for cap color (ENUM)*)
-		ProductAvailable : BOOL; (*Parameter for if a cap is available*)
-		CapIdentified : BOOL; (*Parameter for cap being identified*)
-		ArmsDone : BOOL; (*Parameter for the appropriate arms being fully actuated*)
+		JogVel : REAL; (*Parameter for jogging vel*)
+		JogAccel : REAL; (*Parameter for jogging accel*)
+		JogDecel : REAL; (*Parameter for jogging decel*)
+		Vel : REAL; (*Parameter for velocity*)
+		Accel : REAL; (*Parameter for accel*)
+		Decel : REAL; (*Paremeter for decel*)
 	END_STRUCT;
 	MoveCapStatusType : 	STRUCT 
 		Active : BOOL; (*Task is active status*)

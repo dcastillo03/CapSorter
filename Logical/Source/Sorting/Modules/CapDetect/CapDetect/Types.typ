@@ -14,7 +14,7 @@ TYPE
 		diCapIsShiny : BOOL; (*DI mapped to hardware for if a cap is shiny (red or metallic)*)
 	END_STRUCT;
 	DelayTimerType : 	STRUCT 
-		DetectTime : TON;
-		TIME_DELAY : TIME := T#250ms;
+		DetectTime : TON; (*TImer FUB*)
+		TIME_DELAY : TIME := T#250ms; (*Constant time delay to allow sensors to identify cap*)
 	END_STRUCT;
 END_TYPE

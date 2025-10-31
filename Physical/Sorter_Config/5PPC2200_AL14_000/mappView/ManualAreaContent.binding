@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BindingsSet id="ManualAreaContent" xmlns="http://www.br-automation.com/iat2015/binding/engineering/v2" xmlns:bt="http://www.br-automation.com/iat2015/bindingListTypes/engineering/v2" xmlns:be="http://www.br-automation.com/iat2015/bindingListEmbedded/engineering/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Bindings>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gSortingManager.Cmd.JogFwd" attribute="value" />
+<Target xsi:type="brease" contentRefId="ManualAreaContent" widgetRefId="JogFwdMomentaryPushButton" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gSortingManager.Cmd.JogBkwd" attribute="value" />
+<Target xsi:type="brease" contentRefId="ManualAreaContent" widgetRefId="JogBackMomentaryPushButton" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gSortingManager.Cmd.ManualCapDetect" attribute="value" />
+<Target xsi:type="brease" contentRefId="ManualAreaContent" widgetRefId="DetectCapMomentaryPushButton" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gSortingManager.Cmd.DoRetractStopper" attribute="value" />
+<Target xsi:type="brease" contentRefId="ManualAreaContent" widgetRefId="StopperToggleButton" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gSortingManager.Cmd.MoveFrontSwitch" attribute="value" />
+<Target xsi:type="brease" contentRefId="ManualAreaContent" widgetRefId="FirstArmToggleButton" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gSortingManager.Cmd.MoveBackSwitch" attribute="value" />
+<Target xsi:type="brease" contentRefId="ManualAreaContent" widgetRefId="SecondArmToggleButton" attribute="value" />
+</Binding>
+</Bindings>
+</BindingsSet>

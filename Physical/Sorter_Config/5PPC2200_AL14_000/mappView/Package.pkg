@@ -4,5 +4,10 @@
   <Objects>
     <Object Type="File" Description="MappView config for sorting station">Config.mappviewcfg</Object>
     <Object Type="File" Description="MappView .vis for sorting station">SortVis.vis</Object>
+    <Object Type="File" Description="Main page bindings">SortAutoAreaContent.binding</Object>
+    <Object Type="File" Description="Event bindings">EventBinding.eventbinding</Object>
+    <Object Type="File" Description="Machine status bindings">MachineStatusPageAreaContent.binding</Object>
+    <Object Type="File" Description="Manual area bindings">ManualAreaContent.binding</Object>
+    <Object Type="File" Description="Alarm bindings">AlarmAreaContent.binding</Object>
   </Objects>
 </Package>

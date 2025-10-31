@@ -8,8 +8,30 @@
     <EngineeringUnitAliases />
   </Aliases>
   <Module Name="&lt;Default&gt;">
+    <GlobalVariables Name="Global Variables">
+      <Variable Name="gSortingManager" RecursiveEnable="2" />
+      <Variable Name="gMoveCap">
+        <Variable Name="Par" RecursiveEnable="2" />
+      </Variable>
+    </GlobalVariables>
     <Task Name="Communicat">
       <Variable Name="IO" RecursiveEnable="2" />
+    </Task>
+    <Task Name="SortingMan">
+      <Variable Name="Manager">
+        <Variable Name="Status">
+          <Variable Name="ProductAvailable" />
+          <Variable Name="SwitchTwoExtended" />
+          <Variable Name="SwitchOneExtended" />
+        </Variable>
+      </Variable>
+    </Task>
+    <Task Name="Alarms">
+      <Variable Name="Alarm">
+        <Variable Name="ListUIConnect" RecursiveEnable="2" />
+        <Variable Name="Core" RecursiveEnable="2" />
+        <Variable Name="History" RecursiveEnable="2" />
+      </Variable>
     </Task>
   </Module>
 </OpcUaSource>

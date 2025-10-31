@@ -8,6 +8,8 @@ TYPE
 		DoRetractStopper : BOOL; (*Command for retracting stopper*)
 		MoveFrontSwitch : BOOL; (*Command for enabling front switch*)
 		MoveBackSwitch : BOOL; (*Command for enabling rear switch*)
+		Clear : BOOL; (*Command for clearing counter*)
+		ErrorReset : BOOL; (*Command for error reset*)
 	END_STRUCT;
 	CapArmCtrlParType : 	STRUCT 
 		CapColor : CapColorEnum; (*Parameter for cap color (ENUM)*)
@@ -19,8 +21,14 @@ TYPE
 		Error : BOOL; (*Task errored status*)
 		ModuleOk : BOOL; (*DI IO slice ModuleOk status*)
 		Stopped : BOOL; (*Task stopped status*)
+		LaneIsFull : BOOL; (*Status for a lane being too full*)
 		CapIsSorted : BOOL; (*Parameter for if the cap has been sorted*)
 		CapIdentified : BOOL; (*Parameter for cap being identified*)
+		BlackCapCount : UDINT; (*Parameter for black cap count*)
+		RedCapCount : UDINT; (*Parameter for red cap count*)
+		MetalCapCount : UDINT; (*Parameter for metal cap count*)
+		SwitchOneExtended : BOOL; (*Status for switch one being extended*)
+		SwitchTwoExtended : BOOL; (*Status for switch two being extended*)
 		ErrorID : CapArmCtrlErrorEnum; (*ErrorID status*)
 	END_STRUCT;
 	CapArmCtrlType : 	STRUCT 
@@ -31,6 +39,8 @@ TYPE
 	CapArmCtrlErrorEnum : 
 		(
 		cacERROR_NONE := 0, (*No error*)
-		cacERROR_MODULE_NOT_OK := -1000 (*DO9322 is not seated correctly or not detecting*)
+		cacERROR_MODULE_NOT_OK := -1000, (*DO9322 is not seated correctly or not detecting*)
+		cacERROR_ARM_TIMEOUT := -2000, (*Timeout error, arm did not extend in time.*)
+		cacERROR_CAP_TIMEOUT := -3000 (*Timeout error, cap did not get sorted in time. Check conveyor to see if it was lost.*)
 		);
 END_TYPE

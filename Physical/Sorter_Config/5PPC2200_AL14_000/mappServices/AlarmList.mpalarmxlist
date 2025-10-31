@@ -1,0 +1,230 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio FileVersion="4.9"?>
+<Configuration>
+  <Element ID="gAlarmXList" Type="mpalarmxlist">
+    <Group ID="mapp.AlarmX.Core.Configuration">
+      <Group ID="[0]">
+        <Property ID="Name" Value="CapDetectAlarm" />
+        <Property ID="Message" Value="Module is not okay. Please check modules." />
+        <Property ID="Code" Value="0" />
+        <Property ID="Severity" Value="1" />
+        <Selector ID="Behavior" Value="DiscreteValueMonitoring">
+          <Property ID="Confirm" Value="0" />
+          <Property ID="ReactionWhilePending" Value="TRUE" />
+          <Group ID="Recording">
+            <Property ID="InactiveToActive" Value="TRUE" />
+            <Property ID="UnacknowledgedToAcknowledged" Value="TRUE" />
+            <Property ID="AcknowledgedToUnacknowledged" Value="FALSE" />
+            <Property ID="UnconfirmedToConfirmed" Value="TRUE" />
+            <Property ID="ConfirmedToUnconfirmed" Value="FALSE" />
+            <Property ID="Update" Value="FALSE" />
+          </Group>
+          <Group ID="Monitoring">
+            <Property ID="MonitoredPV" Value="gCapDetect.Status.ErrorID" />
+            <Group ID="TriggerValues">
+              <Property ID="[0]" Value="-1000" />
+            </Group>
+            <Selector ID="Settings" Value="0">
+              <Property ID="Delay" Value="0.0" />
+            </Selector>
+          </Group>
+        </Selector>
+        <Property ID="Disable" Value="FALSE" />
+        <Property ID="InhibitPV" />
+        <Property ID="AdditionalInformation1" />
+        <Property ID="AdditionalInformation2" />
+      </Group>
+      <Group ID="[1]">
+        <Property ID="Name" Value="MoveCapAlarm" />
+        <Property ID="Message" Value="Module is not okay. Please check modules." />
+        <Property ID="Code" Value="0" />
+        <Property ID="Severity" Value="1" />
+        <Selector ID="Behavior" Value="DiscreteValueMonitoring">
+          <Property ID="Confirm" Value="0" />
+          <Property ID="ReactionWhilePending" Value="TRUE" />
+          <Group ID="Recording">
+            <Property ID="InactiveToActive" Value="TRUE" />
+            <Property ID="UnacknowledgedToAcknowledged" Value="TRUE" />
+            <Property ID="AcknowledgedToUnacknowledged" Value="FALSE" />
+            <Property ID="UnconfirmedToConfirmed" Value="TRUE" />
+            <Property ID="ConfirmedToUnconfirmed" Value="FALSE" />
+            <Property ID="Update" Value="FALSE" />
+          </Group>
+          <Group ID="Monitoring">
+            <Property ID="MonitoredPV" Value="::gMoveCap.Status.ErrorID" />
+            <Group ID="TriggerValues">
+              <Property ID="[0]" Value="-1000" />
+            </Group>
+            <Selector ID="Settings" Value="0">
+              <Property ID="Delay" Value="0.0" />
+            </Selector>
+          </Group>
+        </Selector>
+        <Property ID="Disable" Value="FALSE" />
+        <Property ID="InhibitPV" />
+        <Property ID="AdditionalInformation1" />
+        <Property ID="AdditionalInformation2" />
+      </Group>
+      <Group ID="[2]">
+        <Property ID="Name" Value="CapArmCtrlModOK" />
+        <Property ID="Message" Value="Module is not okay. Please check modules." />
+        <Property ID="Code" Value="0" />
+        <Property ID="Severity" Value="1" />
+        <Selector ID="Behavior" Value="DiscreteValueMonitoring">
+          <Property ID="Confirm" Value="0" />
+          <Property ID="ReactionWhilePending" Value="TRUE" />
+          <Group ID="Recording">
+            <Property ID="InactiveToActive" Value="TRUE" />
+            <Property ID="UnacknowledgedToAcknowledged" Value="TRUE" />
+            <Property ID="AcknowledgedToUnacknowledged" Value="FALSE" />
+            <Property ID="UnconfirmedToConfirmed" Value="TRUE" />
+            <Property ID="ConfirmedToUnconfirmed" Value="FALSE" />
+            <Property ID="Update" Value="FALSE" />
+          </Group>
+          <Group ID="Monitoring">
+            <Property ID="MonitoredPV" Value="::gCapArmCtrl.Status.ErrorID" />
+            <Group ID="TriggerValues">
+              <Property ID="[0]" Value="-1000" />
+            </Group>
+            <Selector ID="Settings" Value="0">
+              <Property ID="Delay" Value="0.0" />
+            </Selector>
+          </Group>
+        </Selector>
+        <Property ID="Disable" Value="FALSE" />
+        <Property ID="InhibitPV" />
+        <Property ID="AdditionalInformation1" />
+        <Property ID="AdditionalInformation2" />
+      </Group>
+      <Group ID="[3]">
+        <Property ID="Name" Value="CapArmCtrlArmTimeout" />
+        <Property ID="Message" Value="Arms did not extend in time." />
+        <Property ID="Code" Value="0" />
+        <Property ID="Severity" Value="1" />
+        <Selector ID="Behavior" Value="DiscreteValueMonitoring">
+          <Property ID="Confirm" Value="0" />
+          <Property ID="ReactionWhilePending" Value="TRUE" />
+          <Group ID="Recording">
+            <Property ID="InactiveToActive" Value="TRUE" />
+            <Property ID="UnacknowledgedToAcknowledged" Value="TRUE" />
+            <Property ID="AcknowledgedToUnacknowledged" Value="FALSE" />
+            <Property ID="UnconfirmedToConfirmed" Value="TRUE" />
+            <Property ID="ConfirmedToUnconfirmed" Value="FALSE" />
+            <Property ID="Update" Value="FALSE" />
+          </Group>
+          <Group ID="Monitoring">
+            <Property ID="MonitoredPV" Value="::gCapArmCtrl.Status.ErrorID" />
+            <Group ID="TriggerValues">
+              <Property ID="[0]" Value="-2000" />
+            </Group>
+            <Selector ID="Settings" Value="0">
+              <Property ID="Delay" Value="0.0" />
+            </Selector>
+          </Group>
+        </Selector>
+        <Property ID="Disable" Value="FALSE" />
+        <Property ID="InhibitPV" />
+        <Property ID="AdditionalInformation1" />
+        <Property ID="AdditionalInformation2" />
+      </Group>
+      <Group ID="[4]">
+        <Property ID="Name" Value="CapArmCtrlCapTimeout" />
+        <Property ID="Message" Value="Cap was lost in transit or got stuck somewhere. Please check." />
+        <Property ID="Code" Value="0" />
+        <Property ID="Severity" Value="1" />
+        <Selector ID="Behavior" Value="DiscreteValueMonitoring">
+          <Property ID="Confirm" Value="0" />
+          <Property ID="ReactionWhilePending" Value="TRUE" />
+          <Group ID="Recording">
+            <Property ID="InactiveToActive" Value="TRUE" />
+            <Property ID="UnacknowledgedToAcknowledged" Value="TRUE" />
+            <Property ID="AcknowledgedToUnacknowledged" Value="FALSE" />
+            <Property ID="UnconfirmedToConfirmed" Value="TRUE" />
+            <Property ID="ConfirmedToUnconfirmed" Value="FALSE" />
+            <Property ID="Update" Value="FALSE" />
+          </Group>
+          <Group ID="Monitoring">
+            <Property ID="MonitoredPV" Value="::gCapArmCtrl.Status.ErrorID" />
+            <Group ID="TriggerValues">
+              <Property ID="[0]" Value="-3000" />
+            </Group>
+            <Selector ID="Settings" Value="0">
+              <Property ID="Delay" Value="0.0" />
+            </Selector>
+          </Group>
+        </Selector>
+        <Property ID="Disable" Value="FALSE" />
+        <Property ID="InhibitPV" />
+        <Property ID="AdditionalInformation1" />
+        <Property ID="AdditionalInformation2" />
+      </Group>
+      <Group ID="[5]">
+        <Property ID="Name" Value="CommsLostError" />
+        <Property ID="Message" Value="Communication has been lost. Please ensure both stations are on." />
+        <Property ID="Code" Value="0" />
+        <Property ID="Severity" Value="1" />
+        <Selector ID="Behavior" Value="DiscreteValueMonitoring">
+          <Property ID="Confirm" Value="0" />
+          <Property ID="ReactionWhilePending" Value="TRUE" />
+          <Group ID="Recording">
+            <Property ID="InactiveToActive" Value="TRUE" />
+            <Property ID="UnacknowledgedToAcknowledged" Value="TRUE" />
+            <Property ID="AcknowledgedToUnacknowledged" Value="FALSE" />
+            <Property ID="UnconfirmedToConfirmed" Value="TRUE" />
+            <Property ID="ConfirmedToUnconfirmed" Value="FALSE" />
+            <Property ID="Update" Value="FALSE" />
+          </Group>
+          <Group ID="Monitoring">
+            <Property ID="MonitoredPV" Value="::Communicat:IO.Outputs.Status.ErrorID" />
+            <Group ID="TriggerValues">
+              <Property ID="[0]" Value="-4000" />
+            </Group>
+            <Selector ID="Settings" Value="0">
+              <Property ID="Delay" Value="0.0" />
+            </Selector>
+          </Group>
+        </Selector>
+        <Property ID="Disable" Value="FALSE" />
+        <Property ID="InhibitPV" />
+        <Property ID="AdditionalInformation1" />
+        <Property ID="AdditionalInformation2" />
+      </Group>
+      <Group ID="[6]">
+        <Property ID="Name" Value="CommsDistError" />
+        <Property ID="Message" Value="Distribution station had an error. Please see the distribution station HMI." />
+        <Property ID="Code" Value="0" />
+        <Property ID="Severity" Value="1" />
+        <Selector ID="Behavior" Value="DiscreteValueMonitoring">
+          <Property ID="Confirm" Value="0" />
+          <Property ID="ReactionWhilePending" Value="TRUE" />
+          <Group ID="Recording">
+            <Property ID="InactiveToActive" Value="TRUE" />
+            <Property ID="UnacknowledgedToAcknowledged" Value="TRUE" />
+            <Property ID="AcknowledgedToUnacknowledged" Value="FALSE" />
+            <Property ID="UnconfirmedToConfirmed" Value="TRUE" />
+            <Property ID="ConfirmedToUnconfirmed" Value="FALSE" />
+            <Property ID="Update" Value="FALSE" />
+          </Group>
+          <Group ID="Monitoring">
+            <Property ID="MonitoredPV" Value="::Communicat:IO.Outputs.Status.ErrorID" />
+            <Group ID="TriggerValues">
+              <Property ID="[0]" Value="-5000" />
+            </Group>
+            <Selector ID="Settings" Value="0">
+              <Property ID="Delay" Value="0.0" />
+            </Selector>
+          </Group>
+        </Selector>
+        <Property ID="Disable" Value="FALSE" />
+        <Property ID="InhibitPV" />
+        <Property ID="AdditionalInformation1" />
+        <Property ID="AdditionalInformation2" />
+      </Group>
+    </Group>
+    <Group ID="mapp.AlarmX.Snippets">
+      <Selector ID="AutoDetect" Value="1">
+        <Property ID="Language" />
+      </Selector>
+    </Group>
+  </Element>
+</Configuration>

@@ -2,7 +2,11 @@
 <?AutomationStudio FileVersion="4.9"?>
 <Package SubType="PagesPackage" PackageType="PagesPackage" xmlns="http://br-automation.co.at/AS/Package">
   <Objects>
-    <Object Type="Package" Description="AreaContents">GlobalAreaContents</Object>
-    <Object Type="Package">MainPagePackage</Object>
+    <Object Type="Package" Description="AreaContents">SortGlobalAreaContents</Object>
+    <Object Type="Package" Description="Package for main page">SortMainPagePackage</Object>
+    <Object Type="Package" Description="Package for SDM">SDMPagePackage</Object>
+    <Object Type="Package" Description="Machine status package">MachineStatusPackage</Object>
+    <Object Type="Package" Description="Manual page package">ManualPagePackage</Object>
+    <Object Type="Package" Description="Alarm page package">AlarmPagePackage</Object>
   </Objects>
 </Package>

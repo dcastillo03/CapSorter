@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BindingsSet id="MachineStatusPageAreaContent" xmlns="http://www.br-automation.com/iat2015/binding/engineering/v2" xmlns:bt="http://www.br-automation.com/iat2015/bindingListTypes/engineering/v2" xmlns:be="http://www.br-automation.com/iat2015/bindingListEmbedded/engineering/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Bindings>
+    
+    
+    
+    
+    
+    <Binding mode="twoWay">
+      <Source xsi:type="opcUa" refId="::AsGlobalPV:gSortingManager.Cmd.UpdateConveyorPars" attribute="value" />
+      <Target xsi:type="brease" contentRefId="MachineStatusPageAreaContent" widgetRefId="UpdateMomentaryPushButton" attribute="value" />
+    </Binding>
+    
+    
+    
+  
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gSortingManager.Status.TooFull" attribute="value" />
+<Target xsi:type="brease" contentRefId="MachineStatusPageAreaContent" widgetRefId="GreenEllipse3" attribute="visible" />
+</Binding>
+
+
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::SortingMan:Manager.Status.ProductAvailable" attribute="value" />
+<Target xsi:type="brease" contentRefId="MachineStatusPageAreaContent" widgetRefId="GreenEllipse1" attribute="visible" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::SortingMan:Manager.Status.SwitchOneExtended" attribute="value" />
+<Target xsi:type="brease" contentRefId="MachineStatusPageAreaContent" widgetRefId="GreenEllipse4" attribute="visible" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::SortingMan:Manager.Status.SwitchTwoExtended" attribute="value" />
+<Target xsi:type="brease" contentRefId="MachineStatusPageAreaContent" widgetRefId="GreenEllipse2" attribute="visible" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gSortingManager.Cmd.MoveFrontSwitch" attribute="value" />
+<Target xsi:type="brease" contentRefId="MachineStatusPageAreaContent" widgetRefId="RedEllipse3" attribute="visible" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gSortingManager.Cmd.MoveBackSwitch" attribute="value" />
+<Target xsi:type="brease" contentRefId="MachineStatusPageAreaContent" widgetRefId="RedEllipse2" attribute="visible" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gSortingManager.Cmd.DoRetractStopper" attribute="value" />
+<Target xsi:type="brease" contentRefId="MachineStatusPageAreaContent" widgetRefId="RedEllipse1" attribute="visible" />
+</Binding>
+
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gMoveCap.Par.Accel" attribute="value" />
+<Target xsi:type="brease" contentRefId="MachineStatusPageAreaContent" widgetRefId="AccelNumericInput" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gMoveCap.Par.Decel" attribute="value" />
+<Target xsi:type="brease" contentRefId="MachineStatusPageAreaContent" widgetRefId="DecelNumericInput" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gMoveCap.Par.Vel" attribute="value" />
+<Target xsi:type="brease" contentRefId="MachineStatusPageAreaContent" widgetRefId="VelNumericInput" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gMoveCap.Par.JogAccel" attribute="value" />
+<Target xsi:type="brease" contentRefId="MachineStatusPageAreaContent" widgetRefId="JogAccelNumericInput" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gMoveCap.Par.JogDecel" attribute="value" />
+<Target xsi:type="brease" contentRefId="MachineStatusPageAreaContent" widgetRefId="JogDecelNumericInput" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gMoveCap.Par.JogVel" attribute="value" />
+<Target xsi:type="brease" contentRefId="MachineStatusPageAreaContent" widgetRefId="JogVelNumericInput" attribute="value" />
+</Binding>
+</Bindings>
+</BindingsSet>

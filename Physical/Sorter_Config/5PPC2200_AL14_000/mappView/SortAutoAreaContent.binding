@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BindingsSet id="SortAutoAreaContent" xmlns="http://www.br-automation.com/iat2015/binding/engineering/v2" xmlns:bt="http://www.br-automation.com/iat2015/bindingListTypes/engineering/v2" xmlns:be="http://www.br-automation.com/iat2015/bindingListEmbedded/engineering/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Bindings>
+    <Binding mode="twoWay">
+      <Source xsi:type="opcUa" refId="::Communicat:IO.Outputs.Cmd.Start" attribute="value" />
+      <Target xsi:type="brease" contentRefId="SortAutoAreaContent" widgetRefId="StartPushButton" attribute="value" />
+    </Binding>
+    <Binding mode="twoWay">
+      <Source xsi:type="opcUa" refId="::Communicat:IO.Outputs.Cmd.Stop" attribute="value" />
+      <Target xsi:type="brease" contentRefId="SortAutoAreaContent" widgetRefId="StopToggleButton" attribute="value" />
+    </Binding>
+    
+  
+
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gSortingManager.Cmd.PowerOn" attribute="value" />
+<Target xsi:type="brease" contentRefId="SortAutoAreaContent" widgetRefId="PowerOnToggleButton" attribute="value" />
+</Binding>
+
+
+
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::Communicat:IO.Outputs.Status.BlackCapCount" attribute="value" />
+<Target xsi:type="brease" contentRefId="SortAutoAreaContent" widgetRefId="BlackNumericOutput" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::Communicat:IO.Outputs.Status.RedCapCount" attribute="value" />
+<Target xsi:type="brease" contentRefId="SortAutoAreaContent" widgetRefId="RedNumericOutput" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::Communicat:IO.Outputs.Status.MetalCapCount" attribute="value" />
+<Target xsi:type="brease" contentRefId="SortAutoAreaContent" widgetRefId="MetalNumericOutput" attribute="value" />
+</Binding>
+
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gSortingManager.Cmd.Auto" attribute="value" />
+<Target xsi:type="brease" contentRefId="SortAutoAreaContent" widgetRefId="AutoToggleButton" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gSortingManager.Cmd.Manual" attribute="value" />
+<Target xsi:type="brease" contentRefId="SortAutoAreaContent" widgetRefId="ManualToggleButton" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::Communicat:IO.Outputs.Cmd.Clear" attribute="value" />
+<Target xsi:type="brease" contentRefId="SortAutoAreaContent" widgetRefId="ClearMomentaryPushButton" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::Communicat:IO.Inputs.Status.CapsDistributed" attribute="value" />
+<Target xsi:type="brease" contentRefId="SortAutoAreaContent" widgetRefId="DistCapCountNO" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::Communicat:IO.Outputs.Status.TotalCapCount" attribute="value" />
+<Target xsi:type="brease" contentRefId="SortAutoAreaContent" widgetRefId="TotalNumericOutput" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::Communicat:IO.Outputs.Par.SortAutoStart" attribute="value" />
+<Target xsi:type="brease" contentRefId="SortAutoAreaContent" widgetRefId="PowerOnToggleButton" attribute="enable" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::Communicat:IO.Outputs.Par.SortAutoStart" attribute="value" />
+<Target xsi:type="brease" contentRefId="SortAutoAreaContent" widgetRefId="ClearMomentaryPushButton" attribute="enable" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::Communicat:IO.Outputs.Par.SortAutoStart" attribute="value" />
+<Target xsi:type="brease" contentRefId="SortAutoAreaContent" widgetRefId="StopToggleButton" attribute="enable" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::Communicat:IO.Outputs.Par.SortAutoStart" attribute="value" />
+<Target xsi:type="brease" contentRefId="SortAutoAreaContent" widgetRefId="StartPushButton" attribute="enable" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::Communicat:IO.Inputs.Status.TimeInAuto_s" attribute="value" />
+<Target xsi:type="brease" contentRefId="SortAutoAreaContent" widgetRefId="RuntimeNumericOutput" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::Communicat:IO.Inputs.Par.DistAutoStart" attribute="value" />
+<Target xsi:type="brease" contentRefId="SortAutoAreaContent" widgetRefId="MassiveLabel" attribute="visible" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::Communicat:IO.Inputs.Par.DistAutoStart" attribute="value" />
+<Target xsi:type="brease" contentRefId="SortAutoAreaContent" widgetRefId="DisableRectangle" attribute="enable" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::Communicat:IO.Inputs.Par.DistAutoStart" attribute="value" />
+<Target xsi:type="brease" contentRefId="SortAutoAreaContent" widgetRefId="DisableRectangle" attribute="visible" />
+</Binding>
+</Bindings>
+</BindingsSet>

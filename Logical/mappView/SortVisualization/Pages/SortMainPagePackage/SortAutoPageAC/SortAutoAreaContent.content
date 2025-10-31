@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Content id="SortAutoAreaContent" guid="07711b45-a6e3-48d7-b26b-b1a1f43be672" height="720" width="1140" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Widgets>
+    <Widget xsi:type="widgets.brease.PushButton" id="StartPushButton" top="100" left="100" width="160" height="80" zIndex="1" image="Media/SymbolLib/Media/Play.svg" text="$IAT/AutoPage.START_BUTTON" cornerRadius="15px" backColor="rgba(0, 192, 0, 1)" fontSize="20px" bold="true" enable="false" />
+    <Widget xsi:type="widgets.brease.ToggleButton" id="StopToggleButton" top="100" left="100" width="160" height="80" zIndex="0" image="Media/SymbolLib/Media/Stop.svg" mouseDownImage="Media/SymbolLib/Media/Play.svg" mouseDownText="$IAT/AutoPage.START_BUTTON" text="$IAT/AutoPage.STOP_BUTTON" cornerRadius="15px" backColor="rgba(192, 0, 0, 1)" fontSize="20px" bold="true" checkedBackColor="rgba(0, 192, 0, 1)" enable="false" />
+    <Widget xsi:type="widgets.brease.Image" id="BlackCapImage" top="200" left="440" width="240" height="240" zIndex="2" image="Media/BlackPuck.svg" backColor="rgba(255, 255, 255, 0)" imageColor="rgba(255, 228, 181, 1)" visible="false" />
+    <Widget xsi:type="widgets.brease.Image" id="RedCapImage" top="200" left="440" width="240" height="240" zIndex="3" image="Media/RedPuck.svg" backColor="rgba(255, 255, 255, 0)" imageColor="rgba(255, 228, 181, 1)" visible="false" />
+    <Widget xsi:type="widgets.brease.Image" id="MetalCapImage" top="200" left="440" width="240" height="240" zIndex="4" image="Media/MetalPuck.svg" backColor="rgba(255, 255, 255, 0)" imageColor="rgba(255, 228, 181, 1)" visible="false" />
+    <Widget xsi:type="widgets.brease.ToggleButton" id="PowerOnToggleButton" top="100" left="300" width="120" height="80" zIndex="5" image="Media/SymbolLib/Symbols/On.svg" mouseDownImage="Media/SymbolLib/Symbols/Off.svg" mouseDownText="$IAT/AutoPage.PowerOff" multiLine="true" text="$IAT/AutoPage.PowerOn" wordWrap="true" imageColor="rgba(0, 128, 0, 1)" mouseDownImageColor="rgba(255, 0, 0, 1)" cornerRadius="15px" backColor="rgba(128, 255, 128, 1)" textColor="rgba(64, 64, 64, 1)" mouseDownBackColor="rgba(255, 192, 192, 1)" bold="true" enable="false" />
+    <Widget xsi:type="widgets.brease.ToggleButton" id="AutoToggleButton" top="120" left="920" width="180" height="80" zIndex="6" image="Media/SymbolLib/DisplayAndTouch/Lightness.svg" text="$IAT/AutoPage.AUTO_BUTTON" cornerRadius="15px" backColor="rgba(192, 0, 192, 1)" fontSize="18px" bold="true" />
+    <Widget xsi:type="widgets.brease.ToggleButton" id="ManualToggleButton" top="220" left="920" width="180" height="80" zIndex="7" image="Media/SymbolLib/Symbols/TouchMe.svg" text="$IAT/AutoPage.MANUAL_BUTTON" cornerRadius="15px" backColor="rgba(192, 0, 192, 1)" fontSize="18px" bold="true" />
+    <Widget xsi:type="widgets.brease.NumericOutput" id="BlackNumericOutput" top="360" left="200" zIndex="8" cornerRadius="15px" />
+    <Widget xsi:type="widgets.brease.NumericOutput" id="RedNumericOutput" top="420" left="200" zIndex="9" cornerRadius="15px" />
+    <Widget xsi:type="widgets.brease.NumericOutput" id="MetalNumericOutput" top="480" left="200" zIndex="10" cornerRadius="15px" />
+    <Widget xsi:type="widgets.brease.NumericOutput" id="TotalNumericOutput" top="540" left="200" zIndex="11" cornerRadius="15px" />
+    <Widget xsi:type="widgets.brease.MomentaryPushButton" id="ClearMomentaryPushButton" top="220" left="100" width="160" height="80" zIndex="12" image="Media/SymbolLib/Edit/Cut.svg" text="$IAT/AutoPage.CLEAR" cornerRadius="15px" backColor="rgba(255, 128, 0, 1)" fontSize="20px" bold="true" enable="false" />
+    <Widget xsi:type="widgets.brease.Label" id="Label1" top="360" left="100" width="140" zIndex="13" text="$IAT/AutoPage.BlackCapCount" fontSize="15px" bold="true" />
+    <Widget xsi:type="widgets.brease.Label" id="Label2" top="420" left="100" width="140" zIndex="14" text="$IAT/AutoPage.RedCApCount" fontSize="15px" bold="true" />
+    <Widget xsi:type="widgets.brease.Label" id="Label3" top="480" left="100" width="140" zIndex="15" text="$IAT/AutoPage.MetalCapCount" fontSize="15px" bold="true" />
+    <Widget xsi:type="widgets.brease.Label" id="Label4" top="540" left="100" width="140" zIndex="16" text="$IAT/AutoPage.TOtalCapCount" fontSize="15px" bold="true" />
+    <Widget xsi:type="widgets.brease.NumericOutput" id="DistCapCountNO" top="600" left="200" zIndex="17" cornerRadius="15px" />
+    <Widget xsi:type="widgets.brease.Label" id="Label5" top="600" left="100" width="140" zIndex="18" text="$IAT/AutoPage.CapsDist" fontSize="15px" bold="true" />
+    <Widget xsi:type="widgets.brease.NumericOutput" id="RuntimeNumericOutput" top="340" left="980" width="120" zIndex="19" unit="{'metric':'SEC','imperial':'SEC','imperial-us':'SEC'}" unitAlign="right" />
+    <Widget xsi:type="widgets.brease.Label" id="RuntimeLabel" top="340" left="880" width="140" zIndex="20" text="$IAT/AutoPage.RunetimeLabel" fontSize="15px" bold="true" />
+    <Widget xsi:type="widgets.brease.Label" id="MassiveLabel" top="420" left="360" width="720" height="260" zIndex="21" multiLine="true" text="$IAT/AutoPage.PLeaseSeeOtherHMI" wordWrap="true" textAlign="center" fontSize="40px" bold="true" visible="false" />
+    <Widget xsi:type="widgets.brease.Rectangle" id="DisableRectangle" top="100" left="900" width="220" height="220" zIndex="22" borderStyle="none" backColor="rgba(255, 255, 255, 0)" enable="false" visible="false" />
+  </Widgets>
+</Content>

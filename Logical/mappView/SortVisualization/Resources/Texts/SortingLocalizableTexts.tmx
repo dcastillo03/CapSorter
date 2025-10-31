@@ -1,0 +1,444 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<tmx version="1.4">
+  <header creationtool="B&amp;R Automation Studio" creationtoolversion="4.2" datatype="unknown" segtype="sentence" adminlang="en" srclang="en" o-tmf="TMX">
+    <note>Change the namespace to define where this text module should be located within the logical structure of your texts</note>
+    <prop type="x-BR-TS:Namespace">IAT</prop>
+  </header>
+  <body>
+    <tu tuid="AlarmPage.HEADER">
+      <note>Text for alarms page header</note>
+      <tuv xml:lang="fr">
+        <seg>Page d'alarmes</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Alarms Page</seg>
+      </tuv>
+    </tu>
+    <tu tuid="AutoPage.AUTO_BUTTON">
+      <note>Text for automatic mode button</note>
+      <tuv xml:lang="fr">
+        <seg>Automatique</seg>
+      </tuv>
+      <tuv xml:lang="de">
+        <seg>Automatic</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Automatic</seg>
+      </tuv>
+    </tu>
+    <tu tuid="AutoPage.CLEAR">
+      <note>Text for clear push button</note>
+      <tuv xml:lang="fr">
+        <seg>Effacez</seg>
+      </tuv>
+      <tuv xml:lang="de">
+        <seg>Clear</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Clear</seg>
+      </tuv>
+    </tu>
+    <tu tuid="AutoPage.HEADER">
+      <note>Label text for automatic page header</note>
+      <tuv xml:lang="fr">
+        <seg>Page principale</seg>
+      </tuv>
+      <tuv xml:lang="de">
+        <seg>Automatic Page</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Main Page</seg>
+      </tuv>
+    </tu>
+    <tu tuid="AutoPage.MANUAL_BUTTON">
+      <note>Text for manual mode button</note>
+      <tuv xml:lang="fr">
+        <seg>Manuel</seg>
+      </tuv>
+      <tuv xml:lang="de">
+        <seg>Manual</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Manual</seg>
+      </tuv>
+    </tu>
+    <tu tuid="AutoPage.START_BUTTON">
+      <note>Push button text for start button</note>
+      <tuv xml:lang="fr">
+        <seg>Commence</seg>
+      </tuv>
+      <tuv xml:lang="de">
+        <seg>Start</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Start</seg>
+      </tuv>
+    </tu>
+    <tu tuid="AutoPage.STOP_BUTTON">
+      <note>Toggle button text for stop button</note>
+      <tuv xml:lang="fr">
+        <seg>Arret</seg>
+      </tuv>
+      <tuv xml:lang="de">
+        <seg>Stop</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Stop</seg>
+      </tuv>
+    </tu>
+    <tu tuid="AutoPage.STOP_BUTTON_2">
+      <note>Toggle button text for is stopped state</note>
+      <tuv xml:lang="fr">
+        <seg>Est Arrete</seg>
+      </tuv>
+      <tuv xml:lang="de">
+        <seg>Stopped</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Stopped</seg>
+      </tuv>
+    </tu>
+    <tu tuid="MachineStatus.ArmControlLabel">
+      <note>Text for arm control label</note>
+      <tuv xml:lang="fr">
+        <seg>Contrôle des bras</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Arm Control</seg>
+      </tuv>
+    </tu>
+    <tu tuid="MachineStatus.DetectCapButton">
+      <note>Text for detect cap button</note>
+      <tuv xml:lang="fr">
+        <seg>Détecter le capuchon</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Detect Cap</seg>
+      </tuv>
+    </tu>
+    <tu tuid="MachineStatus.FirstArmButton">
+      <note>Text for first arm button</note>
+      <tuv xml:lang="fr">
+        <seg>Premier bras</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>First Arm</seg>
+      </tuv>
+    </tu>
+    <tu tuid="MachineStatus.HEADER">
+      <note>Text for manual page header label</note>
+      <tuv xml:lang="fr">
+        <seg>Page d'etat de la machine</seg>
+      </tuv>
+      <tuv xml:lang="de">
+        <seg>Manual Page</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Machine Status Page</seg>
+      </tuv>
+    </tu>
+    <tu tuid="MachineStatus.SECOND_ARM_BUTTON">
+      <note>Text for second arm button</note>
+      <tuv xml:lang="fr">
+        <seg>Second bras</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Second Arm</seg>
+      </tuv>
+    </tu>
+    <tu tuid="MachineStatus.StopperButtonLabel">
+      <note>Text for stopper button </note>
+      <tuv xml:lang="fr">
+        <seg>Bouchon</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Stopper</seg>
+      </tuv>
+    </tu>
+    <tu tuid="ManualPage.AccelLabel">
+      <note>Text for conveyor accel label</note>
+      <tuv xml:lang="fr">
+        <seg>Accélération</seg>
+      </tuv>
+      <tuv xml:lang="de">
+        <seg>Acceleration</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Acceleration</seg>
+      </tuv>
+    </tu>
+    <tu tuid="ManualPage.DecelLabel">
+      <note>Text for conveyor decel label</note>
+      <tuv xml:lang="fr">
+        <seg>Décélération</seg>
+      </tuv>
+      <tuv xml:lang="de">
+        <seg>Deceleration</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Deceleration</seg>
+      </tuv>
+    </tu>
+    <tu tuid="ManualPage.HEADER">
+      <note>Text for manual page header label</note>
+      <tuv xml:lang="fr">
+        <seg>Page manuel</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Manual Page</seg>
+      </tuv>
+    </tu>
+    <tu tuid="ManualPage.JogAccelLabel">
+      <note>Text for jog accel label</note>
+      <tuv xml:lang="fr">
+        <seg>Accélération du jogging</seg>
+      </tuv>
+      <tuv xml:lang="de">
+        <seg>Jog Acceleration</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Jog Acceleration</seg>
+      </tuv>
+    </tu>
+    <tu tuid="ManualPage.JogButtonLabel">
+      <note>Text for jog buttons label</note>
+      <tuv xml:lang="fr">
+        <seg>Boutons de jogging</seg>
+      </tuv>
+      <tuv xml:lang="de">
+        <seg>Jog Buttons</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Jog Buttons</seg>
+      </tuv>
+    </tu>
+    <tu tuid="ManualPage.JogDecelLabel">
+      <note>Text for jog decel label</note>
+      <tuv xml:lang="fr">
+        <seg>Décélération du jogging</seg>
+      </tuv>
+      <tuv xml:lang="de">
+        <seg>Jog Deceleration</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Jog Deceleration</seg>
+      </tuv>
+    </tu>
+    <tu tuid="ManualPage.JogVelLabel">
+      <note>Text for jog vel label</note>
+      <tuv xml:lang="fr">
+        <seg>Vitesse de jogging</seg>
+      </tuv>
+      <tuv xml:lang="de">
+        <seg>Jog Velocity</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Jog Velocity</seg>
+      </tuv>
+    </tu>
+    <tu tuid="ManualPage.UpdateButton">
+      <note>Text for update button</note>
+      <tuv xml:lang="fr">
+        <seg>Mise à jour</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Update</seg>
+      </tuv>
+    </tu>
+    <tu tuid="ManualPage.VelLabel">
+      <note>Text for conveyor velocity label</note>
+      <tuv xml:lang="fr">
+        <seg>Vitesse</seg>
+      </tuv>
+      <tuv xml:lang="de">
+        <seg>Velocity</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Velocity</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Nav.ALARM">
+      <note>Text for alams nav button</note>
+      <tuv xml:lang="fr">
+        <seg>Alarmes</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Alarms</seg>
+      </tuv>
+    </tu>
+    <tu tuid="NAV.Home">
+      <note>Text for Home nav button</note>
+      <tuv xml:lang="fr">
+        <seg>Maison</seg>
+      </tuv>
+      <tuv xml:lang="de">
+        <seg>Home</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Home</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Nav.MACHINE_STATUS">
+      <note>Text for machine status nav button</note>
+      <tuv xml:lang="fr">
+        <seg>Etat de la machine</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Machine Status</seg>
+      </tuv>
+    </tu>
+    <tu tuid="NAV.SDM">
+      <note>Text for SDM nav button</note>
+      <tuv xml:lang="fr">
+        <seg>SDM</seg>
+      </tuv>
+      <tuv xml:lang="de">
+        <seg>SDM</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>SDM</seg>
+      </tuv>
+    </tu>
+    <tu tuid="SDM.HEADER">
+      <note>Header for SDM Page</note>
+      <tuv xml:lang="fr">
+        <seg>Responsable du diagnostic systeme</seg>
+      </tuv>
+      <tuv xml:lang="de">
+        <seg>SDM Page</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>System Diagnostics Manager</seg>
+      </tuv>
+    </tu>
+    <tu tuid="AlarmPage.AcknowledgeButton">
+      <note>Acknowledge button text</note>
+      <tuv xml:lang="fr">
+        <seg>Reconnaître</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Acknowledge</seg>
+      </tuv>
+    </tu>
+    <tu tuid="AlarmPage.HistoryButton">
+      <note>History button text</note>
+      <tuv xml:lang="fr">
+        <seg>Afficher l'historique</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Display History</seg>
+      </tuv>
+    </tu>
+    <tu tuid="MachineStatus.InputsLabel">
+      <note>Inputs text label</note>
+      <tuv xml:lang="fr">
+        <seg>Entrées</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Inputs</seg>
+      </tuv>
+    </tu>
+    <tu tuid="MachineStatus.OutputsLabel">
+      <note>Outputs text label</note>
+      <tuv xml:lang="fr">
+        <seg>Sorties</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Outputs</seg>
+      </tuv>
+    </tu>
+    <tu tuid="MachineStatus.ProdAvail">
+      <note>Prod avail text label</note>
+      <tuv xml:lang="fr">
+        <seg>Produit disponible</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Product Available</seg>
+      </tuv>
+    </tu>
+    <tu tuid="MachineStatus.SwitchOneLabel">
+      <note>Text for switch one</note>
+      <tuv xml:lang="fr">
+        <seg>Premier bras</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Switch One</seg>
+      </tuv>
+    </tu>
+    <tu tuid="MachineStatus.SwitchTwoLabel">
+      <note>Text for switch two</note>
+      <tuv xml:lang="fr">
+        <seg>Second bras</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Switch Two</seg>
+      </tuv>
+    </tu>
+    <tu tuid="MachineStatus.LaneFullLabel">
+      <note>Text for lane full label</note>
+      <tuv xml:lang="fr">
+        <seg>Voie pleine</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Lane Full</seg>
+      </tuv>
+    </tu>
+    <tu tuid="MachineStatus.StopperLabel">
+      <note>Text for stopper label</note>
+      <tuv xml:lang="fr">
+        <seg>Bouchon</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Stopper</seg>
+      </tuv>
+    </tu>
+    <tu tuid="AutoPage.PowerOn">
+      <note>Text for motor on button</note>
+      <tuv xml:lang="en">
+        <seg>Motor On</seg>
+      </tuv>
+    </tu>
+    <tu tuid="AutoPage.PowerOff">
+      <note>Text for motor off button</note>
+      <tuv xml:lang="en">
+        <seg>Motor Off</seg>
+      </tuv>
+    </tu>
+    <tu tuid="AutoPage.RedCApCount">
+      <tuv xml:lang="en">
+        <seg>Red Cap Count</seg>
+      </tuv>
+    </tu>
+    <tu tuid="AutoPage.BlackCapCount">
+      <tuv xml:lang="en">
+        <seg>Black Cap Count</seg>
+      </tuv>
+    </tu>
+    <tu tuid="AutoPage.MetalCapCount">
+      <tuv xml:lang="en">
+        <seg>Metal Cap Count</seg>
+      </tuv>
+    </tu>
+    <tu tuid="AutoPage.TOtalCapCount">
+      <tuv xml:lang="en">
+        <seg>Total Caps</seg>
+      </tuv>
+    </tu>
+    <tu tuid="AutoPage.CapsDist">
+      <tuv xml:lang="en">
+        <seg>Caps Distributed</seg>
+      </tuv>
+    </tu>
+    <tu tuid="AutoPage.RunetimeLabel">
+      <note>System runtime label in seconds</note>
+      <tuv xml:lang="en">
+        <seg>System runtime</seg>
+      </tuv>
+    </tu>
+    <tu tuid="AutoPage.PLeaseSeeOtherHMI">
+      <tuv xml:lang="en">
+        <seg>Please see Distribution HMI</seg>
+      </tuv>
+    </tu>
+  </body>
+</tmx>
