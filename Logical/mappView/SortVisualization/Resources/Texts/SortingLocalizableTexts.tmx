@@ -394,48 +394,81 @@
     </tu>
     <tu tuid="AutoPage.PowerOn">
       <note>Text for motor on button</note>
+      <tuv xml:lang="fr">
+        <seg>Sous tension</seg>
+      </tuv>
       <tuv xml:lang="en">
         <seg>Motor On</seg>
       </tuv>
     </tu>
     <tu tuid="AutoPage.PowerOff">
       <note>Text for motor off button</note>
+      <tuv xml:lang="fr">
+        <seg>Mise hors tension</seg>
+      </tuv>
       <tuv xml:lang="en">
         <seg>Motor Off</seg>
       </tuv>
     </tu>
     <tu tuid="AutoPage.RedCApCount">
+      <note>Text for red cap count label</note>
+      <tuv xml:lang="fr">
+        <seg>Nombre de bonnets rouges</seg>
+      </tuv>
       <tuv xml:lang="en">
         <seg>Red Cap Count</seg>
       </tuv>
     </tu>
     <tu tuid="AutoPage.BlackCapCount">
+      <note>Text for black cap count label</note>
+      <tuv xml:lang="fr">
+        <seg>Nombre de bonnets noires</seg>
+      </tuv>
       <tuv xml:lang="en">
         <seg>Black Cap Count</seg>
       </tuv>
     </tu>
     <tu tuid="AutoPage.MetalCapCount">
+      <note>Text for metal cap count label</note>
+      <tuv xml:lang="fr">
+        <seg>Nombre de bonnets en argent</seg>
+      </tuv>
       <tuv xml:lang="en">
         <seg>Metal Cap Count</seg>
       </tuv>
     </tu>
     <tu tuid="AutoPage.TOtalCapCount">
+      <note>Text for total cap count label</note>
+      <tuv xml:lang="fr">
+        <seg>Nombre de bonnets</seg>
+      </tuv>
       <tuv xml:lang="en">
         <seg>Total Caps</seg>
       </tuv>
     </tu>
     <tu tuid="AutoPage.CapsDist">
+      <note>Text for distributed cap count label</note>
+      <tuv xml:lang="fr">
+        <seg>Nombre de bonnets distribue</seg>
+      </tuv>
       <tuv xml:lang="en">
         <seg>Caps Distributed</seg>
       </tuv>
     </tu>
     <tu tuid="AutoPage.RunetimeLabel">
       <note>System runtime label in seconds</note>
+      <tuv xml:lang="fr">
+        <seg>Duree d'execution</seg>
+      </tuv>
       <tuv xml:lang="en">
         <seg>System runtime</seg>
       </tuv>
     </tu>
     <tu tuid="AutoPage.PLeaseSeeOtherHMI">
+      <note>TExt for see other HMI label</note>
+      <tuv xml:lang="fr">
+        <seg>Voir l'autre HMI</seg>
+      </tuv>
       <tuv xml:lang="en">
         <seg>Please see Distribution HMI</seg>
       </tuv>
